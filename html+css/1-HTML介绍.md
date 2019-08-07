@@ -1,14 +1,14 @@
-##HTML介绍
+## HTML介绍
 
-###HTML与CSS的关系
+### HTML与CSS的关系
 * css的代码可以插入html,插入语法为`<style type="text/css">css-code</style>`
 
-###HTML标签
+### HTML标签
 * 标题标签 `<h1>content</h1>`
 * 段落标签 `<p></p>`
 * 图片标签 `<img src="img-link"></img>`
 
-###HTML文件基本结构
+### HTML文件基本结构
 html的固定结构
 ```html
 <html>
@@ -24,5 +24,5 @@ html的固定结构
 * 主体标签 `<body></body>`
     * 该标签之间的内容是网页的主要内容,会在浏览器中显示
 
-###HTML的代码注释
+### HTML的代码注释
 `<!--注释文字 -->`

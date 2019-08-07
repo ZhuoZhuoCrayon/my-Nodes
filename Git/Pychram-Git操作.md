@@ -20,6 +20,11 @@
 再重复上传的步骤，就可以成功将仓库上传到GitHub
 
 ### 利用命令行批量更新仓库
+**在Pycharm更新文件**
+
+提交修改，如下操作后在命令行才能查看到更新
+
+`修改的文件`/`整个工程`->`Git`->`add`
 
 **查看本地仓库状态**
 ```text
@@ -47,6 +52,9 @@ $ git add .
 warning: LF will be replaced by CRLF in .idea/workspace.xml.
 The file will have its original line endings in your working directory
 ```
+报错信息
+* windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示
+* 解决：`git config --global core.autocrlf false`
 
 **`git commit -m "commit"` 更新备注**
 ```text
@@ -62,6 +70,11 @@ $ git commit -m "type change"
 $ git fetch --all
 Fetching origin
 ```
+ps：好像如果不是多人协作的话这一步可以省略
+
+拉取代码命令区别
+* `git fetch all` 将代码下载到本地，不进行合并
+* `git pull` 下载并覆盖代码
 
 **push代码到远程分支**
 ```text

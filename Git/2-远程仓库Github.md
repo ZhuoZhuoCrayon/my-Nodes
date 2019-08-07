@@ -62,7 +62,8 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 ### 从远程库克隆
 
-在GitHub上创建一个叫`gitskills`的新仓库\
+在GitHub上创建一个叫`gitskills`的新仓库
+
 利用`git clone`克隆一个本地库
 ```text
 $ git clone git@github.com:ZhuoZhuoCrayon/gitskills.git
