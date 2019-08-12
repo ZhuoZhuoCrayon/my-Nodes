@@ -95,4 +95,84 @@ h1{
 
 ID选择器同个id只能修饰一个标签，而类选择器一个类名可以指向多个标签
 
-test
+正确示例：类选择器一个类名指向多个标签
+```html
+ <p>三年级时，我还是一个<span class="stress">胆小如鼠</span>
+ 的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个
+ <span class="stress">勇气</span>来回答老师提出的问题。</p>
+```
+
+错误示例：ID选择器同一id修饰多个标签
+```html
+<p>三年级时，我还是一个<span id="stress">胆小如鼠</span>
+的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个
+<span id="stress">勇气</span>来回答老师提出的问题。</p>
+```
+
+可以使用类选择器词列表方法为一个元素同时设置多个样式,但是ID选择器不行
+
+正确示例：一个标签可以用多个类修饰
+```html
+.stress{
+    color:red;
+}
+.bigsize{
+    font-size:25px;
+}
+<p>到了<span class="stress bigsize">三年级</span>
+下学期时，我们班上了一节公开课...</p>
+```
+
+错误示例：不支持多id修饰同一标签
+```html
+#stressid{
+    color:red;
+}
+#bigsizeid{
+    font-size:25px;
+}
+<p>到了<span id="stressid bigsizeid">三年级</span>
+下学期时，我们班上了一节公开课...</p>
+```
+
+### 子选择器
+
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>子选择符</title>
+<style type="text/css">
+.food>li{border:1px solid red;}/*添加边框样式（粗细为1px， 颜色为红色的实线）*/
+.first>span{
+    border:1px solid red;
+}
+</style>
+</head>
+<body>
+<p class="first">三年级时，<span>我还是一个<span>胆小如鼠</span>的小女孩</span>，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+<h1>食物</h1>
+<ul class="food">
+    <li>水果
+        <ul>
+        	<li>香蕉</li>
+            <li>苹果</li>
+            <li>梨</li>
+        </ul>
+    </li>
+    <li>蔬菜
+    	<ul>
+        	<li>白菜</li>
+            <li>油菜</li>
+            <li>卷心菜</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
+```
+>`.food>li{border:1px solid red;}`使class名为food下的子元素li（水果、蔬菜）加入红色实线边框。
+>
+>![alt](img/son_select.png)
+
