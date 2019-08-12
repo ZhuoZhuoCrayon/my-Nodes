@@ -176,3 +176,77 @@ ID选择器同个id只能修饰一个标签，而类选择器一个类名可以�
 >
 >![alt](img/son_select.png)
 
+### 后代选择器
+
+将上述代码的`.food>li`改为`.food li`,作用于food修饰的标签下的所有`li`，也就是所有的**子孙后代**
+
+效果：只要是food下的li标签都加上了线框
+
+![alt](img/zisun.png)
+
+通用选择器
+
+>通用选择器是功能最强大的选择器，它使用一个（*）号指定，它的作用是匹配html中 **所有标签元素**
+
+### 伪类选择符
+
+>允许给html不存在的标签（标签的某种状态）设置样式，
+比如说我们给html中一个标签元素的鼠标滑过的状态来设置字体颜色
+>
+>由于兼容性问题，现在常用的伪类选择符格式一般为`a:hover`
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>伪类选择符</title>
+<style type="text/css">
+a:hover{
+    color:red;
+    
+}
+a:hover{
+    font-size:20px;
+}
+</style>
+</head>
+<body>
+    <h1>勇气</h1>
+    <p class="first">三年级时，我还是一个<a href="http://www.imooc.com">胆小如鼠</a>的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+    <p id="second">到了三年级下学期时，我们班上了一节公开课，老师提出了一个很<span>简单</span>的问题，班里很多同学都举手了，甚至成绩比我差很多的，也举手了，还说着："我来，我来。"我环顾了四周，就我没有举手。</p>
+    <img src="http://img.mukewang.com/52b4113500018cf102000200.jpg" >
+</body>
+</html>
+```
+效果：鼠标经过，字体变红变大
+
+![alt](img/a-haver.png)
+
+### 分组选择符
+
+>当你想为html中多个标签元素设置同一个样式时，可以使用分组选择符（，）
+>
+>支持`标签选择器` `类选择器` `ID选择器`的标签搜索
+
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>分组选择符</title>
+<style type="text/css">
+h1,span{color:red;}
+.first,#second span{color:green;}
+</style>
+</head>
+<body>
+    <h1>勇气</h1>
+    <p class="first">三年级时，我还是一个<span>胆小如鼠</span>的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+    <p id="second">到了三年级下学期时，我们班上了一节公开课，老师提出了一个很<span>简单</span>的问题，班里很多同学都举手了，甚至成绩比我差很多的，也举手了，还说着："我来，我来。"我环顾了四周，就我没有举手。</p>
+    <img src="http://img.mukewang.com/52b4113500018cf102000200.jpg" >
+</body>
+</html>
+```
+`h1,span{color:red;}` 把所有的h1和span标签的字体都变成绿色
+
+`.first,#second span{color:green;}` 把`first类标签` `second id下的所有span标签`的字体变成绿色
