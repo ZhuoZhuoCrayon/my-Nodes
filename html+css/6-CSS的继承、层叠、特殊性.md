@@ -65,3 +65,32 @@ p span{color:purple;}
 > 加入`p span{color:purple;}`(weight=2)后`胆小如鼠`变为紫色，但是`.first{color:green;}`优先级=100？
 >
 >`p span`本身的权值确实是2，但是.first对`<span>胆小如鼠</span>`这四个字的影响力只有继承的权值，为0.1。所以2>0.1
+
+### 重要性
+
+`!important`可以设置最高权值
+
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>!important</title>
+<style type="text/css">
+p{color:red!important;}
+p.first{color:green;}
+</style>
+</head>
+<body>
+    <h1>勇气</h1>
+    <p class="first">三年级时，我还是一个<span>胆小如鼠</span>的小女孩，上课从来不敢回答老师提出的问题，生怕回答错了老师会批评我。就一直没有这个勇气来回答老师提出的问题。学校举办的活动我也没勇气参加。</p>
+    <p id="second">到了三年级下学期时，我们班上了一节公开课，老师提出了一个很<span class="first">简单</span>的问题，班里很多同学都举手了，甚至成绩比我差很多的，也举手了，还说着："我来，我来。"我环顾了四周，就我没有举手。</p>
+    
+</body>
+</html>
+```
+>按照`就近原则`，第一段文字会是绿色，第二段文字是红色
+>但是由于`p{color:red!important;}`设置最高权值，所以两段都是红色
+>
+>![alt](img/import.png)
+
