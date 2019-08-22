@@ -2,9 +2,53 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>百度一下，你就知道</title>
+		<link href="css/baidu.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-		
+		<div id="wrapper" style="display: block;">
+			<div id="navi">
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">新闻</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">hao123</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">地图</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">视频</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">贴吧</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="goto">学术</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="login-set">登录</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="login-set">设置</a>
+				<a href="http://news.baidu.com/" name="baidu-news" class="more">更多产品</a>
+			</div>
+			<div id="find-main">
+				<div id="logo">
+					<img class="index-logo" src="img/baidu-logo.png" width="270" height="129"/>
+				</div>
+				<form id="form" name="find" action="/s" class="fm">
+					<span class="find-text">
+						<span class="find-camera"></span>
+						<input id="kw" name="wd" class="kw-ipt" value_maxlenght="255" autocomplete="off"/>
+					</span>
+					<span class="find-submit">
+						<input type="submit" id="sumbit" value="百度一下" class="sub-btn"/>
+					</span>
+				</form>
+			</div>
+			<div id="app-page">
+				<div class="qrcode">
+					<img class="qrcode-img" src="img/baidu-QRcode.png"/>
+				</div>
+				<div class="qrtext">
+					<p class="title">下载百度APP</p>
+					<p class="sub-title">有事搜一搜&nbsp;&nbsp;没事看一看</p>
+				</div>
+			</div>
+			<div id="baidu-info">
+				<p class="one-info">
+					<a href="http://news.baidu.com/" name="baidu-news" class="goto">把百度设为主页</a>
+					<a href="http://news.baidu.com/" name="baidu-news" class="goto">关于百度</a>
+					<a href="http://news.baidu.com/" name="baidu-news" class="goto">About&nbsp;&nbsp;Baidu</a>
+					<a href="http://news.baidu.com/" name="baidu-news" class="goto">百度推广</a>
+				</p>
+			</div>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,132 @@
+/*html body 的设置使得页面可以自适应浏览器*/
+html{
+	height: 100%;
+}
+body{
+	text-align: center;
+	position: relative;
+	display: block;
+	min-height: 100%;
+}
+#wrapper{
+	/*主页面，通过设置相对布局
+	给予子元素绝对布局的权限*/
+	position: relative;
+	min-width: 810px;
+	height: 100%;
+	min-height: 900px;
+}
+#navi{
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 19px 0 5px;
+	padding: 0 0 0 0;
+}
+#navi a.goto{
+	float: left;
+	color: black;
+	font-weight: 700;
+	line-height: 24px;
+	margin-left: 20px;
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+#navi a.login-set{
+	float: left;
+	color: black;
+	line-height: 24px;
+	margin-left: 20px;
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+#navi a.more{
+	float: left;
+	color: white;
+	background: #38f;
+	line-height: 24px;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding: 0px 2px;
+	font-size: 13px;
+	text-decoration: blink;
+}
+#find-main{
+	position: relative;
+	top: 120px;
+}
+
+#form{
+	margin: 22px auto 0;
+	/*z-index: 100;*/
+}
+.find-text{
+	display: inline-block;
+	position: relative;
+	height: 35px;
+	width: 539px;
+	margin-right: 0;
+	border: 1px solid #b6b6b6;
+}
+.find-submit{
+	border: 0;
+}
+.kw-ipt{
+	width: 500px;
+	height: 35px;
+	line-height: 36px;
+	margin: 0 0 0 -33px;
+	padding: 0 0 0 5px;
+	border: 0;
+}
+.find-camera{
+	z-index: 1;
+	position: absolute;
+	right: 11px;
+	top: 50%;
+	margin: -6px 0 0 0;
+	height: 18px;
+	width: 16px;
+	background: #FFFFFF
+	url(../img/camera.png);
+}
+
+.sub-btn{
+	width: 100px;
+	height: 37px;
+	color: #FFFFFF;
+	font-size: 15px;
+	letter-spacing: 1px;
+	background: #3385ff;
+	border-bottom: 1px solid #2d78f4;
+	margin: 0 0;
+}
+
+#app-page{
+	text-align: center;
+	position: absolute;
+	bottom: 100px;
+	width: 100%;
+}
+
+#app-page .qrtext .title{
+	color: #333;
+	font-size: 16px;
+	line-height: 32px;
+	letter-spacing: 3px;
+}
+
+#app-page .qrtext .sub-title{
+	color: #999;
+	font-size: 14px;
+	line-height: 14px;
+	font-weight: 300;
+}
+
+#app-page p{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
