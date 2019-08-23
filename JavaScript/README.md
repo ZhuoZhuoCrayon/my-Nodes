@@ -1,6 +1,8 @@
 ## JavaScript 学习计划
 
 ### 阶段一
+> **Update 2019/08/23**
+>
 > [廖雪峰-JavaScript教程](https://www.liaoxuefeng.com/wiki/1022910821149312)
 > 完成学习至`浏览器->Promise`
 > 
