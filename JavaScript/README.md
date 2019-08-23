@@ -22,5 +22,5 @@
 ### 阶段三
 > 继续廖雪峰教程的学习
 >
-> 实验楼项目实战
+> [实验楼项目实战](https://www.shiyanlou.com/courses/?category=Web%E5%89%8D%E7%AB%AF&course_type=all&tag=JavaScript&fee=all)
 > ![alt](img/labtao.png)
