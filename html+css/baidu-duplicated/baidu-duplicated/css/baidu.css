@@ -19,6 +19,7 @@ body{
 #navi{
 	position: absolute;
 	right: 0;
+	/*导航位置*/
 	top: 0;
 	margin: 19px 0 5px;
 	padding: 0 0 0 0;
@@ -54,15 +55,20 @@ body{
 	text-decoration: blink;
 }
 #find-main{
-	position: relative;
-	top: 120px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	top: 200px;
 }
 
 #form{
+	display: inline-block;
+	float: center;
 	margin: 22px auto 0;
 	/*z-index: 100;*/
 }
 .find-text{
+	float: left;
 	display: inline-block;
 	position: relative;
 	height: 35px;
@@ -71,6 +77,7 @@ body{
 	border: 1px solid #b6b6b6;
 }
 .find-submit{
+	float: left;
 	border: 0;
 }
 .kw-ipt{
@@ -107,7 +114,8 @@ body{
 #app-page{
 	text-align: center;
 	position: absolute;
-	bottom: 100px;
+	/*调整版权声明的位置*/
+	bottom: 70px;
 	width: 100%;
 }
 
@@ -129,4 +137,33 @@ body{
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+#baidu-info{
+	position: absolute;
+	bottom: -30px;
+	width: 100%;
+	color: #999999;
+	font-size: 10px;
+}
+
+#baidu-info .one-set{
+	margin-left: 25px;
+}
+#baidu-info a{
+	color: #999999;
+}
+#baidu-info i{
+	width: 14px;
+	height: 17px;
+	/*需要改成内联块状才能出现*/
+	display: inline-block;
+	background: url(../img/gongan.png);
+	margin-left: -2px;
+	margin-right: 25px;
+	margin-top: 2px;
+	position: absolute;
+}
+#baidu-info .two-set-1{
+	margin-left: 25px;
 }
