@@ -2,7 +2,7 @@
 
 ### Information
 * TIME: 
-* LINK: [LINK](http://)
+* LINK: [Click Here](http://)
 * TAG: 
 
 ### Description
