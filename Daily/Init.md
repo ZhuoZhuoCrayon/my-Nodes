@@ -74,7 +74,7 @@ Input example
 
 ### Best
 > Input what your understand
-```javascript 1.8
+```javascript
 /*code*/
 ```
 ---
