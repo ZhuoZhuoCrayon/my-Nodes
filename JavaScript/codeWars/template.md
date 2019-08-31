@@ -16,13 +16,13 @@ Input example
 
 ### My Answer
 > Input my Idea
-```javascript 1.8
+```javascript
 /*input your code*/
 ```
 
 ### Best Answer
 > Input what your understand
-```javascript 1.8
+```javascript
 /*code*/
 ```
 
