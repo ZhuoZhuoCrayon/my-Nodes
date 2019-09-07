@@ -49,5 +49,8 @@
 ### 1.10.1 求每种芯片的成品率
 * 计算晶圆面积
 ![alt](../img/area.png)
-* 
+* 设缺陷系数为q,成本为cost,芯片数为n，计算残缺总面积
+
+![alt](http://latex.91maths.com/s/?cV8lN0JzdW0lN0QlMjAlM0QlMjBTJTIwJTVDdGltZXMlMjBxJTBB)
+
 
