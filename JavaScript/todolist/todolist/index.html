@@ -5,7 +5,7 @@
 		<title></title>
 		<script type="text/jscript" src="js/todolist.js"></script>
 	</head>
-	<body>
+	<body onload="loadAll()">
 		<form id="main-box" action="javascript:add()">
 			<label id="todolist">
 				todolist
@@ -14,28 +14,19 @@
 			<span id="add-box">
 				<input type="text" name="add" id="add" placeholder="add task"/>
 			</span>
+			
 		</form>
 		
 		<div id="task_list">
 			<div id="todo">
 				<h2>正在进行</h2>
 				<ul id="todo-list">
-					<li>
-						<span class="todo-work">want to do</span>
-						<input type="button" value="done"/>
-						<input type="button" value="del"/>
-					</li>
 				</ul>
 			</div>
 			
 			<div id="finish">
 				<h2>已经完成</h2>
 				<ul id="finish-list">
-					<li>
-						<span class="finish-work">finish</span>
-						<input type="button" value="todo"/>
-						<input type="button" value="del"/>
-					</li>
 				</ul>
 			</div>
 		</div>
@@ -43,6 +34,7 @@
 		<footer id="foot">
 			<p id="copyright">
 				©2019&nbsp;ZhuoZhuoCrayon&nbsp;
+				<button type="button" id="clear" value="clearAll" onclick="clearCache()">clearAll</button>
 			</p>
 			<p id="github">
 				<a href="https://github.com/ZhuoZhuoCrayon">Learn more about the author...</a>
