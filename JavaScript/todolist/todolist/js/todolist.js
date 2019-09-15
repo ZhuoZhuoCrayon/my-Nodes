@@ -1,3 +1,10 @@
+todoItem = `<span class="todo-work" onclick="edit(this)">want to do</span>
+			<input type="button" value="done" onclick="done(this)"/>
+			<input type="button" value="del" onclick="del(this,1)"/>`
+doneItem = `<span class="finish-work" onclick="edit(this)">finish task</span>
+			<input type="button" value="todo" onclick="todo(this)"/>
+			<input type="button" value="del" onclick="del(this,2)"/>`
+
 /*在网页的输入框添加事件的响应*/
 function add(){
 	var task = document.getElementById('add').value;
@@ -13,9 +20,7 @@ function add(){
 	var 
 		todo_list = document.getElementById("todo-list"),
 		new_task = document.createElement('li'),
-		addHtmlCode = `<span class="todo-work">want to do</span>
-						<input type="button" value="done" onclick="done(this)"/>
-						<input type="button" value="del" onclick="del(this,1)"/>`.replace('want to do',task);
+		addHtmlCode = todoItem.replace('want to do',task);
 	new_task.innerHTML = addHtmlCode;
 	todo_list.appendChild(new_task);
 	
@@ -29,10 +34,7 @@ function done(done_task){
 	var 
 		finish_list = document.getElementById('finish-list'),
 		todo_list = document.getElementById('todo-list'),
-		addHtmlCode = `<span class="finish-work">finish task</span>
-						<input type="button" value="todo" onclick="todo(this)"/>
-						<input type="button" value="del" onclick="del(this,2)"/>`.
-						replace('finish task',done_task.innerText.trim());
+		addHtmlCode = doneItem.replace('finish task',done_task.innerText.trim());
 	/*把该事件从todo放入done*/
 	todo_list.removeChild(done_task);
 	done_task.innerHTML = addHtmlCode;
@@ -46,10 +48,7 @@ function todo(todo_task){
 	var
 		finish_list = document.getElementById('finish-list'),
 		todo_list = document.getElementById('todo-list'),
-		addHtmlCode = `<span class="todo-work">want to do</span>
-						<input type="button" value="done" onclick="done(this)"/>
-						<input type="button" value="del" onclick="del(this,1)"/>`.
-						replace('want to do',todo_task.innerText.trim());
+		addHtmlCode = todoItem.replace('want to do',todo_task.innerText.trim());
 		/*把该事件从done放入todo*/
 		finish_list.removeChild(todo_task);
 		todo_task.innerHTML = addHtmlCode;
@@ -70,6 +69,23 @@ function del(del_task,method){
 	changeCache(del_task.innerText.trim(),"del");	//修改缓存-删除该事件
 }
 
+function edit(task){
+	task_name = task.innerText.trim();
+	task.innerHTML = '<input type="text" id="change" value="'+ task_name + '" />';
+	var input = document.getElementById("change");
+	input.setSelectionRange(0,input.value.length);
+	input.focus();
+	input.onblur =function(){
+		if(input.value.length == 0){
+			p.innerHTML = title;
+			alert("内容不能为空");
+		}
+		else{
+			update(i,"title",input.value);
+		}
+	};
+}
+
 /*初始化加入事件*/
 function addTask(task){
 	console.log(task);
@@ -78,20 +94,14 @@ function addTask(task){
 		var
 			todo_list = document.getElementById("todo-list"),
 			new_task = document.createElement('li'),
-			addHtmlCode = `<span class="todo-work">want to do</span>
-							<input type="button" value="done" onclick="done(this)"/>
-							<input type="button" value="del" onclick="del(this,1)"/>`.
-							replace('want to do',task.name);
+			addHtmlCode = todoItem.replace('want to do',task.name);
 		new_task.innerHTML = addHtmlCode;
 		todo_list.appendChild(new_task);
 	}else if(task.status==='done'){
 		var
 			finish_list = document.getElementById('finish-list'),
 			done_task = document.createElement('li'),
-			addHtmlCode = `<span class="finish-work">finish task</span>
-							<input type="button" value="todo" onclick="todo(this)"/>
-							<input type="button" value="del" onclick="del(this,2)"/>`.
-							replace('finish task',task.name);
+			addHtmlCode = doneItem.replace('finish task',task.name);
 		done_task.innerHTML = addHtmlCode;
 		finish_list.appendChild(done_task);
 	}else{
@@ -131,7 +141,7 @@ function changeCache(task_name,method){
 //清空todolist缓存
 function clearCache(){
 	if(confirm("确认清空所有所有记录？？？")){
-		localStorage.todolistCache = undefined;
+		localStorage.todolistCache = '{"tasks":{}}';
 		location.reload();		//更新页面
 	}
 }
@@ -141,6 +151,7 @@ function loadAll(){
 		//查看是否存在todolist缓存
 		if(localStorage.todolistCache){
 			//初始化缓存
+			console.log(localStorage.todolistCache);
 			taskObj= JSON.parse(localStorage.todolistCache);
 			for(var task in taskObj.tasks){
 				//alert(task.name+" "+task.status);
@@ -148,7 +159,7 @@ function loadAll(){
 			}
 		}else{
 			//第一次加载，初始化缓存信息
-			localStorage.todolistCache ='{"tasks":{}}'
+			localStorage.todolistCache ='{"tasks":{}}';
 		}
 	}else{
 		alert("不支持！")
