@@ -1,0 +1,8 @@
+#main-box{
+	height: 60px;
+	background: aliceblue;
+}
+
+#main-box label{
+	font-size: 1.875rem;
+}
