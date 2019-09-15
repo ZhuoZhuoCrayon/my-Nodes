@@ -81,11 +81,26 @@ function edit(task){
 			alert("内容不能为空");
 		}
 		else{
-			update(i,"title",input.value);
+			update(task,task_name,input.value);
 		}
 	};
 }
 
+function update(task,task_name,newTask_name){
+	task.innerHTML = newTask_name;
+	
+	taskObj = JSON.parse(localStorage.todolistCache);	//获取todolist缓存对象
+	if(newTask_name in taskObj.tasks){
+		alert("日程未修改或日程已存在");
+		return false;
+	}
+	taskObj.tasks[task_name].name = newTask_name;
+	taskObj.tasks[newTask_name] = taskObj.tasks[task_name];
+	delete taskObj.tasks[task_name];
+	//更新缓存
+	localStorage.todolistCache = JSON.stringify(taskObj);
+	return true;
+}
 /*初始化加入事件*/
 function addTask(task){
 	console.log(task);
@@ -125,7 +140,7 @@ function changeCache(task_name,method){
 		//console.log(taskObj);
 	}else if(method==='del'){
 		//alert(task_name+"*");
-		delete taskObj.tasks[task_name]
+		delete taskObj.tasks[task_name];
 	}else if(method==='changeTo_todo'){
 		taskObj.tasks[task_name].status = 'todo';
 	}else if(method==='changeTo_done'){
