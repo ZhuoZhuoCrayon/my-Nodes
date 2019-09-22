@@ -14,3 +14,16 @@
 > [MySQL(五) MySQL中的索引详讲](https://www.cnblogs.com/whgk/p/6179612.html)
 >
 > [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
+
+### 日期
+> [数据库之日期类型](https://www.cnblogs.com/cjaaron/p/9215146.html)
+
+### 数据类型
+> [SQL Server 数据类型](https://www.w3school.com.cn/sql/sql_datatypes.asp)
+
+字符串
+> ![alt](img/str.png)
+
+Number类型
+> ![alt](img/number.png)
+
