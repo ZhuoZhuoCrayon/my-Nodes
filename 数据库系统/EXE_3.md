@@ -1,4 +1,12 @@
 ## EXE 3
+### NO.1
+> Find how many employees have a title of manager without listing them.
+
+> COUNT不会计算空值
+```sql
+SELECT COUNT(MGB) AS COUNT_NUM FROM EMP2017151019;
+```
+> ![alt](img/exe3_1.png)
 
 ### NO.2
 > Compute the average annual salary plus commission for all salesmen
