@@ -56,3 +56,54 @@ FROM EMP2017151019;
 
 [MySQL DATE_FORMAT() 函数](https://www.w3school.com.cn/sql/func_date_format.asp)
 
+## NO.1-N0.5
+
+### NO.1
+> Select the name, job, and date of hire of the employees in department 20. (Format the HIREDATE column to MM/DD/YY) 
+
+* `%y`实现2位制的年份
+* `%m`实现两位值的月份
+* `%d`实现两位制的日
+```mysql
+SELECT ENAME,JOB,DATE_FORMAT(HIREDATE,'%m/%d/%y') AS HIRE_DATE
+FROM EMP2017151019
+WHERE DEPTNO=20;
+```
+![alt](img/exe4.1.png)
+
+### NO.2
+> Then format the HIREDATE column into DoW (day of the week), Day (day of the month), MONTH (name of the month) and YYYY(year)
+* `%w` 周的天 （0=星期日, 6=星期六）
+* `%d` 月的天，数值(00-31)
+* `%M` 月名
+* `%Y` 4位年
+
+```mysql
+SELECT ENAME,JOB,DATE_FORMAT(HIREDATE,'%w-%d-%M-%Y') AS HIRE_DATE
+FROM EMP2017151019;
+```
+![alt](img/exe4.2.png)
+
+### NO.3
+> Which employees were hired in April?
+
+* `EXTRACT(UNIT FROM DATE)`可以筛选出需要的日期部分
+    * `extract-提取`
+```mysql
+SELECT EMPNO,ENAME FROM EMP2017151019
+WHERE EXTRACT(MONTH FROM HIREDATE)=4;
+```
+
+### NO.4
+> Which employees were hired on a Tuesday?
+
+
+### NO.5
+> Are there any employees who have worked more than 30 years for the company?
+
+## NO.6-NO.8
+### NO.6
+> Show the weekday of the first day of the month in which each employee was hired. (plus their names)
+
+### NO.7
+> Refine your answer to 7 such that it works even if an employee is hired after the last Friday of the month (cf Martin)
