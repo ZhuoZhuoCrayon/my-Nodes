@@ -90,20 +90,94 @@ FROM EMP2017151019;
 * `EXTRACT(UNIT FROM DATE)`可以筛选出需要的日期部分
     * `extract-提取`
 ```mysql
-SELECT EMPNO,ENAME FROM EMP2017151019
+SELECT EMPNO,ENAME,HIREDATE FROM EMP2017151019
 WHERE EXTRACT(MONTH FROM HIREDATE)=4;
 ```
+![alt](img/exe4.3.png)
+
 
 ### NO.4
 > Which employees were hired on a Tuesday?
+
+`EXTRACT()`函数没有筛选星期几的参数，于是用`DATE_FORMAT`提取`%w(0-6)`
+```mysql
+SELECT EMPNO,ENAME,HIREDATE FROM EMP2017151019
+WHERE DATE_FORMAT(HIREDATE,'%w')=2;
+```
+![alt](img/exe4.4.png)
 
 
 ### NO.5
 > Are there any employees who have worked more than 30 years for the company?
 
+利用`DATE_ADD(DATE,INTERVAL N UNIT)`计算30年后的日期，与当前日期`CURDATE()`利用`DATEDIFF(date1,date2)`进行对比
+```mysql
+SELECT EMPNO,ENAME,HIREDATE FROM EMP2017151019
+WHERE DATEDIFF(DATE_ADD(HIREDATE,INTERVAL 30 YEAR),CURDATE())<=0;
+```
+![alt](img/exe5.5.png)
+
 ## NO.6-NO.8
-### NO.6
+### NO.6(不理解)
 > Show the weekday of the first day of the month in which each employee was hired. (plus their names)
 
+按我的理解就是他们入职后的上班第一天，按照中国的传统，如果入职时间刚好是周六，那么时间+2，周日+1
+
+[CASE WHEN 及 SELECT CASE WHEN的用法](https://blog.csdn.net/rocling/article/details/82083332)
+
+[Mysql数据库if语句的使用](https://www.jianshu.com/p/79b25bd005d4)
+> MySQL 中 DAYOFWEEK(d) 函数返回 d 对应的一周中的索引（位置）。1 表示周日，2 表示周一，……，7 表示周六。这些索引值对应于ODBC标准。
+```mysql
+SELECT EMPNO,ENAME,DATE_FORMAT(HIREDATE,'%Y-%m-%d-%a') AS HIREDATE,
+CASE DAYOFWEEK(HIREDATE)
+WHEN 7 THEN DATE_FORMAT(DATE_ADD(HIREDATE,INTERVAL 2 DAY),'%Y-%m-%d-%a')
+WHEN 1 THEN DATE_FORMAT(DATE_ADD(HIREDATE,INTERVAL 1 DAY),'%Y-%m-%d-%a')
+ELSE DATE_FORMAT(HIREDATE,'%Y-%m-%d-%a') END AS WEEKDAY
+FROM EMP2017151019;
+```
+![alt](img/exe5.6.png)
+
 ### NO.7
+> Show details of employee hiredates and the date of their first payday. (Paydays occur on the last Friday of each month) (plus their names)
+
+* 利用`LAST_DAY`获取入职月的下一个月最后一天
+* 利用`DATE_FORMAT`的`%w`参数获取星期值
+    * 星期天-星期六分布`0-6`
+* 基本思路：获取最后一天的星期值，然后减去相应天数得到本月最后一个周五
+* 总结公式  `应减去天数 = (2+最后一天的星期值)%7`
+
+
+>[Mysql 获取当月和上个月第一天和最后一天的解决方案](https://www.cnblogs.com/maohuidong/p/7976222.html)
+```mysql
+SELECT EMPNO,ENAME,DATE_FORMAT(HIREDATE,'%Y-%m-%d-%a') AS HIREDATE,
+DATE_FORMAT(
+DATE_SUB(
+LAST_DAY(DATE_ADD(HIREDATE,INTERVAL 1 MONTH)),
+INTERVAL
+(
+(2+DATE_FORMAT(LAST_DAY(DATE_ADD(HIREDATE,INTERVAL 1 MONTH)),'%w')) MOD 7) DAY),
+'%Y-%m-%d-%a') AS PAYDAY
+FROM EMP2017151019;
+```
+![alt](img/exe4.7.png)
+
+看到第八题，忽然觉得自己做错了，还是在雇佣月份进行
+
+应该是这样
+```mysql
+SELECT ENAME,EMPNO,DATE_FORMAT(HIREDATE,'%Y-%m-%d-%a') AS HIREDATE,
+DATE_FORMAT(DATE_SUB(LAST_DAY(HIREDATE),INTERVAL ((2+DATE_FORMAT(LAST_DAY(HIREDATE),'%w')) MOD 7) DAY),'%Y-%m-%d-%a')
+AS PAYDAY
+FROM EMP2017151019
+```
+
+### NO.8
 > Refine your answer to 7 such that it works even if an employee is hired after the last Friday of the month (cf Martin)
+
+于是乎结合第七题的两种思路，就得到了本题的答案
+
+条件判断：
+* 本月最后一个周五是在聘用期前
+    * 转到下个月（其实就是加28天？？）
+* 本月最后一个周五在聘用时间后
+    * 按本月算
