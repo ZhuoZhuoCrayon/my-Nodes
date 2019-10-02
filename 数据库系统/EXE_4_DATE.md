@@ -56,6 +56,11 @@ FROM EMP2017151019;
 
 [MySQL DATE_FORMAT() 函数](https://www.w3school.com.cn/sql/func_date_format.asp)
 
+### mysql使用别名作为判断条件
+> 有些时候可能需要把前面查询的字段（一般会起别名），作为筛选条件，避免重写代码
+
+[SQL语句Where中使用别名作为判断条件](https://www.cnblogs.com/dwfbenben/archive/2013/09/07/3307941.html)
+
 ## NO.1-N0.5
 
 ### NO.1
