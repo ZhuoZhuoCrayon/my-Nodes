@@ -168,8 +168,9 @@ FROM EMP2017151019;
 SELECT ENAME,EMPNO,DATE_FORMAT(HIREDATE,'%Y-%m-%d-%a') AS HIREDATE,
 DATE_FORMAT(DATE_SUB(LAST_DAY(HIREDATE),INTERVAL ((2+DATE_FORMAT(LAST_DAY(HIREDATE),'%w')) MOD 7) DAY),'%Y-%m-%d-%a')
 AS PAYDAY
-FROM EMP2017151019
+FROM EMP2017151019;
 ```
+![alt](img/exe4.7.2.png)
 
 ### NO.8
 > Refine your answer to 7 such that it works even if an employee is hired after the last Friday of the month (cf Martin)
@@ -178,6 +179,29 @@ FROM EMP2017151019
 
 条件判断：
 * 本月最后一个周五是在聘用期前
-    * 转到下个月（其实就是加28天？？）
+    * 转到下个月
 * 本月最后一个周五在聘用时间后
     * 按本月算
+```mysql
+SELECT EMPNO,HIREDATE,
+IF(
+DATE_FORMAT(DATE_SUB(LAST_DAY(HIREDATE),INTERVAL ((2+DATE_FORMAT(LAST_DAY(HIREDATE),'%w')) MOD 7) DAY),'%d')<
+DATE_FORMAT(HIREDATE,'%d'),
+DATE_FORMAT(
+DATE_SUB(
+LAST_DAY(DATE_ADD(HIREDATE,INTERVAL 1 MONTH)),
+INTERVAL
+(
+(2+DATE_FORMAT(LAST_DAY(DATE_ADD(HIREDATE,INTERVAL 1 MONTH)),'%w')) MOD 7) DAY),
+'%Y-%m-%d-%a'),
+DATE_FORMAT(
+DATE_SUB(
+LAST_DAY(HIREDATE),
+INTERVAL
+(
+(2+DATE_FORMAT(LAST_DAY(HIREDATE),'%w')) MOD 7) DAY),
+'%Y-%m-%d-%a')
+) AS PAYDAY
+FROM EMP2017151019;
+```
+![alt](img/exe4.8.png)
