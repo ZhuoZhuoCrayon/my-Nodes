@@ -49,6 +49,13 @@ WHERE SAL<20000;
 ```
 ![alt](img/exe1_6.png)
 
+更正：问的是工资低于20000的员工的名字
+```mysql
+SELECT ENAME FROM EMP2017151019
+WHERE SAL<20000;
+```
+![alt](img/exe1_6.1.png)
+
 ### NO.7
 > What is the name, job title and employee number of the person in department 20 who earns more than £25000?
 ```sql
@@ -92,6 +99,8 @@ WHERE SAL BETWEEN 15000 AND 20000;
 ```
 ![alt](img/exe1_11.png)
 
+
+![alt](img/exe1_11.2.png)
 ### NO.12
 > Find the name of the President.
 ```sql
@@ -99,6 +108,12 @@ SELECT ENAME FROM EMP2017151019
 WHERE MGB IS NULL;
 ```
 ![alt](img/exe1_12.png)
+
+更正：是找到职业是`president`的那个人
+```mysql
+SELECT ENAME FROM EMP2017151019
+WHERE JOB='PRESIDENT';
+```
 
 ### NO.13
 > Find all the employees whose last names end with S
@@ -153,6 +168,13 @@ SELECT ENAME,JOB,SAL,HIREDATE,DEPTNO FROM EMP2017151019
 ORDER BY SAL DESC;
 ```
 ![alt](img/exe1_18.png)
+
+更正：是对`COMM/SAL`进行降序排序
+```mysql
+SELECT * FROM EMP2017151019
+ORDER BY IFNULL(COMM,0)/SAL DESC;
+```
+![alt](img/exe1_18.2.png)
 
 **备注**
 > ![alt](img/exe1_18.1.png)
