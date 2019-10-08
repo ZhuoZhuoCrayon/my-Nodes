@@ -89,3 +89,73 @@ WHERE JOB='MANAGER');
 ```
 
 > ![alt](img/exe5.7.png)
+
+
+## NO.1-NO.5
+
+### NO.1
+> List the department number and average salary of each department
+
+```mysql
+SELECT DEPTNO,AVG(SAL) AS AVG_SAL FROM EMP2017151019
+GROUP BY DEPTNO;
+```
+
+![alt](img/exe5.1.1.png)
+
+### NO.2
+> Divide all employees into groups by department and by job within 			department. Count the employees in each group and compute each group's average annual salary.
+
+```mysql
+SELECT DEPTNO,JOB,COUNT(*) AS NUMS,AVG(SAL+IFNULL(COMM,0)) AS A_SAL
+FROM EMP2017151019
+GROUP BY DEPTNO, JOB;
+```
+
+![alt](img/exe_5.2.1.png)
+
+### NO.3
+> Issue the same query as above except list the department name rather than the department number.
+
+按NO.2，只不过把`DEPTNO`换成了`DNAME`，需要利用`INNER JOIN`集成两张表
+```mysql
+SELECT DNAME,JOB,COUNT(*) AS NUMS,AVG(SAL+IFNULL(COMM,0)) AS A_SAL
+FROM EMP2017151019
+GROUP BY DEPTNO,JOB;
+```
+
+### NO.4
+> List the average annual salary for all job groups having more than 2 employees in the group.
+
+这道题也提示：`HAVING`是可以引用别名的！！！
+
+![alt](img/exe5.4.1.png)
+
+### NO.5
+> Find each department's average annual salary for all its employees except the managers and the president.
+
+```mysql
+SELECT DEPTNO,AVG(SAL+IFNULL(COMM,0)) AS A_SAL
+FROM EMP2017151019
+WHERE JOB NOT IN ('MANAGER','PRESIDENT')
+GROUP BY DEPTNO;
+```
+![alt](img/exe5.5.1.png)
+
+## NO.6-
+
+### NO.6
+> Find all departments with an average commission greater than 25% of average salary.
+
+```mysql
+SELECT DEPTNO,AVG(IFNULL(COMM,0)) AS A_COMM
+FROM EMP2017151019
+GROUP BY DEPTNO
+HAVING A_COMM>(0.25*AVG(SAL));
+```
+
+问题：`HAVING`的比较常量如果是一个分组的汇总函数值，如上的`(0.25*AVG(SAL))`
+
+这会是每个分组的特征值还是整一个表？
+
+![alt](img/exe5.6.1png.png)
