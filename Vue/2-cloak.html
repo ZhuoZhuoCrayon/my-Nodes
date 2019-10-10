@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>1-cloak</title>
+    <script type="text/javascript" src="./lib/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--使用v-cloak能够解决插值表达式闪烁问题-->
+        <p v-cloak>{{msg}}</p>
+
+        <!--默认v-text是没有闪烁问题的-->
+        <h4 v-text="msg"></h4>
+
+        <!--v-cloak在插值前后可以添加任意文本（只会替换自己的占位符，v-text会覆盖元素中原本内容-->
+        <!---->
+        <!--v-html可以把数据解析为html-->
+        <div v-html="msg2"></div>
+
+        <!--目的：在鼠标移动到button时，会出现提示，提示内容位于data.title-->
+        <!--1:这个不行，mytitle会被自身解析为字符串-->
+        <input type="button" value="按钮1" title="mytitle">
+
+        <!--2:v-bind强制绑定：用于绑定属性的指令-->
+        <input type="button" value="按钮2"  v-bind:title="mytitle">
+
+        <!--3:v-bind的原理是把属性内的字符串当成js来解析，只要满足表达式即使合法js表达式-->
+        <input type="button" value="按钮3"  v-bind:title="mytitle + '123'">
+
+        <!--4：v-bind可简写成:-->
+        <input type="button" value="按钮4"  :title="mytitle + '123'">
+
+        <h2>v-on</h2>
+        <!--v-on用于绑定事件，事件位于当前Vue实例的method中，缩写是@-->
+        <input type="button" value="按钮5"  :title="mytitle + '123'" v-on:click="show()">
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                msg:123,
+                msg2:'<h1>这是一个大标题</h1>',
+                mytitle:'这是一个自己定义的title'
+            },
+            methods:{
+                //定义当前Vue实例中所有可用的方法
+                show:function () {
+                    alert("v-on学习")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

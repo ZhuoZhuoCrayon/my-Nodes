@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>跑马灯</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="浪起来" v-on:click="lang">
+        <input type="button" value="别浪" v-on:click="stop">
+        <h4>{{msg}}</h4>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'猥琐发育，别浪!',
+                intervalId:null,
+            },
+            //click事件，报错[Vue warn]: Invalid handler for event "click": got undefined，傻逼百度了好久，后来发现是methods写错了，记住是methods不是method
+            methods:{
+                lang:function(){
+                    if(this.intervalId!=null) return;
+                    this.intervalId = setInterval( () => {
+                        //在Vue实例中，如果想要调用data上的数据，或者method中的方法，必须要this.xxx
+                        var start = this.msg.substring(0, 1);
+                        var end = this.msg.substring(1);
+                        this.msg = end + start;
+                    },400)
+                },
+                stop(){
+                    //清除定时器，变为null
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
