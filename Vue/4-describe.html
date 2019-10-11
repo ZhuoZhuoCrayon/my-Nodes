@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>4-事件修饰符</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        .inner{
+            height: 150px;
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="inner" @click="div1Handler">
+            <!--使用.stop阻止冒泡-->
+            <input type="button" value="戳他" @click.stop="btnHandler">
+        </div>
+
+        <!--使用.prevent阻止默认行为，超链接的默认行为是跳转，通过修饰，阻止跳转-->
+        <a href="http://www.baidu.com" @click.prevent="linkClick">有问题，去百度</a>
+
+        <!--.capture 使得事件响应原本为内-外改变为外-内-->
+        <div class="inner" @click.capture="div1Handler">
+            <input type="button" value="修改捕获机制" @click.stop="btnHandler">
+        </div>
+
+        <!--.self使得事件的响应只能通过自身触发：原本点击self是会触发上层的，现在只有点击按钮外才可-->
+        <div class="inner" @click.self="div1Handler">
+            <input type="button" value="self" @click.stop="btnHandler">
+        </div>
+
+        <!--.once:只能触发一次事件处理函数-->
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                /*
+                    输出 先调用内部事件响应，再调用外部事件响应，这种由内到外的事件响应模式称为冒泡
+                    .stop修饰事件可以阻止内部事件向上传递
+                */
+                div1Handler(){
+                    console.log("调用外部事件响应");
+                },
+                btnHandler(){
+                  console.log("调用内部事件响应");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
