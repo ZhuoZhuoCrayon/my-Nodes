@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>8-Vue中的样式-style</title>
+    <script type="text/javascript" src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <h1 :style="{color:'red','font-weight':200}">这是一个h1</h1>
+
+        <h1 :style="styleObj1">这是另一个h1</h1>
+
+        <h1 :style="[styleObj1,styleObj2]">这是使用style对象数组的h1</h1>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                styleObj1:{
+                    color:'red',
+                    'font-weight':200
+                },
+                styleObj2:{
+                    'font-style':'italic'
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>
