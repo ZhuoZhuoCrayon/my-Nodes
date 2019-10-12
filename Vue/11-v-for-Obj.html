@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>9-v-for迭代对象</title>
+    <script type="text/javascript" src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--idx为可忽略参数-->
+        <p v-for="(val,key,idx) in user">val:{{val}}--key:{{key}}--idx:{{idx}}</p>
+
+        <!--count从1开始-->
+        <p v-for="count in 10">这是第{{count}}次循环</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                user:{
+                    id:1,
+                    name:'crayon',
+                    gender:'boy'
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

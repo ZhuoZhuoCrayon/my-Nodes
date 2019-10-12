@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>9-v-for迭代对象</title>
+    <script type="text/javascript" src="lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <label>Id:
+            <input type="text" v-model="id">
+        </label>
+
+        <label>Name:
+            <input type="text" v-model="name">
+        </label>
+        <input type="button" value="添加" @click="add">
+    </div>
+    <!--key在使用的时候，必须使用v-bind属性绑定的形式，指定key的值-->
+    <p v-for="item in list" :key="item.id">
+        <input type="checkbox">
+        {{item.name}}
+    </p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            list: [
+                {id: 1, name: '李斯'},
+                {id: 2, name: '嬴政'},
+                {id: 3, name: '赵高'},
+                {id: 4, name: '韩非'},
+                {id: 5, name: '荀子'}
+            ]
+        },
+        methods:{
+          add(){
+              //添加方法
+              this.list.push({id:this.id,name:this.name})
+          }
+        }
+    })
+</script>
+</body>
+</html>
