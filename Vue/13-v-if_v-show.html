@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>13-v-if&v-show</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--实现功能：点击按钮可以实现标题内容出现或消失-->
+        <input type="button" value="toggle" @click="toggle">
+        <!--通过删除/重插节点实现-->
+        <h3 v-if="flag">这是用v-if控制的元素</h3>
+        <!--通过控制display实现-->
+        <h3 v-show="flag">这是用v-show控制的元素</h3>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                flag:false
+            },
+            methods:{
+                toggle(){
+                    this.flag = !this.flag;
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
