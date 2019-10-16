@@ -23,9 +23,16 @@
                   </label>
                   <label>
                       Name:
-                      <input type="text" class="form-control" v-model="name">
+                      <!--键盘响应添加-->
+                      <input type="text" class="form-control" v-model="name" @keyup.enter="add">
                   </label>
                   <input type="button" value="添加" class="btn btn-primary" @click="add">
+
+                  <label>
+                      搜索名称关键字:
+                      <!--自定义指令实现聚焦文本框，字体红-->
+                      <input type="text" class="form-control" v-model="keywords" v-focus v-color1="'blue'">
+                  </label>
          	  </div>
          </div>
         <table class="table table-bordered table-hover table-striped">
@@ -38,24 +45,143 @@
         		</tr>
         	</thead>
         	<tbody>
-        		<tr v-for="item in list" :key="item.id">
+                <!--在search方法内部，执行for循环，把所有满足条件的结果返回-->
+        		<tr v-for="item in search(keywords)" :key="item.id">
         			<td >{{item.id}}</td>
                     <td>{{item.name}}</td>
-                    <td>{{item.ctime}}</td>
+                    <td>{{item.ctime|dateFormat}}</td>
                     <td>
-                        <a href="">删除</a>
+                        <!--阻止刷新页面的默认行为-->
+                        <a href="" @click.prevent="del(item.id)">删除</a>
                     </td>
         		</tr>
         	</tbody>
         </table>
+
+        <p>{{msg|msgFormat}}</p>
+
+        <p>{{msg|msgFormat1('嘀嘀嘀')}}</p>
+
+        <p>{{msg|msgFormat|msgFormat2}}</p>
     </app>
     <script>
+        //过滤器
+        //全局过滤器：所有Vue对象共享
+        //调用遵循就近原则，名称一致时，先私有后公有
+        /*
+        用于文本格式化，只能运用在插值表达式及v-bind表达式
+        * */
+        //过滤器语法
+        /*
+        Vue.filter('过滤器名称',function () {
+
+        })
+        */
+        //第一个那是已经被固定死，永远都是过滤器管道符传递过来的数据
+        /*
+        html的插值表达式：{{data|过滤器名称}}
+        js:Vue.filter('过滤器名称',function (data) {
+
+        })*/
+
+        Vue.filter('msgFormat',function (msg) {
+            return msg.replace(/弟弟/g,'哥哥');
+        });
+
+        //在插值式中可以添加多个参数
+        Vue.filter('msgFormat1',function (msg,keyword) {
+            return msg.replace(/弟弟/g,keyword);
+        });
+
+        Vue.filter('msgFormat2',function (msg) {
+            return msg + ",管道符间隔多个过滤器";
+        });
+
+
+        //定义时间格式：yyyy-mm-dd
+        Vue.filter('dateFormat',function (dataStr,pattern="") {
+            var dt = new Date(dataStr);
+            //yyyy-mm-dd
+            var year = dt.getFullYear();
+            var month = dt.getMonth();
+            var day = dt.getDate();
+
+
+
+            if(pattern.toLowerCase() === 'yyyy-mm-dd'){
+                return `${year}-${month}-${day}`;
+            }else{
+                var hour = dt.getHours();
+                var min = dt.getMinutes();
+                var second = dt.getSeconds();
+
+                return `${year}-${month}-${day}  ${hour}:${min}:${second}`;
+            }
+        });
+
+        //自定义全局键盘码
+        //Vue3.x删除了这个功能？
+        //Vue.config.keyCode.f2 = 113;
+
+
+        //自定义全局指令
+        //参数1是指令，参数2是一个对象，在这个对象身上，有一些指令
+        //Vue.directives('focus',{})
+        Vue.directive('focus',{
+            //el为被绑定的元素
+            bind:function (el) {//每当指令绑定到元素的时候，会立即执行bind函数，只执行一次
+                //在元素刚绑定了指令的时候，还没有插入到DOM中，这时候调用focus方法没有作用
+                //一个元素只有插入DOM之后才能获取焦点
+                el.focus();
+            },
+            inserted:function (el) {  //当元素插入到DOM中，会执行inserted函数
+                //成功获取焦点
+                //和JS有关的指令一般在inserted实现
+                el.focus();
+            },
+            updated:function () {   //当Node更新的时候，会执行updated，可能会触发多次
+                
+            }
+        });
+
+
+        Vue.directive('color',{
+            //样式只要通过指令绑定给了元素，不管这个元素有没有被插入到页面中，这个元素肯定有了一个内联样式
+            bind:function (el) {
+                el.style.color = 'red';
+            },
+            inserted:function (el) {
+
+            },
+            updated:function (el) {
+
+            }
+        });
+
+        //自定义指令：钩子函数
+        Vue.directive('color1',{
+            //样式只要通过指令绑定给了元素，不管这个元素有没有被插入到页面中，这个元素肯定有了一个内联样式
+            bind:function (el,binding) {
+                el.style.color = binding.value;
+            },
+            inserted:function (el) {
+
+            },
+            updated:function (el) {
+
+            }
+        });
         var vm = new Vue({
             el:'#app',
             data:{
+                msg:'我是弟弟，你也是',
+                id:'',
+                name:'',
+                keywords:'',
                 list:[
-                    {id:1,name:'奔驰',ctime:new Date()},
-                    {id:2,name:'宝马',ctime: new Date()}
+                    {id:1,name:'奔驰',ctime: new Date()},
+                    {id:2,name:'宝马',ctime: new Date()},
+                    {id:3,name:'大众',ctime: new Date()}
                 ]
             },
             methods:{
@@ -65,13 +191,78 @@
                     //把这个对象添加到list
                     //在Vue中已实现数据的双向绑定
                     //更多的是在进行VM中数据的操作
+                    if(this.id.length===0){
+                        alert('ERROR:id不能为空');
+                        return;
+                    }else if(this.name.length===0){
+                        alert('ERROR:name不能为空');
+                        return;
+                    }
                     var car = {id:this.id,name:this.name,ctime:new Date()}
                     this.list.push(car);
                     this.id='';
                     this.name='';
+                },
+                del(id){
+                    //两个删除方法
+                    /*
+                    this.list.some((item,i)=>{
+                        if(item.id=id){
+                            this.list.splice(i,1);
+                            return true;
+                        }
+                    });*/
+
+                    let index = this.list.findIndex(item=>{
+                        if(item.id===id){
+                            return true;
+                        }
+                    });
+
+                    this.list.splice(index,1);
+                },
+                search(keywords){
+                    /*
+                    var newList = [];
+                    this.list.forEach(item=>{
+                        if(item.name.indexOf(keywords)!=-1){
+                            newList.push(item);
+                        }
+                    });*/
+                    //return newList;
+
+                    //新方法，includes查询包含子串
+                    return this.list.filter(item=>{
+                        return item.name.includes(keywords);
+                    })
+
+                }
+            },
+            //私有过滤器
+            filters:{
+                //定义时间格式：yyyy-mm-dd
+                dateFormat:function (dataStr,pattern="") {
+                    var dt = new Date(dataStr);
+                    //yyyy-mm-dd
+                    var year = dt.getFullYear();
+                    var month = dt.getMonth().toString().padStart(2,'0');
+                    var day = dt.getDate().toString().padStart(2,'0');
+
+                    //padStart用于前缀填充，padEnd用于后缀填充
+                    if(pattern.toLowerCase() === 'yyyy-mm-dd'){
+                        return `${year}-${month}-${day}`;
+                    }else{
+                        var hour = dt.getHours().toString().padStart(2,'0');
+                        var min = dt.getMinutes().toString().padStart(2,'0');
+                        var second = dt.getSeconds().toString().padStart(2,'0');
+
+                        return `${year}-${month}-${day}  ${hour}:${min}:${second}`;
+                    }
                 }
             }
-        })
+        });
+        //原生js获取焦点
+        document.getElementById('search').focus();
     </script>
 </body>
 </html>
