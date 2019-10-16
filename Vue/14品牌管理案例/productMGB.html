@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>品牌管理案例</title>
+    <script src="../lib/vue.js"></script>
+    <link rel="stylesheet" href="../bootstrap-4.3.1/css/bootstrap.min.css">
+    <script src="../bootstrap-4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <app id="app">
+         <div class="panel panel-primary">
+         	  <div class="panel-heading" style="background-color: #007bff;border-color: #007bff;color: white">
+         			<h3 class="panel-title">添加品牌</h3>
+         	  </div>
+             <!--并排一行-->
+         	  <div class="panel-body form-inline">
+                  <label>
+                      Id:
+                      <input type="text" class="form-control" v-model="id">
+                  </label>
+                  <label>
+                      Name:
+                      <input type="text" class="form-control" v-model="name">
+                  </label>
+                  <input type="button" value="添加" class="btn btn-primary" @click="add">
+         	  </div>
+         </div>
+        <table class="table table-bordered table-hover table-striped">
+        	<thead>
+        		<tr>
+        			<th>Id</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr v-for="item in list" :key="item.id">
+        			<td >{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.ctime}}</td>
+                    <td>
+                        <a href="">删除</a>
+                    </td>
+        		</tr>
+        	</tbody>
+        </table>
+    </app>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {id:1,name:'奔驰',ctime:new Date()},
+                    {id:2,name:'宝马',ctime: new Date()}
+                ]
+            },
+            methods:{
+                add(){
+                    //获取id和name，直接从data上获取
+                    //组织出一个对象
+                    //把这个对象添加到list
+                    //在Vue中已实现数据的双向绑定
+                    //更多的是在进行VM中数据的操作
+                    var car = {id:this.id,name:this.name,ctime:new Date()}
+                    this.list.push(car);
+                    this.id='';
+                    this.name='';
+                }
+            }
+        })
+    </script>
+</body>
+</html>
