@@ -259,6 +259,13 @@
                         return `${year}-${month}-${day}  ${hour}:${min}:${second}`;
                     }
                 }
+            },
+            //私有指令
+            directives:{
+                //指令简写：等同于把代码写到bind和update中
+                'fontsize':function (el,binding) {
+                    el.style.fontSize = parseInt(binding.value) + 'px';
+                }
             }
         });
         //原生js获取焦点
