@@ -32,9 +32,9 @@ WHERE JOB='SALESMAN';
 > Find the highest and lowest salaries and the difference between them (single SELECT statement)
 
 ```sql
-SELECT MAX(SAL)-MIN(SAL) AS DIFF FROM EMP2017151019;
+SELECT  MAX(SAL) MAX_SAL,MIN(SAL) MIN_SAL,MAX(SAL)-MIN(SAL) AS DIFF FROM EMP2017151019;
 ```
-![alt](img/exe2_3.png)
+![alt](img/exe3.3.png)
 
 ### NO.4
 > Find the number of characters in the longest department name
