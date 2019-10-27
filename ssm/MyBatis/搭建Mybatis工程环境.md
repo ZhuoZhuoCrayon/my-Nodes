@@ -3,6 +3,7 @@
 ## 创建JavaWeb工程
 
 新建工程
+
 ![alt](../img/1.2.png)
 
 在WEB-INF下新建`lib` `classes`目录
@@ -14,6 +15,7 @@
 
 
 将`Ouput path` `Test output path`的目标修改至`classes`
+
 ![alt](../img/1.4.png)
 
 ## 安装并配置Tomcat
@@ -26,12 +28,15 @@
 ### 在IDEA中配置Tomat
 
 打开`Run->Edit Configurations...`
+
 ![alt](../img/addTomcat.png)
 
 `Configure..`选择Tomcat的安装目录导入
+
 ![alt](../img/addpath.png)
 
 `File->Project Settings->Modules->Dependencies`添加Tomcat
+
 ![alt](../img/1.1.png)
 
 ### 运行测试
@@ -51,6 +56,7 @@ update user set authentication_string=PASSWORD('root') where user='root';
 ```mysql
 flush privileges;
 ```
+
 ![alt](../img/1.5.png)
 
 
