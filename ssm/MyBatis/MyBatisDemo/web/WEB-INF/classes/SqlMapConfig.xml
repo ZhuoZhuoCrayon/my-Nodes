@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+    <properties resource="jdbc.properties"></properties>
+    -->
+    <!--settings配置LOG4J输出日志 -->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <!--typeAliases配置包的别名-->
+    <!--<typeAliases>-->
+    <!--<package name=""-->
+    <!--</typeAliases>-->
+
+    <!--environments配置了数据库连接，配置了driver、url、username、password属性-->
+    <environments default="development">
+        <environment id="development">
+            <!--使用JDBC事务管理-->
+            <transactionManager type="JDBC"/>
+            <!--数据库连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/company_manage?
+                characterEncoding=utf-8" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+
+        </environment>
+    </environments>
+    <!--配置一个SQL语句和映射的配置文件-->
+    <mappers>
+        <!-- Mapper的位置  Mapper.xml 写Sql语句的文件的位置 -->
+        <mapper resource="sqlmap/UserMapper.xml" />
+    </mappers>
+</configuration>
