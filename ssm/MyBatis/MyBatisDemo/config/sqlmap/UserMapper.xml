@@ -8,4 +8,28 @@
     <select id="selectAll" resultType="cn.com.mybatis.po.Emp">
         SELECT * FROM emp;
     </select>
+
+    <!--只接收一个参数时，参数可以使用任意名称，empno、id等等-->
+    <select id="findById" parameterType="int" resultType="cn.com.mybatis.po.Emp">
+        SELECT * FROM emp
+        WHERE EMPNO = #{empno};
+    </select>
+
+    <select id="findByName" parameterType="java.lang.String"
+            resultType="cn.com.mybatis.po.Emp">
+        SELECT * FROM emp
+        WHERE ENAME LIKE '%${ename}%';
+    </select>
+
+    <!--自写类返回-->
+    <select id="getSimpleInfo" resultType="cn.com.mybatis.po.SimpleEmp">
+        SELECT ENAME,EMPNO,JOB FROM emp;
+    </select>
+
+    <select id="insertEmp" parameterType="cn.com.mybatis.po.Emp">
+        INSERT INTO emp
+        VALUE (#{empno},#{ename},#{job},#{mgb},#{hiredate,jdbcType=DATE},#{sal},#{comm},#{deptno});
+    </select>
+
+    <select id="deleteById" parameterType="int"></select>
 </mapper>

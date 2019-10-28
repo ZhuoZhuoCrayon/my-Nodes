@@ -1,6 +1,7 @@
 package cn.com.mybatis.po;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Emp implements Serializable {
@@ -61,6 +62,10 @@ public class Emp implements Serializable {
         this.ename = ename;
     }
 
+    public void setJob(String job) {
+        this.job = job;
+    }
+
     public void setMgb(int mgb) {
         this.mgb = mgb;
     }
@@ -83,11 +88,12 @@ public class Emp implements Serializable {
 
     @Override
     public String toString() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return "EMPNO:{" + empno + "}|"+
                 "ENAME:{" + ename + "}|"+
                 "JOB:{" + job + "}|"+
                 "MGB:{" + mgb + "}|"+
-                "HIREDATE:{" + hiredate.toString() + "}|"+
+                "HIREDATE:{" + simpleDateFormat.format(hiredate) + "}|"+
                 "SAL:{" + sal + "}|"+
                 "COMM:{" + comm + "}|"+
                 "DEPTNO:{" + deptno + "}|";
