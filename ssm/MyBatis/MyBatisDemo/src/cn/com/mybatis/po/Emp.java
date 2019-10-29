@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Emp implements Serializable {
+    //Mapper文件会调用实体的get和set函数，为了数据置空，一般使用包装类
     private Integer empno;
     private String ename;
     private String job;
@@ -38,7 +39,7 @@ public class Emp implements Serializable {
         return job;
     }
 
-    public int getMgb() {
+    public Integer getMgb() {
         return mgb;
     }
 
@@ -46,11 +47,11 @@ public class Emp implements Serializable {
         return hiredate;
     }
 
-    public int getSal() {
+    public Integer getSal() {
         return sal;
     }
 
-    public int getDeptno() {
+    public Integer getDeptno() {
         return deptno;
     }
 

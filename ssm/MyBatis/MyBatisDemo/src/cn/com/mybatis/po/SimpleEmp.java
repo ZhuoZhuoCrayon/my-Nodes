@@ -8,7 +8,7 @@ public class SimpleEmp implements Serializable {
     private String job;
     public SimpleEmp(){};
 
-    public int getEmpno() {
+    public Integer getEmpno() {
         return empno;
     }
 
