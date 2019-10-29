@@ -5,17 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Emp implements Serializable {
-    private int empno;
+    private Integer empno;
     private String ename;
     private String job;
-    private int mgb;
+    private Integer mgb;
     private Date hiredate;
-    private int sal;
-    private int comm;
-    private int deptno;
+    private Integer sal;
+    private Integer comm;
+    private Integer deptno;
     public Emp(){};
-    public Emp(int empno,String ename,String job,int mgb,
-               Date hiredate,int sal,int comm,int deptno){
+    public Emp(Integer empno,String ename,String job,Integer mgb,
+               Date hiredate,Integer sal,Integer comm,Integer deptno){
         this.empno = empno;
         this.ename = ename;
         this.job = job;
@@ -54,7 +54,7 @@ public class Emp implements Serializable {
         return deptno;
     }
 
-    public void setEmpno(int empno) {
+    public void setEmpno(Integer empno) {
         this.empno = empno;
     }
 
@@ -66,7 +66,7 @@ public class Emp implements Serializable {
         this.job = job;
     }
 
-    public void setMgb(int mgb) {
+    public void setMgb(Integer mgb) {
         this.mgb = mgb;
     }
 
@@ -74,11 +74,11 @@ public class Emp implements Serializable {
         this.hiredate = hiredate;
     }
 
-    public void setSal(int sal) {
+    public void setSal(Integer sal) {
         this.sal = sal;
     }
 
-    public void setComm(int comm) {
+    public void setComm(Integer comm) {
         this.comm = comm;
     }
 

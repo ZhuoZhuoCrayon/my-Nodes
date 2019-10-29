@@ -3,7 +3,7 @@ package cn.com.mybatis.po;
 import java.io.Serializable;
 
 public class SimpleEmp implements Serializable {
-    private int empno;
+    private Integer empno;
     private String ename;
     private String job;
     public SimpleEmp(){};
