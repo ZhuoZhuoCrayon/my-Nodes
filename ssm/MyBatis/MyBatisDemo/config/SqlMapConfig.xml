@@ -4,16 +4,41 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--
-    <properties resource="jdbc.properties"></properties>
+        propeties可以引入一个动态可变化的外部配置
+        <properties resource="jdbc.properties"></properties>
     -->
     <!--settings配置LOG4J输出日志 -->
+    <!--
+        settings配置
+        setting配置缓存、延迟加载、结果集控制、执行器、分页设置、命名规则等
+        一系列控制性参数
+     -->
     <settings>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
-    <!--typeAliases配置包的别名-->
-    <!--<typeAliases>-->
-    <!--<package name=""-->
-    <!--</typeAliases>-->
+    <!--
+        typeAliases配置包的别名，可以在Mapper（SQL映射文件中）简写参数/符合类型
+        对于包装类，不需要再完整写路径
+
+        配置方法1：指定类路径，设置别名
+        <typeAliases>
+            <typeAlias alias="semp" type="cn.com.mybatis.po.SimpleEmp"/>
+            <typeAlias alias="str" type="java.lang.String"/>
+        </typeAliases>
+
+        配置方法2：指定JavaBean包路径，配置文件会为该包内的所有包装类起别名
+        默认：类目首字母小写
+        自定义:在类声明头部加Alias批注，指定为双引号内名称
+        @Alias("semp")
+        public class SimpleUser
+        <typeAliases>
+            <package name="cn.com.mybatis.po"/>
+        </typeAliases>
+    -->
+
+    <!--
+        typeHandlers
+     -->
 
     <!--environments配置了数据库连接，配置了driver、url、username、password属性-->
     <environments default="development">

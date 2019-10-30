@@ -26,10 +26,41 @@
         SELECT ENAME,EMPNO,JOB FROM emp;
     </select>
 
-    <select id="insertEmp" parameterType="cn.com.mybatis.po.Emp">
+    <insert id="insertEmp" parameterType="cn.com.mybatis.po.Emp">
         INSERT INTO emp
         VALUE (#{empno},#{ename},#{job},#{mgb},#{hiredate,jdbcType=DATE},#{sal},#{comm},#{deptno});
-    </select>
+    </insert>
 
-    <select id="deleteById" parameterType="int"></select>
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM emp
+        WHERE EMPNO = #{id};
+    </delete>
+
+    <update id="updateEmp" parameterType="cn.com.mybatis.po.Emp">
+        UPDATE emp
+        <set>
+            <if test="ename!=null">
+                ENAME = #{ename},
+            </if>
+            <if test="job!=null">
+                JOB = #{job},
+            </if>
+            <if test="mgb!=null">
+                MGB = #{mgb},
+            </if>
+            <if test="hiredate!=null">
+                HIREDATE = #{hiredate}
+            </if>
+            <if test="sal!=null">
+                SAL = #{sal},
+            </if>
+            <if test="comm!=null">
+                COMM = #{comm},
+            </if>
+            <if test="deptno!=null">
+                DEPTNO = #{deptno},
+            </if>
+        </set>
+        WHERE EMPNO = #{empno};
+    </update>
 </mapper>

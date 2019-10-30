@@ -57,15 +57,29 @@ public class MybatisTest {
         emp.setMgb(7900);
         emp.setHiredate(new Date());
         emp.setSal(0);
-        emp.setComm(0);
+        emp.setComm(null);
         emp.setDeptno(10);
 
-        //sqlSession.insert("EmpMapper.insertEmp",emp);
-
+        sqlSession.insert("EmpMapper.insertEmp",emp);
+        //sqlSession.delete("EmpMapper.deleteById",4836);
         List<Emp> emps = sqlSession.selectList("EmpMapper.findByName","CXX");
 
         for(Emp emp1:emps){
             System.out.println(emp1.toString());
         }
+    }
+
+    @Test
+    public void updateEmp() throws IOException{
+        SqlSession sqlSession = dataConnection.getSqlSession();
+        Emp emp = new Emp();
+        emp.setEmpno(4836);
+        emp.setJob("STUDENT");
+        emp.setComm(100000);
+
+        sqlSession.update("EmpMapper.updateEmp",emp);
+        //sqlSession.delete("EmpMapper.deleteById",4836);
+        Emp emp1 = sqlSession.selectOne("EmpMapper.findById",4836);
+        System.out.println(emp1.toString());
     }
 }
