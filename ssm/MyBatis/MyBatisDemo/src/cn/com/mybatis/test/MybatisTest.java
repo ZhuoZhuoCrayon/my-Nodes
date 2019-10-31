@@ -2,9 +2,11 @@ package cn.com.mybatis.test;
 
 import cn.com.mybatis.datasource.DataConnection;
 import cn.com.mybatis.po.Emp;
+import cn.com.mybatis.po.EmpInfo;
 import cn.com.mybatis.po.SimpleEmp;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.io.IOException;
 import java.util.Date;
@@ -81,5 +83,20 @@ public class MybatisTest {
         //sqlSession.delete("EmpMapper.deleteById",4836);
         Emp emp1 = sqlSession.selectOne("EmpMapper.findById",4836);
         System.out.println(emp1.toString());
+    }
+    @Test
+    public void deleteById() throws IOException{
+        SqlSession sqlSession = dataConnection.getSqlSession();
+        sqlSession.delete("EmpMapper.deleteById",4836);
+        testSelect();
+    }
+
+    @Test
+    public void getEmpInfo() throws IOException{
+        SqlSession sqlSession = dataConnection.getSqlSession();
+        List<EmpInfo> empInfos = sqlSession.selectList("CombineMapper.getEmpInfo");
+        for(EmpInfo empInfo:empInfos){
+            System.out.println(empInfo.toString());
+        }
     }
 }
