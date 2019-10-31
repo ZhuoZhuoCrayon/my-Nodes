@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper为根元素，namespace指定了命名空间-->
+<!--
+${}可以将外部的字符串拼到SQL中
+-->
+<mapper namespace="CombineMapper">
+    <!--
+    一般来说，数据库结果集中的列名和Java实体类中的属性名是不同的，所以需要进行列名转换
+    还有一种情况，就是SQL语句返回结果是多个值，且没有一个完全与返回结果值一一匹配的封装类接收
+    比如一个实体类中是含有对象或其他包装类，那么就需要做转换
+    property 映射实体类属性名
+    column 映射数据库列名
+    数据库类名不区分大小写
+    -->
+
+    <!--1：因为数据库与实体类列名和属性名不对应而需map修改的策略-->
+    <resultMap id="empInfo" type="cn.com.mybatis.po.EmpInfo">
+        <id property="empno" column="empno"/>
+        <result property="ename" column="ename"/>
+        <result property="dname" column="dname"/>
+        <result property="loc" column="loc"/>
+    </resultMap>
+
+    <!--2：实体类嵌套子类现象-多列转子类-->
+
+    <!--3：实体类内存在列表-->
+
+    <select id="getEmpInfo" resultMap="empInfo">
+        SELECT EMPNO,ENAME,DNAME,LOC FROM emp
+        INNER JOIN dept
+        ON emp.DEPTNO = dept.DEPTNO;
+    </select>
+
+
+</mapper>

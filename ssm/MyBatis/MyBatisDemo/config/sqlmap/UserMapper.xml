@@ -3,6 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--mapper为根元素，namespace指定了命名空间-->
+<!--
+${}可以将外部的字符串拼到SQL中
+-->
 <mapper namespace="EmpMapper">
     <!--定义一个SELECT查询-->
     <select id="selectAll" resultType="cn.com.mybatis.po.Emp">
