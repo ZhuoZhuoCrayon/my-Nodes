@@ -37,9 +37,20 @@
     -->
 
     <!--
-        typeHandlers
+        typeHandlers 控制java与数据库数据类型的转换关系
+        <typeHandler handler="cn.com.mybatis.test.DateTypeHandler"
+        javaType="java.util.Date" jdbcType="TIMESTAMP"/>
      -->
 
+    <!--
+        objectFactory 用于创建查询后的实体类
+        可改写默认方法，自定义构造过程中的执行方法
+     -->
+
+    <!--
+        plugins拦截器配置分析
+        用于日志记录，权限控制，缓存机制
+     -->
     <!--environments配置了数据库连接，配置了driver、url、username、password属性-->
     <environments default="development">
         <environment id="development">
@@ -60,5 +71,6 @@
     <mappers>
         <!-- Mapper的位置  Mapper.xml 写Sql语句的文件的位置 -->
         <mapper resource="sqlmap/UserMapper.xml" />
+        <mapper resource="sqlmap/CombineMapper.xml"/>
     </mappers>
 </configuration>
