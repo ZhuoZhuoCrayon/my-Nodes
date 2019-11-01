@@ -20,6 +20,18 @@ public class SimpleEmp implements Serializable {
         return job;
     }
 
+    public void setEmpno(Integer empno) {
+        this.empno = empno;
+    }
+
+    public void setEname(String ename) {
+        this.ename = ename;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
     @Override
     public String toString() {
         return "EMPNO:{" + empno + "}|"+
