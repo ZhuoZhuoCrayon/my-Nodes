@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+	<settings>  
+        <setting name="logImpl" value="LOG4J" />    
+    </settings>
+    <objectFactory type="cn.com.mybatis.test.CartObjectFactory"/>
+    <plugins>
+	  <plugin interceptor="cn.com.mybatis.test.QueryPlugin">
+	    <property name="someProperty" value="100"/>
+	  </plugin>
+	</plugins>
+    <!-- 和spring整合后 environments配置将废除-->  
+    <environments default="development">  
+        <environment id="development">  
+        <!-- 使用jdbc事务管理-->  
+            <transactionManager type="JDBC" />  
+        <!-- 数据库连接池-->  
+            <dataSource type="POOLED">  
+                <property name="driver" value="org.gjt.mm.mysql.Driver"/>  
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_test?characterEncoding=utf-8"/>  
+                <property name="username" value="root"/>  
+                <property name="password" value="1234"/>  
+            </dataSource>  
+        </environment>  
+    </environments>  
+    <mappers>  
+	    <mapper resource="sqlmap/UserMapper.xml"/> 
+	    <mapper resource="sqlmap/CustomerMapper.xml"/> 
+	</mappers>  
+</configuration>  

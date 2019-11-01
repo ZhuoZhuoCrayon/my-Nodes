@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+<mapper namespace="com.fruitslaesplatform.mapper.UserMapper">  
+<!-- resultMap映射 -->
+	<resultMap type="com.fruitslaesplatform.entity.User" id="userRM">
+		<!-- 主键 -->
+		<id property="userId" column="userid" jdbcType="VARCHAR" />
+		<!-- 一般属性 -->
+		<result property="userName" column="username"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="telphone" column="telphone"/>
+	</resultMap>
+	
+	<!-- 查询一个 -->
+	<select id="get" parameterType="string" resultMap="userRM">
+		select * from user
+		where userid=#{userid}
+	</select>
+	
+	<!-- 查询 -->
+	<select id="find" parameterType="java.util.HashMap" resultMap="userRM">
+		select * from user
+		where 1=1
+		<if test="username != null"> and username=#{username}</if>
+		<if test="password != null"> and password=#{password}</if>
+		<if test="name != null"> and name like #{name}</if>
+		<if test="telphone != null"> and telphone = #{telphone}</if>
+	</select>
+	
+	<insert id="insert" parameterType="com.fruitslaesplatform.entity.User">
+		insert into user
+		(USERID,USERNAME,PASSWORD,NAME,TELPHONE)
+		values
+		(	#{userId,jdbcType=VARCHAR},
+			#{userName,jdbcType=VARCHAR},
+			#{password,jdbcType=VARCHAR},
+			#{name,jdbcType=VARCHAR},
+			#{telphone,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 修改语句 -->
+	<update id="update" parameterType="com.fruitslaesplatform.entity.User">
+		update user
+		<set>
+	 	   <if test="password != null">PASSWORD=#{password,jdbcType=VARCHAR},</if>
+	 	   <if test="name != null">NAME=#{name,jdbcType=VARCHAR},</if>
+	 	   <if test="telphone != null">TELPHONE=#{telphone,jdbcType=VARCHAR}</if>
+		</set>
+		where USERID=#{userId}
+	</update>
+	
+	<!-- 删除一条 -->
+	<delete id="deleteById" parameterType="string">
+		delete from user
+		where USERID=#{userId}
+	</delete>
+	
+	<!-- 删除多条(一维字符串数组的形式) -->
+	<delete id="delete" parameterType="string">
+		delete from user
+		where USERID in  
+		<foreach collection="array" item="userId" open="(" close=")" separator=",">
+			#{userId}
+		</foreach>
+	</delete>
+</mapper>  

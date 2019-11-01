@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+	
+	<!-- 1.扫描controller包 -->
+	<context:component-scan base-package="com.fruitsalesplatform.controller"/>
+	<context:component-scan base-package="com.fruitsalesplatform.test.controller"/>
+	
+	<!-- 2.内部资源视图解析器，suffix为空，方便跟参数 url?id=xxx -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages"/>
+		<property name="suffix" value=""/>
+	</bean>
+	
+	<!-- 3.注解驱动 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 4.拦截器配置 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.fruitsalesplatform.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- 5.文件上传解析器，最大能上传10M文件（1024*1024*10）-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760"/>
+	</bean>
+	
+	<mvc:resources location="/js/" mapping="/js/**"/>  
+	<mvc:resources location="/images/" mapping="/images/**"/>  
+	<mvc:resources location="/css/" mapping="/css/**"/>  
+</beans>	

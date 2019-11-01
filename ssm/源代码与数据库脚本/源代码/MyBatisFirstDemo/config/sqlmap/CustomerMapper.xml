@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="cn.com.mybatis.mapper.CustomerMapper">    
+    <!-- 查询用户 -->
+    <select id="findCustomerById" parameterType="int" resultType="cn.com.mybatis.po.Customer">  
+      SELECT * FROM CUSTOMER WHERE cus_id=#{cus_id}
+    </select>  
+    <!-- 新增用户 -->   
+	<insert id="insertCustomer" parameterType="cn.com.mybatis.po.Customer">    
+    	INSERT INTO CUSTOMER(username,acno,gender,phone) 
+    		value(#{username},#{acno},#{gender},#{phone})  
+	</insert>
+	<!-- 删除用户 -->  
+	<delete id="deleteCustomer" parameterType="java.lang.Integer">  
+	    DELETE FROM CUSTOMER WHERE cus_id=#{cus_id}
+	</delete>  
+    <!-- 修改用户 -->  
+    <update id="updateCustomerAcNo" parameterType="cn.com.mybatis.po.Customer" >
+        UPDATE CUSTOMER SET acno = #{acno} WHERE cus_id=#{cus_id}
+    </update>
+</mapper>  

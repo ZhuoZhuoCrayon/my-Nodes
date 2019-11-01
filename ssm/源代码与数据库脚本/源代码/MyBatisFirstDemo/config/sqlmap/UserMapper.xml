@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="test">    
+    <select id="findUserById" parameterType="int" resultType="cn.com.mybatis.po.User">  
+      SELECT * FROM USER WHERE id=#{id}  
+    </select>  
+    <select id="findUserByUsername" parameterType="java.lang.String"   
+            resultType="cn.com.mybatis.po.User">  
+   	  SELECT * FROM USER WHERE username LIKE '%${value}%'   
+	</select>  
+	<insert id="insertUser" parameterType="cn.com.mybatis.po.User">  
+	    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">  
+            SELECT LAST_INSERT_ID()  
+        </selectKey>  
+    	insert into user(username,password,gender,birthday,email,province,city) 
+    		value(#{username},#{password},#{gender},#{birthday,jdbcType=DATE},
+    		#{email},#{province},#{city})  
+	</insert>
+	<!-- 删除用户 -->  
+	<delete id="deleteUser" parameterType="java.lang.Integer">  
+	    delete from user where id=#{id}  
+	</delete>  
+    <!-- 修改用户 -->  
+	<update id="updateUserName" parameterType="cn.com.mybatis.po.User">  
+	    update user set username=#{username} where id=#{id}  
+	</update>  
+	
+	<select id="findUserList" parameterType="cn.com.mybatis.po.UserQueryInfo"   
+    resultType="cn.com.mybatis.po.UserInstance">  
+        select * from user where user.gender=#{userInstance.gender} and user.username like '%${userInstance.username}%'  
+    </select>  
+    
+    <resultMap id="productResult" type="cn.com.mybatis.po.Product">
+	  <id property="pid" column="product_id"/>
+	  <result property="pname" column="product_name"/>
+	  <collection property="users" ofType="cn.com.mybatis.po.User">
+	    <id property="id" column="user_id"/>
+	    <result property="username" column="user_username"/>
+	    <result property="gender" column="user_gender"/>
+	    <result property="email" column="user_email"/>
+	  </collection>
+	</resultMap>
+	
+	<select id="queryProductInfo" parameterType="int" resultMap="productResult">
+	  select
+	    P.id            as pid,
+	    P.productname         as product_name,
+	    U.id            as user_id,
+	    U.username      as user_username,
+	    U.gender      as user_gender,
+	    U.email         as user_email
+	  from product P LEFT JOIN users U on P.id = U.pid
+	  where P.id = #{id}
+	</select>
+	
+	<resultMap id="productResult2" type="cn.com.mybatis.po.Product">
+	  <id property="pid" column="product_id"/>
+	  <result property="pname" column="product_name"/>
+	  <collection property="users" select="queryUserByProductId" column="product_id" ofType="cn.com.mybatis.po.User"/>
+	</resultMap>
+
+	<select id="queryProductInfo2" parameterType="int" resultMap="productResult2">
+	  select
+	    P.id            as product_id,
+	    P.productname         as product_name
+	  from product P WHERE P.id = #{id} 
+	</select>
+	
+	<select id="queryUserByProductId" parameterType="int" resultType="cn.com.mybatis.po.User">
+	  select * from users U WHERE U.pid = #{ProductId} 
+	</select>
+	
+	<resultMap id="GamePlayerResult" type="cn.com.mybatis.po.GamePlayer">
+	  <id property="id" column="id" />
+	  <result property="username" column="name"/>
+	  <result property="uGender" column="gender"/>
+	  <result property="uLevel" column="level"/>
+	  <association property="professionalAttributes" javaType="java.util.HashMap">
+		  <discriminator javaType="int" column="profession_type">
+		    <!--1战士-->
+		    <case value="1" resultMap="warriorResult"/>
+		    <!--2法师-->
+		    <case value="2" resultMap="magicianResult"/>
+		  </discriminator>
+	  </association>
+	</resultMap>
+	
+	<resultMap id="warriorResult" type="java.util.HashMap">
+	  <!--剑气值-->
+	  <result property="swordValue" column="sword_value"/>
+	  <!--战斗力-->
+	  <result property="fightingPower" column="fighting_power"/>
+	</resultMap>
+	
+	<resultMap id="magicianResult" type="java.util.HashMap">
+	  <!--法术范围-->
+	  <result property="SpellRange" column="Spell_range"/>
+	  <!--法强-->
+	  <result property="SpellPower" column="Spell_power"/>
+	</resultMap>
+	
+	<select id="queryWarriorGamePlayer" parameterType="int" resultMap="GamePlayerResult">
+		  select GP.id,GP.name,GP.gender,GP.level,
+	        GP.ptype as profession_type,
+	        W.svalue as sword_value,
+	        W.power as fighting_power
+		  from gameplayer GP LEFT JOIN warrior_info W on GP.id = W.gpid
+		  where GP.id = #{id}
+	</select>
+	
+	<select id="queryMagicianGamePlayer" parameterType="int" resultMap="GamePlayerResult">
+		  select GP.id,GP.name,GP.gender,GP.level,
+	        GP.ptype as profession_type,
+	        M.range as spell_range,
+	        M.power as spell_power
+		  from gameplayer GP LEFT JOIN magician_info M on GP.id = M.gpid
+		  where GP.id = #{id}
+	</select>
+	
+	<select id="findBatchCustomer" resultType="cn.com.mybatis.po.BatchCustomer">  
+        SELECT   
+		  BATCH.*,  
+		  CUSTOMER.username,  
+		  CUSTOMER.acno   
+		FROM  
+		  BATCH,  
+		  CUSTOMER   
+		WHERE BATCH.cus_id = CUSTOMER.cus_id  
+    </select>  
+    
+    <resultMap type="cn.com.mybatis.po.BatchItem" id="BatchInfoMap">   
+         <id column="batch_id" property="batch_id"/>  
+         <result column="cus_id" property="cus_id"/>  
+         <result column="number" property="number"/>  
+         <result column="createtime" property="createtime" javaType="java.util.Date"/>  
+         <result column="note" property="note"/>  
+         <association property="customer" javaType="cn.com.mybatis.po.Customer">  
+             <id column="cus_id" property="cus_id"/>  
+             <result column="username" property="username"/>  
+             <result column="acno" property="acno"/>  
+             <result column="gender" property="gender"/>
+             <result column="phone" property="phone"/>    
+         </association>  
+    </resultMap>  
+    
+    <select id="findBatchCustomerToMap" resultMap="BatchInfoMap">  
+        SELECT   
+		  BATCH.*,  
+		  CUSTOMER.username,  
+		  CUSTOMER.acno   
+		FROM  
+		  BATCH,  
+		  CUSTOMER   
+		WHERE BATCH.cus_id = CUSTOMER.cus_id  
+    </select> 
+    
+     <resultMap type="cn.com.mybatis.po.BatchItem" id="BatchAndBatchDetailResultMap"   
+               extends="BatchInfoMap">  
+        <collection property="batchDetails" ofType="cn.com.mybatis.po.BatchDetail">  
+            <!-- id:订单明细的唯一标识 -->  
+            <id column="id" property="id"/>  
+            <result column="batch_id" property="batch_id"/>  
+            <result column="product_id" property="product_id"/>  
+            <result column="product_num" property="product_num"/>  
+        </collection>  
+    </resultMap>
+    
+    <select id="findBatchAndBatchDetail" resultMap="BatchAndBatchDetailResultMap">  
+        SELECT   
+		  BATCH.*,  
+		  CUSTOMER.username,  
+		  CUSTOMER.acno,
+		  BATCHDETAIL.product_id,
+		  BATCHDETAIL.product_num
+		FROM  
+		  BATCH,  
+		  CUSTOMER,
+		  BATCHDETAIL 
+		WHERE BATCH.cus_id = CUSTOMER.cus_id AND BATCHDETAIL.batch_id=BATCH.batch_id     
+    </select>  
+    
+    <resultMap type="cn.com.mybatis.po.Customer" id="UserAndProductsResultMap">  
+	    <!-- 客户信息 -->   
+	    <result column="username" property="username"/>  
+	    <result column="acno" property="acno"/>
+	      
+	    <!--批次订单信息，一个客户对应多个订单-->  
+	    <collection property="batchList" ofType="cn.com.mybatis.po.Batch">  
+	        <id column="batch_id" property="batch_id"/>  
+	        <result column="cus_id" property="cus_id"/>  
+	        <result column="number" property="number"/>  
+	        <result column="createtime" property="createtime" javaType="java.util.Date"/>  
+	        <result column="note" property="note"/>  
+	          
+	        <collection property="batchDetials" ofType="cn.com.mybatis.po.BatchDetail">   
+	            <!-- id:订单明细的唯一标识 -->  
+	            <id column="id" property="id"/>  
+	            <result column="batch_id" property="batch_id"/>  
+	            <result column="product_id" property="product_id"/>  
+	            <result column="product_num" property="product_num"/>  
+	          
+	            <association property="finacialProduct" javaType="cn.com.mybatis.po.FinacialProduct">  
+	                <id column="product_id" property="id"/>  
+	                <result column="name" property="name"/>  
+	                <result column="price" property="price"/>  
+	                <result column="detail" property="detail"/>  
+	            </association>  
+	        </collection>  
+	    </collection>  
+	</resultMap>  
+    
+    <select id="findUserAndProducts" resultMap="UserAndProductsResultMap">  
+        SELECT   
+		  BATCH.*,  
+		  CUSTOMER.username,  
+		  CUSTOMER.acno,
+		  BATCHDETAIL.product_id,
+		  BATCHDETAIL.product_num,
+		  FINACIAL_PRODUCTS.name,  
+		  FINACIAL_PRODUCTS.detail,  
+		  FINACIAL_PRODUCTS.price  
+		FROM  
+		  BATCH,  
+		  CUSTOMER,
+		  BATCHDETAIL,
+		  FINACIAL_PRODUCTS 
+		WHERE BATCH.cus_id = CUSTOMER.cus_id 
+		AND BATCHDETAIL.batch_id=BATCH.batch_id
+		AND FINACIAL_PRODUCTS.product_id=BATCHDETAIL.product_id;  
+    </select> 
+    
+    <!-- 延迟加载的resultMap -->  
+    <resultMap id="BatchUserLazyLoadingResultMap" type="cn.com.mybatis.po.BatchItem">  
+        <!-- 对订单信息进行映射配置 -->  
+        <id column="batch_id" property="batch_id"/>  
+	    <result column="cus_id" property="cus_id"/>  
+	    <result column="number" property="number"/>  
+	    <result column="createtime" property="createtime" javaType="java.util.Date"/>  
+	    <result column="note" property="note"/> 
+        <!-- 实现延迟加载用户信息 -->  
+        <association property="customer" javaType="cn.com.mybatis.po.Customer" select="findCustomerById" column="cus_id">  
+        </association>  
+    </resultMap>  
+    
+    <select id="findBatchUserLazyLoading" resultMap="BatchUserLazyLoadingResultMap">  
+        SELECT * FROM BATCH 
+    </select> 
+    
+    <select id="findCustomerById" parameterType="int" resultType="cn.com.mybatis.po.Customer">  
+        SELECT * FROM CUSTOMER WHERE cus_id=#{id}
+    </select>  
+    
+    <update id="UpdateCustomerAcNo" parameterType="cn.com.mybatis.po.Customer" >
+        UPDATE CUSTOMER SET acno = #{acno} WHERE cus_id=#{cus_id}
+    </update>
+</mapper>  

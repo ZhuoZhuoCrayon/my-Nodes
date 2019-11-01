@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    
+	<!-- settings-->
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为消极加载(及按需加载) -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 打开全局缓存开关(二级缓存)默认值就是true -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	
+	<!-- 别名定义 -->
+	<typeAliases>
+		<package name="cn.com.sm.po"/>
+	</typeAliases>
+	
+	<!-- 加载映射文件 -->
+	<mappers>
+		<!-- 通过resource方法一次加载一个映射文件 -->
+		<mapper resource="sqlmap/UserMapper.xml"/>
+        <!-- 批量加载mapper
+        <package name="cn.com.sm.mapper"/>-->  
+	</mappers>
+</configuration>

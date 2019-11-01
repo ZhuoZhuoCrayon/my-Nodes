@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+			http://www.springframework.org/schema/aop 
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+			
+		<!-- 1.加载数据库配置的属性文件 -->	
+		<context:property-placeholder location="classpath:db.properties"/>
+		
+		<!-- 2.包扫描:dao,service -->
+		<context:component-scan base-package="com.fruitslaesplatform.dao,com.fruitslaesplatform.service"/>
+		<context:component-scan base-package="com.fruitslaesplatform.test.dao,com.fruitslaesplatform.test.service"/>
+		
+		<!-- 3,dataSource数据源 -->
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="driverClass" value="${jdbc.driver}"/>
+			<property name="jdbcUrl" value="${jdbc.url}"/>
+			<property name="user" value="${jdbc.username}"/>
+			<property name="password" value="${jdbc.password}"/>
+			
+			<!-- 连接池中保留的最大连接数。默认为15 -->
+			<property name="maxPoolSize" value="${c3p0.pool.maxPoolSize}"/>
+			<!-- 连接池中保留的最小连接数。默认为15 -->
+			<property name="minPoolSize" value="${c3p0.pool.minPoolSize}" />
+			<!-- 初始化时创建的连接数，应在minPoolSize与maxPoolSize之间取值。默认为3 -->
+			<property name="initialPoolSize" value="${c3p0.pool.initialPoolSize}"/>
+			<!-- 定义在从数据库获取新连接失败后重复尝试获取的次数，默认为30 -->
+			<property name="acquireIncrement" value="${c3p0.pool.acquireIncrement}"/>
+		</bean>
+		
+		<!-- 4.SessionFactory -->
+		<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"/>
+			<!-- 整合mybatis，包扫描mapper文件 -->
+			<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
+			<property name="mapperLocations" value="classpath:com/fruitslaesplatform/mapper/*.xml"></property>
+		</bean>
+		
+		<!-- 5.事务管理 -->
+		<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"/>
+		</bean>
+		
+		<!-- 事务通知 -->
+		<tx:advice id="txAdivce" transaction-manager="txManager">
+			<tx:attributes>
+				<tx:method name="insert*" propagation="REQUIRED"/>
+				<tx:method name="update*" propagation="REQUIRED"/>
+				<tx:method name="delete*" propagation="REQUIRED"/>
+				<tx:method name="save*" propagation="REQUIRED"/>
+				
+				<tx:method name="find*" read-only="false"/>
+				<tx:method name="get*" read-only="false"/>
+				<tx:method name="view*" read-only="false"/>
+			</tx:attributes>
+		</tx:advice>
+		
+		<aop:config>
+			<aop:pointcut expression="execution(* com.fruitslaesplatform.service.*.*(..))" id="txPointcut"/>
+			<aop:advisor advice-ref="txAdivce" pointcut-ref="txPointcut"/>
+		</aop:config>
+		
+		<!-- 开启事务注解驱动 -->
+	    <!-- <tx:annotation-driven transaction-manager="txManager" /> -->
+	
+</beans>

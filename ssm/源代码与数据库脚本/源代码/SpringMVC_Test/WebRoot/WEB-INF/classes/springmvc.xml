@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+		
+		<!-- Handler -->
+		<!-- <bean name="/queryFruits_test.action" class="cn.com.mvc.controller.FruitsControllerTest" /> -->
+
+		<!-- 处理器映射器 -->
+        <!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" /> -->
+        
+        <!-- <bean class="cn.com.mvc.controller.FruitsControllerTest3"></bean> -->
+        
+        <context:component-scan base-package="cn.com.mvc.controller"></context:component-scan>  
+        
+        <!-- <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		  <property name="mappings">
+		    <props>
+		      <prop key="/queryFruits_test1.action">fruitsController</prop>
+		      <prop key="/queryFruits_test2.action">fruitsController</prop>
+		      <prop key="/queryFruits_test3.action">fruitsController2</prop>
+		    </props>
+		  </property>
+		</bean>
+		<bean id="fruitsController" class="cn.com.mvc.controller.FruitsControllerTest" />
+		<bean id="fruitsController2" class="cn.com.mvc.controller.FruitsControllerTest2" /> -->
+
+        <!-- 处理器适配器 -->
+		<!-- <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" /> -->
+		<!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>  -->
+		
+		<!-- 视图解析器 -->
+		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+		   <property name="prefix" value="/WEB-INF/jsp"/>  
+		   <property name="suffix" value=".jsp"></property>  
+		</bean>
+		
+		<!-- 注解映射器 -->  
+		<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
+		<!-- 注解适配器 -->  
+		<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> --> 
+
+		<mvc:annotation-driven conversion-service="conversionService" validator="validator">
+		</mvc:annotation-driven>  
+		
+		<mvc:default-servlet-handler/>
+		
+		<bean id="UserValidator" class="cn.com.mvc.validator.UserValidator"/>   
+		
+		<bean id="conversionService"    
+				class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>   
+		
+		<!-- <bean class="org.springframework.web.servlet.view.XmlViewResolver">  
+		   <property name="location" value="/WEB-INF/config/views.xml"/>  
+		   <property name="order" value="1"/>  
+		</bean>   -->   
+		<!-- 校验器 -->  
+		<bean id="validator"  
+		    class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">  
+		    <!-- 校验器-->  
+		    <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />  
+		    <!-- 指定校验使用的资源文件，在文件中配置校验的错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties -->   
+		    <property name="validationMessageSource" ref="messageSource" />  
+		</bean>  
+		<!-- 校验错误信息配置文件 -->  
+		<bean id="messageSource"  
+		    class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+		    <!-- 资源文件名-->  
+		    <property name="basenames">     
+		         <list>      
+		           <value>classpath:ProductValidationMessages</value>  
+		         </list>     
+		    </property>  
+		    <!-- 资源文件编码格式 -->  
+		    <property name="fileEncodings" value="utf-8" />  
+		    <!-- 对资源文件内容缓存时间，单位秒 -->  
+		    <property name="cacheSeconds" value="120" />  
+		</bean>   
+         
+        <bean class="cn.com.mvc.exception.UserExceptionResolver"></bean>  
+        
+        <!-- 拦截器 -->  
+		<mvc:interceptors>  
+		    <!-- 多个拦截器，顺序执行 -->  
+		    <mvc:interceptor>  
+		        <!-- /**表示所有url包括子url路径 -->  
+		        <mvc:mapping path="/**"/>  
+		        <bean class="cn.com.mvc.interceptor.LoginInterceptor"/>  
+		    </mvc:interceptor>  
+		</mvc:interceptors> 
+    	
+    	<!-- 文件上传 -->
+		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+			<!-- 设置上传文件的最大尺寸为5MB -->
+			<property name="maxUploadSize">
+				<value>5242880</value>
+			</property>
+		</bean>
+		
+		<!--注解适配器 -->  
+		<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
+		   <property name="messageConverters">  
+		       <list>  
+		           <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>  
+		       </list>  
+		   </property>  
+		</bean>   -->
+</beans>

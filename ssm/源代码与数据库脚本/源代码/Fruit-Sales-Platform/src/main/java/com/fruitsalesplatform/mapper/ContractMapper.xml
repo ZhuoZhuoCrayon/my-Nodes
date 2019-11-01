@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+<mapper namespace="com.fruitslaesplatform.mapper.ContractMapper">  
+    <!-- resultMap映射 -->
+	<resultMap type="com.fruitslaesplatform.entity.ContractVo" id="ContractVoRM">
+		<!-- 主键 -->
+		<id property="contractId" column="contractid" jdbcType="VARCHAR" />
+		<!-- 一般属性 -->
+		<result property="barCode" column="barcode" jdbcType="VARCHAR" />
+		<result property="type" column="type" jdbcType="INTEGER" />
+		<result property="retailerName" column="retailer_name" jdbcType="VARCHAR"/>
+		<result property="createTime" column="createtime"/>
+	</resultMap>
+	
+	<!-- sql片段 -->  
+	<sql id="query_contract_where">  
+	    <if test="barCode != null">and t.barcode = #{barCode}</if>
+		<if test="type != null"> and t.type like #{type}</if>
+		<if test="startTime != null"> <![CDATA[ and t.createtime >= to_date(#{startTime},'yyyy-MM-dd HH:mm:ss')]]></if>
+		<if test="endTime != null"> <![CDATA[ and t.createtime <= to_date(#{endTime},'yyyy-MM-dd HH:mm:ss')]]></if>
+	</sql> 
+	
+	<!-- 查询 -->
+	<select id="findContractList" parameterType="java.util.HashMap" resultMap="ContractVoRM">
+		select t.contractid,t.barcode,t.createtime,t.type,
+		r.name as retailer_name
+		from contract t left join retailer r 
+		on t.retailerid = r.retailerid
+		where 1=1
+		<include refid="query_contract_where"></include><!-- sql片段引入 --> 
+		<if test="retailerName != null"> and r.name like #{retailerName}</if>
+		<if test="startPage != null and pageSize != null">LIMIT #{startPage},#{pageSize}</if><!-- 分页 -->
+	</select>
+	
+	<!-- resultMap映射 -->
+	<resultMap type="com.fruitslaesplatform.entity.Contract" id="ContractRM">
+		<!-- 主键 -->
+		<id property="contractId" column="contractid" jdbcType="VARCHAR" />
+		<!-- 一般属性 -->
+		<result property="barCode" column="barcode" jdbcType="VARCHAR" />
+		<result property="type" column="type" jdbcType="INTEGER" />
+		<result property="createTime" column="createtime"/>
+		
+		<!-- 零售商信息，一个合同对应一个零售商信息 -->
+		<association property="retailer" javaType="com.fruitslaesplatform.entity.Retailer">  
+            <id property="retailerId" column="retailerid" jdbcType="VARCHAR" />
+            <result property="name" column="retailer_name"/>
+			<result property="telphone" column="telphone"/>
+			<result property="address" column="address"/>
+        </association>  
+		
+		<!--货物信息，一个合同对应多个货物-->  
+	    <collection property="commoditiesList" ofType="com.fruitslaesplatform.entity.CommoditiesVo">  
+			<id property="fruitId" column="fruitid" jdbcType="VARCHAR" />
+			<result property="name" column="fruit_name"/>
+			<result property="price" column="price" jdbcType="DOUBLE"/>
+			<result property="locality" column="locality"/> 
+			<result property="number" column="number"/> 
+			
+			<collection property="accessoryList" ofType="com.fruitslaesplatform.entity.Accessory">  
+				<result property="name" column="accessory_name"/>
+				<result property="price" column="accessory_price" jdbcType="DOUBLE"/>
+	        </collection>
+	    </collection>  
+	</resultMap>
+	
+	<!-- 查询一个 -->
+	<select id="get" parameterType="string" resultMap="ContractRM">
+		SELECT t.contractid,t.barcode,t.createtime,t.type,
+		r.retailerid,r.name AS retailer_name,r.telphone,r.address,
+		mdl.fruitid,mdl.fruit_name,mdl.price,mdl.locality,mdl.number,
+		mdl.accessory_name,mdl.accessory_price
+		FROM (
+    		SELECT c.fruitid,c.name AS fruit_name,c.price,c.locality,m.number,
+    		a.name AS accessory_name, a.price AS accessory_price
+    		FROM middle_tab m LEFT JOIN commodities c
+    		ON m.fruitid = c.fruitid
+    		LEFT JOIN accessory a ON a.fruitid = m.fruitid
+    		WHERE  m.contractid = #{contractId}
+		) mdl,contract t LEFT JOIN retailer r 
+		ON t.retailerid = r.retailerid
+		WHERE t.contractid = #{contractId}
+	</select>
+
+    <!-- 新增购销合同 -->
+	<insert id="insert" parameterType="com.fruitslaesplatform.entity.Contract">
+		insert into contract
+		(CONTRACTID,RETAILERID,BARCODE,TYPE,CREATETIME)
+		values
+		(	#{contractId,jdbcType=VARCHAR},
+		    #{retailer.retailerId,jdbcType=VARCHAR},
+			#{barCode,jdbcType=VARCHAR},
+			#{type,jdbcType=INTEGER},
+			#{createTime,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 中间表插入 -->
+	<insert id="insertMiddleTab" parameterType="com.fruitslaesplatform.entity.MiddleTab">
+		insert into middle_tab
+		(MIDDLEID,CONTRACTID,FRUITID,NUMBER)
+		values
+		(	#{middleId,jdbcType=VARCHAR},
+		    #{contractId,jdbcType=VARCHAR},
+			#{fruitId,jdbcType=VARCHAR},
+			#{number,jdbcType=INTEGER}
+		)
+	</insert>
+	
+	<!-- 获取最大合同编号 -->
+	<select id="getMaxBarCode" resultType="java.lang.String">
+	    select MAX(barcode) from contract
+	</select>
+	
+	<!-- 统计数量 -->
+	<select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+	    select COUNT(*) from contract t
+		where 1=1
+		<include refid="query_contract_where"></include><!-- sql片段引入 --> 
+	</select>
+	
+	<!-- 修改语句 -->
+	<update id="update" parameterType="com.fruitslaesplatform.entity.Contract">
+		update contract
+		<set>
+	 	   <if test="retailerId != null">retailerid=#{retailerId},</if>
+	 	   <if test="type != null">type=#{type}</if>
+		</set>
+		WHERE contractid = #{contractId}
+	</update>
+	
+	<!-- 删除合同下所有货物信息 -->
+	<delete id="deleteMiddleTab" parameterType="string">
+		delete from middle_tab
+		where contractid=#{contractId}
+	</delete>
+	
+	<!-- 删除合同 -->
+	<delete id="deleteById" parameterType="string">
+		delete from contract
+		where contractid=#{contractId}
+	</delete>
+</mapper>  
