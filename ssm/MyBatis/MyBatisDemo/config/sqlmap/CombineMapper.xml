@@ -24,15 +24,88 @@ ${}可以将外部的字符串拼到SQL中
         <result property="loc" column="loc"/>
     </resultMap>
 
+
     <!--2：实体类嵌套子类现象-多列转子类-->
+    <resultMap id="deptInfo" type="cn.com.mybatis.po.DeptInfo">
+        <id property="empno" column="empno"/>
+        <association property="simpleEmp" column="cn.com.mybatis.po.SimpleEmp">
+            <id property="empno" column="empno"/>
+            <result property="ename" column="ename"/>
+            <result property="job" column="job"/>
+        </association>
+        <association property="dept" column="cn.com.mybatis.po.Dept">
+            <id property="deptno" column="deptno"/>
+            <result property="dname" column="dname"/>
+            <result property="loc" column="loc"/>
+        </association>
+    </resultMap>
+
+
+    <!--dept的resultMap已定义，可以直接引入块-->
+    <resultMap id="dept" type="cn.com.mybatis.po.Dept">
+        <id property="deptno" column="deptno"/>
+        <result property="dname" column="dname"/>
+        <result property="loc" column="loc"/>
+    </resultMap>
+
+    <resultMap id="deptInfo1" type="cn.com.mybatis.po.DeptInfo">
+        <id property="empno" column="empno"/>
+        <association property="simpleEmp" column="cn.com.mybatis.po.SimpleEmp">
+            <id property="empno" column="empno"/>
+            <result property="ename" column="ename"/>
+            <result property="job" column="job"/>
+        </association>
+        <association property="dept" javaType="cn.com.mybatis.po.Dept" resultMap="dept"/>
+    </resultMap>
+
 
     <!--3：实体类内存在列表-->
+    <!--分两步查找，先找非列表项，然后再通过collection标签调用另外一个select语句，查找列表-->
+    <!--ofType表示列表的元素类型-->
+    <resultMap id="deptMember" type="cn.com.mybatis.po.DeptMember">
+        <id property="deptno" column="deptno"/>
+        <result property="dname" column="dname"/>
+        <collection property="empList" select="getEmpList" column="deptno" ofType="cn.com.mybatis.po.Emp"/>
+    </resultMap>
 
+    <!--关联查找测试-->
+
+    <resultMap id="deptMap" type="java.util.HashMap">
+        <id property="empno" column="empno"/>
+        <result property="ename" column="ename"/>
+        <result property="deptno" column="deptno"/>
+        <collection property="empList" select=" getEmpList" column="deptno" ofType="cn.com.mybatis.po.Emp"/>
+    </resultMap>
+
+
+    <!-- end -->
     <select id="getEmpInfo" resultMap="empInfo">
         SELECT EMPNO,ENAME,DNAME,LOC FROM emp
         INNER JOIN dept
         ON emp.DEPTNO = dept.DEPTNO;
     </select>
 
+    <select id="getDeptInfo" parameterType="int" resultMap="deptInfo1">
+        SELECT EMPNO,ENAME,JOB,emp.DEPTNO,DNAME,LOC FROM emp
+        INNER JOIN dept
+        ON emp.DEPTNO = dept.DEPTNO
+        WHERE EMPNO = #{id};
+    </select>
+
+    <!-- s -->
+    <select id="getDeptMember" parameterType="int" resultMap="deptMember">
+        SELECT DEPTNO,DNAME FROM dept
+        WHERE DEPTNO = #{deptno};
+    </select>
+    <select id="getEmpList" parameterType="int" resultType="cn.com.mybatis.po.Emp">
+        SELECT * FROM emp
+        WHERE DEPTNO = #{deptno};
+    </select>
+    <!-- end -->
+
+    <select id="getUserDeptById" parameterType="int" resultMap="deptMap">
+        SELECT EMPNO,ENAME,DEPTNO FROM emp
+        WHERE EMPNO = #{empno};
+    </select>
 
 </mapper>
