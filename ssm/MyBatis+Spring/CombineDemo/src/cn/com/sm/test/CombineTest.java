@@ -1,6 +1,6 @@
 package cn.com.sm.test;
 
-import cn.com.sm.dao.EmployeeDao;
+import cn.com.sm.mapper.EmployeesMapper;
 import cn.com.sm.po.Employee;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,9 +20,9 @@ public class CombineTest {
 
     @Test
     public void testSelectAll() throws Exception{
-        EmployeeDao employeeDao = (EmployeeDao) applicationContext.getBean("EmployeeDao");
-        List<Employee> employeeList = employeeDao.selectAll();
-
+        EmployeesMapper employeesMapper = (EmployeesMapper)applicationContext.
+                getBean("employeesMapper");
+        List<Employee> employeeList = employeesMapper.selectAll();
         for(Employee employee:employeeList){
             System.out.println(employee.toString());
         }

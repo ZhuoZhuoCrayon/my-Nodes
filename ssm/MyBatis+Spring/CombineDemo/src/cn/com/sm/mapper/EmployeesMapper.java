@@ -1,9 +1,10 @@
-package cn.com.sm.dao;
+package cn.com.sm.mapper;
+
 
 import cn.com.sm.po.Employee;
 
 import java.util.List;
 
-public interface EmployeeDao {
+public interface EmployeesMapper {
     public List<Employee> selectAll() throws Exception;
 }
