@@ -18,12 +18,4 @@
     <typeAliases>
         <package name="cn.com.sm.po"/>
     </typeAliases>
-
-    <!-- 加载映射文件 -->
-    <mappers>
-        <!-- 通过resource方法一次加载一个映射文件 -->
-        <mapper resource="sqlmap/EmployeesMapper.xml"/>
-        <!-- 批量加载mapper
-        <package name="cn.com.sm.mapper"/>-->
-    </mappers>
 </configuration>
