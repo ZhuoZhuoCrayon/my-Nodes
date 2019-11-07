@@ -1,9 +1,18 @@
 package cn.com.sm.po;
-public class Employee {
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     public String eid;
     public String ename;
     public String city;
 
+    Employee(){}
+    Employee(String eid,String ename,String city){
+        this.eid = eid;
+        this.ename = ename;
+        this.city = city;
+    }
     public void setEid(String eid) {
         this.eid = eid;
     }

@@ -5,7 +5,7 @@
          version="4.0">
     <display-name>Archetype Created Web Application</display-name>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
     <!-- 配置spring的字符编码过滤器，保证request请求的中文字符不会乱码（注意这个过滤器要放到最前面） -->
@@ -48,6 +48,6 @@
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <!-- *.do 表示我们请求映射路径后缀为.do，  我们也可以设置为/ -->
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 </web-app>

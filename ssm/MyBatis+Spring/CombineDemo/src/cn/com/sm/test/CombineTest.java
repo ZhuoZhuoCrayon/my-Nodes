@@ -22,7 +22,7 @@ public class CombineTest {
     public void testSelectAll() throws Exception{
         EmployeesMapper employeesMapper = (EmployeesMapper)applicationContext.
                 getBean("employeesMapper");
-        List<Employee> employeeList = employeesMapper.selectAll();
+        List<Employee> employeeList = employeesMapper.findAll();
         for(Employee employee:employeeList){
             System.out.println(employee.toString());
         }

@@ -6,5 +6,5 @@ import cn.com.sm.po.Employee;
 import java.util.List;
 
 public interface EmployeesMapper {
-    public List<Employee> selectAll() throws Exception;
+    public List<Employee> findAll() throws Exception;
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
+    <title>vue-resource</title>
+    <script src="static/vue/vue.js"></script>
+    <script src="static/vue/vue-resource-1.5.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="get-request" @click="getInfo">
+    <input type="button" value="post" @click="postInfo">
+    <input type="button" value="jsonp" @click="jsonpInfo">
+</div>
+<script>
+    //设置全局表单提交格式
+    Vue.http.options.emulateJSON = true;
+    var vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            getInfo(){
+                this.$http.get('/Employees/index.do').then(function (result) {
+                    //通过result.body拿到请求数据
+                    console.log(result.body)
+
+                })
+            },
+            postInfo(){
+                //通过post方法的第三个参数，设置内容为普通表单数据
+                this.$http.post('http://www.liulongbin.top:3005/api/post',{},{emulateJSON:true}).then(result=>{
+                    console.log(result.body);
+            })
+            },
+            jsonpInfo(){
+                //获取json数据
+                this.$http.jsonp('http://www.liulongbin.top:3005/api/jsonp').then(result=>{
+                    console.log(result.body);
+            })
+            }
+        }
+    })
+</script>
+</body>
+</html>
