@@ -8,7 +8,7 @@ public interface BaseService<T> {
      * 获取表单
      * @return
      */
-    List<T> findAll() throws Exception;
+    List<T> findAll();
 
     /**
      * 根据id查询

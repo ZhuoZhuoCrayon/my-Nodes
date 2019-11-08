@@ -7,4 +7,34 @@
     <select id="findAll" resultType="cn.com.sm.po.Employee">
         SELECT * FROM employees;
     </select>
+
+
+    <select id="findById" parameterType="java.lang.String" resultType="cn.com.sm.po.Employee">
+        SELECT * FROM employees
+        WHERE eid = #{eid};
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Employee">
+        INSERT INTO employees
+        VALUE (#{eid},#{ename},#{city});
+    </insert>
+
+    <update id="update" parameterType="cn.com.sm.po.Employee">
+        UPDATE employees
+        <set>
+            <if test="ename!=null">
+                ename = #{ename},
+            </if>
+            <if test="city!=null">
+                city = #{city},
+            </if>
+        </set>
+        WHERE eid = #{eid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM employees
+        WHERE eid = #{eid};
+    </delete>
+
 </mapper>

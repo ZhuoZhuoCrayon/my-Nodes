@@ -14,27 +14,30 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
     @Autowired
     private EmployeesMapper employeesMapper;
     @Override
-    public List<Employee> findAll() throws Exception {
+    public List<Employee> findAll(){
         return employeesMapper.findAll();
     }
 
     @Override
     public List<Employee> findById(String id) {
-        return null;
+        return employeesMapper.findById(id);
     }
 
     @Override
     public void insert(Employee employee) {
-
+        employeesMapper.insert(employee);
     }
 
     @Override
     public void update(Employee employee) {
-
+        employeesMapper.insert(employee);
     }
 
     @Override
     public void delete(String... ids) {
+        for(String id:ids){
+            employeesMapper.delete(id);
+        }
 
     }
 }
