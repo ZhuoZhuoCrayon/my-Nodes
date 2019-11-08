@@ -49,5 +49,6 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <!-- *.do 表示我们请求映射路径后缀为.do，  我们也可以设置为/ -->
         <url-pattern>*.do</url-pattern>
+
     </servlet-mapping>
 </web-app>

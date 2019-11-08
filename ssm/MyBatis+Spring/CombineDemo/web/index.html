@@ -1,49 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatitle" content="ie=edge">
-    <title>vue-resource</title>
-    <script src="static/vue/vue.js"></script>
-    <script src="static/vue/vue-resource-1.5.0.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
 </head>
 <body>
 <div id="app">
-    <input type="button" value="get-request" @click="getInfo">
-    <input type="button" value="post" @click="postInfo">
-    <input type="button" value="jsonp" @click="jsonpInfo">
+    <div class="header">
+        <el-menu theme="dark" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <div class="logo">
+                <img src="static/img/logo1.png" alt="element-logo" class="nav-logo">
+            </div>
+            <el-submenu index="3" style="position: fixed;right: 10px;top: 100px">
+                <template slot="title">{{username}}(系统管理员)</template>
+                <el-menu-item index="2-1" @click="signOut">退出登录</el-menu-item>
+            </el-submenu>
+            <!--<div></div>-->
+        </el-menu>
+        <div class="line"></div>
+    </div>
+    <div class="leftMenu">
+        <el-menu :default-active="onRoutes" theme="dark" class="el-menu-vertical-demo" @open="handleOpen"
+                 @close="handleClose" router>
+            <el-menu-item index="/home/"><i class="el-icon-view"></i>Time</el-menu-item>
+            <el-menu-item index="/home/basetable"><i class="el-icon-tickets"></i>Employees</el-menu-item>
+            <el-menu-item index="/home/charts"><i class="el-icon-date"></i>Customers</el-menu-item>
+            <el-menu-item index="/home/register"><i class="el-icon-plus"></i>Suppliers</el-menu-item>
+            <el-menu-item index="/home/mainActive"><i class="el-icon-menu"></i>Products</el-menu-item>
+            <el-menu-item index="/home/markdown"><i class="el-icon-edit"></i>Purchase</el-menu-item>
+            <el-menu-item index="/home/markdown"><i class="el-icon-edit"></i>Logs</el-menu-item>
+        </el-menu>
+    </div>
+
+
+    <div class="basetable" v-loading="loading" element-loading-text="拼命加载中">
+        <div class="selectMenu">
+            <el-date-picker v-model="value6" type="daterange" placeholder="选择日期范围">
+            </el-date-picker>
+            <el-button type="primary" @click="add">新增</el-button>
+        </div>
+        <div class="tableMain">
+            <el-table :data="tableData" height="600px" stripe>
+                <el-table-column :prop="head" :label="head" v-for="(head, key) in header" :key="head">
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template scope="scope">
+                        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑
+                        </el-button>
+                        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
+                        </el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </div>
+        <el-dialog title="用户信息" :visible.sync="dialogFormVisible">
+
+            <el-form :model="form">
+                <el-form-item :label="head" :lable-width="formLabelWidth" v-for="(head, key) in header">
+                    <el-input v-model="form[head]" auto-complete="off"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel">取 消</el-button>
+                <el-button type="primary" @click="update">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+
 </div>
+
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <script>
-    //设置全局表单提交格式
-    Vue.http.options.emulateJSON = true;
-    var vm = new Vue({
+    new Vue({
         el:'#app',
         data:{
+            loading: true,
+            tableData: [{
+                date: '2017-05-01',
+                name: '士兵76',
+                region: '男',
+                address: '国王大道',
+                city: ''
 
+            }, {
+                date: '2017-05-02',
+                name: '源氏',
+                region: '男',
+                address: '尼泊尔',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '黑百合',
+                region: '女',
+                address: '沃斯卡亚工业区',
+                city: ''
+            }, {
+                date: '2017-05-04',
+                name: '猎空',
+                region: '女',
+                address: '国王大道',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '查莉娅',
+                region: '女',
+                address: '沃斯卡亚工业区',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '禅雅塔',
+                region: '男',
+                address: '尼泊尔',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-04',
+                name: '猎空',
+                region: '女',
+                address: '国王大道',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '查莉娅',
+                region: '女',
+                address: '沃斯卡亚工业区',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '禅雅塔',
+                region: '男',
+                address: '尼泊尔',
+                city: ''
+            }, {
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            }],
+            cityList: [
+                { name: '国王大道' },
+                { name: '尼泊尔' },
+                { name: '沃斯卡亚工业区' },
+                { name: '花村' },
+                { name: '尼泊尔' },
+                { name: '月球基地' },
+            ],
+            header: ['date','name','region','address'],
+            dialogFormVisible: false,
+            formLabelWidth: '80px',
+            form: {},
+            value6: '',
+        },
+        created() {
+            setTimeout(() => {
+                this.loading = false
+            }, 1000)
         },
         methods:{
-            getInfo(){
-                this.$http.get('/Employees/index.do').then(function (result) {
-                    //通过result.body拿到请求数据
-                    console.log(result.body)
-
+            showTime() {
+                this.$alert(this.value6, '起止时间', {
+                    confirmButtonText: '确定',
+                    callback: action => {
+                        this.$message({
+                            type: 'info',
+                            message: '已显示'
+                        })
+                    }
                 })
             },
-            postInfo(){
-                //通过post方法的第三个参数，设置内容为普通表单数据
-                this.$http.post('http://www.liulongbin.top:3005/api/post',{},{emulateJSON:true}).then(result=>{
-                    console.log(result.body);
-            })
+            add() {
+                this.form = {
+                    date: '',
+                    name: '',
+                    region: '',
+                    address: ''
+                };
+                this.dialogFormVisible = true
             },
-            jsonpInfo(){
-                //获取json数据
-                this.$http.jsonp('http://www.liulongbin.top:3005/api/jsonp').then(result=>{
-                    console.log(result.body);
-            })
-            }
+            update() {
+                //this.form.date = reformat(this.form.date)
+                this.tableData.push(this.form);
+                this.dialogFormVisible = false
+            },
+            handleEdit(index, row) {
+                this.form = this.tableData[index]
+                this.currentIndex = index
+                this.dialogFormVisible = true
+            },
+            handleDelete(index, row) {
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.tableData.splice(index, 1)
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    })
+                })
+            },
+            cancel() {
+                this.dialogFormVisible = false
+            },
         }
     })
 </script>
-</body>
+
 </html>
+
+

@@ -1,0 +1,36 @@
+.header{
+    width: 100%;
+    position: fixed
+}
+.el-menu-demo{
+    width: 100%;
+    min-width: 500px;
+    height: 150px;
+    border-radius: 0;
+    display: flex
+}
+.logo{
+    outline: none;
+    flex: 1;
+    position: relative;
+    top: 10px;
+    left: 0px
+}
+
+.leftMenu{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    top: 200px;
+    width: 250px;
+    left: 0px
+}
+
+.basetable{
+    position: fixed;
+    top: 200px;
+    left: 300px;
+    right:50px;
+}
+
+
