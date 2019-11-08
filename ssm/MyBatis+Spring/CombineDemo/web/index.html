@@ -10,53 +10,59 @@
 <body>
 <div id="app">
     <div class="header">
-        <el-menu theme="dark" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu theme="dark" class="el-menu-demo" mode="horizontal">
             <div class="logo">
                 <img src="static/img/logo1.png" alt="element-logo" class="nav-logo">
             </div>
             <el-submenu index="3" style="position: fixed;right: 10px;top: 100px">
-                <template slot="title">{{username}}(系统管理员)</template>
-                <el-menu-item index="2-1" @click="signOut">退出登录</el-menu-item>
+                <template slot="title">{{username}}(System Manage)</template>
+                <el-menu-item index="2-1" @click="signOut">Sign Out</el-menu-item>
             </el-submenu>
             <!--<div></div>-->
         </el-menu>
         <div class="line"></div>
     </div>
     <div class="leftMenu">
-        <el-menu :default-active="onRoutes" theme="dark" class="el-menu-vertical-demo" @open="handleOpen"
-                 @close="handleClose" router>
-            <el-menu-item index="/home/"><i class="el-icon-view"></i>Time</el-menu-item>
-            <el-menu-item index="/home/basetable"><i class="el-icon-tickets"></i>Employees</el-menu-item>
-            <el-menu-item index="/home/charts"><i class="el-icon-date"></i>Customers</el-menu-item>
-            <el-menu-item index="/home/register"><i class="el-icon-plus"></i>Suppliers</el-menu-item>
-            <el-menu-item index="/home/mainActive"><i class="el-icon-menu"></i>Products</el-menu-item>
-            <el-menu-item index="/home/markdown"><i class="el-icon-edit"></i>Purchase</el-menu-item>
-            <el-menu-item index="/home/markdown"><i class="el-icon-edit"></i>Logs</el-menu-item>
-        </el-menu>
+        <el-tabs v-model="activeName" tab-position="left" type="border-card" style="height: 670px" @tab-click="handleClick">
+            <el-tab-pane label="date" name="1"><i class="el-icon-date"></i>Date</el-tab-pane>
+            <el-tab-pane label="employees" name="2"><i class="el-icon-user"></i>Employees</el-tab-pane>
+            <el-tab-pane label="customers" name="3"><i class="el-icon-s-custom"></i>Customers</el-tab-pane>
+            <el-tab-pane label="suppliers" name="4"><i class="el-icon-user-solid"></i>Suppliers</el-tab-pane>
+            <el-tab-pane label="products" name="5"><i class="el-icon-menu"></i>Products</el-tab-pane>
+            <el-tab-pane label="purchases" name="6"><i class="el-icon-document"></i>Purchases</el-tab-pane>
+            <el-tab-pane label="logs" name="7"><i class="el-icon-collection-tag"></i>Logs</el-tab-pane>
+        </el-tabs>
     </div>
 
 
-    <div class="basetable" v-loading="loading" element-loading-text="拼命加载中">
-        <div class="selectMenu">
-            <el-date-picker v-model="value6" type="daterange" placeholder="选择日期范围">
-            </el-date-picker>
-            <el-button type="primary" @click="add">新增</el-button>
+    <div class="basetable" v-loading="loading" element-loading-text="Loading...">
+        <div style="margin-top: 15px; width: 50%">
+            <el-input placeholder="Please enter the search content" v-model="searchKeyword" class="input-with-select" >
+                <el-select v-model="searchArr" slot="prepend" clearable placeholder="Lookup attribute" style="width: 150px">
+                    <el-option label="all" value="1"></el-option>
+                    <el-option :label="head" :value="key+1" v-for="(head, key) in header"></el-option>
+                </el-select>
+                <el-button slot="append" icon="el-icon-search">Search</el-button>
+                <el-button slot="append" icon="el-icon-plus" @click="add">Add</el-button>
+            </el-input>
         </div>
+
         <div class="tableMain">
-            <el-table :data="tableData" height="600px" stripe>
+            <el-table :data="tableData" height="560" stripe>
                 <el-table-column :prop="head" :label="head" v-for="(head, key) in header" :key="head">
                 </el-table-column>
-                <el-table-column label="操作">
+                <el-table-column label="options">
                     <template scope="scope">
-                        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑
+                        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit
                         </el-button>
-                        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
+                        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete
                         </el-button>
                     </template>
                 </el-table-column>
             </el-table>
         </div>
-        <el-dialog title="用户信息" :visible.sync="dialogFormVisible">
+        <!--:append-to-body='true解决弹出框被幕布遮挡的bug-->
+        <el-dialog title="Item Information" :visible.sync="dialogFormVisible"  :append-to-body='true'>
 
             <el-form :model="form">
                 <el-form-item :label="head" :lable-width="formLabelWidth" v-for="(head, key) in header">
@@ -64,12 +70,11 @@
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click="cancel">取 消</el-button>
-                <el-button type="primary" @click="update">确 定</el-button>
+                <el-button @click="cancel">Cancel</el-button>
+                <el-button type="primary" @click="update">Confirm</el-button>
             </div>
         </el-dialog>
     </div>
-
 </div>
 
 </body>
@@ -80,89 +85,119 @@
 <script>
     new Vue({
         el:'#app',
+
         data:{
             loading: true,
             tableData: [{
-                date: '2017-05-01',
-                name: '士兵76',
-                region: '男',
-                address: '国王大道',
-                city: ''
-
-            }, {
-                date: '2017-05-02',
-                name: '源氏',
-                region: '男',
-                address: '尼泊尔',
-                city: ''
-            }, {
-                date: '2017-05-03',
-                name: '黑百合',
-                region: '女',
-                address: '沃斯卡亚工业区',
-                city: ''
-            }, {
-                date: '2017-05-04',
-                name: '猎空',
-                region: '女',
-                address: '国王大道',
-                city: ''
-            }, {
-                date: '2017-05-03',
-                name: '查莉娅',
-                region: '女',
-                address: '沃斯卡亚工业区',
-                city: ''
-            }, {
-                date: '2017-05-03',
-                name: '禅雅塔',
-                region: '男',
-                address: '尼泊尔',
-                city: ''
-            }, {
                 date: '2017-05-03',
                 name: '半藏',
                 region: '女',
                 address: '花村',
                 city: ''
             },{
-                date: '2017-05-04',
-                name: '猎空',
-                region: '女',
-                address: '国王大道',
-                city: ''
-            }, {
-                date: '2017-05-03',
-                name: '查莉娅',
-                region: '女',
-                address: '沃斯卡亚工业区',
-                city: ''
-            }, {
-                date: '2017-05-03',
-                name: '禅雅塔',
-                region: '男',
-                address: '尼泊尔',
-                city: ''
-            }, {
                 date: '2017-05-03',
                 name: '半藏',
                 region: '女',
                 address: '花村',
                 city: ''
-            }],
-            cityList: [
-                { name: '国王大道' },
-                { name: '尼泊尔' },
-                { name: '沃斯卡亚工业区' },
-                { name: '花村' },
-                { name: '尼泊尔' },
-                { name: '月球基地' },
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },{
+                date: '2017-05-03',
+                name: '半藏',
+                region: '女',
+                address: '花村',
+                city: ''
+            },
             ],
             header: ['date','name','region','address'],
             dialogFormVisible: false,
             formLabelWidth: '80px',
             form: {},
-            value6: '',
+            searchKeyword:"",
+            searchArr:"",
+            activeName:"1",
+        },
+        computed: {
+            onRoutes() {
+                return this.$route.path.replace('/', '');
+            }
         },
         created() {
             setTimeout(() => {
@@ -195,6 +230,22 @@
                 this.tableData.push(this.form);
                 this.dialogFormVisible = false
             },
+            search() {
+                return this.tableData.filter(item=>{
+                    return item.name.includes(this.searchKeyword);
+                })
+            },
+            handleOpen(key, keyPath) {
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                });
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
             handleEdit(index, row) {
                 this.form = this.tableData[index]
                 this.currentIndex = index
@@ -221,6 +272,10 @@
             cancel() {
                 this.dialogFormVisible = false
             },
+            handleClick(tab, event) {
+                //获取数据
+                console.log(tab.name,tab.label);
+            }
         }
     })
 </script>
