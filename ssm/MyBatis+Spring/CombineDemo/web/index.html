@@ -181,17 +181,22 @@
                         url:"/" + this.activeName + "/delete.do",
                         data:JSON.stringify(ids)
                     }).then(response => {
-                            console.log(response);
-                            this.getTable(this.activeName);
-                        })
-                        .catch(function (error) { // 请求失败处理
+                        this.getTable(this.activeName);
+                        if(response.data.success!=true){
+                            this.dialogErrorVisible = true;
+                            this.$message({
+                                type: 'error',
+                                message: response.data.message
+                            })
+                        }else {
+                            this.$message({
+                                type: 'success',
+                                message: response.data.message
+                            })
+                        }
+                    }).catch(function (error) { // 请求失败处理
                             this.dialogErrorVisible = true;
                         });
-
-                    this.$message({
-                        type: 'success',
-                        message: '删除成功!'
-                    })
                 }).catch(() => {
                     this.$message({
                         type: 'info',
