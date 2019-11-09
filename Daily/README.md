@@ -39,7 +39,7 @@
 | 11.05 | [304. Range Sum Query 2D - Immutable](LeetCode/20191105.md)  | `2DDP`  | 给定一个二维矩阵，计算其子矩形范围内元素的总和，该子矩阵的左上角为 (row1, col1) ，右下角为 (row2, col2)。 |          |
 | 11.06 | [105. Construct Binary Tree from Preorder and Inorder Traversal](LeetCode/20191106.md) | `DFS`   | 根据一棵树的前序遍历与中序遍历构造二叉树。                   | 迭代求解 |
 | 11.07 | [24. Swap Nodes in Pairs](LeetCode/20191107.md)              | `List`  | 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。   |          |
-|       |                                                              |         |                                                              |          |
+| 11.08 | [328. Odd Even Linked List](LeetCode/20191108.md)            | `List`  | 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起       |          |
 |       |                                                              |         |                                                              |          |
 |       |                                                              |         |                                                              |          |
 |       |                                                              |         |                                                              |          |
