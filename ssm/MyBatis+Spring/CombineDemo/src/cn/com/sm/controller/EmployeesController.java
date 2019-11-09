@@ -4,9 +4,7 @@ import cn.com.sm.po.Employee;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.impl.EmployeesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
@@ -53,7 +51,7 @@ public class EmployeesController {
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
-    public Result delete(@RequestBody String... ids){
+    public Result delete(@RequestBody String ...ids){
         try{
             employeesService.delete(ids);
             return new Result(true,"delete successfully");
