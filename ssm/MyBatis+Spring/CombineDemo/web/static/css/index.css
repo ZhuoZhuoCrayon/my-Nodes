@@ -1,6 +1,22 @@
+/*html body 的设置使得页面可以自适应浏览器*/
+html{
+    height: 100%;
+}
+body{
+    position: relative;
+    display: block;
+    min-height: 100%;
+}
+#id{
+    /*主页面，通过设置相对布局
+    给予子元素绝对布局的权限*/
+    position: relative;
+    min-width: 810px;
+    height: 100%;
+    min-height: 900px;
+}
 .header{
     width: 100%;
-    position: fixed
 }
 .el-menu-demo{
     width: 100%;
@@ -12,14 +28,12 @@
 .logo{
     outline: none;
     flex: 1;
-    position: relative;
     top: 10px;
     left: 0px
 }
 
 .leftMenu{
     display: block;
-    position: fixed;
     bottom: 0;
     top: 200px;
     width: 95%;
@@ -27,8 +41,8 @@
 }
 
 .basetable{
-    position: fixed;
-    top: 250px;
+    position: absolute;
+    top: 200px;
     left: 145px;
     right:150px;
 }

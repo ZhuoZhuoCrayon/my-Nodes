@@ -5,53 +5,56 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-
 </head>
 <body>
-<div id="app">
+<div id="app" style="display: block;">
     <div class="header">
         <el-menu theme="dark" class="el-menu-demo" mode="horizontal">
             <div class="logo">
                 <img src="static/img/logo1.png" alt="element-logo" class="nav-logo">
             </div>
-            <el-submenu index="3" style="position: fixed;right: 10px;top: 100px">
-                <template slot="title">{{username}}(System Manage)</template>
-                <el-menu-item index="2-1" @click="signOut">Sign Out</el-menu-item>
+            <el-submenu index="3" style="position: absolute; right: 10px;top: 100px">
+                <template slot="title">Cai (System Manage)</template>
+                <el-menu-item index="2-1">Sign Out</el-menu-item>
             </el-submenu>
             <!--<div></div>-->
         </el-menu>
         <div class="line"></div>
     </div>
     <div class="leftMenu">
-        <el-tabs v-model="activeName" tab-position="left" type="border-card" style="height: 670px" @tab-click="handleClick">
-            <el-tab-pane label="date" name="1"><i class="el-icon-date"></i>Date</el-tab-pane>
-            <el-tab-pane label="employees" name="2"><i class="el-icon-user"></i>Employees</el-tab-pane>
-            <el-tab-pane label="customers" name="3"><i class="el-icon-s-custom"></i>Customers</el-tab-pane>
-            <el-tab-pane label="suppliers" name="4"><i class="el-icon-user-solid"></i>Suppliers</el-tab-pane>
-            <el-tab-pane label="products" name="5"><i class="el-icon-menu"></i>Products</el-tab-pane>
-            <el-tab-pane label="purchases" name="6"><i class="el-icon-document"></i>Purchases</el-tab-pane>
-            <el-tab-pane label="logs" name="7"><i class="el-icon-collection-tag"></i>Logs</el-tab-pane>
+        <el-tabs v-model="activeName"  tab-position="left" type="border-card" style="height: 670px" @tab-click="handleClick">
+            <el-tab-pane label="date" name="date"><i class="el-icon-date"></i>Date</el-tab-pane>
+            <el-tab-pane label="employees" name="employees"><i class="el-icon-user"></i>Employees</el-tab-pane>
+            <el-tab-pane label="customers" name="customers"><i class="el-icon-s-custom"></i>Customers</el-tab-pane>
+            <el-tab-pane label="suppliers" name="suppliers"><i class="el-icon-user-solid"></i>Suppliers</el-tab-pane>
+            <el-tab-pane label="products" name="products"><i class="el-icon-menu"></i>Products</el-tab-pane>
+            <el-tab-pane label="purchases" name="purchases"><i class="el-icon-document"></i>Purchases</el-tab-pane>
+            <el-tab-pane label="logs" name="logs"><i class="el-icon-collection-tag"></i>Logs</el-tab-pane>
         </el-tabs>
     </div>
 
 
-    <div class="basetable" v-loading="loading" element-loading-text="Loading...">
-        <div style="margin-top: 15px; width: 50%">
-            <el-input placeholder="Please enter the search content" v-model="searchKeyword" class="input-with-select" >
-                <el-select v-model="searchArr" slot="prepend" clearable placeholder="Lookup attribute" style="width: 150px">
-                    <el-option label="all" value="1"></el-option>
-                    <el-option :label="head" :value="key+1" v-for="(head, key) in header"></el-option>
+    <div class="basetable" v-loading="loadings" element-loading-text="Loading...">
+        <div style="margin-top: 15px;margin-bottom: 5px; width: 50%">
+            <el-input placeholder="Please enter the search content" v-model="searchKeyword" class="input-with-select" style="min-width: 600px">
+                <el-select v-model="selectArr" slot="prepend" clearable placeholder="Lookup attribute" style="width: 180px">
+                    <el-option label="all" value="all"></el-option>
+                    <el-option :label="head" :value="head" v-for="(head, key) in header"></el-option>
                 </el-select>
-                <el-button slot="append" icon="el-icon-search">Search</el-button>
+                <el-button slot="append" icon="el-icon-search" @click="search">Search</el-button>
                 <el-button slot="append" icon="el-icon-plus" @click="add">Add</el-button>
             </el-input>
         </div>
 
         <div class="tableMain">
             <el-table :data="tableData" height="560" stripe>
-                <el-table-column :prop="head" :label="head" v-for="(head, key) in header" :key="head">
+                <el-table-column :prop="head" :label="head" v-for="(head, key) in header" :key="head" :width="columnWidth">
                 </el-table-column>
-                <el-table-column label="options">
+                <el-table-column
+                        label="options"
+                        fixed="right"
+                        :width="optionWidth"
+                >
                     <template scope="scope">
                         <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit
                         </el-button>
@@ -75,6 +78,16 @@
             </div>
         </el-dialog>
     </div>
+
+    <el-dialog
+            title="Server Error"
+            :visible.sync="dialogErrorVisible"
+            width="30%">
+        <span>The requested path does not exist!</span>
+        <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="dialogErrorVisible = false">Confirm</el-button>
+     </span>
+    </el-dialog>
 </div>
 
 </body>
@@ -82,147 +95,48 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <!-- 引入组件库 -->
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
+    axios.defaults.headers.post['Content-Type'] = 'application/json';
     new Vue({
         el:'#app',
 
         data:{
             loading: true,
-            tableData: [{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
-            },{
-                date: '2017-05-03',
-                name: '半藏',
-                region: '女',
-                address: '花村',
-                city: ''
+            tableData: [],
+            header: [],
+            initHeaders: {
+                'employees':['eid','ename','city'],
+                'customers':['cid','cname','city','visits_made','last_visit_time'],
+                'suppliers':['sid','sname','city','telephone_no'],
+                'products':['pid','pname','qoh','qoh_threshold','original_price','discnt_rate','sid'],
+                'purchases':['purid','cid','eid','pid','qty','ptime','total_price'],
+                'logs':['logid','who','time','table_name','operation','key_value'],
             },
-            ],
-            header: ['date','name','region','address'],
             dialogFormVisible: false,
+            dialogErrorVisible:false,
             formLabelWidth: '80px',
+            columnWidth:180,
+            optionWidth:250,
             form: {},
             searchKeyword:"",
-            searchArr:"",
-            activeName:"1",
-        },
-        computed: {
-            onRoutes() {
-                return this.$route.path.replace('/', '');
-            }
+            selectArr:"",
+            activeName:"employees",
+            //true表示开始加载
+            loadings:true,
         },
         created() {
-            setTimeout(() => {
-                this.loading = false
-            }, 1000)
+            this.getTable(this.activeName);
         },
         methods:{
-            showTime() {
-                this.$alert(this.value6, '起止时间', {
-                    confirmButtonText: '确定',
-                    callback: action => {
-                        this.$message({
-                            type: 'info',
-                            message: '已显示'
-                        })
-                    }
-                })
+            setLoading(){
+                this.loadings = true;
+                //设置加载延时为2500
+                setTimeout(() => {
+                    this.loadings = false
+                }, 2500)
             },
             add() {
-                this.form = {
-                    date: '',
-                    name: '',
-                    region: '',
-                    address: ''
-                };
                 this.dialogFormVisible = true
             },
             update() {
@@ -231,24 +145,27 @@
                 this.dialogFormVisible = false
             },
             search() {
-                return this.tableData.filter(item=>{
-                    return item.name.includes(this.searchKeyword);
-                })
-            },
-            handleOpen(key, keyPath) {
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'warning'
+                this.tableData =  this.tableData.filter(item=>{
+                    if(this.selectArr===""||this.selectArr=="all"){
+                        for(let arr in item){
+                            //console.log(item[arr]);
+                            if(item[arr].indexOf(this.searchKeyword)!=-1)
+                                return true;
+                        }
+                        return false;
+                    }else{
+                        console.log(this.selectArr);
+                        return item[this.selectArr].indexOf(this.searchKeyword)!=-1;
+                    }
                 });
-                console.log(key, keyPath);
+                this.searchKeyword = '';
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
             },
             handleEdit(index, row) {
-                this.form = this.tableData[index]
-                this.currentIndex = index
+                this.form = this.tableData[index];
+                this.currentIndex = index;
                 this.dialogFormVisible = true
             },
             handleDelete(index, row) {
@@ -257,7 +174,20 @@
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    this.tableData.splice(index, 1)
+                    ids = [];
+                    ids.push(this.tableData[index][this.header[0]])
+                    axios({
+                        method:'post',
+                        url:"/" + this.activeName + "/delete.do",
+                        data:JSON.stringify(ids)
+                    }).then(response => {
+                            console.log(response);
+                            this.getTable(this.activeName);
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            this.dialogErrorVisible = true;
+                        });
+
                     this.$message({
                         type: 'success',
                         message: '删除成功!'
@@ -274,8 +204,34 @@
             },
             handleClick(tab, event) {
                 //获取数据
-                console.log(tab.name,tab.label);
-            }
+                //设置全局表单提交格式
+
+                if(tab.label!="date") {
+                    this.getTable(tab.label);
+                }
+            },
+            getTable(tableName){
+                /**
+                 * 在函数体中this.tableData报错原因：回调函数处于其它函数的内部this不会与任何对象绑定，为undefined
+                 * 解决方法：使用钩子函数
+                 * 解决2：在外面给this赋值，_this = this，用_this在函数体内访问Vue的数据
+                 */
+                this.setLoading();
+                this.header = this.initHeaders[tableName];
+                this.optionWidth = Math.ceil(window.innerWidth/this.header.length);
+                axios
+                    .get("/" + tableName + "/detail.do")
+                    .then(respone=>{
+                        this.tableData = respone.data;
+                        this.loadings = false;  //查找成功，手动关闭动画
+                    })
+                    .catch(error=>{
+                        this.tableData = [];
+                        this.loadings = false;
+                        this.dialogErrorVisible = true;
+                    })
+            },
+
         }
     })
 </script>
