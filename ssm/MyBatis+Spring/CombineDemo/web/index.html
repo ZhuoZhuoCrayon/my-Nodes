@@ -5,6 +5,7 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
 </head>
 <body>
 <div id="app" style="display: block;">
@@ -91,18 +92,29 @@
 </div>
 
 </body>
+<style>
+    body .el-table th.gutter{
+        display: table-cell!important;
+    }
+
+    body .el-table colgroup.gutter{
+        display: table-cell!important;
+    }
+</style>
 <!-- 先引入 Vue -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <!-- 引入组件库 -->
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jutils-src"></script>
 <script>
     axios.defaults.headers.post['Content-Type'] = 'application/json';
     new Vue({
         el:'#app',
 
         data:{
-            loading: true,
+            //表格等动态数据
             tableData: [],
             header: [],
             initHeaders: {
@@ -113,17 +125,26 @@
                 'purchases':['purid','cid','eid','pid','qty','ptime','total_price'],
                 'logs':['logid','who','time','table_name','operation','key_value'],
             },
-            dialogFormVisible: false,
-            dialogErrorVisible:false,
+            form: {},
+            timeArr:null,
+
+            //格式
             formLabelWidth: '80px',
             columnWidth:180,
             optionWidth:250,
-            form: {},
+
+            //动态变量
             searchKeyword:"",
             selectArr:"",
             activeName:"employees",
-            //true表示开始加载
-            loadings:true,
+
+            //bool判断
+            loadings:true, //true表示开始加载
+            isAdd:true,
+            dialogFormVisible: false,   //提交窗口
+            dialogErrorVisible:false,   //错误窗口
+
+
         },
         created() {
             this.getTable(this.activeName);
@@ -137,36 +158,59 @@
                 }, 2500)
             },
             add() {
+                //console.log(this.form);
+                this.isAdd = true;
                 this.dialogFormVisible = true
             },
             update() {
-                //this.form.date = reformat(this.form.date)
-                this.tableData.push(this.form);
-                this.dialogFormVisible = false
+                //待解决：空值及长度为0字符串的处理
+                //将YYYY-MM-DD HH:ii:ss格式转换为时间戳
+                if(this.timeArr!=null){
+                    this.form[this.timeArr] = new Date(this.form[this.timeArr]).getTime();
+                }
+                //将空串转换为null
+                for(let idx in this.form){
+                    if(this.form[idx].toString().length===0){
+                        this.form[idx] = null;
+                    }
+                }
+                //console.log(this.form);
+                if(this.isAdd){
+                    this.changeTable(this.activeName,
+                        "/" + this.activeName + "/insert.do",this.form);
+                }else{
+                    this.changeTable(this.activeName,
+                        "/" + this.activeName + "/update.do",this.form)
+                }
+                this.form = {};
+                this.dialogFormVisible = false;
             },
             search() {
                 this.tableData =  this.tableData.filter(item=>{
                     if(this.selectArr===""||this.selectArr=="all"){
                         for(let arr in item){
                             //console.log(item[arr]);
-                            if(item[arr].indexOf(this.searchKeyword)!=-1)
+                            if(item[arr].toString().indexOf(this.searchKeyword)!=-1)
                                 return true;
                         }
                         return false;
                     }else{
                         console.log(this.selectArr);
-                        return item[this.selectArr].indexOf(this.searchKeyword)!=-1;
+                        return item[this.selectArr].toString().indexOf(this.searchKeyword)!=-1;
                     }
                 });
                 this.searchKeyword = '';
-            },
-            handleClose(key, keyPath) {
-                console.log(key, keyPath);
+                this.$message({
+                    type: 'success',
+                    message: 'search amount:  ' + this.tableData.length
+                })
             },
             handleEdit(index, row) {
+                //employees无法完成city项编辑,显示NaN
                 this.form = this.tableData[index];
-                this.currentIndex = index;
-                this.dialogFormVisible = true
+                console.log(this.form);
+                this.isAdd = false;
+                this.dialogFormVisible = true;
             },
             handleDelete(index, row) {
                 this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
@@ -175,28 +219,9 @@
                     type: 'warning'
                 }).then(() => {
                     ids = [];
-                    ids.push(this.tableData[index][this.header[0]])
-                    axios({
-                        method:'post',
-                        url:"/" + this.activeName + "/delete.do",
-                        data:JSON.stringify(ids)
-                    }).then(response => {
-                        this.getTable(this.activeName);
-                        if(response.data.success!=true){
-                            this.dialogErrorVisible = true;
-                            this.$message({
-                                type: 'error',
-                                message: response.data.message
-                            })
-                        }else {
-                            this.$message({
-                                type: 'success',
-                                message: response.data.message
-                            })
-                        }
-                    }).catch(function (error) { // 请求失败处理
-                            this.dialogErrorVisible = true;
-                        });
+                    ids.push(this.tableData[index][this.header[0]]);
+                    this.changeTable(this.activeName,
+                        "/" + this.activeName + "/delete.do",ids);
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -208,9 +233,6 @@
                 this.dialogFormVisible = false
             },
             handleClick(tab, event) {
-                //获取数据
-                //设置全局表单提交格式
-
                 if(tab.label!="date") {
                     this.getTable(tab.label);
                 }
@@ -223,20 +245,54 @@
                  */
                 this.setLoading();
                 this.header = this.initHeaders[tableName];
+
                 this.optionWidth = Math.ceil(window.innerWidth/this.header.length);
                 axios
                     .get("/" + tableName + "/detail.do")
                     .then(respone=>{
                         this.tableData = respone.data;
+                        //将时间戳转为YYYY-MM-DD HH:ii:ss
+                        this.timeArr = null;
+                        for(let idx in this.header){
+                            this.timeArr = this.header[idx];
+                            if(this.header[idx].includes("time")){
+                                this.tableData.map(item=>{
+                                    item[this.header[idx]] = jutils.formatDate(
+                                        new Date(item[this.header[idx]]),"YYYY-MM-DD HH:ii:ss");
+                                })
+                            }
+                        }
                         this.loadings = false;  //查找成功，手动关闭动画
                     })
                     .catch(error=>{
                         this.tableData = [];
                         this.loadings = false;
                         this.dialogErrorVisible = true;
-                    })
+                    });
             },
-
+            changeTable(tableName,url,data){
+                axios({
+                    method:'post',
+                    url:url,
+                    data:JSON.stringify(data)
+                }).then(response => {
+                    this.getTable(this.activeName);
+                    if(response.data.success!=true){
+                        //this.dialogErrorVisible = true;
+                        this.$message({
+                            type: 'info',
+                            message: response.data.message
+                        })
+                    }else {
+                        this.$message({
+                            type: 'success',
+                            message: response.data.message
+                        })
+                    }
+                }).catch(function (error) { // 请求失败处理
+                    this.dialogErrorVisible = true;
+                });
+            }
         }
     })
 </script>
