@@ -53,6 +53,7 @@ public class EmployeesController {
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public Result delete(@RequestBody String ...ids){
         //待解：无法正常将报错信息反馈到客户端
+        //通过检查id的存在情况，返回删除信息
         try{
             employeesService.delete(ids);
             return new Result(true,"delete successfully");

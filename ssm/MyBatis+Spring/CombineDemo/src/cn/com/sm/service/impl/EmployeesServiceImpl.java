@@ -30,7 +30,7 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
 
     @Override
     public void update(Employee employee) {
-        employeesMapper.insert(employee);
+        employeesMapper.update(employee);
     }
 
     @Override
