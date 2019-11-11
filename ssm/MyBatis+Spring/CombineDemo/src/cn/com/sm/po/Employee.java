@@ -3,9 +3,9 @@ package cn.com.sm.po;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    public String eid;
-    public String ename;
-    public String city;
+    private String eid;
+    private String ename;
+    private String city;
 
     Employee(){}
     Employee(String eid,String ename,String city){
