@@ -49,12 +49,17 @@
 
         <div class="tableMain">
             <el-table :data="tableData" height="560" stripe>
+                <!--
+                :key="Math.random()"
+                解决固定列错位问题
+                -->
                 <el-table-column :prop="head" :label="head" v-for="(head, key) in header" :key="head" :width="columnWidth">
                 </el-table-column>
                 <el-table-column
                         label="options"
                         fixed="right"
                         :width="optionWidth"
+                        :key="Math.random()"
                 >
                     <template scope="scope">
                         <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit
@@ -92,15 +97,6 @@
 </div>
 
 </body>
-<style>
-    body .el-table th.gutter{
-        display: table-cell!important;
-    }
-
-    body .el-table colgroup.gutter{
-        display: table-cell!important;
-    }
-</style>
 <!-- 先引入 Vue -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <!-- 引入组件库 -->
@@ -130,7 +126,7 @@
 
             //格式
             formLabelWidth: '80px',
-            columnWidth:180,
+            columnWidth:220,
             optionWidth:250,
 
             //动态变量
@@ -158,23 +154,23 @@
                 }, 2500)
             },
             add() {
-                //console.log(this.form);
                 this.isAdd = true;
                 this.dialogFormVisible = true
             },
             update() {
-                //待解决：空值及长度为0字符串的处理
+                //解决：空值及长度为0字符串的处理
                 //将YYYY-MM-DD HH:ii:ss格式转换为时间戳
+                console.log("time:" + this.timeArr);
                 if(this.timeArr!=null){
                     this.form[this.timeArr] = new Date(this.form[this.timeArr]).getTime();
                 }
+
                 //将空串转换为null
                 for(let idx in this.form){
                     if(this.form[idx].toString().length===0){
                         this.form[idx] = null;
                     }
                 }
-                //console.log(this.form);
                 if(this.isAdd){
                     this.changeTable(this.activeName,
                         "/" + this.activeName + "/insert.do",this.form);
@@ -182,7 +178,6 @@
                     this.changeTable(this.activeName,
                         "/" + this.activeName + "/update.do",this.form)
                 }
-                this.form = {};
                 this.dialogFormVisible = false;
             },
             search() {
@@ -190,13 +185,13 @@
                     if(this.selectArr===""||this.selectArr=="all"){
                         for(let arr in item){
                             //console.log(item[arr]);
-                            if(item[arr].toString().indexOf(this.searchKeyword)!=-1)
+                            if(item!=null&&item[arr].toString().indexOf(this.searchKeyword)!=-1)
                                 return true;
                         }
                         return false;
                     }else{
-                        console.log(this.selectArr);
-                        return item[this.selectArr].toString().indexOf(this.searchKeyword)!=-1;
+                        return item!=null&&item[this.selectArr].
+                        toString().indexOf(this.searchKeyword)!=-1;
                     }
                 });
                 this.searchKeyword = '';
@@ -206,9 +201,7 @@
                 })
             },
             handleEdit(index, row) {
-                //employees无法完成city项编辑,显示NaN
                 this.form = this.tableData[index];
-                console.log(this.form);
                 this.isAdd = false;
                 this.dialogFormVisible = true;
             },
@@ -245,17 +238,17 @@
                  */
                 this.setLoading();
                 this.header = this.initHeaders[tableName];
-
                 this.optionWidth = Math.ceil(window.innerWidth/this.header.length);
+                this.timeArr = null;    //含有time的属性，初始化为空
                 axios
                     .get("/" + tableName + "/detail.do")
                     .then(respone=>{
                         this.tableData = respone.data;
                         //将时间戳转为YYYY-MM-DD HH:ii:ss
-                        this.timeArr = null;
                         for(let idx in this.header){
-                            this.timeArr = this.header[idx];
-                            if(this.header[idx].includes("time")){
+                            if(this.header[idx].toString().includes("time")){
+                                //上一次由于将该刷新放置外层，导致NaN
+                                this.timeArr = this.header[idx];
                                 this.tableData.map(item=>{
                                     item[this.header[idx]] = jutils.formatDate(
                                         new Date(item[this.header[idx]]),"YYYY-MM-DD HH:ii:ss");
