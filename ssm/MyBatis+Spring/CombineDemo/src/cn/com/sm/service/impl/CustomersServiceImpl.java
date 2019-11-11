@@ -15,27 +15,27 @@ public class CustomersServiceImpl implements BaseService<Customer> {
     private CustomersMapper customersMapper;
 
     @Override
-    public List<Customer> findAll() {
+    public List<Customer> findAll() throws Exception{
         return customersMapper.findAll();
     }
 
     @Override
-    public List<Customer> findById(String id) {
+    public List<Customer> findById(String id) throws Exception{
         return customersMapper.findById(id);
     }
 
     @Override
-    public void insert(Customer customer) {
+    public void insert(Customer customer) throws Exception{
         customersMapper.insert(customer);
     }
 
     @Override
-    public void update(Customer customer) {
+    public void update(Customer customer)throws Exception {
         customersMapper.update(customer);
     }
 
     @Override
-    public void delete(String... ids) {
+    public void delete(String... ids) throws Exception{
         for(String id:ids){
             customersMapper.delete(id);
         }

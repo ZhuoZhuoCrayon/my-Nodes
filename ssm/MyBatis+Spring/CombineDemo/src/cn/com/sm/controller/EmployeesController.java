@@ -5,6 +5,8 @@ import cn.com.sm.po.Result;
 import cn.com.sm.service.impl.EmployeesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,12 +22,22 @@ public class EmployeesController {
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = "application/json")
     public List<Employee> findAll(){
-        return employeesService.findAll();
+        try {
+            return employeesService.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Employee> findById(@RequestParam(value = "id",required = false)String id){
-        return employeesService.findById(id);
+        try {
+            return employeesService.findById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)

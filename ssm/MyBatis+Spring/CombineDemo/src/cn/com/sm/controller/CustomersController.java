@@ -6,6 +6,7 @@ import cn.com.sm.service.impl.CustomersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,12 +29,21 @@ public class CustomersController {
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = "application/json")
     public List<Customer> findAll(){
-        return customersService.findAll();
+        try {
+            return customersService.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Customer> findById(@RequestParam(value = "id",required = false)String id){
-        return customersService.findById(id);
+        try {
+            return customersService.findById(id);
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
     }
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)

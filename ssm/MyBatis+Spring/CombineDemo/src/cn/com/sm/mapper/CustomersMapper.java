@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CustomersMapper {
 
-    List<Customer> findAll();
-    List<Customer> findById(String id);
-    void insert(Customer employee);
-    void update(Customer employee);
-    void delete(String id);
+    List<Customer> findAll() throws Exception;
+    List<Customer> findById(String id) throws Exception;
+    void insert(Customer employee) throws Exception;
+    void update(Customer employee) throws Exception;
+    void delete(String id) throws Exception;
 }

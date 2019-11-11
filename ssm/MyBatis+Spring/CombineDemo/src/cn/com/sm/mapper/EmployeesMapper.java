@@ -6,9 +6,9 @@ import cn.com.sm.po.Employee;
 import java.util.List;
 
 public interface EmployeesMapper {
-    List<Employee> findAll();
-    List<Employee> findById(String id);
-    void insert(Employee employee);
-    void update(Employee employee);
-    void delete(String id);
+    List<Employee> findAll() throws Exception;
+    List<Employee> findById(String id) throws Exception;
+    void insert(Employee employee) throws Exception;
+    void update(Employee employee) throws Exception;
+    void delete(String id) throws Exception;
 }
