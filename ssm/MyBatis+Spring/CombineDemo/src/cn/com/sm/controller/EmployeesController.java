@@ -22,55 +22,28 @@ public class EmployeesController {
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = "application/json")
     public List<Employee> findAll(){
-        try {
-            return employeesService.findAll();
-        }catch (Exception e){
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return employeesService.findAll();
     }
 
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Employee> findById(@RequestParam(value = "id",required = false)String id){
-        try {
-            return employeesService.findById(id);
-        }catch (Exception e){
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return employeesService.findById(id);
     }
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public Result insert(@RequestBody Employee employee){
-        try{
-            employeesService.insert(employee);
-            return new Result(true,"insert successfully");
-        }catch (Exception e){
-            e.printStackTrace();
-            return new Result(false,"error from insert");
-        }
+        return employeesService.insert(employee);
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Result update(@RequestBody Employee employee){
-        try{
-            employeesService.update(employee);
-            return new Result(true,"update successfully");
-        }catch (Exception e){
-            e.printStackTrace();
-            return new Result(false,"error from update");
-        }
+        return employeesService.update(employee);
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public Result delete(@RequestBody String ...ids){
         //待解：无法正常将报错信息反馈到客户端
         //通过检查id的存在情况，返回删除信息
-        try{
-            employeesService.delete(ids);
-            return new Result(true,"delete successfully");
-        }catch (Exception e){
-            return new Result(false,"error from delete");
-        }
+        return employeesService.delete(ids);
     }
 }

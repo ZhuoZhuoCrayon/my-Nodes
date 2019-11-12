@@ -29,54 +29,30 @@ public class CustomersController {
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET,produces = "application/json")
     public List<Customer> findAll(){
-        try {
-            return customersService.findAll();
-        }catch (Exception e){
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
+        return customersService.findAll();
     }
 
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Customer> findById(@RequestParam(value = "id",required = false)String id){
-        try {
-            return customersService.findById(id);
-        }catch (Exception e){
-            return new ArrayList<>();
-        }
+        return customersService.findById(id);
     }
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public Result insert(@RequestBody Customer customer){
-        try{
-            customersService.insert(customer);
-            return new Result(true,"insert successfully");
-        }catch (Exception e){
-            e.printStackTrace();
-            return new Result(false,"error from insert");
-        }
+        return customersService.insert(customer);
     }
 
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Result update(@RequestBody Customer customer){
-        try{
-            customersService.update(customer);
-            return new Result(true,"update successfully");
-        }catch (Exception e){
-            e.printStackTrace();
-            return new Result(false,"error from update");
-        }
+        Result updateResult = customersService.update(customer);
+        return updateResult;
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public Result delete(@RequestBody String ...ids){
         //待解：无法正常将报错信息反馈到客户端
         //通过检查id的存在情况，返回删除信息
-        try{
-            customersService.delete(ids);
-            return new Result(true,"delete successfully");
-        }catch (Exception e){
-            return new Result(false,"error from delete");
-        }
+        Result deleteResult = customersService.delete(ids);
+        return deleteResult;
     }
 }
