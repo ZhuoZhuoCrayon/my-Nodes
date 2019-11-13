@@ -173,12 +173,13 @@
                 }
                 if(this.isAdd){
                     this.changeTable(this.activeName,
-                        "/" + this.activeName + "/insert.do",this.form);
+                        "/" + this.activeName + "/insert.do",'insert',this.form);
                 }else{
                     this.changeTable(this.activeName,
-                        "/" + this.activeName + "/update.do",this.form)
+                        "/" + this.activeName + "/update.do",'update',this.form)
                 }
                 this.dialogFormVisible = false;
+                this.form = {};
             },
             search() {
                 this.tableData =  this.tableData.filter(item=>{
@@ -214,7 +215,7 @@
                     ids = [];
                     ids.push(this.tableData[index][this.header[0]]);
                     this.changeTable(this.activeName,
-                        "/" + this.activeName + "/delete.do",ids);
+                        "/" + this.activeName + "/delete.do",'delete',ids);
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -263,7 +264,7 @@
                         this.dialogErrorVisible = true;
                     });
             },
-            changeTable(tableName,url,data){
+            changeTable(tableName,url,operation,data){
                 axios({
                     method:'post',
                     url:url,
@@ -273,7 +274,46 @@
                     if(response.data.success!=true){
                         //this.dialogErrorVisible = true;
                         this.$message({
-                            type: 'info',
+                            type: 'error',
+                            message: response.data.message
+                        })
+                    }else {
+                        if(tableName!='logs') {
+                            let t = 0;
+                            let key = null;
+                            for (let i in data) {
+                                key = data[i];
+                                break;
+                            }
+                            this.submitLog(tableName, operation, key);
+                            this.$message({
+                                type: 'success',
+                                message: response.data.message
+                            })
+                        }
+                    }
+                }).catch(function (error) { // 请求失败处理
+                    this.dialogErrorVisible = true;
+                });
+            },
+            submitLog(tableName,operation,key){
+                log = {
+                  logid:null,
+                  who:'Cai',
+                  time:Date.now(),
+                  table_name:tableName,
+                  operation:operation,
+                  key_value:key
+                };
+                axios({
+                    method:'post',
+                    url:'/logs/insert.do',
+                    data:JSON.stringify(log)
+                }).then(response => {
+                    if(response.data.success!=true){
+                        //this.dialogErrorVisible = true;
+                        this.$message({
+                            type: 'error',
                             message: response.data.message
                         })
                     }else {
