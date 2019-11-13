@@ -112,7 +112,7 @@ public class CustomersServiceImpl implements BaseService<Customer> {
 
     @Override
     public String checkFormat(Customer customer) {
-        if(customer.getCid()==null||customer.getCid().length()<4){
+        if(customer.getCid()==null||customer.getCid().length()>4){
             return "cid is null or length over 4";
         }else if(customer.getCname()!=null&&customer.getCname().length()>15){
             return "cname length over 15";

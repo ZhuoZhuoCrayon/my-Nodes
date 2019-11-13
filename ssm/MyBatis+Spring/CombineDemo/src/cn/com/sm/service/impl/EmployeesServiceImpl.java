@@ -40,10 +40,19 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
     public Result insert(Employee employee)
     {
         try{
-            employeesMapper.insert(employee);
-            return new Result(true,
-                    "insert [" + employee.getEid() +
-                            "] in employees successfully");
+            String formatInfo = checkFormat(employee);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(employee.getEid()).size()!=0){
+                return new Result(false,
+                        "eid:[" + employee.getEid() +
+                                "] existed");
+            }else{
+                employeesMapper.insert(employee);
+                return new Result(true,
+                        "insert [" + employee.getEid() +
+                                "] in employees successfully");
+            }
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"insert[" +
@@ -54,10 +63,20 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
     @Override
     public Result update(Employee employee){
         try{
-            employeesMapper.update(employee);
-            return new Result(true,
-                    "update [" + employee.getEid() +
-                            "] in employees successfully");
+            String formatInfo = checkFormat(employee);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(employee.getEid()).size()==0){
+                return new Result(false,
+                        "eid:[" + employee.getEid() +
+                                "] not existed");
+            }else{
+                employeesMapper.update(employee);
+                return new Result(true,
+                        "update [" + employee.getEid() +
+                                "] in employees successfully");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"update[" +
@@ -92,6 +111,13 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
 
     @Override
     public String checkFormat(Employee employee) {
-        return null;
+        if(employee.getEid()==null||employee.getEid().length()>4){
+            return "eid is null or too long";
+        }else if(employee.getEname()!=null&&employee.getEname().length()>15){
+            return "ename to long";
+        }else if(employee.getCity()!=null&&employee.getCity().length()>15){
+            return "city to long";
+        }
+        return "pass";
     }
 }

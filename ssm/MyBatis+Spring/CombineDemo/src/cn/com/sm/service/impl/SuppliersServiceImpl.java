@@ -37,10 +37,18 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
     @Override
     public Result insert(Supplier supplier) {
         try{
-            suppliersMapper.insert(supplier);
-            return new Result(true,
-                    "insert [" + supplier.getSid() +
-                            "] in suppliers successfully");
+            String formatInfo = checkFormat(supplier);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(supplier.getSid()).size()!=0){
+                return new Result(false,
+                        "sid:[" + supplier.getSid() + "]existed");
+            }else{
+                suppliersMapper.insert(supplier);
+                return new Result(true,
+                        "insert [" + supplier.getSid() +
+                                "] in suppliers successfully");
+            }
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"insert[" +
@@ -51,10 +59,18 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
     @Override
     public Result update(Supplier supplier){
         try{
-            suppliersMapper.update(supplier);
-            return new Result(true,
-                    "update [" + supplier.getSid() +
-                            "] in suppliers successfully");
+            String formatInfo = checkFormat(supplier);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(supplier.getSid()).size()==0){
+                return new Result(false,
+                        "sid:[" + supplier.getSid() + "] not existed");
+            }else {
+                suppliersMapper.update(supplier);
+                return new Result(true,
+                        "update [" + supplier.getSid() +
+                                "] in suppliers successfully");
+            }
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"update[" +
@@ -89,6 +105,15 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
 
     @Override
     public String checkFormat(Supplier supplier) {
-        return null;
+        if(supplier.getSid()==null||supplier.getSid().length()>2){
+            return "sid is null or too long";
+        }else if(supplier.getSname()==null||supplier.getSname().length()>15){
+            return "sname is null or too long";
+        }else if(supplier.getCity()!=null&&supplier.getCity().length()>15){
+            return "city too long";
+        }else if(supplier.getTelephone_no()!=null&&supplier.getCity().length()>10){
+            return "telephone_no too long";
+        }
+        return "pass";
     }
 }

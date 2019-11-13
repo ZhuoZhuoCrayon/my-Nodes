@@ -37,10 +37,18 @@ public class ProductsServiceImpl implements BaseService<Product> {
     @Override
     public Result insert(Product product){
         try{
-            productsMapper.insert(product);
-            return new Result(true,
-                    "insert [" + product.getPid() +
-                            "] in products successfully");
+            String formatInfo = checkFormat(product);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(product.getPid()).size()!=0){
+                return new Result(false,
+                        "pid:[" + product.getPid() + "] existed");
+            }else{
+                productsMapper.insert(product);
+                return new Result(true,
+                        "insert [" + product.getPid() +
+                                "] in products successfully");
+            }
         }catch (Exception e){
             //System.out.println(e.toString());
             e.printStackTrace();
@@ -52,10 +60,19 @@ public class ProductsServiceImpl implements BaseService<Product> {
     @Override
     public Result update(Product product){
         try{
-            productsMapper.update(product);
-            return new Result(true,
-                    "update [" + product.getPid() +
-                            "] in products successfully");
+            String formatInfo = checkFormat(product);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(product.getPid()).size()==0){
+                return new Result(false,
+                        "pid:[" + product.getPid() + "] not existed");
+            }else{
+                productsMapper.update(product);
+                return new Result(true,
+                        "update [" + product.getPid() +
+                                "] in products successfully");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"update[" +
@@ -90,6 +107,15 @@ public class ProductsServiceImpl implements BaseService<Product> {
 
     @Override
     public String checkFormat(Product product) {
-        return null;
+        if(product.getPid()==null||product.getPid().length()>4){
+            return "pid is null or too long";
+        }else if(product.getPname()==null||product.getPname().length()>15){
+            return "pname is null or too long";
+        }else if(product.getQoh()==null){
+            return "qoh is null";
+        }else if(product.getSid()==null||product.getSid().length()>2){
+            return "sid is null or too long";
+        }
+        return "pass";
     }
 }
