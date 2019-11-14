@@ -229,6 +229,19 @@
             handleClick(tab, event) {
                 if(tab.label!="date") {
                     this.getTable(tab.label);
+                }else{
+                    axios
+                        .get("/date.do")
+                        .then(respone=>{
+                            this.$notify({
+                                title: '距离暑假(2021-7-15)',
+                                message: respone.data + "天",
+                                duration: 0
+                            });
+                        })
+                        .catch(error=>{
+                            this.dialogErrorVisible = true;
+                        })
                 }
             },
             getTable(tableName){
