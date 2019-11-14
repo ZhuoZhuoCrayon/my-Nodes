@@ -51,7 +51,7 @@ public class PurchasesServiceImpl implements BaseService<Purchase> {
                 return new Result(false,formatInfo);
             }else if(findById(purchase.getPurid()).size()!=0){
                 return new Result(false,
-                        "purid:[" + purchase.getPurid() + "]existed");
+                        "purid:[" + purchase.getPurid() + "] existed");
             }else{
 
                 List<Product> products = productsMapper.findById(purchase.getPid());
@@ -97,9 +97,9 @@ public class PurchasesServiceImpl implements BaseService<Purchase> {
             String formatInfo = checkFormat(purchase);
             if(!formatInfo.equals("pass")){
                 return new Result(false,formatInfo);
-            }else if(findById(purchase.getPurid()).size()!=0){
+            }else if(findById(purchase.getPurid()).size()==0){
                 return new Result(false,
-                        "purid:[" + purchase.getPurid() + "]existed");
+                        "purid:[" + purchase.getPurid() + "] not existed");
             }else{
                 purchasesMapper.update(purchase);
                 return new Result(true,
