@@ -51,7 +51,7 @@
 | 11.16-2 | [123. Best Time to Buy and Sell Stock III](LeetCode/20191116-2.md) | `DP`         | 股票交易问题-最多完成2笔交易                                 |            |
 | 11.16-3 | [123. Best Time to Buy and Sell Stock III](LeetCode/20191116-3.md) | `DP`         | 股票交易问题-最多完成k笔交易                                 |            |
 | 11.17   | [714. Best Time to Buy and Sell Stock with Transaction Fee](LeetCode/20191117.md) | `DP`         | 股票交易问题-含手续费                                        |            |
-|         |                                                              |              |                                                              |            |
+| 11.18   | [782. Remove Duplicates from Sorted List II](LeetCode/20191118.md) | `List`       | 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 *没有重复出现* 的数字。 | bestANS    |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
