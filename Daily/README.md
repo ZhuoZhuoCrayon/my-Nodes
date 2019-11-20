@@ -53,7 +53,7 @@
 | 11.17   | [714. Best Time to Buy and Sell Stock with Transaction Fee](LeetCode/20191117.md) | `DP`         | 股票交易问题-含手续费                                        |            |
 | 11.18   | [782. Remove Duplicates from Sorted List II](LeetCode/20191118.md) | `List`       | 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 *没有重复出现* 的数字。 | bestANS    |
 | 11.19   | [338. Counting Bits](LeetCode/20191119.md)                   | `DP`         | 给定一个非负整数 **num**。对于 **0 ≤ i ≤ num** 范围中的每个数字 **i** ，计算其二进制数中的 1 的数目并将它们作为数组返回。 |            |
-|         |                                                              |              |                                                              |            |
+| 11.20   | [86. Partition List](LeetCode/20191120.md)                   | `List`       | 给定一个链表和一个特定值 *x*，对链表进行分隔，使得所有小于 *x* 的节点都在大于或等于 *x* 的节点之前。 |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
