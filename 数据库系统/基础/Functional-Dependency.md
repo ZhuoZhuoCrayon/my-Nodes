@@ -90,3 +90,44 @@
 >
 > 此时**Y是直接依赖于X，不是传递函数依赖**
 
+
+
+### More
+
+#### Implied Logic（隐含逻辑）
+
+##### Definition
+
+> `F`是`R`的一个函数依赖集合,则F的**闭包[closure]**是**`F`逻辑上**隐含的所有关于`R`的函数依赖集合
+> $$
+> F^{+}
+> $$
+
+#### Armstrong's Axioms (1974)
+
+* `Reflexivity rule`   Y is the subset of X，then X→Y
+* ` Augmentation rule  ` { X →Y } |= XZ→YZ.
+
+* `Transitivity rule`  { X→Y, Y→Z } |= X→Z 
+
+#### Additional rules derivable(推导) from Armstrong's Axioms. 
+
+* `Decomposition` { X→Y, Z is the subset of Y } |= X→Z 
+  * because `Y→Z`（`Reflexivity rule`） and then `Transitivity rule`
+* `Union rule` { X→Y, X→Z } |= X→YZ 
+  * `XY→YZ`(use` Augmentation rule` by  X→Z) and `XX→XY` then `XX→X`
+  * so `X→XY` and `XY→YZ`  then use `Transitivity rule`
+
+* `Pseudotransitivity(伪传递) rule`  { X→Y, WY→Z } |= WX→Z 
+  * because `X→Y` so `WX→WY` use ` Augmentation rule  `
+  * then use `Transitivity rule`
+  * so WX→Z 
+
+##### Notice
+
+> If `X` is the subset of `R` and `A, B, ..., C` are attributes in R, 
+>
+> then `X→ A B ... C` equal to `{ X→A, X→B, ..., X→C }`
+>
+> **use `Union rule` { X→Y, X→Z } |= X→YZ **
+
