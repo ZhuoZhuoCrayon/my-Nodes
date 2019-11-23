@@ -4,14 +4,13 @@ DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS logs;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS suppliers;
-
 create table employees
 (
 	eid varchar(3) not null,
 	ename varchar(15),
 	city varchar(15),
 	primary key(eid)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 create table customers
 (
@@ -21,7 +20,7 @@ create table customers
 	visits_made int(5),
 	last_visit_time datetime,
 	primary key(cid)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 create table suppliers
 (
@@ -31,7 +30,7 @@ create table suppliers
 	telephone_no char(10),
 	primary key(sid),
 	unique(sname)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 create table products
 (
@@ -44,7 +43,7 @@ create table products
 	sid varchar(2),
 	primary key(pid),
 	foreign key (sid) references suppliers (sid)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 create table purchases
 (
@@ -59,7 +58,7 @@ create table purchases
 	foreign key (cid) references customers(cid),
 	foreign key (eid) references employees(eid),
 	foreign key (pid) references products(pid)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 create table logs
 (
@@ -70,7 +69,7 @@ create table logs
 	operation varchar(6) not null,
 	key_value varchar(4),
 	primary key (logid)
-)engine=InnoDB;
+)engine=InnoDB DEFAULT CHAR SET =utf8;
 
 insert into employees values ('e00', 'Amy', 'Vestal');
 insert into employees values ('e01', 'Bob', 'Binghamton');
