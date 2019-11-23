@@ -55,8 +55,8 @@
 | 11.19   | [338. Counting Bits](LeetCode/20191119.md)                   | `DP`         | 给定一个非负整数 **num**。对于 **0 ≤ i ≤ num** 范围中的每个数字 **i** ，计算其二进制数中的 1 的数目并将它们作为数组返回。 |            |
 | 11.20   | [86. Partition List](LeetCode/20191120.md)                   | `List`       | 给定一个链表和一个特定值 *x*，对链表进行分隔，使得所有小于 *x* 的节点都在大于或等于 *x* 的节点之前。 |            |
 | 11.21   | [322. Coin Change](LeetCode/20191121.md)                     | `DP`         | 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。 |            |
-|         |                                                              |              |                                                              |            |
-|         |                                                              |              |                                                              |            |
+| 11.22   | [83. Remove Duplicates from Sorted List](LeetCode/20191122.md) | `List`       | 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 |            |
+| 11.23   | [106. Construct Binary Tree from Inorder and Postorder Traversal](LeetCode/20191123.md) | `Tree`       | 根据一棵树的中序遍历与后序遍历构造二叉树。                   |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
