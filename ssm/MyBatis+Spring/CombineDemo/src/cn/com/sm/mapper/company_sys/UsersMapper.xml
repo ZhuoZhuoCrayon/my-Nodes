@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.company_sys.UsersMapper">
+
+    <!-- 根据用户名查询 -->
+    <select id="findByName" parameterType="String" resultType="cn.com.sm.po.company_sys.User">
+        SELECT * FROM company_sys.sys_users
+        WHERE username = #{username}
+    </select>
+
+    <!-- 创建用户 -->
+    <insert id="insert" parameterType="cn.com.sm.po.company_sys.User">
+        INSERT INTO
+        company_sys.sys_users
+        VALUES
+        (#{username},#{password},#{salt})
+    </insert>
+
+    <!-- 移除用户 -->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM
+        company_sys.sys_users
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 更新用户信息 -->
+    <update id="update" parameterType="cn.com.sm.po.company_sys.User">
+        UPDATE company_sys.sys_users
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="salt != null">
+                salt = #{salt},
+            </if>
+        </set>
+        WHERE
+        id = #{id}
+    </update>
+
+    <!-- 根据ID查询用户 -->
+    <select id="findById" parameterType="Long" resultType="cn.com.sm.po.company_sys.User">
+        SELECT * FROM company_sys.sys_users
+        WHERE id = #{id}
+    </select>
+</mapper>
