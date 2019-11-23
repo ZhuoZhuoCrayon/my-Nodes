@@ -45,6 +45,9 @@ public class LoginController {
                 //登录，即身份校验，由通过Spring注入的UserRealm会自动校验输入的用户名和密码在数据库中是否有对应的值
                 subject.login(token);
                 System.out.println("用户是否登录：" + subject.isAuthenticated());
+                //用户获取当前登录的用户名
+                String usename = (String) SecurityUtils.getSubject().getPrincipal();
+                System.out.println(usename);
                 return new Result(true, "success");
             } catch (UnknownAccountException e) {
                 //e.printStackTrace();
