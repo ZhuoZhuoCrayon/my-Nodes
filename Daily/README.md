@@ -92,7 +92,7 @@
 | 11.22   | [83. Remove Duplicates from Sorted List](LeetCode/20191122.md) | `List`       | 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 |                            |
 | 11.23   | [106. Construct Binary Tree from Inorder and Postorder Traversal](LeetCode/20191123.md) | `Tree`       | 根据一棵树的中序遍历与后序遍历构造二叉树。                   |                            |
 | 11.24   | [74. Search a 2D Matrix](LeetCode/20191124.md)               | `二分查找`   | 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值，矩阵有序。 | 二分查找的特定位置返回分析 |
-|         |                                                              |              |                                                              |                            |
+| 11.25   | [394. Decode String](LeetCode/20191125.md)                   | `DFS`        | 给定一个经过编码的字符串，返回它解码后的字符串。如s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef". |                            |
 |         |                                                              |              |                                                              |                            |
 |         |                                                              |              |                                                              |                            |
 
