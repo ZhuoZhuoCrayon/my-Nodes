@@ -8,8 +8,11 @@ import cn.com.sm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Service
 public class UsersServiceImpl implements UserService {
@@ -36,6 +39,26 @@ public class UsersServiceImpl implements UserService {
         }catch (Exception e){
             e.printStackTrace();
             return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public Set<String> getRoles(String username) {
+        try{
+            return usersMapper.getRoles(username);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new TreeSet<>();
+        }
+    }
+
+    @Override
+    public Set<String> getPermissions(String username) {
+        try{
+            return usersMapper.getPermissions(username);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new TreeSet<>();
         }
     }
 
