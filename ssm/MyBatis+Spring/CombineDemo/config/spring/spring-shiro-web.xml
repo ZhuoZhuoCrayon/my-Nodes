@@ -114,7 +114,7 @@
 
     <!-- Shiro Filter id值和web.xml文件配置的过滤器名称相同 -->
     <bean id="shiroFilter"
-          class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+          class="cn.com.sm.shiro.MyShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager" />
         <!-- 登录页面 -->
         <property name="loginUrl" value="/login.html" />
@@ -138,25 +138,33 @@
         <property name="filterChainDefinitions">
             <value>
                 <!-- 静态资源不拦截 -->
+                <!--
                 /static/** = anon
                 /css/** = anon
                 /js/** = anon
                 /img/** = anon
                 /vue/** = anon
+                -->
 
                 <!-- 登录页面不拦截 -->
+                <!--
                 /login.html = anon
                 /login.do = anon
+                -->
 
                 <!-- Shiro提供了退出登录的配置`logout`，会生成路径为`/logout`的请求地址，访问这个地址即会退出当前账户并清空缓存 -->
+                <!--
                 /logout = logout
-
+                -->
                 <!-- user表示身份通过或通过记住我通过的用户都能访问系统 -->
+                <!--
                 /index.html = user
                 /index.do = user
-
+                -->
                 <!-- `/**`表示所有请求，表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->
+                <!--
                 /** = user
+                -->
             </value>
         </property>
     </bean>

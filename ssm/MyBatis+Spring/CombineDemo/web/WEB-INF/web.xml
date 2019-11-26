@@ -5,7 +5,7 @@
          version="4.0">
     <display-name>Archetype Created Web Application</display-name>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>login.html</welcome-file>
     </welcome-file-list>
 
     <!-- 配置spring的字符编码过滤器，保证request请求的中文字符不会乱码（注意这个过滤器要放到最前面） -->
@@ -30,7 +30,11 @@
     <!-- 加载spring容器 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/applicationContext.xml</param-value>
+        <param-value>
+            classpath:spring/applicationContext.xml,
+            classpath:spring/spring-shiro-web.xml
+        </param-value>
+
     </context-param>
 
     <!-- 配置springmvc的前端控制器，request请求会先经过这个控制器 -->
@@ -49,6 +53,20 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <!-- *.do 表示我们请求映射路径后缀为.do，  我们也可以设置为/ -->
         <url-pattern>*.do</url-pattern>
-
     </servlet-mapping>
+
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
