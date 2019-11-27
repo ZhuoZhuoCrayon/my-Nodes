@@ -5,10 +5,12 @@ import cn.com.sm.po.Result;
 import cn.com.sm.po.company_sys.Role;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RolesServiceImpl implements BaseService<Role> {
     @Autowired
     private RolesMapper rolesMapper;

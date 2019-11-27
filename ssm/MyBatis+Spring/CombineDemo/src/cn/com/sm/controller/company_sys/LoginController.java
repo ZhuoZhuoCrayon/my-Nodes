@@ -1,4 +1,4 @@
-package cn.com.sm.controller;
+package cn.com.sm.controller.company_sys;
 
 import cn.com.sm.po.Result;
 import org.apache.shiro.authc.*;
@@ -24,7 +24,8 @@ public class LoginController {
             @RequestParam(value = "password", required = false) String password,
             @RequestParam(value = "remember", required = false) String remember) {
 
-        System.out.println("登陆用户输入的用户名：" + username + "，密码：" + password);
+        System.out.println("登陆用户输入的用户名：" + username + "，密码：" + password +
+                ", remember me: " + remember);
         String error = null;
         if (username != null && password != null) {
             //初始化
@@ -46,8 +47,8 @@ public class LoginController {
                 subject.login(token);
                 System.out.println("用户是否登录：" + subject.isAuthenticated());
                 //用户获取当前登录的用户名
-                String usename = (String) SecurityUtils.getSubject().getPrincipal();
-                System.out.println(usename);
+                /*String username = (String) SecurityUtils.getSubject().getPrincipal();
+                System.out.println(username);*/
                 return new Result(true, "success");
             } catch (UnknownAccountException e) {
                 //e.printStackTrace();

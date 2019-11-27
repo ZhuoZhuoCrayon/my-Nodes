@@ -93,7 +93,7 @@ public class UsersServiceImpl implements UserService {
     public Result insert(User user) {
         try{
             passwordHelper.encryptPassword(user);
-            usersMapper.update(user);
+            usersMapper.insert(user);
             return new Result(true,"success");
         }catch (Exception e){
             e.printStackTrace();
