@@ -94,5 +94,5 @@
 | 11.24   | [74. Search a 2D Matrix](LeetCode/20191124.md)               | `二分查找`   | 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值，矩阵有序。 | 二分查找的特定位置返回分析 |
 | 11.25   | [394. Decode String](LeetCode/20191125.md)                   | `DFS`        | 给定一个经过编码的字符串，返回它解码后的字符串。如s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef". |                            |
 | 11.26   | [343. Integer Break](LeetCode/20191126.md)                   | `DP`         | 给定一个正整数 *n*，将其拆分为**至少**两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。 |                            |
-|         |                                                              |              |                                                              |                            |
+| 11.27   | [206. Reverse Linked List](LeetCode/20191127.md)             | `List`       | 反转一个单链表。                                             |                            |
 
