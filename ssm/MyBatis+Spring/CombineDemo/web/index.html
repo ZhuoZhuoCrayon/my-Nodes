@@ -15,8 +15,8 @@
                 <img src="static/img/logo1.png" alt="element-logo" class="nav-logo">
             </div>
             <el-submenu index="3" style="position: absolute; right: 10px;top: 100px">
-                <template slot="title">Cai (System Manage)</template>
-                <el-menu-item index="2-1">Sign Out</el-menu-item>
+                <template slot="title">{{username}}({{role}})</template>
+                <el-menu-item index="2-1" @click="logout">Sign Out</el-menu-item>
             </el-submenu>
             <!--<div></div>-->
         </el-menu>
@@ -110,6 +110,9 @@
         el:'#app',
 
         data:{
+            //用户数据
+            username:null,
+            role:null,
             //表格等动态数据
             tableData: [],
             header: [],
@@ -144,6 +147,15 @@
         },
         created() {
             this.getTable(this.activeName);
+            axios
+                .get("/user/getUser.do")
+                .then(respone=>{
+                    this.username = respone.data.username;
+                    this.role = respone.data.role;
+                })
+                .catch(error=>{
+                    this.dialogErrorVisible = true;
+                })
         },
         methods:{
             setLoading(){
@@ -152,6 +164,10 @@
                 setTimeout(() => {
                     this.loadings = false
                 }, 2500)
+            },
+            logout(){
+                //退出登录
+                window.location.href = "/logout";
             },
             add() {
                 this.isAdd = true;
@@ -312,7 +328,7 @@
             submitLog(tableName,operation,key){
                 log = {
                   logid:null,
-                  who:'Cai',
+                  who:this.username,
                   time:Date.now(),
                   table_name:tableName,
                   operation:operation,
