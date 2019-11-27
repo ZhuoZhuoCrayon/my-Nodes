@@ -40,9 +40,9 @@
 | 10.06-2 | [102. Binary Tree Level Order Traversal](LeetCode/20191006-2.md) | `BFS` `DFS`  | 给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点） |          |
 | 10.06-3 | [199. Binary Tree Right Side View](LeetCode/20191006-3.md)   | `BFS`        | 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。 |          |
 | 10.07   | [207. Course Schedule](LeetCode/20191007.md)                 | `拓扑排序`   | 在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们: [0,1],给定课程总量以及它们的先决条件，判断是否可能完成所有课程的学习？ |          |
-|         |                                                              |              |                                                              |          |
-|         |                                                              |              |                                                              |          |
-|         |                                                              |              |                                                              |          |
+| 10.08   | [210. Course Schedule II](LeetCode/20191008.md)              | `拓扑排序`   | 在[课程表1：拓扑排序](20191007.md) 的基础上需要列举出结果    |          |
+| 10.09   | [310. Minimum Height Trees](LeetCode/20191009.md)            | `拓扑排序`   | 给出这样的一个图，写出一个函数找到所有的最小高度树并返回他们的根节点。 |          |
+| 10.10   | [34. Find First and Last Position of Element in Sorted Array](LeetCode/20191010.md) | `二分查找`   | 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 | 夹逼     |
 |         |                                                              |              |                                                              |          |
 |         |                                                              |              |                                                              |          |
 |         |                                                              |              |                                                              |          |
@@ -93,6 +93,6 @@
 | 11.23   | [106. Construct Binary Tree from Inorder and Postorder Traversal](LeetCode/20191123.md) | `Tree`       | 根据一棵树的中序遍历与后序遍历构造二叉树。                   |                            |
 | 11.24   | [74. Search a 2D Matrix](LeetCode/20191124.md)               | `二分查找`   | 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值，矩阵有序。 | 二分查找的特定位置返回分析 |
 | 11.25   | [394. Decode String](LeetCode/20191125.md)                   | `DFS`        | 给定一个经过编码的字符串，返回它解码后的字符串。如s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef". |                            |
-|         |                                                              |              |                                                              |                            |
+| 11.26   | [343. Integer Break](LeetCode/20191126.md)                   | `DP`         | 给定一个正整数 *n*，将其拆分为**至少**两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。 |                            |
 |         |                                                              |              |                                                              |                            |
 
