@@ -40,7 +40,7 @@
         INSERT INTO
         company_sys.sys_users
         VALUES
-        (#{username},#{password},#{salt})
+        (#{id},#{username},#{password},#{salt})
     </insert>
 
     <!-- 移除用户 -->

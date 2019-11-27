@@ -1,12 +1,21 @@
 package cn.com.sm.shiro;
 
+import cn.com.sm.po.company_sys.Permission;
+import cn.com.sm.service.impl.company_sys.PermissionsServiceImpl;
 import org.apache.shiro.config.Ini;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.util.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class MyShiroFilterFactoryBean  extends ShiroFilterFactoryBean {
+
+    @Autowired
+    private PermissionsServiceImpl permissionsService;
+
     private static final Logger log= LoggerFactory.getLogger(MyShiroFilterFactoryBean.class);
     /**
      * 配置中的过滤链
@@ -17,15 +26,7 @@ public class MyShiroFilterFactoryBean  extends ShiroFilterFactoryBean {
 
         MyShiroFilterFactoryBean.definitions = definitions;
 
-
-        /*
-         //数据库动态权限
-        List<TbShiroFilter> list = systemService.getShiroFilter();
-        for(TbShiroFilter tbShiroFilter : list){
-            //字符串拼接权限
-            definitions = definitions+tbShiroFilter.getName() + " = "+tbShiroFilter.getPerms()+"\n";
-        }
-        */
+        List<Permission> permissions = permissionsService.findAll();
         definitions = "/static/** = anon\n" +
                         "/css/** = anon\n" +
                         "/js/** = anon\n" +
@@ -34,9 +35,14 @@ public class MyShiroFilterFactoryBean  extends ShiroFilterFactoryBean {
                         "/login.html = anon\n" +
                         "/login.do = anon\n" +
                         "/logout = logout\n" +
-                        "/index.html = user\n" +
-                        "/index.do = user\n" +
-                        "/** = user\n";
+                        "/index.html = authc\n" +
+                        "/index.do = authc\n" +
+                        "/user/getUser.do = authc\n";
+        //导入权限
+        for(Permission permission:permissions){
+            definitions += permission.getPermission() + " = " + permission.getPerms() + "\n";
+        }
+        System.out.println(definitions);
         log.info(definitions);
 
         //从配置文件加载权限配置

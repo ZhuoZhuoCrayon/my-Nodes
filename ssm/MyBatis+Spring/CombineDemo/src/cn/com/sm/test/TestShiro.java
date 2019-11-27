@@ -23,7 +23,9 @@ public class TestShiro {
 
     @Test
     public void initUserTest(){
-        userService.update(new User(1L,"admin",null,null));
-        userService.update(new User(2L,"user",null,null));
+        /*userService.update(new User(1L,"admin",null,null));
+        userService.update(new User(2L,"user",null,null));*/
+        //userService.insert(new User(3L,"ylx","ylx",null));
+
     }
 }
