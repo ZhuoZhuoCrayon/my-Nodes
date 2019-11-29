@@ -96,7 +96,7 @@
 | 11.26   | [343. Integer Break](LeetCode/20191126.md)                   | `DP`          | 给定一个正整数 *n*，将其拆分为**至少**两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。 |                            |
 | 11.27   | [206. Reverse Linked List](LeetCode/20191127.md)             | `List`        | 反转一个单链表。                                             |                            |
 | 11.28   | [103. Binary Tree Zigzag Level Order Traversal](LeetCode/20191128.md) | `BFS` `Stack` | 给定一个二叉树，返回其节点值的锯齿形层次遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。 |                            |
-|         |                                                              |               |                                                              |                            |
+| 11.29   | [92. Reverse Linked List II](LeetCode/20191129.md)           | `List`        | 反转从位置 *m* 到 *n* 的链表。请使用一趟扫描完成反转         | 递归写法                   |
 |         |                                                              |               |                                                              |                            |
 |         |                                                              |               |                                                              |                            |
 |         |                                                              |               |                                                              |                            |
