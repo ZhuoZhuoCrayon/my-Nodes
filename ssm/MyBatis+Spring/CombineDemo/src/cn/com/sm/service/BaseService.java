@@ -26,6 +26,10 @@ public interface BaseService<T> {
     Result insert(T t);
 
     /**
+     * 更新bug：如果撞id，会导致修改另外一行
+     * 所以是需要两个参数的，原id和修改的元组
+     */
+    /**
      * 更新
      * @param t
      */

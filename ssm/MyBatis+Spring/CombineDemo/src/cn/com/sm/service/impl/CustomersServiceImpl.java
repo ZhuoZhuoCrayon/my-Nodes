@@ -2,11 +2,14 @@ package cn.com.sm.service.impl;
 
 import cn.com.sm.mapper.CustomersMapper;
 import cn.com.sm.po.Customer;
+import cn.com.sm.po.Log;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,6 +17,8 @@ public class CustomersServiceImpl implements BaseService<Customer> {
 
     @Autowired
     private CustomersMapper customersMapper;
+    @Autowired
+    private LogsServiceImpl logsService;
 
 
     @Override
@@ -64,14 +69,22 @@ public class CustomersServiceImpl implements BaseService<Customer> {
     public Result update(Customer customer){
         try{
             String formatInfo = checkFormat(customer);
+            List<Customer> customers = findById(customer.getCid());
             if(!formatInfo.equals("pass")){
                 return new Result(false,formatInfo);
-            }else if(findById(customer.getCid()).size()==0){
+            }else if(customers.size()==0){
                 return new Result(false,
                         "cid:[" + customer.getCid() +
                                 "] not existed");
             }else{
+                int oldVisitsMade = customers.get(0).getVisits_made();
                 customersMapper.update(customer);
+                //更新了visit_made
+                if(oldVisitsMade!=customer.getVisits_made()){
+                    Log log = new Log(null,"system",new Date(),
+                            "customers","update",customer.getCid());
+                    logsService.insert(log);
+                }
                 return new Result(true,
                         "update [" + customer.getCid() +
                                 "] in customers successfully");
@@ -102,6 +115,10 @@ public class CustomersServiceImpl implements BaseService<Customer> {
             return new Result(true,
                     "delete" + idStr +
                             "in customers successfully");
+        }catch(DataIntegrityViolationException dataDependency){
+            return new Result(false,
+                    "cannot delete  a parent row:" +
+                            "FOREIGN KEY('cid') REFERENCES customers('cid')");
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,

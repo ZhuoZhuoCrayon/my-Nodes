@@ -1,19 +1,24 @@
 package cn.com.sm.service.impl;
 
 import cn.com.sm.mapper.ProductsMapper;
+import cn.com.sm.po.Log;
 import cn.com.sm.po.Product;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class ProductsServiceImpl implements BaseService<Product> {
     @Autowired
     private ProductsMapper productsMapper;
+    @Autowired
+    private LogsServiceImpl logsService;
     @Override
     public List<Product> findAll(){
         try{
@@ -61,13 +66,21 @@ public class ProductsServiceImpl implements BaseService<Product> {
     public Result update(Product product){
         try{
             String formatInfo = checkFormat(product);
+            List<Product> products = findById(product.getPid());
             if(!formatInfo.equals("pass")){
                 return new Result(false,formatInfo);
-            }else if(findById(product.getPid()).size()==0){
+            }else if(products.size()==0){
                 return new Result(false,
                         "pid:[" + product.getPid() + "] not existed");
             }else{
+                int oldQoh = products.get(0).getQoh();
                 productsMapper.update(product);
+                //更新了qoh
+                if(oldQoh!=product.getQoh()){
+                    Log log = new Log(null,"system",new Date(),
+                            "products","update",product.getPid());
+                    logsService.insert(log);
+                }
                 return new Result(true,
                         "update [" + product.getPid() +
                                 "] in products successfully");
@@ -97,6 +110,10 @@ public class ProductsServiceImpl implements BaseService<Product> {
             return new Result(true,
                     "delete" + idStr +
                             "in products successfully");
+        }catch(DataIntegrityViolationException dataDependency){
+            return new Result(false,
+                    "cannot delete  a parent row:" +
+                            "FOREIGN KEY('pid') REFERENCES products('pid')");
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,

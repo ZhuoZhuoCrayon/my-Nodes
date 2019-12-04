@@ -5,6 +5,8 @@ import cn.com.sm.po.Result;
 import cn.com.sm.po.Supplier;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -49,6 +51,9 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
                         "insert [" + supplier.getSid() +
                                 "] in suppliers successfully");
             }
+        }catch (DuplicateKeyException duplicateKeyError) {
+            return new Result(false,"insert[" +
+                    supplier.getSid() + "] in suppliers Failed: sname existed\n");
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"insert[" +
@@ -71,6 +76,9 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
                         "update [" + supplier.getSid() +
                                 "] in suppliers successfully");
             }
+        }catch (DuplicateKeyException duplicateKeyError) {
+            return new Result(false,"insert[" +
+                    supplier.getSid() + "] in suppliers Failed: sname existed\n");
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,"update[" +
@@ -95,6 +103,10 @@ public class SuppliersServiceImpl implements BaseService<Supplier> {
             return new Result(true,
                     "delete" + idStr +
                             "in suppliers successfully");
+        }catch(DataIntegrityViolationException dataDependency){
+            return new Result(false,
+                    "cannot delete  a parent row:" +
+                            "FOREIGN KEY('sid') REFERENCES suppliers('sid')");
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false,

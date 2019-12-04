@@ -1,10 +1,10 @@
 package cn.com.sm.service.impl;
 
+import cn.com.sm.mapper.CustomersMapper;
+import cn.com.sm.mapper.LogsMapper;
 import cn.com.sm.mapper.ProductsMapper;
 import cn.com.sm.mapper.PurchasesMapper;
-import cn.com.sm.po.Product;
-import cn.com.sm.po.Purchase;
-import cn.com.sm.po.Result;
+import cn.com.sm.po.*;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,12 @@ public class PurchasesServiceImpl implements BaseService<Purchase> {
     @Autowired
     private PurchasesMapper purchasesMapper;
     @Autowired
-    private ProductsMapper productsMapper;
+    private ProductsServiceImpl productsService;
+    @Autowired
+    private CustomersServiceImpl customersService;
+    @Autowired
+    private LogsServiceImpl logsService;
+
     @Override
     public List<Purchase> findAll(){
         try{
@@ -54,32 +59,62 @@ public class PurchasesServiceImpl implements BaseService<Purchase> {
                         "purid:[" + purchase.getPurid() + "] existed");
             }else{
 
-                List<Product> products = productsMapper.findById(purchase.getPid());
+                List<Product> products = productsService.findById(purchase.getPid());
+                List<Customer> customers = customersService.findById(purchase.getCid());
                 //商品不存在
                 if(products.size()==0){
                     return new Result(false,
-                            "product:[" + purchase.getPurid() +
-                            "] not existed");
+                            "product:[" + purchase.getPurid() + "] not existed");
+                }
+                if(customers.size()==0){
+                    return new Result(false,
+                            "customer:[" + purchase.getCid() + "] not existed");
                 }
                 Product product = products.get(0);
+                Customer customer = customers.get(0);
+                String resMessage = "";
+
+                int oldQoh = product.getQoh();
                 //库存小于购买量
-                if(product.getQoh_threshold()<purchase.getQty()){
+                if(product.getQoh()<purchase.getQty()){
                     return new Result(false,
                             "Qty[" + purchase.getQty() + "]" +
-                            "> Qoh_threshold[" + product.getQoh_threshold() + "]");
+                            "> Qoh[" + product.getQoh() + "]");
                 }
 
-                //计算价格
-                purchase.setTotal_price(product.getOriginal_price()*(1-product.getDiscnt_rate())*
-                        purchase.getQty());
+                //计算/校对价格
+                purchase.setTotal_price(product.getOriginal_price() *
+                        (1-product.getDiscnt_rate()) * purchase.getQty());
                 //更新库存
-                product.setQoh_threshold(product.getQoh_threshold()-purchase.getQty());
+                product.setQoh(product.getQoh()-purchase.getQty());
 
-                productsMapper.update(product);
+                //更新custom表的visits_made&klast_visit_time;
+                customer.setVisits_made(customer.getVisits_made() + 1);
+                customer.setLast_visit_time(purchase.getPtime());
+
+                if(product.getQoh()<product.getQoh_threshold()){
+                    //打印一条消息，指示产品的当前qoh
+                    resMessage += "The product qoh is " + product.getQoh() + "\n\n";
+                    //qoh低于qoh_threshold,将qoh设置为2 * old_qoh
+                    product.setQoh(2 * oldQoh);
+                    resMessage +=  "The product has been increased by " +
+                                    (oldQoh + purchase.getQty()) + "\n\n";
+                }
+
+
+                productsService.update(product);
+                customersService.update(customer);
                 purchasesMapper.insert(purchase);
+
+                //插入log
+                Log log_pur = new Log(null,purchase.getEid(),purchase.getPtime(),
+                        "purchases","insert",purchase.getPurid().toString());
+                logsService.insert(log_pur);
+
+
                 return new Result(true,
-                        "insert [" + purchase.getPurid() +
-                                "] in purchases successfully");
+                         resMessage +
+                                 "insert [" + purchase.getPurid() + "] in purchases successfully");
             }
 
         }catch (Exception e){

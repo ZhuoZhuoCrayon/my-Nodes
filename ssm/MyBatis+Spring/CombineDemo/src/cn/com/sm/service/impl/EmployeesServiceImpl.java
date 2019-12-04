@@ -5,6 +5,7 @@ import cn.com.sm.po.Employee;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -101,7 +102,11 @@ public class EmployeesServiceImpl implements BaseService<Employee> {
             return new Result(true,
                     "delete" + idStr +
                             "in employees successfully");
-        }catch (Exception e){
+        }catch(DataIntegrityViolationException dataDependency){
+            return new Result(false,
+                    "cannot delete  a parent row:" +
+                            "FOREIGN KEY('eid') REFERENCES employee('eid')");
+        } catch(Exception e){
             e.printStackTrace();
             return new Result(false,
                     "error from delete on employees\n" +
