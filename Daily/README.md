@@ -117,7 +117,7 @@
 | 12.02-1 | [95. Unique Binary Search Trees II](LeetCode/201912/20191202-1.md) | `BST`       | 给定一个整数 n，生成所有由 1 ... n 为节点所组成的二叉搜索树。 | review     |
 | 12.02-2 | [357. Count Numbers with Unique Digits](LeetCode/201912/20191202-2.md) | `DP` `Math` | 给定一个非负整数 n，计算各位数字都不同的数字 x 的个数，其中 0 ≤ x < 10^n 。 |            |
 | 12.03   | [208. Implement Trie (Prefix Tree)](LeetCode/201912/20191203.md) | `Trie`      | 实现一个 Trie (前缀树)，包含 `insert`, `search`, 和 `startsWith` 这三个操作。 | 前缀树基础 |
-|         |                                                              |             |                                                              |            |
+| 12.04   | [222. Count Complete Tree Nodes](LeetCode/201912/20191204.md) | `CBT`       | 给出一个**完全二叉树**，求出该树的节点个数。                 |            |
 |         |                                                              |             |                                                              |            |
 |         |                                                              |             |                                                              |            |
 |         |                                                              |             |                                                              |            |
