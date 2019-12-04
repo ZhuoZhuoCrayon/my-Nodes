@@ -11,8 +11,8 @@ public class Log implements Serializable {
     private String operation;
     private String key_value;
 
-    Log(){}
-    Log(Integer logid,String who,Date time,String table_name,
+    public Log(){}
+    public Log(Integer logid,String who,Date time,String table_name,
         String operation,String key_value){
         this.logid = logid;
         this.who = who;
