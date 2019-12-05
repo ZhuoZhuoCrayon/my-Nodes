@@ -127,3 +127,29 @@
 
 * **T是决定因素，但T不包含码**
 
+
+
+
+
+## Normalization to BCNF 
+
+### LLJB-BCNF
+
+#### Input
+
+A relation schema R, a set of FDs in R
+
+#### Ouput
+
+A **lossless-join decomposition D** such that each new schema in D is in BCNF.
+
+> 获得具有无损分解形式的多张表
+
+#### EXE
+
+![alt](../img/nor1.png)
+
+#### 理解
+
+**找出使得Ri不满足BCNF的函数依赖`X->Y`，将Ri分解为`Ri-Y`和`XY`，放入D**
+
