@@ -119,7 +119,7 @@
 | 12.03   | [208. Implement Trie (Prefix Tree)](LeetCode/201912/20191203.md) | `Trie`       | 实现一个 Trie (前缀树)，包含 `insert`, `search`, 和 `startsWith` 这三个操作。 | 前缀树基础 |
 | 12.04   | [222. Count Complete Tree Nodes](LeetCode/201912/20191204.md) | `CBT`        | 给出一个**完全二叉树**，求出该树的节点个数。                 |            |
 | 12.05   | [211. Add and Search Word - Data structure design](LeetCode/201912/20191205.md) | `Trie` `BFS` | search(word) 可以搜索文字或正则表达式字符串，字符串只包含字母 . 或 a-z 。 . 可以表示任何一个字母。 |            |
-|         |                                                              |              |                                                              |            |
+| 12.06   | [69. Sqrt(x)](LeetCode/201912/20191206.md)                   | `二分`       | 实现` int sqrt(int x)` 函数。二分猜数                        |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
