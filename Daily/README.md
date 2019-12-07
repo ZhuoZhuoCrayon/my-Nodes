@@ -120,7 +120,7 @@
 | 12.04   | [222. Count Complete Tree Nodes](LeetCode/201912/20191204.md) | `CBT`        | 给出一个**完全二叉树**，求出该树的节点个数。                 |            |
 | 12.05   | [211. Add and Search Word - Data structure design](LeetCode/201912/20191205.md) | `Trie` `BFS` | search(word) 可以搜索文字或正则表达式字符串，字符串只包含字母 . 或 a-z 。 . 可以表示任何一个字母。 |            |
 | 12.06   | [69. Sqrt(x)](LeetCode/201912/20191206.md)                   | `二分`       | 实现` int sqrt(int x)` 函数。二分猜数                        |            |
-|         |                                                              |              |                                                              |            |
+| 12.07   | [138. Copy List with Random Pointer](LeetCode/201912/20191207.md) | `List`       | 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。返回链表深拷贝 |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
