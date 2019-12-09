@@ -121,8 +121,8 @@
 | 12.05   | [211. Add and Search Word - Data structure design](LeetCode/201912/20191205.md) | `Trie` `BFS` | search(word) 可以搜索文字或正则表达式字符串，字符串只包含字母 . 或 a-z 。 . 可以表示任何一个字母。 |            |
 | 12.06   | [69. Sqrt(x)](LeetCode/201912/20191206.md)                   | `二分`       | 实现` int sqrt(int x)` 函数。二分猜数                        |            |
 | 12.07   | [138. Copy List with Random Pointer](LeetCode/201912/20191207.md) | `List`       | 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。返回链表深拷贝 |            |
-|         |                                                              |              |                                                              |            |
-|         |                                                              |              |                                                              |            |
+| 12.08   | [143. Reorder List](LeetCode/201912/20191208.md)             | `List`       | 给定一个单链表 L：L0→L1→…→Ln-1→Ln ，<br/>将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→… | 链表总结   |
+| 12.09   | [231. Power of Two](LeetCode/201912/20191209.md)             | `Bits`       | 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。        |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
 |         |                                                              |              |                                                              |            |
