@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.PurchasesMapper">
+    <select id="findAll" resultType="cn.com.sm.po.Purchase">
+        <!--
+        SELECT * FROM purchases;
+        -->
+        call show_table('purchases');
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="cn.com.sm.po.Purchase">
+        SELECT * FROM purchases
+        WHERE purid = #{purid};
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Purchase">
+        INSERT INTO purchases
+        VALUE (#{purid},#{cid},#{eid},#{pid},#{qty},#{ptime},#{total_price});
+    </insert>
+
+    <select id="trade" parameterType="cn.com.sm.po.Purchase"
+            resultType="java.util.HashMap" statementType="CALLABLE">
+        {
+            call add_purchase(
+                #{purid,mode=IN,jdbcType=INTEGER},
+                #{cid,mode=IN,jdbcType=VARCHAR},
+                #{eid,mode=IN,jdbcType=VARCHAR},
+                #{pid,mode=IN,jdbcType=VARCHAR},
+                #{qty,mode=IN,jdbcType=INTEGER}
+            )
+        }
+    </select>
+
+    <update id="update" parameterType="cn.com.sm.po.Purchase">
+        UPDATE purchases
+        <set>
+            <if test="cid!=null">
+                cid = #{cid},
+            </if>
+            <if test="eid!=null">
+                eid = #{eid},
+            </if>
+            <if test="pid!=null">
+                pid = #{pid},
+            </if>
+            <if test="qty!=null">
+                qty = #{qty},
+            </if>
+            <if test="ptime!=null">
+                ptime = #{ptime},
+            </if>
+            <if test="total_price!=null">
+                total_price = #{total_price},
+            </if>
+        </set>
+        WHERE purid = #{purid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM purchases
+        WHERE purid = #{purid};
+    </delete>
+
+</mapper>

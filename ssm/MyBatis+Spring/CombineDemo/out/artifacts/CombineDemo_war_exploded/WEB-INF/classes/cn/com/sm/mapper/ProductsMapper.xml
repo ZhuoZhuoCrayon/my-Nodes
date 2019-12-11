@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.ProductsMapper">
+    <select id="findAll" resultType="cn.com.sm.po.Product">
+        <!--
+        SELECT * FROM products;
+        -->
+        call show_table('products');
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.String" resultType="cn.com.sm.po.Product">
+        SELECT * FROM products
+        WHERE pid = #{pid};
+    </select>
+
+    <select id="reportMonthlySale" parameterType="java.lang.String" resultType="cn.com.sm.po.MonthlySale">
+        call report_monthly_sale(#{pid});
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Product">
+        INSERT INTO products
+        VALUE (#{pid},#{pname},#{qoh},#{qoh_threshold},#{original_price},#{discnt_rate},#{sid});
+    </insert>
+
+    <update id="update" parameterType="cn.com.sm.po.Product">
+        UPDATE products
+        <set>
+            <if test="pname!=null">
+                pname = #{pname},
+            </if>
+            <if test="qoh!=null">
+                qoh = #{qoh},
+            </if>
+            <if test="qoh_threshold!=null">
+                qoh_threshold = #{qoh_threshold},
+            </if>
+            <if test="original_price!=null">
+                original_price = #{original_price},
+            </if>
+            <if test="discnt_rate!=null">
+                discnt_rate = #{discnt_rate},
+            </if>
+            <if test="sid!=null">
+                sid = #{sid},
+            </if>
+        </set>
+        WHERE pid = #{pid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM products
+        WHERE pid = #{pid};
+    </delete>
+
+</mapper>

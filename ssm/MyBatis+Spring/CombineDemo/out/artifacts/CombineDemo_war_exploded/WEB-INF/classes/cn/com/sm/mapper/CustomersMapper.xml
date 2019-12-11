@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.CustomersMapper">
+    <select id="findAll" resultType="cn.com.sm.po.Customer">
+        <!--
+        SELECT * FROM customers;
+        -->
+        call show_table('customers');
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.String" resultType="cn.com.sm.po.Customer">
+        SELECT * FROM customers
+        WHERE cid = #{cid};
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Customer">
+        INSERT INTO customers
+        VALUE (#{cid},#{cname},#{city},#{visits_made},#{last_visit_time});
+    </insert>
+
+    <update id="update" parameterType="cn.com.sm.po.Customer">
+        UPDATE customers
+        <set>
+            <if test="cname!=null">
+                cname = #{cname},
+            </if>
+            <if test="city!=null">
+                city = #{city},
+            </if>
+            <if test="visits_made!=null">
+                visits_made = #{visits_made},
+            </if>
+            <if test="last_visit_time!=null">
+                last_visit_time = #{last_visit_time},
+            </if>
+        </set>
+        WHERE cid = #{cid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM customers
+        WHERE cid = #{cid};
+    </delete>
+
+</mapper>

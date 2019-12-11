@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.LogsMapper">
+    <select id="findAll" resultType="cn.com.sm.po.Log">
+        <!--
+        SELECT * FROM logs;
+        -->
+
+        call show_table('logs');
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="cn.com.sm.po.Log">
+        SELECT * FROM logs
+        WHERE logid = #{logid};
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Log">
+        INSERT INTO logs
+        VALUE (#{logid},#{who},#{time},#{table_name},#{operation},#{key_value});
+    </insert>
+
+    <update id="update" parameterType="cn.com.sm.po.Log">
+        UPDATE logs
+        <set>
+            <if test="who!=null">
+                who = #{who},
+            </if>
+            <if test="time!=null">
+                time = #{time},
+            </if>
+            <if test="table_name!=null">
+                table_name = #{table_name},
+            </if>
+            <if test="operation!=null">
+                operation = #{operation},
+            </if>
+            <if test="key_value!=null">
+                key_value = #{key_value},
+            </if>
+        </set>
+        WHERE logid = #{logid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM logs
+        WHERE logid = #{logid};
+    </delete>
+
+</mapper>

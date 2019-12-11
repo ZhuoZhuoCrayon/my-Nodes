@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.sm.mapper.SuppliersMapper">
+    <select id="findAll" resultType="cn.com.sm.po.Supplier">
+        <!--
+        SELECT * FROM suppliers;
+        -->
+        call show_table('suppliers');
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.String" resultType="cn.com.sm.po.Supplier">
+        SELECT * FROM suppliers
+        WHERE sid = #{sid};
+    </select>
+
+    <insert id="insert" parameterType="cn.com.sm.po.Supplier">
+        INSERT INTO suppliers
+        VALUE (#{sid},#{sname},#{city},#{telephone_no});
+    </insert>
+
+    <update id="update" parameterType="cn.com.sm.po.Supplier">
+        UPDATE suppliers
+        <set>
+            <if test="sname!=null">
+                sname = #{sname},
+            </if>
+            <if test="city!=null">
+                city = #{city},
+            </if>
+            <if test="telephone_no!=null">
+                telephone_no = #{telephone_no},
+            </if>
+        </set>
+        WHERE sid = #{sid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM suppliers
+        WHERE sid = #{sid};
+    </delete>
+
+</mapper>

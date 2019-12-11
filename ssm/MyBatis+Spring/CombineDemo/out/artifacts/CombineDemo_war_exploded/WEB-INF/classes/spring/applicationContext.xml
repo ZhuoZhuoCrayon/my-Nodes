@@ -40,14 +40,20 @@
         <property name="dataSource" ref="dataSource" />
 
         <!-- 扫描Mapper层的配置文件 -->
-        <property name="mapperLocations" value="classpath:cn/com/sm/mapper/*.xml"/>
+        <property name="mapperLocations" value="
+            classpath:cn/com/sm/mapper/*.xml,
+            classpath:cn/com/sm/mapper/company_sys/*.xml
+        "/>
     </bean>
 
 
     <!-- 指定扫描的包名
             如果扫描多个包，每个包中间使用半角逗号分隔 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="cn.com.sm.mapper"/>
+        <property name="basePackage" value="
+            cn.com.sm.mapper,
+            cn.com.sm.mapper.company_sys
+        "/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 </beans>

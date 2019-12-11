@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+</head>
+
+<body>
+<div id="app">
+    <el-button slot="append" @click="testReportMonthlySale" style="width: 200px;">
+        testReportMonthlySale
+    </el-button>
+
+    <el-button slot="append" @click="testTrade" style="width: 200px;">
+        testTrade
+    </el-button>
+</div>
+</body>
+
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jutils-src"></script>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            testReportMonthlySale(){
+                axios({
+                    method:"get",
+                    url:"/products/reportMonthlySale.do",
+                    headers:{
+                        'Content-type': 'application/x-www-form-urlencoded'
+                    },
+                    params:{
+                        'id':'pr00'
+                    },
+                }).then((respone)=>{
+                    console.log(respone.data);
+                }).catch(error=>{
+                    this.$message({
+                        type: 'error',
+                        message: '网络无连接'
+                    })
+                })
+            },
+
+            testTrade(){
+                purchase = {
+                    purid:8,
+                    cid:"c001",
+                    eid:"e00",
+                    pid:"pr00",
+                    qty:100,
+                    ptime:null,
+                    total_price:null
+                };
+
+                axios({
+                    method:'post',
+                    url:'/purchases/trade.do',
+                    headers:{
+                        'Content-type': 'application/json'
+                    },
+                    data:JSON.stringify(purchase)
+                }).then(response => {
+                    if (response.data.success != true) {
+                        //this.dialogErrorVisible = true;
+                        this.$message({
+                            type: 'error',
+                            message: response.data.message
+                        })
+                    }else{
+                        this.$message({
+                            type: 'success',
+                            message: response.data.message
+                        })
+                    }
+                }).catch(error=> {
+                    this.$message({
+                        type: 'error',
+                        message: '网络无连接'
+                    })
+                })
+            }
+        }
+    })
+</script>
+
+</html>
