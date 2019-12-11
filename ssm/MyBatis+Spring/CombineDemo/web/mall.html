@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mall</title>
+    <link rel="stylesheet" href="static/css/xmall.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+</head>
+
+<body>
+<div id="app">
+    <el-container style="box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)">
+        <el-aside width="200px">
+            <el-card class="box-card" style="width: 180px;height:730px;margin-left: 10px;margin-top: 10px">
+                <div style="height: 450px; margin-top: 95px">
+                    <el-steps direction="vertical" :active="step.active" :process-status="step.processStatus">
+                        <el-step title="Choose"></el-step>
+                        <el-step title="Buy It"></el-step>
+                        <el-step title="Fill Form"></el-step>
+                        <el-step title="Confirm" description="Pay attention to the Info"></el-step>
+                        <el-step title="Status" description="Back Choose"></el-step>
+                    </el-steps>
+                </div>
+
+            </el-card>
+        </el-aside>
+        <el-container>
+            <el-header height="100px">
+                <div style="float: right;margin-top: 75px;">
+                    <el-dropdown>
+                        <span class="el-dropdown-link" style="font-size: 16px;">
+                            {{username}}({{role}})<i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item @click="sign_out">Sign Out</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </div>
+            </el-header>
+            <el-main>
+                <el-carousel :interval="4000" type="card" height="500px">
+                    <el-carousel-item v-for="(item,key) in products" :key="key">
+                        <el-card :body-style="{ padding: '20px' }" class="product-card">
+                            <img v-bind:src="'static/img/'+item.pname+'.png'" class="image">
+                            <div style="padding: 14px; font-size: 20px">
+                                <span style="color: dimgray;font-weight: bold">{{item.pname}}</span>
+                                <br>
+                                <span style="text-decoration:line-through;">${{item.original_price.toFixed(2)}}</span>
+                                <span style="font-size: 25px;color: red;font-weight: bold">
+                                    ${{(item.original_price * (1-item.discnt_rate)).toFixed(2)}}
+                                </span>
+                                <div class="bottom clearfix">
+                                    <el-button type="primary"
+                                               class="button"
+                                               style="font-size: 17px" @click="trade(item)">Buy it
+                                    </el-button>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-carousel-item>
+                </el-carousel>
+            </el-main>
+            <el-footer height="80px">
+                <span style="float: left; margin-top: 30px;color: dimgray;" @click="gotoManage">
+                    <i class="el-icon-arrow-left"></i>
+                    Go to ManagePage
+                </span>
+            </el-footer>
+        </el-container>
+    </el-container>
+
+    <!--:append-to-body='true解决弹出框被幕布遮挡的bug-->
+    <el-dialog title="Item Information"
+               :visible.sync="dialogFormVisible"
+               :append-to-body='true'
+               @close="cancelSubmit('purchase')"
+               width="30%">
+
+        <el-form :model="purchase"
+                 :rules="rules"
+                 ref="purchase"
+                 label-position="left"
+                 label-width="135px">
+            <el-form-item label="Product Name">
+                <el-input v-model="selectProduct.pname"
+                          auto-complete="off"
+                          disabled="true"/>
+            </el-form-item>
+            <el-form-item label="Product Id">
+                <el-input v-model="purchase.pid"
+                          auto-complete="off"
+                          disabled="true"/>
+            </el-form-item>
+            <el-form-item label="Customer Id" prop="cid">
+                <el-select v-model="purchase.cid" placeholder="select cid">
+                    <el-option v-for="(cid,key) in cids"
+                               :label="cid"
+                               :value="cid"/>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="Employee Id" prop="eid">
+                <el-select v-model="purchase.eid" placeholder="select eid">
+                    <el-option v-for="(eid,key) in eids"
+                               :label="eid"
+                               :value="eid"/>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="Purchase Quantity">
+                <el-input-number v-model="purchase.qty" @change="handleChange" :min="1" :max="100"/>
+            </el-form-item>
+
+            <el-form-item label="Product Price" :model="selectProduct">
+                <span style="text-decoration:line-through;">
+                    ${{Number(selectProduct.original_price).toFixed(2)}}
+                </span>
+                <span style="font-size: 20px;color: red;font-weight: bold">
+                    ${{Number((selectProduct.original_price * (1-selectProduct.discnt_rate))).toFixed(2)}}
+                </span>
+            </el-form-item>
+
+            <el-form-item label="Total Price" :model="selectProduct">
+                <span style="font-size: 17px;font-weight: bold">
+                    ${{Number(purchase.total_price).toFixed(2)}}
+                </span>
+            </el-form-item>
+
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="cancelSubmit('purchase')">Cancel</el-button>
+            <el-button type="primary" @click="submitForm('purchase')">Confirm</el-button>
+        </div>
+    </el-dialog>
+</div>
+</body>
+
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jutils-src"></script>
+<script src="static/js/mall.js"></script>
+</html>
