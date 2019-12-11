@@ -5,7 +5,10 @@
 
 <mapper namespace="cn.com.sm.mapper.PurchasesMapper">
     <select id="findAll" resultType="cn.com.sm.po.Purchase">
+        <!--
         SELECT * FROM purchases;
+        -->
+        call show_table('purchases');
     </select>
 
 
@@ -18,6 +21,19 @@
         INSERT INTO purchases
         VALUE (#{purid},#{cid},#{eid},#{pid},#{qty},#{ptime},#{total_price});
     </insert>
+
+    <select id="trade" parameterType="cn.com.sm.po.Purchase"
+            resultType="java.util.HashMap" statementType="CALLABLE">
+        {
+            call add_purchase(
+                #{purid,mode=IN,jdbcType=INTEGER},
+                #{cid,mode=IN,jdbcType=VARCHAR},
+                #{eid,mode=IN,jdbcType=VARCHAR},
+                #{pid,mode=IN,jdbcType=VARCHAR},
+                #{qty,mode=IN,jdbcType=INTEGER}
+            )
+        }
+    </select>
 
     <update id="update" parameterType="cn.com.sm.po.Purchase">
         UPDATE purchases

@@ -25,6 +25,16 @@ public class EmployeesController {
         return employeesService.findAll();
     }
 
+    @RequestMapping(value = "/getIds",method = RequestMethod.GET,produces = "application/json")
+    public List<String> getEid(){
+        List<String> eids = new ArrayList<>();
+        for(Employee e:employeesService.findAll()) {
+            eids.add(e.getEid());
+        }
+
+        return eids;
+    }
+
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Employee> findById(@RequestParam(value = "id",required = false)String id){
         return employeesService.findById(id);

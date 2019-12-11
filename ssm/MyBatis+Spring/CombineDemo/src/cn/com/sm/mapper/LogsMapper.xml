@@ -5,7 +5,11 @@
 
 <mapper namespace="cn.com.sm.mapper.LogsMapper">
     <select id="findAll" resultType="cn.com.sm.po.Log">
+        <!--
         SELECT * FROM logs;
+        -->
+
+        call show_table('logs');
     </select>
 
 

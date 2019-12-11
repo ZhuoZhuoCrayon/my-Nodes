@@ -1,5 +1,6 @@
 package cn.com.sm.controller;
 
+import cn.com.sm.po.MonthlySale;
 import cn.com.sm.po.Product;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.impl.ProductsServiceImpl;
@@ -22,6 +23,11 @@ public class ProductsController {
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Product> findById(@RequestParam(value = "id",required = false)String id){
         return productsService.findById(id);
+    }
+
+    @RequestMapping(value = "/reportMonthlySale",method = RequestMethod.GET)
+    public List<MonthlySale> reportMonthlySale(@RequestParam(value = "id",required = false)String id){
+        return productsService.reportMonthlySale(id);
     }
 
     @RequestMapping(value = "/insert",method = RequestMethod.POST)

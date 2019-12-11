@@ -5,7 +5,10 @@
 
 <mapper namespace="cn.com.sm.mapper.SuppliersMapper">
     <select id="findAll" resultType="cn.com.sm.po.Supplier">
+        <!--
         SELECT * FROM suppliers;
+        -->
+        call show_table('suppliers');
     </select>
 
 

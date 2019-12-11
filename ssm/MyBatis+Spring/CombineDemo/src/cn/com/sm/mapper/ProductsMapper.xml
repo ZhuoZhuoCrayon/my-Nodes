@@ -5,13 +5,20 @@
 
 <mapper namespace="cn.com.sm.mapper.ProductsMapper">
     <select id="findAll" resultType="cn.com.sm.po.Product">
+        <!--
         SELECT * FROM products;
+        -->
+        call show_table('products');
     </select>
 
 
     <select id="findById" parameterType="java.lang.String" resultType="cn.com.sm.po.Product">
         SELECT * FROM products
         WHERE pid = #{pid};
+    </select>
+
+    <select id="reportMonthlySale" parameterType="java.lang.String" resultType="cn.com.sm.po.MonthlySale">
+        call report_monthly_sale(#{pid});
     </select>
 
     <insert id="insert" parameterType="cn.com.sm.po.Product">

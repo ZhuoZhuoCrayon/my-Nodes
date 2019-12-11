@@ -2,6 +2,7 @@ package cn.com.sm.service.impl;
 
 import cn.com.sm.mapper.ProductsMapper;
 import cn.com.sm.po.Log;
+import cn.com.sm.po.MonthlySale;
 import cn.com.sm.po.Product;
 import cn.com.sm.po.Result;
 import cn.com.sm.service.BaseService;
@@ -134,5 +135,14 @@ public class ProductsServiceImpl implements BaseService<Product> {
             return "sid is null or too long";
         }
         return "pass";
+    }
+
+    public List<MonthlySale> reportMonthlySale(String id){
+        try {
+            return productsMapper.reportMonthlySale(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 }

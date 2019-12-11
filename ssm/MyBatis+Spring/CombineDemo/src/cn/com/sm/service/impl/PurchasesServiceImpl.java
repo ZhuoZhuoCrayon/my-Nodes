@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -123,6 +124,31 @@ public class PurchasesServiceImpl implements BaseService<Purchase> {
                     purchase.getPurid() + "] in purchases Failed\n" + e.getMessage());
         }
 
+    }
+
+    public Result trade(Purchase purchase){
+        try{
+            String formatInfo = checkFormat(purchase);
+            if(!formatInfo.equals("pass")){
+                return new Result(false,formatInfo);
+            }else if(findById(purchase.getPurid()).size()!=0){
+                return new Result(false,
+                        "purid:[" + purchase.getPurid() + "] existed");
+            }else{
+                HashMap<String,Object> hashMap = purchasesMapper.trade(purchase);
+                boolean isExe = (Boolean) hashMap.get("isExe");
+                String message = (String) hashMap.get("message");
+                if(isExe){
+                    return new Result(true,message);
+                }else{
+                    return new Result(false,"Insufficient Inventory");
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,"insert[" +
+                    purchase.getPurid() + "] in purchases Failed\n" + e.getMessage());
+        }
     }
 
     @Override

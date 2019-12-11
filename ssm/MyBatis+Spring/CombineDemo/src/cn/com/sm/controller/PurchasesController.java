@@ -29,6 +29,11 @@ public class PurchasesController {
         return purchasesService.insert(purchase);
     }
 
+    @RequestMapping(value = "/trade",method = RequestMethod.POST)
+    public Result trade(@RequestBody Purchase purchase){
+        return purchasesService.trade(purchase);
+    }
+
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public Result update(@RequestBody Purchase purchase){
         return purchasesService.update(purchase);

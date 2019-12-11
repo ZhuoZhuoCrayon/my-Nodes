@@ -32,6 +32,15 @@ public class CustomersController {
         return customersService.findAll();
     }
 
+    @RequestMapping(value = "/getIds",method = RequestMethod.GET,produces = "application/json")
+    public List<String> getEid(){
+        List<String> cids = new ArrayList<>();
+        for(Customer c:customersService.findAll()) {
+            cids.add(c.getCid());
+        }
+        return cids;
+    }
+
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public List<Customer> findById(@RequestParam(value = "id",required = false)String id){
         return customersService.findById(id);

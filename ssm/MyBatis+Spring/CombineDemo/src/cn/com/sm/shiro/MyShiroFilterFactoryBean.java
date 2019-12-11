@@ -37,6 +37,11 @@ public class MyShiroFilterFactoryBean  extends ShiroFilterFactoryBean {
                         "/logout = logout\n" +
                         "/index.html = authc\n" +
                         "/index.do = authc\n" +
+                        "/mall.html = authc\n" +
+                        "/mall.do = authc\n" +
+                        "/purchases/trade.do = authc\n" +
+                        "/customers/getIds.do = authc\n" +
+                        "/employees/getIds.do = authc\n" +
                         "/user/getUser.do = authc\n";
         //导入权限
         for(Permission permission:permissions){
