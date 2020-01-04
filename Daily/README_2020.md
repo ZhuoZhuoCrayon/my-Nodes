@@ -34,9 +34,9 @@
 
 | Date  | Title-Link                                         | Method  | Describe                                                     | TODO |
 | ----- | -------------------------------------------------- | ------- | ------------------------------------------------------------ | ---- |
+| 01.01 | [18. 4Sum](LeetCode/202001/20200101.md)            | `Array` | 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。 |      |
 |       |                                                    |         |                                                              |      |
-|       |                                                    |         |                                                              |      |
-| 12.01 | [39. Combination Sum](LeetCode/202001/20200103.md) | `Array` | 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 |      |
+| 01.03 | [39. Combination Sum](LeetCode/202001/20200103.md) | `Array` | 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 |      |
 |       |                                                    |         |                                                              |      |
 |       |                                                    |         |                                                              |      |
 |       |                                                    |         |                                                              |      |
