@@ -68,7 +68,7 @@ Input example
 
 ### JavaScript
 > Input my Idea
-```javascript 1.8
+```javascript
 /*input your code*/
 ```
 
