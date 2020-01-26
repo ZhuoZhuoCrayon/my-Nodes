@@ -59,7 +59,7 @@
 | 01.23 | [73. Set Matrix Zeroes](LeetCode/202001/20200123.md)         | `Matrix`    | 给定一个 *m* x *n* 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用**[原地](http://baike.baidu.com/item/原地算法)**算法 |             |
 | 01.24 | [56. Merge Intervals](LeetCode/202001/20200123.md)           | `Array`     | 给出一个区间的集合，请合并所有重叠的区间。                   |             |
 | 01.25 | [80. Remove Duplicates from Sorted Array II](LeetCode/202001/20200125.md) | `Array`     | 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。O(1) | 双指针      |
-|       |                                                              |             |                                                              |             |
+| 01.26 | [88. Merge Sorted Array](LeetCode/202001/20200126.md)        | `Array`     | 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。 |             |
 |       |                                                              |             |                                                              |             |
 |       |                                                              |             |                                                              |             |
 |       |                                                              |             |                                                              |             |
