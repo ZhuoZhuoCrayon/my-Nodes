@@ -53,7 +53,7 @@
 | 01.17 | [646. Maximum Length of Pair Chain](LeetCode/202001/20200117.md) | `贪心`          | 给定一个对数集合，找出能够形成的最长数对链的长度。你不需要用到所有的数对，你可以以任何顺序选择其中的一些数对来构造 |             |
 | 01.18 | [646. Maximum Length of Pair Chain](LeetCode/202001/20200118.md) | `DP`            | 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。 |             |
 | 01.19 | [650.  Keys Keyboard](LeetCode/202001/20200119.md)           | `DP` `Math`     | 给定一个数字 n 。你需要使用最少的操作次数，在记事本中打印出恰好 n 个 'A'。输出能够打印出 n 个 'A' 的最少操作次数。 | `review`    |
-|       |                                                              |                 |                                                              |             |
+| 01.20 | [112. Path Sum](LeetCode/202001/20200120.md)                 | `DFS`           | 给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。 |             |
 | 01.21 | [189. Rotate Array](LeetCode/202001/20200121.md)             | `Array`         | 给定一个数组，将数组中的元素向右移动 *k* 个位置，其中 *k* 是非负数。 |             |
 | 01.22 | [73. Set Matrix Zeroes](LeetCode/202001/20200122.md)         | `DFS`           | 给定一个二维网格和一个单词，找出该单词是否存在于网格中。     |             |
 | 01.23 | [79. Word Search](LeetCode/202001/20200123.md)               | `Matrix`        | 给定一个 *m* x *n* 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用**[原地](http://baike.baidu.com/item/原地算法)**算法 |             |
@@ -62,5 +62,5 @@
 | 01.26 | [88. Merge Sorted Array](LeetCode/202001/20200126.md)        | `Array`         | 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。 |             |
 | 01.27 | [90. Subsets II](LeetCode/202001/20200127.md)                | `回溯`          | 给定一个可能包含重复元素的整数数组 ***nums***，返回该数组所有可能的子集（幂集）。 |             |
 | 01.28 | [162. Find Peak Element](LeetCode/202001/20200128.md)        | `Binary Search` | 给定一个输入数组 nums，其中 nums[i] ≠ nums[i+1]，找到峰值元素并返回其索引。 |             |
-|       |                                                              |                 |                                                              |             |
+| 01.29 | [111. Minimum Depth of Binary Tree](LeetCode/202001/20200129.md) | `DFS`           | 给定一个二叉树，找出其最小深度。                             |             |
 
