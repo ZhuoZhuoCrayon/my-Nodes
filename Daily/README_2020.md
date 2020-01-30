@@ -63,4 +63,5 @@
 | 01.27 | [90. Subsets II](LeetCode/202001/20200127.md)                | `回溯`          | 给定一个可能包含重复元素的整数数组 ***nums***，返回该数组所有可能的子集（幂集）。 |             |
 | 01.28 | [162. Find Peak Element](LeetCode/202001/20200128.md)        | `Binary Search` | 给定一个输入数组 nums，其中 nums[i] ≠ nums[i+1]，找到峰值元素并返回其索引。 |             |
 | 01.29 | [111. Minimum Depth of Binary Tree](LeetCode/202001/20200129.md) | `DFS`           | 给定一个二叉树，找出其最小深度。                             |             |
+| 01.30 | [257. Binary Tree Paths](LeetCode/202001/20200130.md)        | `DFS`           | 给定一个二叉树，返回所有从根节点到叶子节点的路径。           |             |
 
