@@ -131,7 +131,7 @@
 | 12.15   | [377. Combination Sum IV](LeetCode/201912/20191215.md)       | `DP`          | 给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。 | review           |
 | 12.16   | [516. Longest Palindromic Subsequence](LeetCode/201912/20191216.md) | `DP`          | 给定一个字符串`s`，找到其中最长的回文子序列。可以假设`s`的最大长度为`1000`。 |                  |
 | 12.17   | [515. Find Largest Value in Each Tree Row](LeetCode/201912/20191217.md) | `BFS`         | 您需要在二叉树的每一行中找到最大的值。                       |                  |
-|         |                                                              |               |                                                              |                  |
+| 12.18   | [72. Edit Distance](LeetCode/201912/20191218.md)             | `DP`          | 给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。 | 最短编辑距离     |
 |         |                                                              |               |                                                              |                  |
 |         |                                                              |               |                                                              |                  |
 |         |                                                              |               |                                                              |                  |
