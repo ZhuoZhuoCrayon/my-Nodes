@@ -23,7 +23,7 @@ Input example
 > Input my Idea
 
 ```java
-/*input your code*/
+
 ```
 
 ### Best Answer
@@ -31,7 +31,7 @@ Input example
 > Input what your understand
 
 ```java
-/*code*/
+
 ```
 
 ### Extend & Reference
