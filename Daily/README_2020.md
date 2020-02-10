@@ -88,8 +88,8 @@
 | 02.06 | [698. Partition to K Equal Sum Subsets](LeetCode/202002/20200206.md) | `回溯`                   | 给定一个整数数组 `nums` 和一个正整数 `k`，找出是否有可能把这个数组分成 `k` 个非空子集，其总和都相等。 | 经典回溯      |
 | 02.07 | [718. Maximum Length of Repeated Subarray](LeetCode/202002/20200207.md) | `DP`                     | 给两个整数数组 `A` 和 `B` ，返回两个数组中公共的、长度最长的子数组的长度。 |               |
 | 02.08 | [740. Delete and Earn](LeetCode/202002/20200208.md)          | `DP`                     | 给定一个整数数组 nums ，你可以对它进行一些操作。每次操作中，选择任意一个 nums[i] ，删除它并获得 nums[i] 的点数。之后，你必须删除每个等于 nums[i] - 1 或 nums[i] + 1 的元素。开始你拥有 0 个点数。返回你能通过这些操作获得的最大点数。 |               |
-|       |                                                              |                          |                                                              |               |
-|       |                                                              |                          |                                                              |               |
+| 02.09 | [5. Longest Palindromic Substring](LeetCode/202002/20200209.md) | `DP`                     | 给定一个字符串 `s`，找到 `s` 中最长的回文子串。你可以假设 `s` 的最大长度为 1000。 | review        |
+| 02.10 | [32. Longest Valid Parentheses](LeetCode/202002/20200210.md) | `DP`                     | 给定一个只包含 `'('` 和 `')'` 的字符串，找出最长的包含有效括号的子串的长度。 | review        |
 |       |                                                              |                          |                                                              |               |
 |       |                                                              |                          |                                                              |               |
 |       |                                                              |                          |                                                              |               |
