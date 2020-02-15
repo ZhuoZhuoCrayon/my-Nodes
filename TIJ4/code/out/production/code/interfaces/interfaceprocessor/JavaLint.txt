@@ -1,0 +1,66 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Apply.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+FilterProcessor.java:3: error: package interfaces.filters does not exist
+import interfaces.filters.*;
+^
+FilterProcessor.java:6: error: cannot find symbol
+  Filter filter;
+  ^
+  symbol:   class Filter
+  location: class FilterAdapter
+FilterProcessor.java:7: error: cannot find symbol
+  public FilterAdapter(Filter filter) {
+                       ^
+  symbol:   class Filter
+  location: class FilterAdapter
+FilterProcessor.java:11: error: cannot find symbol
+  public Waveform process(Object input) {
+         ^
+  symbol:   class Waveform
+  location: class FilterAdapter
+Apply.java:7: error: cannot find symbol
+    print("Using Processor " + p.name());
+    ^
+  symbol:   method print(String)
+  location: class Apply
+Apply.java:8: error: cannot find symbol
+    print(p.process(s));
+    ^
+  symbol:   method print(Object)
+  location: class Apply
+FilterProcessor.java:12: error: cannot find symbol
+    return filter.process((Waveform)input);
+                           ^
+  symbol:   class Waveform
+  location: class FilterAdapter
+FilterProcessor.java:18: error: cannot find symbol
+    Waveform w = new Waveform();
+    ^
+  symbol:   class Waveform
+  location: class FilterProcessor
+FilterProcessor.java:18: error: cannot find symbol
+    Waveform w = new Waveform();
+                     ^
+  symbol:   class Waveform
+  location: class FilterProcessor
+FilterProcessor.java:19: error: cannot find symbol
+    Apply.process(new FilterAdapter(new LowPass(1.0)), w);
+                                        ^
+  symbol:   class LowPass
+  location: class FilterProcessor
+FilterProcessor.java:20: error: cannot find symbol
+    Apply.process(new FilterAdapter(new HighPass(2.0)), w);
+                                        ^
+  symbol:   class HighPass
+  location: class FilterProcessor
+FilterProcessor.java:22: error: cannot find symbol
+      new FilterAdapter(new BandPass(3.0, 4.0)), w);
+                            ^
+  symbol:   class BandPass
+  location: class FilterProcessor
+13 errors
+3 warnings

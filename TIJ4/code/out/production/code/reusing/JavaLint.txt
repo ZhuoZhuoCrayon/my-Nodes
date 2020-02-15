@@ -1,0 +1,297 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Bath.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Beetle.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CADSystem.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Cartoon.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Chess.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Detergent.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+FinalData.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+FinalOverridingIllusion.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Hide.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Lisa.java:4: warning: auxiliary class Homer in Hide.java should not be accessed from outside its own source file
+class Lisa extends Homer {
+                   ^
+Lisa.java:5: warning: auxiliary class Milhouse in Hide.java should not be accessed from outside its own source file
+  @Override void doh(Milhouse m) {
+                     ^
+Orc.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PlaceSetting.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Bath.java:8: error: cannot find symbol
+    print("Soap()");
+    ^
+  symbol:   method print(String)
+  location: class Soap
+Bath.java:23: error: cannot find symbol
+    print("Inside Bath()");
+    ^
+  symbol:   method print(String)
+  location: class Bath
+Bath.java:44: error: cannot find symbol
+    print(b);
+    ^
+  symbol:   method print(Bath)
+  location: class Bath
+Beetle.java:9: error: cannot find symbol
+    print("i = " + i + ", j = " + j);
+    ^
+  symbol:   method print(String)
+  location: class Insect
+Beetle.java:15: error: cannot find symbol
+    print(s);
+    ^
+  symbol:   method print(String)
+  location: class Insect
+Beetle.java:23: error: cannot find symbol
+    print("k = " + k);
+    ^
+  symbol:   method print(String)
+  location: class Beetle
+Beetle.java:24: error: cannot find symbol
+    print("j = " + j);
+    ^
+  symbol:   method print(String)
+  location: class Beetle
+Beetle.java:29: error: cannot find symbol
+    print("Beetle constructor");
+    ^
+  symbol:   method print(String)
+  location: class Beetle
+CADSystem.java:7: error: cannot find symbol
+  Shape(int i) { print("Shape constructor"); }
+                 ^
+  symbol:   method print(String)
+  location: class Shape
+CADSystem.java:8: error: cannot find symbol
+  void dispose() { print("Shape dispose"); }
+                   ^
+  symbol:   method print(String)
+  location: class Shape
+CADSystem.java:14: error: cannot find symbol
+    print("Drawing Circle");
+    ^
+  symbol:   method print(String)
+  location: class Circle
+CADSystem.java:17: error: cannot find symbol
+    print("Erasing Circle");
+    ^
+  symbol:   method print(String)
+  location: class Circle
+CADSystem.java:25: error: cannot find symbol
+    print("Drawing Triangle");
+    ^
+  symbol:   method print(String)
+  location: class Triangle
+CADSystem.java:28: error: cannot find symbol
+    print("Erasing Triangle");
+    ^
+  symbol:   method print(String)
+  location: class Triangle
+CADSystem.java:39: error: cannot find symbol
+    print("Drawing Line: " + start + ", " + end);
+    ^
+  symbol:   method print(String)
+  location: class Line
+CADSystem.java:42: error: cannot find symbol
+    print("Erasing Line: " + start + ", " + end);
+    ^
+  symbol:   method print(String)
+  location: class Line
+CADSystem.java:57: error: cannot find symbol
+    print("Combined constructor");
+    ^
+  symbol:   method print(String)
+  location: class CADSystem
+CADSystem.java:60: error: cannot find symbol
+    print("CADSystem.dispose()");
+    ^
+  symbol:   method print(String)
+  location: class CADSystem
+Cartoon.java:6: error: cannot find symbol
+  Art() { print("Art constructor"); }
+          ^
+  symbol:   method print(String)
+  location: class Art
+Cartoon.java:10: error: cannot find symbol
+  Drawing() { print("Drawing constructor"); }
+              ^
+  symbol:   method print(String)
+  location: class Drawing
+Cartoon.java:14: error: cannot find symbol
+  public Cartoon() { print("Cartoon constructor"); }
+                     ^
+  symbol:   method print(String)
+  location: class Cartoon
+Chess.java:7: error: cannot find symbol
+    print("Game constructor");
+    ^
+  symbol:   method print(String)
+  location: class Game
+Chess.java:14: error: cannot find symbol
+    print("BoardGame constructor");
+    ^
+  symbol:   method print(String)
+  location: class BoardGame
+Chess.java:21: error: cannot find symbol
+    print("Chess constructor");
+    ^
+  symbol:   method print(String)
+  location: class Chess
+Detergent.java:15: error: cannot find symbol
+    print(x);
+    ^
+  symbol:   method print(Cleanser)
+  location: class Cleanser
+Detergent.java:34: error: cannot find symbol
+    print(x);
+    ^
+  symbol:   method print(Detergent)
+  location: class Detergent
+Detergent.java:35: error: cannot find symbol
+    print("Testing base class:");
+    ^
+  symbol:   method print(String)
+  location: class Detergent
+FinalData.java:41: error: cannot find symbol
+    print(fd1);
+    ^
+  symbol:   method print(FinalData)
+  location: class FinalData
+FinalData.java:42: error: cannot find symbol
+    print("Creating new FinalData");
+    ^
+  symbol:   method print(String)
+  location: class FinalData
+FinalData.java:44: error: cannot find symbol
+    print(fd1);
+    ^
+  symbol:   method print(FinalData)
+  location: class FinalData
+FinalData.java:45: error: cannot find symbol
+    print(fd2);
+    ^
+  symbol:   method print(FinalData)
+  location: class FinalData
+FinalOverridingIllusion.java:8: error: cannot find symbol
+  private final void f() { print("WithFinals.f()"); }
+                           ^
+  symbol:   method print(String)
+  location: class WithFinals
+FinalOverridingIllusion.java:10: error: cannot find symbol
+  private void g() { print("WithFinals.g()"); }
+                     ^
+  symbol:   method print(String)
+  location: class WithFinals
+FinalOverridingIllusion.java:15: error: cannot find symbol
+    print("OverridingPrivate.f()");
+    ^
+  symbol:   method print(String)
+  location: class OverridingPrivate
+FinalOverridingIllusion.java:18: error: cannot find symbol
+    print("OverridingPrivate.g()");
+    ^
+  symbol:   method print(String)
+  location: class OverridingPrivate
+FinalOverridingIllusion.java:24: error: cannot find symbol
+    print("OverridingPrivate2.f()");
+    ^
+  symbol:   method print(String)
+  location: class OverridingPrivate2
+FinalOverridingIllusion.java:27: error: cannot find symbol
+    print("OverridingPrivate2.g()");
+    ^
+  symbol:   method print(String)
+  location: class OverridingPrivate2
+Hide.java:8: error: cannot find symbol
+    print("doh(char)");
+    ^
+  symbol:   method print(String)
+  location: class Homer
+Hide.java:12: error: cannot find symbol
+    print("doh(float)");
+    ^
+  symbol:   method print(String)
+  location: class Homer
+Hide.java:21: error: cannot find symbol
+    print("doh(Milhouse)");
+    ^
+  symbol:   method print(String)
+  location: class Bart
+Lisa.java:5: error: method does not override or implement a method from a supertype
+  @Override void doh(Milhouse m) {
+  ^
+Orc.java:29: error: cannot find symbol
+    print(orc);
+    ^
+  symbol:   method print(Orc)
+  location: class Orc
+Orc.java:31: error: cannot find symbol
+    print(orc);
+    ^
+  symbol:   method print(Orc)
+  location: class Orc
+PlaceSetting.java:7: error: cannot find symbol
+    print("Plate constructor");
+    ^
+  symbol:   method print(String)
+  location: class Plate
+PlaceSetting.java:14: error: cannot find symbol
+    print("DinnerPlate constructor");
+    ^
+  symbol:   method print(String)
+  location: class DinnerPlate
+PlaceSetting.java:20: error: cannot find symbol
+    print("Utensil constructor");
+    ^
+  symbol:   method print(String)
+  location: class Utensil
+PlaceSetting.java:27: error: cannot find symbol
+    print("Spoon constructor");
+    ^
+  symbol:   method print(String)
+  location: class Spoon
+PlaceSetting.java:34: error: cannot find symbol
+    print("Fork constructor");
+    ^
+  symbol:   method print(String)
+  location: class Fork
+PlaceSetting.java:41: error: cannot find symbol
+    print("Knife constructor");
+    ^
+  symbol:   method print(String)
+  location: class Knife
+PlaceSetting.java:48: error: cannot find symbol
+    print("Custom constructor");
+    ^
+  symbol:   method print(String)
+  location: class Custom
+PlaceSetting.java:63: error: cannot find symbol
+    print("PlaceSetting constructor");
+    ^
+  symbol:   method print(String)
+  location: class PlaceSetting
+62 errors
+5 warnings

@@ -1,0 +1,17 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+EnumImplementation.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+EnumImplementation.java:8: error: cannot find symbol
+implements Generator<CartoonCharacter> {
+           ^
+  symbol: class Generator
+EnumImplementation.java:17: error: cannot find symbol
+  public static <T> void printNext(Generator<T> rg) {
+                                   ^
+  symbol:   class Generator
+  location: class EnumImplementation
+3 errors
+3 warnings

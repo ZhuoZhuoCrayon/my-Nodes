@@ -1,0 +1,400 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+CarWash.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+EnumClass.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+EnumMaps.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+EnumSets.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+NotClasses.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OverrideConstantSpecific.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OzWitch.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PostOffice.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PostOffice.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+RandomTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Reflection.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Reflection.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+RoShamBo.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+SecurityCategory.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TrafficLight.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+VendingMachine.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+VendingMachine.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+VendingMachine.java:98: error: cannot find symbol
+  static void run(Generator<Input> gen) {
+                  ^
+  symbol:   class Generator
+  location: class VendingMachine
+VendingMachine.java:115: error: cannot find symbol
+class RandomInputGenerator implements Generator<Input> {
+                                      ^
+  symbol: class Generator
+VendingMachine.java:120: error: cannot find symbol
+class FileInputGenerator implements Generator<Input> {
+                                    ^
+  symbol: class Generator
+CarWash.java:8: error: cannot find symbol
+      void action() { print("Spraying the underbody"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:11: error: cannot find symbol
+      void action() { print("Washing the wheels"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:14: error: cannot find symbol
+      void action() { print("Loosening the dirt"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:17: error: cannot find symbol
+      void action() { print("The basic wash"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:20: error: cannot find symbol
+      void action() { print("Applying hot wax"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:23: error: cannot find symbol
+      void action() { print("Rinsing"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:26: error: cannot find symbol
+      void action() { print("Blowing dry"); }
+                      ^
+  symbol: method print(String)
+CarWash.java:40: error: cannot find symbol
+    print(wash);
+    ^
+  symbol:   method print(CarWash)
+  location: class CarWash
+CarWash.java:47: error: cannot find symbol
+    print(wash);
+    ^
+  symbol:   method print(CarWash)
+  location: class CarWash
+EnumClass.java:10: error: cannot find symbol
+      print(s + " ordinal: " + s.ordinal());
+      ^
+  symbol:   method print(String)
+  location: class EnumClass
+EnumClass.java:11: error: cannot find symbol
+      printnb(s.compareTo(Shrubbery.CRAWLING) + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class EnumClass
+EnumClass.java:12: error: cannot find symbol
+      printnb(s.equals(Shrubbery.CRAWLING) + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class EnumClass
+EnumClass.java:13: error: cannot find symbol
+      print(s == Shrubbery.CRAWLING);
+      ^
+  symbol:   method print(boolean)
+  location: class EnumClass
+EnumClass.java:14: error: cannot find symbol
+      print(s.getDeclaringClass());
+      ^
+  symbol:   method print(Class<Shrubbery>)
+  location: class EnumClass
+EnumClass.java:15: error: cannot find symbol
+      print(s.name());
+      ^
+  symbol:   method print(String)
+  location: class EnumClass
+EnumClass.java:16: error: cannot find symbol
+      print("----------------------");
+      ^
+  symbol:   method print(String)
+  location: class EnumClass
+EnumClass.java:21: error: cannot find symbol
+      print(shrub);
+      ^
+  symbol:   method print(Shrubbery)
+  location: class EnumClass
+EnumMaps.java:15: error: cannot find symbol
+      public void action() { print("Kitchen fire!"); }
+                             ^
+  symbol: method print(String)
+EnumMaps.java:18: error: cannot find symbol
+      public void action() { print("Bathroom alert!"); }
+                             ^
+  symbol: method print(String)
+EnumMaps.java:21: error: cannot find symbol
+      printnb(e.getKey() + ": ");
+      ^
+  symbol:   method printnb(String)
+  location: class EnumMaps
+EnumMaps.java:27: error: cannot find symbol
+      print(e);
+      ^
+  symbol:   method print(Exception)
+  location: class EnumMaps
+EnumSets.java:13: error: cannot find symbol
+    print(points);
+    ^
+  symbol:   method print(EnumSet<AlarmPoints>)
+  location: class EnumSets
+EnumSets.java:15: error: cannot find symbol
+    print(points);
+    ^
+  symbol:   method print(EnumSet<AlarmPoints>)
+  location: class EnumSets
+EnumSets.java:18: error: cannot find symbol
+    print(points);
+    ^
+  symbol:   method print(EnumSet<AlarmPoints>)
+  location: class EnumSets
+EnumSets.java:20: error: cannot find symbol
+    print(points);
+    ^
+  symbol:   method print(EnumSet<AlarmPoints>)
+  location: class EnumSets
+EnumSets.java:22: error: cannot find symbol
+    print(points);
+    ^
+  symbol:   method print(EnumSet<AlarmPoints>)
+  location: class EnumSets
+NotClasses.java:6: error: cannot find symbol
+  WINKEN { void behavior() { print("Behavior1"); } },
+                             ^
+  symbol: method print(String)
+NotClasses.java:7: error: cannot find symbol
+  BLINKEN { void behavior() { print("Behavior2"); } },
+                              ^
+  symbol: method print(String)
+NotClasses.java:8: error: cannot find symbol
+  NOD { void behavior() { print("Behavior3"); } };
+                          ^
+  symbol: method print(String)
+OverrideConstantSpecific.java:7: error: cannot find symbol
+    void f() { print("Overridden method"); }
+               ^
+  symbol: method print(String)
+OverrideConstantSpecific.java:9: error: cannot find symbol
+  void f() { print("default behavior"); }
+             ^
+  symbol:   method print(String)
+  location: class OverrideConstantSpecific
+OverrideConstantSpecific.java:12: error: cannot find symbol
+      printnb(ocs + ": ");
+      ^
+  symbol:   method printnb(String)
+  location: class OverrideConstantSpecific
+OzWitch.java:20: error: cannot find symbol
+      print(witch + ": " + witch.getDescription());
+      ^
+  symbol:   method print(String)
+  location: class OzWitch
+PostOffice.java:33: error: cannot find symbol
+    m.generalDelivery= Enums.random(GeneralDelivery.class);
+                       ^
+  symbol:   variable Enums
+  location: class Mail
+PostOffice.java:34: error: cannot find symbol
+    m.scannability = Enums.random(Scannability.class);
+                     ^
+  symbol:   variable Enums
+  location: class Mail
+PostOffice.java:35: error: cannot find symbol
+    m.readability = Enums.random(Readability.class);
+                    ^
+  symbol:   variable Enums
+  location: class Mail
+PostOffice.java:36: error: cannot find symbol
+    m.address = Enums.random(Address.class);
+                ^
+  symbol:   variable Enums
+  location: class Mail
+PostOffice.java:37: error: cannot find symbol
+    m.returnAddress = Enums.random(ReturnAddress.class);
+                      ^
+  symbol:   variable Enums
+  location: class Mail
+PostOffice.java:62: error: cannot find symbol
+            print("Using general delivery for " + m);
+            ^
+  symbol: method print(String)
+PostOffice.java:76: error: cannot find symbol
+                print("Delivering "+ m + " automatically");
+                ^
+  symbol: method print(String)
+PostOffice.java:90: error: cannot find symbol
+                print("Delivering " + m + " normally");
+                ^
+  symbol: method print(String)
+PostOffice.java:101: error: cannot find symbol
+            print("Returning " + m + " to sender");
+            ^
+  symbol: method print(String)
+PostOffice.java:112: error: cannot find symbol
+    print(m + " is a dead letter");
+    ^
+  symbol:   method print(String)
+  location: class PostOffice
+PostOffice.java:116: error: cannot find symbol
+      print(mail.details());
+      ^
+  symbol:   method print(String)
+  location: class PostOffice
+PostOffice.java:118: error: cannot find symbol
+      print("*****");
+      ^
+  symbol:   method print(String)
+  location: class PostOffice
+RandomTest.java:10: error: cannot find symbol
+      System.out.print(Enums.random(Activity.class) + " ");
+                       ^
+  symbol:   variable Enums
+  location: class RandomTest
+Reflection.java:12: error: cannot find symbol
+    print("----- Analyzing " + enumClass + " -----");
+    ^
+  symbol:   method print(String)
+  location: class Reflection
+Reflection.java:13: error: cannot find symbol
+    print("Interfaces:");
+    ^
+  symbol:   method print(String)
+  location: class Reflection
+Reflection.java:15: error: cannot find symbol
+      print(t);
+      ^
+  symbol:   method print(Type)
+  location: class Reflection
+Reflection.java:16: error: cannot find symbol
+    print("Base: " + enumClass.getSuperclass());
+    ^
+  symbol:   method print(String)
+  location: class Reflection
+Reflection.java:17: error: cannot find symbol
+    print("Methods: ");
+    ^
+  symbol:   method print(String)
+  location: class Reflection
+Reflection.java:21: error: cannot find symbol
+    print(methods);
+    ^
+  symbol:   method print(Set<String>)
+  location: class Reflection
+Reflection.java:27: error: cannot find symbol
+    print("Explore.containsAll(Enum)? " +
+    ^
+  symbol:   method print(String)
+  location: class Reflection
+Reflection.java:29: error: cannot find symbol
+    printnb("Explore.removeAll(Enum): ");
+    ^
+  symbol:   method printnb(String)
+  location: class Reflection
+Reflection.java:31: error: cannot find symbol
+    print(exploreMethods);
+    ^
+  symbol:   method print(Set<String>)
+  location: class Reflection
+Reflection.java:33: error: cannot find symbol
+    OSExecute.command("javap Explore");
+    ^
+  symbol:   variable OSExecute
+  location: class Reflection
+RoShamBo.java:16: error: cannot find symbol
+        Enums.random(rsbClass),Enums.random(rsbClass));
+        ^
+  symbol:   variable Enums
+  location: class RoShamBo
+RoShamBo.java:16: error: cannot find symbol
+        Enums.random(rsbClass),Enums.random(rsbClass));
+                               ^
+  symbol:   variable Enums
+  location: class RoShamBo
+SecurityCategory.java:16: error: cannot find symbol
+    return Enums.random(values);
+           ^
+  symbol:   variable Enums
+  location: class SecurityCategory
+SecurityCategory.java:21: error: cannot find symbol
+        Enums.random(SecurityCategory.class);
+        ^
+  symbol:   variable Enums
+  location: class SecurityCategory
+TrafficLight.java:28: error: cannot find symbol
+      print(t);
+      ^
+  symbol:   method print(TrafficLight)
+  location: class TrafficLight
+UpcastEnum.java:9: warning: [rawtypes] found raw type: Enum
+    Enum e = Search.HITHER; // Upcast
+    ^
+  missing type arguments for generic class Enum<E>
+  where E is a type-variable:
+    E extends Enum<E> declared in class Enum
+UpcastEnum.java:11: warning: [rawtypes] found raw type: Enum
+    for(Enum en : e.getClass().getEnumConstants())
+        ^
+  missing type arguments for generic class Enum<E>
+  where E is a type-variable:
+    E extends Enum<E> declared in class Enum
+VendingMachine.java:56: error: cannot find symbol
+              print("Insufficient money for " + selection);
+              ^
+  symbol: method print(String)
+VendingMachine.java:70: error: cannot find symbol
+        print("here is your " + selection);
+        ^
+  symbol: method print(String)
+VendingMachine.java:78: error: cannot find symbol
+          print("Your change: " + amount);
+          ^
+  symbol: method print(String)
+VendingMachine.java:84: error: cannot find symbol
+    TERMINAL { void output() { print("Halted"); } };
+                               ^
+  symbol: method print(String)
+VendingMachine.java:96: error: cannot find symbol
+    void output() { print(amount); }
+                    ^
+  symbol:   method print(int)
+  location: class State
+VendingMachine.java:107: error: cannot find symbol
+    Generator<Input> gen = new RandomInputGenerator();
+    ^
+  symbol:   class Generator
+  location: class VendingMachine
+VendingMachine.java:123: error: cannot find symbol
+    input = new TextFile(fileName, ";").iterator();
+                ^
+  symbol:   class TextFile
+  location: class FileInputGenerator
+88 errors
+5 warnings

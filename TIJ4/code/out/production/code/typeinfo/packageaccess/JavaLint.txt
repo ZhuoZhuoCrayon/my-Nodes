@@ -1,0 +1,45 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+HiddenC.java:3: error: package typeinfo.interfacea does not exist
+import typeinfo.interfacea.*;
+^
+HiddenC.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+HiddenC.java:6: error: cannot find symbol
+class C implements A {
+                   ^
+  symbol: class A
+HiddenC.java:15: error: cannot find symbol
+  public static A makeA() { return new C(); }
+                ^
+  symbol:   class A
+  location: class HiddenC
+HiddenC.java:7: error: cannot find symbol
+  public void f() { print("public C.f()"); }
+                    ^
+  symbol:   method print(String)
+  location: class C
+HiddenC.java:8: error: cannot find symbol
+  public void g() { print("public C.g()"); }
+                    ^
+  symbol:   method print(String)
+  location: class C
+HiddenC.java:9: error: cannot find symbol
+  void u() { print("package C.u()"); }
+             ^
+  symbol:   method print(String)
+  location: class C
+HiddenC.java:10: error: cannot find symbol
+  protected void v() { print("protected C.v()"); }
+                       ^
+  symbol:   method print(String)
+  location: class C
+HiddenC.java:11: error: cannot find symbol
+  private void w() { print("private C.w()"); }
+                     ^
+  symbol:   method print(String)
+  location: class C
+9 errors
+3 warnings

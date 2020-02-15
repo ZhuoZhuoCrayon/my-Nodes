@@ -1,0 +1,173 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+ArrayListDisplay.java:2: error: package generics.coffee does not exist
+import generics.coffee.*;
+^
+Finding.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Groups.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Immutable.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+JGrep.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Replacing.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SplitDemo.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+StartEnd.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TestRegularExpression.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TheReplacements.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TheReplacements.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArrayListDisplay.java:7: error: cannot find symbol
+    ArrayList<Coffee> coffees = new ArrayList<Coffee>();
+              ^
+  symbol:   class Coffee
+  location: class ArrayListDisplay
+ArrayListDisplay.java:7: error: cannot find symbol
+    ArrayList<Coffee> coffees = new ArrayList<Coffee>();
+                                              ^
+  symbol:   class Coffee
+  location: class ArrayListDisplay
+ArrayListDisplay.java:8: error: cannot find symbol
+    for(Coffee c : new CoffeeGenerator(10))
+                       ^
+  symbol:   class CoffeeGenerator
+  location: class ArrayListDisplay
+ArrayListDisplay.java:8: error: cannot find symbol
+    for(Coffee c : new CoffeeGenerator(10))
+        ^
+  symbol:   class Coffee
+  location: class ArrayListDisplay
+Finding.java:10: error: cannot find symbol
+      printnb(m.group() + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class Finding
+Finding.java:11: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class Finding
+Finding.java:14: error: cannot find symbol
+      printnb(m.group() + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class Finding
+Groups.java:21: error: cannot find symbol
+        printnb("[" + m.group(j) + "]");
+        ^
+  symbol:   method printnb(String)
+  location: class Groups
+Groups.java:22: error: cannot find symbol
+      print();
+      ^
+  symbol:   method print()
+  location: class Groups
+Immutable.java:10: error: cannot find symbol
+    print(q); // howdy
+    ^
+  symbol:   method print(String)
+  location: class Immutable
+Immutable.java:12: error: cannot find symbol
+    print(qq); // HOWDY
+    ^
+  symbol:   method print(String)
+  location: class Immutable
+Immutable.java:13: error: cannot find symbol
+    print(q); // howdy
+    ^
+  symbol:   method print(String)
+  location: class Immutable
+JGrep.java:17: error: cannot find symbol
+    for(String line : new TextFile(args[0])) {
+                          ^
+  symbol:   class TextFile
+  location: class JGrep
+Replacing.java:7: error: cannot find symbol
+    print(s.replaceFirst("f\\w+", "located"));
+    ^
+  symbol:   method print(String)
+  location: class Replacing
+Replacing.java:8: error: cannot find symbol
+    print(s.replaceAll("shrubbery|tree|herring","banana"));
+    ^
+  symbol:   method print(String)
+  location: class Replacing
+SplitDemo.java:10: error: cannot find symbol
+    print(Arrays.toString(
+    ^
+  symbol:   method print(String)
+  location: class SplitDemo
+SplitDemo.java:13: error: cannot find symbol
+    print(Arrays.toString(
+    ^
+  symbol:   method print(String)
+  location: class SplitDemo
+StartEnd.java:18: error: cannot find symbol
+        print(regex);
+        ^
+  symbol:   method print(String)
+  location: class Display
+StartEnd.java:21: error: cannot find symbol
+      print(message);
+      ^
+  symbol:   method print(String)
+  location: class Display
+StartEnd.java:40: error: cannot find symbol
+      print("input : " + in);
+      ^
+  symbol:   method print(String)
+  location: class StartEnd
+TestRegularExpression.java:10: error: cannot find symbol
+      print("Usage:\njava TestRegularExpression " +
+      ^
+  symbol:   method print(String)
+  location: class TestRegularExpression
+TestRegularExpression.java:14: error: cannot find symbol
+    print("Input: \"" + args[0] + "\"");
+    ^
+  symbol:   method print(String)
+  location: class TestRegularExpression
+TestRegularExpression.java:16: error: cannot find symbol
+      print("Regular expression: \"" + arg + "\"");
+      ^
+  symbol:   method print(String)
+  location: class TestRegularExpression
+TestRegularExpression.java:20: error: cannot find symbol
+        print("Match \"" + m.group() + "\" at positions " +
+        ^
+  symbol:   method print(String)
+  location: class TestRegularExpression
+TheReplacements.java:14: error: cannot find symbol
+    String s = TextFile.read("TheReplacements.java");
+               ^
+  symbol:   variable TextFile
+  location: class TheReplacements
+TheReplacements.java:26: error: cannot find symbol
+    print(s);
+    ^
+  symbol:   method print(String)
+  location: class TheReplacements
+TheReplacements.java:37: error: cannot find symbol
+    print(sbuf);
+    ^
+  symbol:   method print(StringBuffer)
+  location: class TheReplacements
+38 errors
+3 warnings

@@ -1,0 +1,219 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Frog.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PolyConstructors.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PrivateOverride.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ReferenceCounting.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Sandwich.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Shapes.java:3: error: package polymorphism.shape does not exist
+import polymorphism.shape.*;
+^
+Shapes.java:6: error: cannot find symbol
+  private static RandomShapeGenerator gen =
+                 ^
+  symbol:   class RandomShapeGenerator
+  location: class Shapes
+Transmogrify.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Frog.java:10: error: cannot find symbol
+    print("Creating Characteristic " + s);
+    ^
+  symbol:   method print(String)
+  location: class Characteristic
+Frog.java:13: error: cannot find symbol
+    print("disposing Characteristic " + s);
+    ^
+  symbol:   method print(String)
+  location: class Characteristic
+Frog.java:21: error: cannot find symbol
+    print("Creating Description " + s);
+    ^
+  symbol:   method print(String)
+  location: class Description
+Frog.java:24: error: cannot find symbol
+    print("disposing Description " + s);
+    ^
+  symbol:   method print(String)
+  location: class Description
+Frog.java:34: error: cannot find symbol
+    print("LivingCreature()");
+    ^
+  symbol:   method print(String)
+  location: class LivingCreature
+Frog.java:37: error: cannot find symbol
+    print("LivingCreature dispose");
+    ^
+  symbol:   method print(String)
+  location: class LivingCreature
+Frog.java:48: error: cannot find symbol
+  Animal() { print("Animal()"); }
+             ^
+  symbol:   method print(String)
+  location: class Animal
+Frog.java:50: error: cannot find symbol
+    print("Animal dispose");
+    ^
+  symbol:   method print(String)
+  location: class Animal
+Frog.java:63: error: cannot find symbol
+    print("Amphibian()");
+    ^
+  symbol:   method print(String)
+  location: class Amphibian
+Frog.java:66: error: cannot find symbol
+    print("Amphibian dispose");
+    ^
+  symbol:   method print(String)
+  location: class Amphibian
+Frog.java:76: error: cannot find symbol
+  public Frog() { print("Frog()"); }
+                  ^
+  symbol:   method print(String)
+  location: class Frog
+Frog.java:78: error: cannot find symbol
+    print("Frog dispose");
+    ^
+  symbol:   method print(String)
+  location: class Frog
+Frog.java:85: error: cannot find symbol
+    print("Bye!");
+    ^
+  symbol:   method print(String)
+  location: class Frog
+PolyConstructors.java:7: error: cannot find symbol
+  void draw() { print("Glyph.draw()"); }
+                ^
+  symbol:   method print(String)
+  location: class Glyph
+PolyConstructors.java:9: error: cannot find symbol
+    print("Glyph() before draw()");
+    ^
+  symbol:   method print(String)
+  location: class Glyph
+PolyConstructors.java:11: error: cannot find symbol
+    print("Glyph() after draw()");
+    ^
+  symbol:   method print(String)
+  location: class Glyph
+PolyConstructors.java:19: error: cannot find symbol
+    print("RoundGlyph.RoundGlyph(), radius = " + radius);
+    ^
+  symbol:   method print(String)
+  location: class RoundGlyph
+PolyConstructors.java:22: error: cannot find symbol
+    print("RoundGlyph.draw(), radius = " + radius);
+    ^
+  symbol:   method print(String)
+  location: class RoundGlyph
+PrivateOverride.java:7: error: cannot find symbol
+  private void f() { print("private f()"); }
+                     ^
+  symbol:   method print(String)
+  location: class PrivateOverride
+PrivateOverride.java:15: error: cannot find symbol
+  public void f() { print("public f()"); }
+                    ^
+  symbol:   method print(String)
+  location: class Derived
+ReferenceCounting.java:10: error: cannot find symbol
+    print("Creating " + this);
+    ^
+  symbol:   method print(String)
+  location: class Shared
+ReferenceCounting.java:15: error: cannot find symbol
+      print("Disposing " + this);
+      ^
+  symbol:   method print(String)
+  location: class Shared
+ReferenceCounting.java:25: error: cannot find symbol
+    print("Creating " + this);
+    ^
+  symbol:   method print(String)
+  location: class Composing
+ReferenceCounting.java:30: error: cannot find symbol
+    print("disposing " + this);
+    ^
+  symbol:   method print(String)
+  location: class Composing
+Sandwich.java:7: error: cannot find symbol
+  Meal() { print("Meal()"); }
+           ^
+  symbol:   method print(String)
+  location: class Meal
+Sandwich.java:11: error: cannot find symbol
+  Bread() { print("Bread()"); }
+            ^
+  symbol:   method print(String)
+  location: class Bread
+Sandwich.java:15: error: cannot find symbol
+  Cheese() { print("Cheese()"); }
+             ^
+  symbol:   method print(String)
+  location: class Cheese
+Sandwich.java:19: error: cannot find symbol
+  Lettuce() { print("Lettuce()"); }
+              ^
+  symbol:   method print(String)
+  location: class Lettuce
+Sandwich.java:23: error: cannot find symbol
+  Lunch() { print("Lunch()"); }
+            ^
+  symbol:   method print(String)
+  location: class Lunch
+Sandwich.java:27: error: cannot find symbol
+  PortableLunch() { print("PortableLunch()");}
+                    ^
+  symbol:   method print(String)
+  location: class PortableLunch
+Sandwich.java:34: error: cannot find symbol
+  public Sandwich() { print("Sandwich()"); }
+                      ^
+  symbol:   method print(String)
+  location: class Sandwich
+Shapes.java:7: error: cannot find symbol
+    new RandomShapeGenerator();
+        ^
+  symbol:   class RandomShapeGenerator
+  location: class Shapes
+Shapes.java:9: error: cannot find symbol
+    Shape[] s = new Shape[9];
+    ^
+  symbol:   class Shape
+  location: class Shapes
+Shapes.java:9: error: cannot find symbol
+    Shape[] s = new Shape[9];
+                    ^
+  symbol:   class Shape
+  location: class Shapes
+Shapes.java:14: error: cannot find symbol
+    for(Shape shp : s)
+        ^
+  symbol:   class Shape
+  location: class Shapes
+StaticPolymorphism.java:25: warning: [static] static method should be qualified by type name, StaticSuper, instead of by an expression
+    System.out.println(sup.staticGet());
+                          ^
+Transmogrify.java:11: error: cannot find symbol
+  public void act() { print("HappyActor"); }
+                      ^
+  symbol:   method print(String)
+  location: class HappyActor
+Transmogrify.java:15: error: cannot find symbol
+  public void act() { print("SadActor"); }
+                      ^
+  symbol:   method print(String)
+  location: class SadActor
+45 errors
+4 warnings

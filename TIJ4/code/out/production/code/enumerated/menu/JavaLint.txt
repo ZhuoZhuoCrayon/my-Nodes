@@ -1,0 +1,21 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Course.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Meal2.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Course.java:15: error: cannot find symbol
+    return Enums.random(values);
+           ^
+  symbol:   variable Enums
+  location: class Course
+Meal2.java:32: error: cannot find symbol
+    return Enums.random(values);
+           ^
+  symbol:   variable Enums
+  location: class Meal2
+4 errors
+3 warnings

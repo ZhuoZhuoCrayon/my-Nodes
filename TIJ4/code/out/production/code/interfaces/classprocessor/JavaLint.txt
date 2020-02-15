@@ -1,0 +1,18 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Apply.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Apply.java:34: error: cannot find symbol
+    print("Using Processor " + p.name());
+    ^
+  symbol:   method print(String)
+  location: class Apply
+Apply.java:35: error: cannot find symbol
+    print(p.process(s));
+    ^
+  symbol:   method print(Object)
+  location: class Apply
+3 errors
+3 warnings

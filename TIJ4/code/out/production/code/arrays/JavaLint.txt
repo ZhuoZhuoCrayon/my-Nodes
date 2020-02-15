@@ -1,0 +1,562 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AlphabeticSearch.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ArrayOptions.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArraySearching.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ArraySearching.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CompType.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CompType.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CompType.java:25: error: cannot find symbol
+  public static Generator<CompType> generator() {
+                ^
+  symbol:   class Generator
+  location: class CompType
+ComparatorTest.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ComparatorTest.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ComparingArrays.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ContainerComparison.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CopyingArrays.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+FillingArrays.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+GeneratorsTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PrimitiveConversionDemonstration.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+RandomGeneratorsTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Reverse.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Reverse.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+StringSorting.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+StringSorting.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TestArrayGeneration.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TestArrayGeneration.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TestGenerated.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AlphabeticSearch.java:9: error: package RandomGenerator does not exist
+      new RandomGenerator.String(5));
+                         ^
+AlphabeticSearch.java:8: error: cannot find symbol
+    String[] sa = Generated.array(new String[30],
+                  ^
+  symbol:   variable Generated
+  location: class AlphabeticSearch
+ArrayOfGenerics.java:9: warning: [rawtypes] found raw type: List
+    List[] la = new List[10];
+    ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+ArrayOfGenerics.java:9: warning: [rawtypes] found raw type: List
+    List[] la = new List[10];
+                    ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+ArrayOfGenerics.java:23: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    List<BerylliumSphere>[] spheres =
+         ^
+ArrayOfGenerics.java:24: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      (List<BerylliumSphere>[])new List[10];
+            ^
+ArrayOfGenerics.java:24: warning: [rawtypes] found raw type: List
+      (List<BerylliumSphere>[])new List[10];
+                                   ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+ArrayOfGenerics.java:26: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      spheres[i] = new ArrayList<BerylliumSphere>();
+                                 ^
+ArrayOptions.java:9: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] a; // Local uninitialized variable
+    ^
+ArrayOptions.java:10: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] b = new BerylliumSphere[5];
+    ^
+ArrayOptions.java:10: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] b = new BerylliumSphere[5];
+                              ^
+ArrayOptions.java:13: error: cannot find symbol
+    print("b: " + Arrays.toString(b));
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:14: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] c = new BerylliumSphere[4];
+    ^
+ArrayOptions.java:14: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] c = new BerylliumSphere[4];
+                              ^
+ArrayOptions.java:17: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        c[i] = new BerylliumSphere();
+                   ^
+ArrayOptions.java:19: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] d = { new BerylliumSphere(),
+    ^
+ArrayOptions.java:19: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[] d = { new BerylliumSphere(),
+                                ^
+ArrayOptions.java:20: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      new BerylliumSphere(), new BerylliumSphere()
+          ^
+ArrayOptions.java:20: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      new BerylliumSphere(), new BerylliumSphere()
+                                 ^
+ArrayOptions.java:23: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    a = new BerylliumSphere[]{
+            ^
+ArrayOptions.java:24: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      new BerylliumSphere(), new BerylliumSphere(),
+          ^
+ArrayOptions.java:24: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      new BerylliumSphere(), new BerylliumSphere(),
+                                 ^
+ArrayOptions.java:27: error: cannot find symbol
+    print("a.length = " + a.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:28: error: cannot find symbol
+    print("b.length = " + b.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:29: error: cannot find symbol
+    print("c.length = " + c.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:30: error: cannot find symbol
+    print("d.length = " + d.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:32: error: cannot find symbol
+    print("a.length = " + a.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:39: error: cannot find symbol
+    print("f: " + Arrays.toString(f));
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:46: error: cannot find symbol
+    print("f.length = " + f.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:47: error: cannot find symbol
+    print("g.length = " + g.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:48: error: cannot find symbol
+    print("h.length = " + h.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:50: error: cannot find symbol
+    print("e.length = " + e.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArrayOptions.java:52: error: cannot find symbol
+    print("e.length = " + e.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayOptions
+ArraySearching.java:9: error: cannot find symbol
+    Generator<Integer> gen =
+    ^
+  symbol:   class Generator
+  location: class ArraySearching
+ArraySearching.java:10: error: package RandomGenerator does not exist
+      new RandomGenerator.Integer(1000);
+                         ^
+ArraySearching.java:12: error: cannot find symbol
+      Generated.array(new Integer[25], gen));
+      ^
+  symbol:   variable Generated
+  location: class ArraySearching
+ArraySearching.java:11: error: cannot find symbol
+    int[] a = ConvertTo.primitive(
+              ^
+  symbol:   variable ConvertTo
+  location: class ArraySearching
+ArraySearching.java:14: error: cannot find symbol
+    print("Sorted array: " + Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class ArraySearching
+ArraySearching.java:19: error: cannot find symbol
+        print("Location of " + r + " is " + location +
+        ^
+  symbol:   method print(String)
+  location: class ArraySearching
+CompType.java:26: error: cannot find symbol
+    return new Generator<CompType>() {
+               ^
+  symbol:   class Generator
+  location: class CompType
+CompType.java:34: error: cannot find symbol
+      Generated.array(new CompType[12], generator());
+      ^
+  symbol:   variable Generated
+  location: class CompType
+CompType.java:35: error: cannot find symbol
+    print("before sorting:");
+    ^
+  symbol:   method print(String)
+  location: class CompType
+CompType.java:36: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class CompType
+CompType.java:38: error: cannot find symbol
+    print("after sorting:");
+    ^
+  symbol:   method print(String)
+  location: class CompType
+CompType.java:39: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class CompType
+ComparatorTest.java:15: error: cannot find symbol
+    CompType[] a = Generated.array(
+                   ^
+  symbol:   variable Generated
+  location: class ComparatorTest
+ComparatorTest.java:17: error: cannot find symbol
+    print("before sorting:");
+    ^
+  symbol:   method print(String)
+  location: class ComparatorTest
+ComparatorTest.java:18: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class ComparatorTest
+ComparatorTest.java:20: error: cannot find symbol
+    print("after sorting:");
+    ^
+  symbol:   method print(String)
+  location: class ComparatorTest
+ComparatorTest.java:21: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class ComparatorTest
+ComparingArrays.java:12: error: cannot find symbol
+    print(Arrays.equals(a1, a2));
+    ^
+  symbol:   method print(boolean)
+  location: class ComparingArrays
+ComparingArrays.java:14: error: cannot find symbol
+    print(Arrays.equals(a1, a2));
+    ^
+  symbol:   method print(boolean)
+  location: class ComparingArrays
+ComparingArrays.java:19: error: cannot find symbol
+    print(Arrays.equals(s1, s2));
+    ^
+  symbol:   method print(boolean)
+  location: class ComparingArrays
+ContainerComparison.java:16: error: cannot find symbol
+    print(Arrays.toString(spheres));
+    ^
+  symbol:   method print(String)
+  location: class ContainerComparison
+ContainerComparison.java:17: error: cannot find symbol
+    print(spheres[4]);
+    ^
+  symbol:   method print(BerylliumSphere)
+  location: class ContainerComparison
+ContainerComparison.java:23: error: cannot find symbol
+    print(sphereList);
+    ^
+  symbol:   method print(List<BerylliumSphere>)
+  location: class ContainerComparison
+ContainerComparison.java:24: error: cannot find symbol
+    print(sphereList.get(4));
+    ^
+  symbol:   method print(BerylliumSphere)
+  location: class ContainerComparison
+ContainerComparison.java:27: error: cannot find symbol
+    print(Arrays.toString(integers));
+    ^
+  symbol:   method print(String)
+  location: class ContainerComparison
+ContainerComparison.java:28: error: cannot find symbol
+    print(integers[4]);
+    ^
+  symbol:   method print(int)
+  location: class ContainerComparison
+ContainerComparison.java:33: error: cannot find symbol
+    print(intList);
+    ^
+  symbol:   method print(List<Integer>)
+  location: class ContainerComparison
+ContainerComparison.java:34: error: cannot find symbol
+    print(intList.get(4));
+    ^
+  symbol:   method print(Integer)
+  location: class ContainerComparison
+CopyingArrays.java:12: error: cannot find symbol
+    print("i = " + Arrays.toString(i));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:13: error: cannot find symbol
+    print("j = " + Arrays.toString(j));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:15: error: cannot find symbol
+    print("j = " + Arrays.toString(j));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:19: error: cannot find symbol
+    print("k = " + Arrays.toString(k));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:22: error: cannot find symbol
+    print("i = " + Arrays.toString(i));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:28: error: cannot find symbol
+    print("u = " + Arrays.toString(u));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:29: error: cannot find symbol
+    print("v = " + Arrays.toString(v));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+CopyingArrays.java:31: error: cannot find symbol
+    print("u = " + Arrays.toString(u));
+    ^
+  symbol:   method print(String)
+  location: class CopyingArrays
+FillingArrays.java:19: error: cannot find symbol
+    print("a1 = " + Arrays.toString(a1));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:21: error: cannot find symbol
+    print("a2 = " + Arrays.toString(a2));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:23: error: cannot find symbol
+    print("a3 = " + Arrays.toString(a3));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:25: error: cannot find symbol
+    print("a4 = " + Arrays.toString(a4));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:27: error: cannot find symbol
+    print("a5 = " + Arrays.toString(a5));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:29: error: cannot find symbol
+    print("a6 = " + Arrays.toString(a6));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:31: error: cannot find symbol
+    print("a7 = " + Arrays.toString(a7));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:33: error: cannot find symbol
+    print("a8 = " + Arrays.toString(a8));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:35: error: cannot find symbol
+    print("a9 = " + Arrays.toString(a9));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+FillingArrays.java:38: error: cannot find symbol
+    print("a9 = " + Arrays.toString(a9));
+    ^
+  symbol:   method print(String)
+  location: class FillingArrays
+GeneratorsTest.java:10: error: cannot find symbol
+        Generator<?> g = (Generator<?>)type.newInstance();
+        ^
+  symbol:   class Generator
+  location: class GeneratorsTest
+GeneratorsTest.java:10: error: cannot find symbol
+        Generator<?> g = (Generator<?>)type.newInstance();
+                          ^
+  symbol:   class Generator
+  location: class GeneratorsTest
+GeneratorsTest.java:20: error: cannot find symbol
+    test(CountingGenerator.class);
+         ^
+  symbol:   class CountingGenerator
+  location: class GeneratorsTest
+MultidimensionalObjectArrays.java:6: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+    BerylliumSphere[][] spheres = {
+    ^
+MultidimensionalObjectArrays.java:7: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere() },
+            ^
+MultidimensionalObjectArrays.java:7: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere() },
+                                   ^
+MultidimensionalObjectArrays.java:8: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere(),
+            ^
+MultidimensionalObjectArrays.java:8: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere(),
+                                   ^
+MultidimensionalObjectArrays.java:9: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere() },
+            ^
+MultidimensionalObjectArrays.java:9: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere() },
+                                   ^
+MultidimensionalObjectArrays.java:10: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere(),
+            ^
+MultidimensionalObjectArrays.java:10: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+      { new BerylliumSphere(), new BerylliumSphere(),
+                                   ^
+MultidimensionalObjectArrays.java:11: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere(),
+            ^
+MultidimensionalObjectArrays.java:11: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere(),
+                                   ^
+MultidimensionalObjectArrays.java:12: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere(),
+            ^
+MultidimensionalObjectArrays.java:12: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere(),
+                                   ^
+MultidimensionalObjectArrays.java:13: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere() },
+            ^
+MultidimensionalObjectArrays.java:13: warning: auxiliary class BerylliumSphere in ContainerComparison.java should not be accessed from outside its own source file
+        new BerylliumSphere(), new BerylliumSphere() },
+                                   ^
+PrimitiveConversionDemonstration.java:8: error: package CountingGenerator does not exist
+        new CountingGenerator.Integer(), 15);
+                             ^
+PrimitiveConversionDemonstration.java:7: error: cannot find symbol
+    Integer[] a = Generated.array(Integer.class,
+                  ^
+  symbol:   variable Generated
+  location: class PrimitiveConversionDemonstration
+PrimitiveConversionDemonstration.java:9: error: cannot find symbol
+    int[] b = ConvertTo.primitive(a);
+              ^
+  symbol:   variable ConvertTo
+  location: class PrimitiveConversionDemonstration
+PrimitiveConversionDemonstration.java:13: error: package CountingGenerator does not exist
+        new CountingGenerator.Boolean(), 7));
+                             ^
+PrimitiveConversionDemonstration.java:12: error: cannot find symbol
+      Generated.array(Boolean.class,
+      ^
+  symbol:   variable Generated
+  location: class PrimitiveConversionDemonstration
+PrimitiveConversionDemonstration.java:11: error: cannot find symbol
+    boolean[] c = ConvertTo.primitive(
+                  ^
+  symbol:   variable ConvertTo
+  location: class PrimitiveConversionDemonstration
+RandomGeneratorsTest.java:6: error: cannot find symbol
+    GeneratorsTest.test(RandomGenerator.class);
+                        ^
+  symbol:   class RandomGenerator
+  location: class RandomGeneratorsTest
+Reverse.java:9: error: cannot find symbol
+    CompType[] a = Generated.array(
+                   ^
+  symbol:   variable Generated
+  location: class Reverse
+Reverse.java:11: error: cannot find symbol
+    print("before sorting:");
+    ^
+  symbol:   method print(String)
+  location: class Reverse
+Reverse.java:12: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class Reverse
+Reverse.java:14: error: cannot find symbol
+    print("after sorting:");
+    ^
+  symbol:   method print(String)
+  location: class Reverse
+Reverse.java:15: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class Reverse
+StringSorting.java:10: error: package RandomGenerator does not exist
+      new RandomGenerator.String(5));
+                         ^
+StringSorting.java:9: error: cannot find symbol
+    String[] sa = Generated.array(new String[20],
+                  ^
+  symbol:   variable Generated
+  location: class StringSorting
+100 errors
+37 warnings

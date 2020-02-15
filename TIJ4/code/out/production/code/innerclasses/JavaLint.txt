@@ -1,0 +1,212 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AnonymousConstructor.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+BigEgg.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+BigEgg2.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Callbacks.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Factories.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Games.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+GreenhouseController.java:4: error: package innerclasses.controller does not exist
+import innerclasses.controller.*;
+^
+GreenhouseControls.java:6: error: package innerclasses.controller does not exist
+import innerclasses.controller.*;
+^
+GreenhouseControls.java:8: error: cannot find symbol
+public class GreenhouseControls extends Controller {
+                                        ^
+  symbol: class Controller
+GreenhouseControls.java:10: error: cannot find symbol
+  public class LightOn extends Event {
+                               ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:19: error: cannot find symbol
+  public class LightOff extends Event {
+                                ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:29: error: cannot find symbol
+  public class WaterOn extends Event {
+                               ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:39: error: cannot find symbol
+  public class WaterOff extends Event {
+                                ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:50: error: cannot find symbol
+  public class ThermostatNight extends Event {
+                                       ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:62: error: cannot find symbol
+  public class ThermostatDay extends Event {
+                                     ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:76: error: cannot find symbol
+  public class Bell extends Event {
+                            ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:83: error: cannot find symbol
+  public class Restart extends Event {
+                               ^
+  symbol:   class Event
+  location: class GreenhouseControls
+GreenhouseControls.java:84: error: cannot find symbol
+    private Event[] eventList;
+            ^
+  symbol:   class Event
+  location: class GreenhouseControls.Restart
+GreenhouseControls.java:85: error: cannot find symbol
+    public Restart(long delayTime, Event[] eventList) {
+                                   ^
+  symbol:   class Event
+  location: class GreenhouseControls.Restart
+GreenhouseControls.java:103: error: cannot find symbol
+  public static class Terminate extends Event {
+                                        ^
+  symbol:   class Event
+  location: class GreenhouseControls
+LocalInnerClass.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AnonymousConstructor.java:7: error: cannot find symbol
+    print("Base constructor, i = " + i);
+    ^
+  symbol:   method print(String)
+  location: class Base
+AnonymousConstructor.java:15: error: cannot find symbol
+      { print("Inside instance initializer"); }
+        ^
+  symbol: method print(String)
+AnonymousConstructor.java:17: error: cannot find symbol
+        print("In anonymous f()");
+        ^
+  symbol: method print(String)
+BigEgg.java:8: error: cannot find symbol
+    public Yolk() { print("Egg.Yolk()"); }
+                    ^
+  symbol:   method print(String)
+  location: class Egg.Yolk
+BigEgg.java:11: error: cannot find symbol
+    print("New Egg()");
+    ^
+  symbol:   method print(String)
+  location: class Egg
+BigEgg.java:18: error: cannot find symbol
+    public Yolk() { print("BigEgg.Yolk()"); }
+                    ^
+  symbol:   method print(String)
+  location: class BigEgg.Yolk
+BigEgg2.java:7: error: cannot find symbol
+    public Yolk() { print("Egg2.Yolk()"); }
+                    ^
+  symbol:   method print(String)
+  location: class Egg2.Yolk
+BigEgg2.java:8: error: cannot find symbol
+    public void f() { print("Egg2.Yolk.f()");}
+                      ^
+  symbol:   method print(String)
+  location: class Egg2.Yolk
+BigEgg2.java:11: error: cannot find symbol
+  public Egg2() { print("New Egg2()"); }
+                  ^
+  symbol:   method print(String)
+  location: class Egg2
+BigEgg2.java:18: error: cannot find symbol
+    public Yolk() { print("BigEgg2.Yolk()"); }
+                    ^
+  symbol:   method print(String)
+  location: class BigEgg2.Yolk
+BigEgg2.java:19: error: cannot find symbol
+    public void f() { print("BigEgg2.Yolk.f()"); }
+                      ^
+  symbol:   method print(String)
+  location: class BigEgg2.Yolk
+Callbacks.java:15: error: cannot find symbol
+    print(i);
+    ^
+  symbol:   method print(int)
+  location: class Callee1
+Callbacks.java:20: error: cannot find symbol
+  public void increment() { print("Other operation"); }
+                            ^
+  symbol:   method print(String)
+  location: class MyIncrement
+Callbacks.java:31: error: cannot find symbol
+    print(i);
+    ^
+  symbol:   method print(int)
+  location: class Callee2
+Factories.java:15: error: cannot find symbol
+  public void method1() {print("Implementation1 method1");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation1
+Factories.java:16: error: cannot find symbol
+  public void method2() {print("Implementation1 method2");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation1
+Factories.java:27: error: cannot find symbol
+  public void method1() {print("Implementation2 method1");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation2
+Factories.java:28: error: cannot find symbol
+  public void method2() {print("Implementation2 method2");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation2
+Games.java:13: error: cannot find symbol
+    print("Checkers move " + moves);
+    ^
+  symbol:   method print(String)
+  location: class Checkers
+Games.java:26: error: cannot find symbol
+    print("Chess move " + moves);
+    ^
+  symbol:   method print(String)
+  location: class Chess
+GreenhouseController.java:11: error: cannot find symbol
+    gc.addEvent(gc.new Bell(900));
+      ^
+  symbol:   method addEvent(GreenhouseControls.Bell)
+  location: variable gc of type GreenhouseControls
+GreenhouseController.java:12: error: cannot find symbol
+    Event[] eventList = {
+    ^
+  symbol:   class Event
+  location: class GreenhouseController
+GreenhouseController.java:20: error: cannot find symbol
+    gc.addEvent(gc.new Restart(2000, eventList));
+      ^
+  symbol:   method addEvent(GreenhouseControls.Restart)
+  location: variable gc of type GreenhouseControls
+GreenhouseController.java:22: error: cannot find symbol
+      gc.addEvent(
+        ^
+  symbol:   method addEvent(Terminate)
+  location: variable gc of type GreenhouseControls
+GreenhouseController.java:25: error: cannot find symbol
+    gc.run();
+      ^
+  symbol:   method run()
+  location: variable gc of type GreenhouseControls

@@ -1,0 +1,478 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+MultipleInterfaceVariants.java:6: error: duplicate class: Employee
+class Employee implements Payable<Employee> {}
+^
+Apply.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArrayOfGeneric.java:5: warning: auxiliary class Generic in ArrayOfGenericReference.java should not be accessed from outside its own source file
+  static Generic<Integer>[] gia;
+         ^
+BankTeller.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+BankTeller.java:12: error: cannot find symbol
+  public static Generator<Customer> generator() {
+                ^
+  symbol:   class Generator
+  location: class Customer
+BankTeller.java:25: error: cannot find symbol
+  public static Generator<Teller> generator =
+                ^
+  symbol:   class Generator
+  location: class Teller
+BasicGeneratorDemo.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CheckedList.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+DogsAndRobots.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+DogsAndRobots.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DogsAndRobots.java:6: error: cannot find symbol
+class PerformingDog extends Dog implements Performs {
+                            ^
+  symbol: class Dog
+DynamicProxyMixin.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+DynamicProxyMixin.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Tuple.*;
+                               ^
+DynamicProxyMixin.java:9: error: cannot find symbol
+  public MixinProxy(TwoTuple<Object,Class<?>>... pairs) {
+                    ^
+  symbol:   class TwoTuple
+  location: class MixinProxy
+DynamicProxyMixin.java:28: error: cannot find symbol
+  public static Object newInstance(TwoTuple... pairs) {
+                                   ^
+  symbol:   class TwoTuple
+  location: class MixinProxy
+ExplicitTypeSpecification.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+ExplicitTypeSpecification.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ExplicitTypeSpecification.java:7: error: cannot find symbol
+  static void f(Map<Person, List<Pet>> petPeople) {}
+                    ^
+  symbol:   class Person
+  location: class ExplicitTypeSpecification
+ExplicitTypeSpecification.java:7: error: cannot find symbol
+  static void f(Map<Person, List<Pet>> petPeople) {}
+                                 ^
+  symbol:   class Pet
+  location: class ExplicitTypeSpecification
+Fibonacci.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Fibonacci.java:5: error: cannot find symbol
+public class Fibonacci implements Generator<Integer> {
+                                  ^
+  symbol: class Generator
+Fill2.java:4: error: package generics.coffee does not exist
+import generics.coffee.*;
+^
+Fill2.java:6: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Fill2.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Fill2.java:24: error: cannot find symbol
+  Generator<T> generator, int size) {
+  ^
+  symbol:   class Generator
+  location: class Fill2
+Functional.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Generators.java:3: error: package generics.coffee does not exist
+import generics.coffee.*;
+^
+Generators.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Generators.java:9: error: cannot find symbol
+  fill(Collection<T> coll, Generator<T> gen, int n) {
+                           ^
+  symbol:   class Generator
+  location: class Generators
+GenericReading.java:8: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+  static List<Apple> apples = Arrays.asList(new Apple());
+              ^
+GenericReading.java:9: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+  static List<Fruit> fruit = Arrays.asList(new Fruit());
+              ^
+GenericWriting.java:8: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+  static List<Apple> apples = new ArrayList<Apple>();
+              ^
+GenericWriting.java:9: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+  static List<Fruit> fruit = new ArrayList<Fruit>();
+              ^
+InheritBounds.java:9: warning: auxiliary class HasColor in BasicBounds.java should not be accessed from outside its own source file
+class Colored2<T extends HasColor> extends HoldItem<T> {
+                         ^
+InheritBounds.java:14: warning: auxiliary class Dimension in BasicBounds.java should not be accessed from outside its own source file
+class ColoredDimension2<T extends Dimension & HasColor>
+                                  ^
+InheritBounds.java:14: warning: auxiliary class HasColor in BasicBounds.java should not be accessed from outside its own source file
+class ColoredDimension2<T extends Dimension & HasColor>
+                                              ^
+InheritBounds.java:22: warning: auxiliary class Dimension in BasicBounds.java should not be accessed from outside its own source file
+class Solid2<T extends Dimension & HasColor & Weight>
+                       ^
+InheritBounds.java:22: warning: auxiliary class HasColor in BasicBounds.java should not be accessed from outside its own source file
+class Solid2<T extends Dimension & HasColor & Weight>
+                                   ^
+InheritBounds.java:22: warning: auxiliary class Weight in BasicBounds.java should not be accessed from outside its own source file
+class Solid2<T extends Dimension & HasColor & Weight>
+                                              ^
+InstantiateGenericType.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+LatentReflection.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+LimitsOfInference.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+LimitsOfInference.java:7: error: cannot find symbol
+  f(Map<Person, List<? extends Pet>> petPeople) {}
+        ^
+  symbol:   class Person
+  location: class LimitsOfInference
+LimitsOfInference.java:7: error: cannot find symbol
+  f(Map<Person, List<? extends Pet>> petPeople) {}
+                               ^
+  symbol:   class Pet
+  location: class LimitsOfInference
+MultipleInterfaceVariants.java:7: warning: auxiliary class Employee in InstantiateGenericType.java should not be accessed from outside its own source file
+class Hourly extends Employee
+                     ^
+NonCovariantGenerics.java:7: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+  List<Fruit> flist = new ArrayList<Apple>();
+       ^
+OrdinaryArguments.java:4: warning: auxiliary class Base in CovariantReturnTypes.java should not be accessed from outside its own source file
+  void set(Base base) {
+           ^
+OrdinaryArguments.java:10: warning: auxiliary class Derived in CovariantReturnTypes.java should not be accessed from outside its own source file
+  void set(Derived derived) {
+           ^
+PlainGenericInheritance.java:9: warning: auxiliary class Base in CovariantReturnTypes.java should not be accessed from outside its own source file
+class DerivedGS extends GenericSetter<Base> {
+                                      ^
+PlainGenericInheritance.java:10: warning: auxiliary class Derived in CovariantReturnTypes.java should not be accessed from outside its own source file
+  void set(Derived derived){
+           ^
+PrimitiveGenericTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PrimitiveGenericTest.java:6: error: cannot find symbol
+  public static <T> T[] fill(T[] a, Generator<T> gen) {
+                                    ^
+  symbol:   class Generator
+  location: class FArray
+SelfBoundingMethods.java:4: warning: auxiliary class SelfBounded in SelfBounding.java should not be accessed from outside its own source file
+  static <T extends SelfBounded<T>> T f(T arg) {
+                    ^
+SimplerPets.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+SimplerPets.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Store.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Store.java:22: error: cannot find symbol
+  public static Generator<Product> generator =
+                ^
+  symbol:   class Generator
+  location: class Product
+SuperTypeWildcards.java:5: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+  static void writeTo(List<? super Apple> apples) {
+                                   ^
+TupleList.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TupleList.java:7: error: cannot find symbol
+extends ArrayList<FourTuple<A,B,C,D>> {
+                  ^
+  symbol: class FourTuple
+TupleTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TupleTest.java:8: error: cannot find symbol
+  static TwoTuple<String,Integer> f() {
+         ^
+  symbol:   class TwoTuple
+  location: class TupleTest
+TupleTest.java:12: error: cannot find symbol
+  static ThreeTuple<Amphibian,String,Integer> g() {
+         ^
+  symbol:   class ThreeTuple
+  location: class TupleTest
+TupleTest.java:17: error: cannot find symbol
+  FourTuple<Vehicle,Amphibian,String,Integer> h() {
+  ^
+  symbol:   class FourTuple
+  location: class TupleTest
+TupleTest.java:23: error: cannot find symbol
+  FiveTuple<Vehicle,Amphibian,String,Integer,Double> k() {
+  ^
+  symbol:   class FiveTuple
+  location: class TupleTest
+TupleTest2.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+TupleTest2.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Tuple.*;
+                               ^
+TupleTest2.java:6: error: cannot find symbol
+  static TwoTuple<String,Integer> f() {
+         ^
+  symbol:   class TwoTuple
+  location: class TupleTest2
+TupleTest2.java:9: error: cannot find symbol
+  static TwoTuple f2() { return tuple("hi", 47); }
+         ^
+  symbol:   class TwoTuple
+  location: class TupleTest2
+TupleTest2.java:10: error: cannot find symbol
+  static ThreeTuple<Amphibian,String,Integer> g() {
+         ^
+  symbol:   class ThreeTuple
+  location: class TupleTest2
+TupleTest2.java:10: warning: auxiliary class Amphibian in TupleTest.java should not be accessed from outside its own source file
+  static ThreeTuple<Amphibian,String,Integer> g() {
+                    ^
+TupleTest2.java:14: error: cannot find symbol
+  FourTuple<Vehicle,Amphibian,String,Integer> h() {
+  ^
+  symbol:   class FourTuple
+  location: class TupleTest2
+TupleTest2.java:14: warning: auxiliary class Vehicle in TupleTest.java should not be accessed from outside its own source file
+  FourTuple<Vehicle,Amphibian,String,Integer> h() {
+            ^
+TupleTest2.java:14: warning: auxiliary class Amphibian in TupleTest.java should not be accessed from outside its own source file
+  FourTuple<Vehicle,Amphibian,String,Integer> h() {
+                    ^
+TupleTest2.java:18: error: cannot find symbol
+  FiveTuple<Vehicle,Amphibian,String,Integer,Double> k() {
+  ^
+  symbol:   class FiveTuple
+  location: class TupleTest2
+TupleTest2.java:18: warning: auxiliary class Vehicle in TupleTest.java should not be accessed from outside its own source file
+  FiveTuple<Vehicle,Amphibian,String,Integer,Double> k() {
+            ^
+TupleTest2.java:18: warning: auxiliary class Amphibian in TupleTest.java should not be accessed from outside its own source file
+  FiveTuple<Vehicle,Amphibian,String,Integer,Double> k() {
+                    ^
+UseList.java:7: error: name clash: f(List<W>) and f(List<T>) have the same erasure
+  void f(List<W> v) {}
+       ^
+  where W,T are type-variables:
+    W extends Object declared in class UseList
+    T extends Object declared in class UseList
+WatercolorSets.java:2: error: package generics.watercolors does not exist
+import generics.watercolors.*;
+^
+WatercolorSets.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+WatercolorSets.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Sets.*;
+                               ^
+WatercolorSets.java:6: error: package generics.watercolors does not exist
+import static generics.watercolors.Watercolors.*;
+                                  ^
+Apply.java:21: error: cannot find symbol
+  public void rotate() { print(this + " rotate"); }
+                         ^
+  symbol:   method print(String)
+  location: class Shape
+Apply.java:23: error: cannot find symbol
+    print(this + " resize " + newSize);
+    ^
+  symbol:   method print(String)
+  location: class Shape
+ArrayOfGeneric.java:11: warning: auxiliary class Generic in ArrayOfGenericReference.java should not be accessed from outside its own source file
+    gia = (Generic<Integer>[])new Generic[SIZE];
+           ^
+ArrayOfGeneric.java:11: warning: auxiliary class Generic in ArrayOfGenericReference.java should not be accessed from outside its own source file
+    gia = (Generic<Integer>[])new Generic[SIZE];
+                                  ^
+ArrayOfGeneric.java:11: warning: [rawtypes] found raw type: Generic
+    gia = (Generic<Integer>[])new Generic[SIZE];
+                                  ^
+  missing type arguments for generic class Generic<T>
+  where T is a type-variable:
+    T extends Object declared in class Generic
+ArrayOfGeneric.java:13: warning: auxiliary class Generic in ArrayOfGenericReference.java should not be accessed from outside its own source file
+    gia[0] = new Generic<Integer>();
+                 ^
+BankTeller.java:13: error: cannot find symbol
+    return new Generator<Customer>() {
+               ^
+  symbol:   class Generator
+  location: class Customer
+BankTeller.java:26: error: cannot find symbol
+    new Generator<Teller>() {
+        ^
+  symbol:   class Generator
+  location: class Teller
+BasicGeneratorDemo.java:6: error: cannot find symbol
+    Generator<CountedObject> gen =
+    ^
+  symbol:   class Generator
+  location: class BasicGeneratorDemo
+BasicGeneratorDemo.java:7: error: cannot find symbol
+      BasicGenerator.create(CountedObject.class);
+      ^
+  symbol:   variable BasicGenerator
+  location: class BasicGeneratorDemo
+CaptureConversion.java:13: warning: [rawtypes] found raw type: Holder
+    Holder raw = new Holder<Integer>(1);
+    ^
+  missing type arguments for generic class Holder<T>
+  where T is a type-variable:
+    T extends Object declared in class Holder
+CaptureConversion.java:16: warning: [rawtypes] found raw type: Holder
+    Holder rawBasic = new Holder();
+    ^
+  missing type arguments for generic class Holder<T>
+  where T is a type-variable:
+    T extends Object declared in class Holder
+CaptureConversion.java:16: warning: [rawtypes] found raw type: Holder
+    Holder rawBasic = new Holder();
+                          ^
+  missing type arguments for generic class Holder<T>
+  where T is a type-variable:
+    T extends Object declared in class Holder
+Holder.java:13: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Holder<Apple> Apple = new Holder<Apple>(new Apple());
+           ^
+Holder.java:13: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Holder<Apple> Apple = new Holder<Apple>(new Apple());
+                                     ^
+Holder.java:13: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Holder<Apple> Apple = new Holder<Apple>(new Apple());
+                                                ^
+Holder.java:14: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Apple d = Apple.get();
+    ^
+Holder.java:17: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+    Holder<? extends Fruit> fruit = Apple; // OK
+                     ^
+Holder.java:18: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+    Fruit p = fruit.get();
+    ^
+Holder.java:19: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    d = (Apple)fruit.get(); // Returns 'Object'
+         ^
+Holder.java:21: warning: auxiliary class Orange in CovariantArrays.java should not be accessed from outside its own source file
+      Orange c = (Orange)fruit.get(); // No warning
+      ^
+Holder.java:21: warning: auxiliary class Orange in CovariantArrays.java should not be accessed from outside its own source file
+      Orange c = (Orange)fruit.get(); // No warning
+                  ^
+Holder.java:3: warning: [overrides] Class Holder overrides equals, but neither it nor any superclass overrides hashCode method
+public class Holder<T> {
+       ^
+CheckedList.java:8: warning: [rawtypes] found raw type: List
+  static void oldStyleMethod(List probablyDogs) {
+                             ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+CheckedList.java:9: warning: auxiliary class Cat in HijackedInterface.java should not be accessed from outside its own source file
+    probablyDogs.add(new Cat());
+                         ^
+CheckedList.java:12: error: cannot find symbol
+    List<Dog> dogs1 = new ArrayList<Dog>();
+         ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:12: error: cannot find symbol
+    List<Dog> dogs1 = new ArrayList<Dog>();
+                                    ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:14: error: cannot find symbol
+    List<Dog> dogs2 = Collections.checkedList(
+         ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:15: error: cannot find symbol
+      new ArrayList<Dog>(), Dog.class);
+                    ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:15: error: cannot find symbol
+      new ArrayList<Dog>(), Dog.class);
+                            ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:22: error: cannot find symbol
+    List<Pet> pets = Collections.checkedList(
+         ^
+  symbol:   class Pet
+  location: class CheckedList
+CheckedList.java:23: error: cannot find symbol
+      new ArrayList<Pet>(), Pet.class);
+                    ^
+  symbol:   class Pet
+  location: class CheckedList
+CheckedList.java:23: error: cannot find symbol
+      new ArrayList<Pet>(), Pet.class);
+                            ^
+  symbol:   class Pet
+  location: class CheckedList
+CheckedList.java:24: error: cannot find symbol
+    pets.add(new Dog());
+                 ^
+  symbol:   class Dog
+  location: class CheckedList
+CheckedList.java:25: warning: auxiliary class Cat in HijackedInterface.java should not be accessed from outside its own source file
+    pets.add(new Cat());
+                 ^
+ClassCasting.java:13: warning: auxiliary class Widget in FactoryConstraint.java should not be accessed from outside its own source file
+    List<Widget> lw2 = List.class.cast(in.readObject());
+         ^
+CompilerIntelligence.java:6: warning: auxiliary class Fruit in CovariantArrays.java should not be accessed from outside its own source file
+    List<? extends Fruit> flist =
+                   ^
+CompilerIntelligence.java:7: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+      Arrays.asList(new Apple());
+                        ^
+CompilerIntelligence.java:8: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Apple a = (Apple)flist.get(0); // No warning
+    ^
+CompilerIntelligence.java:8: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    Apple a = (Apple)flist.get(0); // No warning
+               ^
+CompilerIntelligence.java:9: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    flist.contains(new Apple()); // Argument is 'Object'
+                       ^
+CompilerIntelligence.java:10: warning: auxiliary class Apple in CovariantArrays.java should not be accessed from outside its own source file
+    flist.indexOf(new Apple()); // Argument is 'Object'
+                      ^
+DogsAndRobots.java:7: error: cannot find symbol
+  public void speak() { print("Woof!"); }
+                        ^
+  symbol:   method print(String)
+  location: class PerformingDog
+DogsAndRobots.java:8: error: cannot find symbol
+  public void sit() { print("Sitting"); }
+                      ^
+  symbol:   method print(String)
+  location: class PerformingDog

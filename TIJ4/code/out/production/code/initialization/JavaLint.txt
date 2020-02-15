@@ -1,0 +1,487 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+ArrayClassObj.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArrayNew.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArraysOfPrimitives.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Demotion.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ExplicitStatic.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Flower.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+InitialValues.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Mugs.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OrderOfInitialization.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Overloading.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OverloadingOrder.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PrimitiveOverloading.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+StaticInitialization.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ArrayClassObj.java:10: error: cannot find symbol
+    print("length of a = " + a.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayClassObj
+ArrayClassObj.java:13: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class ArrayClassObj
+ArrayNew.java:11: error: cannot find symbol
+    print("length of a = " + a.length);
+    ^
+  symbol:   method print(String)
+  location: class ArrayNew
+ArrayNew.java:12: error: cannot find symbol
+    print(Arrays.toString(a));
+    ^
+  symbol:   method print(String)
+  location: class ArrayNew
+ArraysOfPrimitives.java:12: error: cannot find symbol
+      print("a1[" + i + "] = " + a1[i]);
+      ^
+  symbol:   method print(String)
+  location: class ArraysOfPrimitives
+Demotion.java:6: error: cannot find symbol
+  void f1(char x) { print("f1(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:7: error: cannot find symbol
+  void f1(byte x) { print("f1(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:8: error: cannot find symbol
+  void f1(short x) { print("f1(short)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:9: error: cannot find symbol
+  void f1(int x) { print("f1(int)"); }
+                   ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:10: error: cannot find symbol
+  void f1(long x) { print("f1(long)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:11: error: cannot find symbol
+  void f1(float x) { print("f1(float)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:12: error: cannot find symbol
+  void f1(double x) { print("f1(double)"); }
+                      ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:14: error: cannot find symbol
+  void f2(char x) { print("f2(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:15: error: cannot find symbol
+  void f2(byte x) { print("f2(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:16: error: cannot find symbol
+  void f2(short x) { print("f2(short)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:17: error: cannot find symbol
+  void f2(int x) { print("f2(int)"); }
+                   ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:18: error: cannot find symbol
+  void f2(long x) { print("f2(long)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:19: error: cannot find symbol
+  void f2(float x) { print("f2(float)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:21: error: cannot find symbol
+  void f3(char x) { print("f3(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:22: error: cannot find symbol
+  void f3(byte x) { print("f3(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:23: error: cannot find symbol
+  void f3(short x) { print("f3(short)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:24: error: cannot find symbol
+  void f3(int x) { print("f3(int)"); }
+                   ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:25: error: cannot find symbol
+  void f3(long x) { print("f3(long)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:27: error: cannot find symbol
+  void f4(char x) { print("f4(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:28: error: cannot find symbol
+  void f4(byte x) { print("f4(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:29: error: cannot find symbol
+  void f4(short x) { print("f4(short)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:30: error: cannot find symbol
+  void f4(int x) { print("f4(int)"); }
+                   ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:32: error: cannot find symbol
+  void f5(char x) { print("f5(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:33: error: cannot find symbol
+  void f5(byte x) { print("f5(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:34: error: cannot find symbol
+  void f5(short x) { print("f5(short)"); }
+                     ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:36: error: cannot find symbol
+  void f6(char x) { print("f6(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:37: error: cannot find symbol
+  void f6(byte x) { print("f6(byte)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:39: error: cannot find symbol
+  void f7(char x) { print("f7(char)"); }
+                    ^
+  symbol:   method print(String)
+  location: class Demotion
+Demotion.java:43: error: cannot find symbol
+    print("double argument:");
+    ^
+  symbol:   method print(String)
+  location: class Demotion
+ExplicitStatic.java:7: error: cannot find symbol
+    print("Cup(" + marker + ")");
+    ^
+  symbol:   method print(String)
+  location: class Cup
+ExplicitStatic.java:10: error: cannot find symbol
+    print("f(" + marker + ")");
+    ^
+  symbol:   method print(String)
+  location: class Cup
+ExplicitStatic.java:22: error: cannot find symbol
+    print("Cups()");
+    ^
+  symbol:   method print(String)
+  location: class Cups
+ExplicitStatic.java:28: error: cannot find symbol
+    print("Inside main()");
+    ^
+  symbol:   method print(String)
+  location: class ExplicitStatic
+Flower.java:10: error: cannot find symbol
+    print("Constructor w/ int arg only, petalCount= "
+    ^
+  symbol:   method print(String)
+  location: class Flower
+Flower.java:14: error: cannot find symbol
+    print("Constructor w/ String arg only, s = " + ss);
+    ^
+  symbol:   method print(String)
+  location: class Flower
+Flower.java:21: error: cannot find symbol
+    print("String & int args");
+    ^
+  symbol:   method print(String)
+  location: class Flower
+Flower.java:25: error: cannot find symbol
+    print("default constructor (no args)");
+    ^
+  symbol:   method print(String)
+  location: class Flower
+Flower.java:29: error: cannot find symbol
+    print("petalCount = " + petalCount + " s = "+ s);
+    ^
+  symbol:   method print(String)
+  location: class Flower
+InitialValues.java:16: error: cannot find symbol
+    print("Data type      Initial value");
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:17: error: cannot find symbol
+    print("boolean        " + t);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:18: error: cannot find symbol
+    print("char           [" + c + "]");
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:19: error: cannot find symbol
+    print("byte           " + b);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:20: error: cannot find symbol
+    print("short          " + s);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:21: error: cannot find symbol
+    print("int            " + i);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:22: error: cannot find symbol
+    print("long           " + l);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:23: error: cannot find symbol
+    print("float          " + f);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:24: error: cannot find symbol
+    print("double         " + d);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+InitialValues.java:25: error: cannot find symbol
+    print("reference      " + reference);
+    ^
+  symbol:   method print(String)
+  location: class InitialValues
+Mugs.java:7: error: cannot find symbol
+    print("Mug(" + marker + ")");
+    ^
+  symbol:   method print(String)
+  location: class Mug
+Mugs.java:10: error: cannot find symbol
+    print("f(" + marker + ")");
+    ^
+  symbol:   method print(String)
+  location: class Mug
+Mugs.java:20: error: cannot find symbol
+    print("mug1 & mug2 initialized");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+Mugs.java:23: error: cannot find symbol
+    print("Mugs()");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+Mugs.java:26: error: cannot find symbol
+    print("Mugs(int)");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+Mugs.java:29: error: cannot find symbol
+    print("Inside main()");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+Mugs.java:31: error: cannot find symbol
+    print("new Mugs() completed");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+Mugs.java:33: error: cannot find symbol
+    print("new Mugs(1) completed");
+    ^
+  symbol:   method print(String)
+  location: class Mugs
+NewVarArgs.java:16: warning: auxiliary class A in VarArgs.java should not be accessed from outside its own source file
+    printArray(new A(), new A(), new A());
+                   ^
+NewVarArgs.java:16: warning: auxiliary class A in VarArgs.java should not be accessed from outside its own source file
+    printArray(new A(), new A(), new A());
+                            ^
+NewVarArgs.java:16: warning: auxiliary class A in VarArgs.java should not be accessed from outside its own source file
+    printArray(new A(), new A(), new A());
+                                     ^
+OrderOfInitialization.java:8: error: cannot find symbol
+  Window(int marker) { print("Window(" + marker + ")"); }
+                       ^
+  symbol:   method print(String)
+  location: class Window
+OrderOfInitialization.java:15: error: cannot find symbol
+    print("House()");
+    ^
+  symbol:   method print(String)
+  location: class House
+OrderOfInitialization.java:19: error: cannot find symbol
+  void f() { print("f()"); }
+             ^
+  symbol:   method print(String)
+  location: class House
+Overloading.java:9: error: cannot find symbol
+    print("Planting a seedling");
+    ^
+  symbol:   method print(String)
+  location: class Tree
+Overloading.java:14: error: cannot find symbol
+    print("Creating new Tree that is " +
+    ^
+  symbol:   method print(String)
+  location: class Tree
+Overloading.java:18: error: cannot find symbol
+    print("Tree is " + height + " feet tall");
+    ^
+  symbol:   method print(String)
+  location: class Tree
+Overloading.java:21: error: cannot find symbol
+    print(s + ": Tree is " + height + " feet tall");
+    ^
+  symbol:   method print(String)
+  location: class Tree
+OverloadingOrder.java:7: error: cannot find symbol
+    print("String: " + s + ", int: " + i);
+    ^
+  symbol:   method print(String)
+  location: class OverloadingOrder
+OverloadingOrder.java:10: error: cannot find symbol
+    print("int: " + i + ", String: " + s);
+    ^
+  symbol:   method print(String)
+  location: class OverloadingOrder
+OverloadingVarargs2.java:13: error: reference to f is ambiguous
+    f('a', 'b');
+    ^
+  both method f(float,Character...) in OverloadingVarargs2 and method f(Character...) in OverloadingVarargs2 match
+PrimitiveOverloading.java:6: error: cannot find symbol
+  void f1(char x) { printnb("f1(char) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:7: error: cannot find symbol
+  void f1(byte x) { printnb("f1(byte) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:8: error: cannot find symbol
+  void f1(short x) { printnb("f1(short) "); }
+                     ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:9: error: cannot find symbol
+  void f1(int x) { printnb("f1(int) "); }
+                   ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:10: error: cannot find symbol
+  void f1(long x) { printnb("f1(long) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:11: error: cannot find symbol
+  void f1(float x) { printnb("f1(float) "); }
+                     ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:12: error: cannot find symbol
+  void f1(double x) { printnb("f1(double) "); }
+                      ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:14: error: cannot find symbol
+  void f2(byte x) { printnb("f2(byte) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:15: error: cannot find symbol
+  void f2(short x) { printnb("f2(short) "); }
+                     ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:16: error: cannot find symbol
+  void f2(int x) { printnb("f2(int) "); }
+                   ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:17: error: cannot find symbol
+  void f2(long x) { printnb("f2(long) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:18: error: cannot find symbol
+  void f2(float x) { printnb("f2(float) "); }
+                     ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:19: error: cannot find symbol
+  void f2(double x) { printnb("f2(double) "); }
+                      ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:21: error: cannot find symbol
+  void f3(short x) { printnb("f3(short) "); }
+                     ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:22: error: cannot find symbol
+  void f3(int x) { printnb("f3(int) "); }
+                   ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+PrimitiveOverloading.java:23: error: cannot find symbol
+  void f3(long x) { printnb("f3(long) "); }
+                    ^
+  symbol:   method printnb(String)
+  location: class PrimitiveOverloading
+100 errors
+6 warnings

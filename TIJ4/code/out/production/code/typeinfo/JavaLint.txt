@@ -1,0 +1,518 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AnonymousImplementation.java:3: error: package typeinfo.interfacea does not exist
+import typeinfo.interfacea.*;
+^
+AnonymousImplementation.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AnonymousImplementation.java:7: error: cannot find symbol
+  public static A makeA() {
+                ^
+  symbol:   class A
+  location: class AnonymousA
+FamilyVsExactType.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+HiddenImplementation.java:3: error: package typeinfo.interfacea does not exist
+import typeinfo.interfacea.*;
+^
+HiddenImplementation.java:4: error: package typeinfo.packageaccess does not exist
+import typeinfo.packageaccess.*;
+^
+InnerImplementation.java:3: error: package typeinfo.interfacea does not exist
+import typeinfo.interfacea.*;
+^
+InnerImplementation.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+InnerImplementation.java:14: error: cannot find symbol
+  public static A makeA() { return new C(); }
+                ^
+  symbol:   class A
+  location: class InnerA
+InnerImplementation.java:7: error: cannot find symbol
+  private static class C implements A {
+                                    ^
+  symbol:   class A
+  location: class InnerA
+InterfaceViolation.java:3: error: package typeinfo.interfacea does not exist
+import typeinfo.interfacea.*;
+^
+InterfaceViolation.java:5: error: cannot find symbol
+class B implements A {
+                   ^
+  symbol: class A
+NullRobot.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Robot.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+NullRobot.java:13: error: cannot find symbol
+  private class NRobot implements Null, Robot {
+                                  ^
+  symbol:   class Null
+  location: class NullRobotProxyHandler
+Person.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Person.java:19: error: cannot find symbol
+  extends Person implements Null {
+                            ^
+  symbol:   class Null
+  location: class Person
+PetCount.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+PetCount.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PetCount.java:18: error: cannot find symbol
+  countPets(PetCreator creator) {
+            ^
+  symbol:   class PetCreator
+  location: class PetCount
+PetCount2.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+PetCount3.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+PetCount3.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PetCount3.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PetCount3.java:10: error: cannot find symbol
+  extends LinkedHashMap<Class<? extends Pet>,Integer> {
+                                        ^
+  symbol:   class Pet
+  location: class PetCount3
+PetCount3.java:14: error: cannot find symbol
+    public void count(Pet pet) {
+                      ^
+  symbol:   class Pet
+  location: class PetCounter
+PetCount4.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+PetCount4.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PetCount4.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+RegisteredFactories.java:3: error: package typeinfo.factory does not exist
+import typeinfo.factory.*;
+^
+RegisteredFactories.java:10: error: cannot find symbol
+  static List<Factory<? extends Part>> partFactories =
+              ^
+  symbol:   class Factory
+  location: class Part
+RegisteredFactories.java:35: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<FuelFilter> {
+                             ^
+RegisteredFactories.java:42: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<AirFilter> {
+                             ^
+RegisteredFactories.java:49: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<CabinAirFilter> {
+                             ^
+RegisteredFactories.java:58: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<OilFilter> {
+                             ^
+RegisteredFactories.java:67: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<FanBelt> {
+                             ^
+RegisteredFactories.java:74: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<GeneratorBelt> {
+                             ^
+RegisteredFactories.java:83: error: package typeinfo.factory does not exist
+  implements typeinfo.factory.Factory<PowerSteeringBelt> {
+                             ^
+SelectingMethods.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ShowMethods.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SimpleProxyDemo.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SimpleDynamicProxy.java:22: warning: auxiliary class Interface in SimpleProxyDemo.java should not be accessed from outside its own source file
+  public static void consumer(Interface iface) {
+                              ^
+SweetShop.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AnonymousImplementation.java:8: error: cannot find symbol
+    return new A() {
+               ^
+  symbol:   class A
+  location: class AnonymousA
+AnonymousImplementation.java:20: error: cannot find symbol
+    A a = AnonymousA.makeA();
+    ^
+  symbol:   class A
+  location: class AnonymousImplementation
+ClassInitialization.java:30: warning: [rawtypes] found raw type: Class
+    Class initable = Initable.class;
+    ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ClassInitialization.java:38: warning: [rawtypes] found raw type: Class
+    Class initable3 = Class.forName("Initable3");
+    ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+FamilyVsExactType.java:11: error: cannot find symbol
+    print("Testing x of type " + x.getClass());
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:12: error: cannot find symbol
+    print("x instanceof Base " + (x instanceof Base));
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:13: error: cannot find symbol
+    print("x instanceof Derived "+ (x instanceof Derived));
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:14: error: cannot find symbol
+    print("Base.isInstance(x) "+ Base.class.isInstance(x));
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:15: error: cannot find symbol
+    print("Derived.isInstance(x) " +
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:17: error: cannot find symbol
+    print("x.getClass() == Base.class " +
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:19: error: cannot find symbol
+    print("x.getClass() == Derived.class " +
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:21: error: cannot find symbol
+    print("x.getClass().equals(Base.class)) "+
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+FamilyVsExactType.java:23: error: cannot find symbol
+    print("x.getClass().equals(Derived.class)) " +
+    ^
+  symbol:   method print(String)
+  location: class FamilyVsExactType
+GenericClassReferences.java:5: warning: [rawtypes] found raw type: Class
+    Class intClass = int.class;
+    ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+HiddenImplementation.java:9: error: cannot find symbol
+    A a = HiddenC.makeA();
+    ^
+  symbol:   class A
+  location: class HiddenImplementation
+HiddenImplementation.java:9: error: cannot find symbol
+    A a = HiddenC.makeA();
+          ^
+  symbol:   variable HiddenC
+  location: class HiddenImplementation
+InnerImplementation.java:8: error: cannot find symbol
+    public void f() { print("public C.f()"); }
+                      ^
+  symbol:   method print(String)
+  location: class C
+InnerImplementation.java:9: error: cannot find symbol
+    public void g() { print("public C.g()"); }
+                      ^
+  symbol:   method print(String)
+  location: class C
+InnerImplementation.java:10: error: cannot find symbol
+    void u() { print("package C.u()"); }
+               ^
+  symbol:   method print(String)
+  location: class C
+InnerImplementation.java:11: error: cannot find symbol
+    protected void v() { print("protected C.v()"); }
+                         ^
+  symbol:   method print(String)
+  location: class C
+InnerImplementation.java:12: error: cannot find symbol
+    private void w() { print("private C.w()"); }
+                       ^
+  symbol:   method print(String)
+  location: class C
+InnerImplementation.java:19: error: cannot find symbol
+    A a = InnerA.makeA();
+    ^
+  symbol:   class A
+  location: class InnerImplementation
+InterfaceViolation.java:12: error: cannot find symbol
+    A a = new B();
+    ^
+  symbol:   class A
+  location: class InterfaceViolation
+InterfaceViolation.java:17: warning: [cast] redundant cast to A
+      B b = (B)a;
+            ^
+Robot.java:11: error: cannot find symbol
+      if(r instanceof Null)
+                      ^
+  symbol:   class Null
+  location: class Test
+NullRobot.java:32: warning: [rawtypes] found raw type: Class
+      new Class[]{ Null.class, Robot.class },
+          ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+NullRobot.java:32: error: cannot find symbol
+      new Class[]{ Null.class, Robot.class },
+                   ^
+  symbol:   class Null
+  location: class NullRobot
+PetCount.java:20: error: cannot find symbol
+    for(Pet pet : creator.createArray(20)) {
+        ^
+  symbol:   class Pet
+  location: class PetCount
+PetCount.java:23: error: cannot find symbol
+      if(pet instanceof Pet)
+                        ^
+  symbol:   class Pet
+  location: class PetCount
+PetCount.java:25: error: cannot find symbol
+      if(pet instanceof Dog)
+                        ^
+  symbol:   class Dog
+  location: class PetCount
+PetCount.java:27: error: cannot find symbol
+      if(pet instanceof Mutt)
+                        ^
+  symbol:   class Mutt
+  location: class PetCount
+PetCount.java:29: error: cannot find symbol
+      if(pet instanceof Pug)
+                        ^
+  symbol:   class Pug
+  location: class PetCount
+PetCount.java:31: error: cannot find symbol
+      if(pet instanceof Cat)
+                        ^
+  symbol:   class Cat
+  location: class PetCount
+PetCount.java:33: error: cannot find symbol
+      if(pet instanceof Manx)
+                        ^
+  symbol:   class Manx
+  location: class PetCount
+PetCount.java:35: error: cannot find symbol
+      if(pet instanceof Manx)
+                        ^
+  symbol:   class Manx
+  location: class PetCount
+PetCount.java:37: error: cannot find symbol
+      if(pet instanceof Manx)
+                        ^
+  symbol:   class Manx
+  location: class PetCount
+PetCount.java:39: error: cannot find symbol
+      if(pet instanceof Rodent)
+                        ^
+  symbol:   class Rodent
+  location: class PetCount
+PetCount.java:41: error: cannot find symbol
+      if(pet instanceof Rat)
+                        ^
+  symbol:   class Rat
+  location: class PetCount
+PetCount.java:43: error: cannot find symbol
+      if(pet instanceof Mouse)
+                        ^
+  symbol:   class Mouse
+  location: class PetCount
+PetCount.java:45: error: cannot find symbol
+      if(pet instanceof Hamster)
+                        ^
+  symbol:   class Hamster
+  location: class PetCount
+PetCount.java:49: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class PetCount
+PetCount.java:50: error: cannot find symbol
+    print(counter);
+    ^
+  symbol:   method print(PetCounter)
+  location: class PetCount
+PetCount.java:53: error: cannot find symbol
+    countPets(new ForNameCreator());
+                  ^
+  symbol:   class ForNameCreator
+  location: class PetCount
+PetCount2.java:6: error: cannot find symbol
+    PetCount.countPets(Pets.creator);
+                       ^
+  symbol:   variable Pets
+  location: class PetCount2
+PetCount3.java:12: error: cannot find symbol
+      super(MapData.map(LiteralPetCreator.allTypes, 0));
+                        ^
+  symbol:   variable LiteralPetCreator
+  location: class PetCounter
+PetCount3.java:12: error: cannot find symbol
+      super(MapData.map(LiteralPetCreator.allTypes, 0));
+            ^
+  symbol:   variable MapData
+  location: class PetCounter
+PetCount3.java:16: error: cannot find symbol
+      for(Map.Entry<Class<? extends Pet>,Integer> pair
+                                    ^
+  symbol:   class Pet
+  location: class PetCounter
+PetCount3.java:23: error: cannot find symbol
+      for(Map.Entry<Class<? extends Pet>,Integer> pair
+                                    ^
+  symbol:   class Pet
+  location: class PetCounter
+PetCount3.java:37: error: cannot find symbol
+    for(Pet pet : Pets.createArray(20)) {
+                  ^
+  symbol:   variable Pets
+  location: class PetCount3
+PetCount3.java:37: error: cannot find symbol
+    for(Pet pet : Pets.createArray(20)) {
+        ^
+  symbol:   class Pet
+  location: class PetCount3
+PetCount3.java:41: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class PetCount3
+PetCount3.java:42: error: cannot find symbol
+    print(petCount);
+    ^
+  symbol:   method print(PetCounter)
+  location: class PetCount3
+PetCount4.java:8: error: cannot find symbol
+    TypeCounter counter = new TypeCounter(Pet.class);
+    ^
+  symbol:   class TypeCounter
+  location: class PetCount4
+PetCount4.java:8: error: cannot find symbol
+    TypeCounter counter = new TypeCounter(Pet.class);
+                              ^
+  symbol:   class TypeCounter
+  location: class PetCount4
+PetCount4.java:8: error: cannot find symbol
+    TypeCounter counter = new TypeCounter(Pet.class);
+                                          ^
+  symbol:   class Pet
+  location: class PetCount4
+PetCount4.java:9: error: cannot find symbol
+    for(Pet pet : Pets.createArray(20)) {
+                  ^
+  symbol:   variable Pets
+  location: class PetCount4
+PetCount4.java:9: error: cannot find symbol
+    for(Pet pet : Pets.createArray(20)) {
+        ^
+  symbol:   class Pet
+  location: class PetCount4
+PetCount4.java:13: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class PetCount4
+RegisteredFactories.java:11: error: cannot find symbol
+    new ArrayList<Factory<? extends Part>>();	
+                  ^
+  symbol:   class Factory
+  location: class Part
+SelectingMethods.java:15: error: cannot find symbol
+      print("Proxy detected the interesting method");
+      ^
+  symbol:   method print(String)
+  location: class MethodSelector
+SelectingMethods.java:28: error: cannot find symbol
+  public void boring1() { print("boring1"); }
+                          ^
+  symbol:   method print(String)
+  location: class Implementation
+SelectingMethods.java:29: error: cannot find symbol
+  public void boring2() { print("boring2"); }
+                          ^
+  symbol:   method print(String)
+  location: class Implementation
+SelectingMethods.java:31: error: cannot find symbol
+    print("interesting " + arg);
+    ^
+  symbol:   method print(String)
+  location: class Implementation
+SelectingMethods.java:40: warning: [rawtypes] found raw type: Class
+      new Class[]{ SomeMethods.class },
+          ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ShowMethods.java:26: warning: [rawtypes] found raw type: Constructor
+      Constructor[] ctors = c.getConstructors();
+      ^
+  missing type arguments for generic class Constructor<T>
+  where T is a type-variable:
+    T extends Object declared in class Constructor
+ShowMethods.java:31: warning: [rawtypes] found raw type: Constructor
+        for(Constructor ctor : ctors)
+            ^
+  missing type arguments for generic class Constructor<T>
+  where T is a type-variable:
+    T extends Object declared in class Constructor
+ShowMethods.java:41: warning: [rawtypes] found raw type: Constructor
+        for(Constructor ctor : ctors)
+            ^
+  missing type arguments for generic class Constructor<T>
+  where T is a type-variable:
+    T extends Object declared in class Constructor
+SimpleDynamicProxy.java:27: warning: auxiliary class RealObject in SimpleProxyDemo.java should not be accessed from outside its own source file
+    RealObject real = new RealObject();
+    ^
+SimpleDynamicProxy.java:27: warning: auxiliary class RealObject in SimpleProxyDemo.java should not be accessed from outside its own source file
+    RealObject real = new RealObject();
+                          ^
+SimpleDynamicProxy.java:30: warning: auxiliary class Interface in SimpleProxyDemo.java should not be accessed from outside its own source file
+    Interface proxy = (Interface)Proxy.newProxyInstance(
+    ^
+SimpleDynamicProxy.java:30: warning: auxiliary class Interface in SimpleProxyDemo.java should not be accessed from outside its own source file
+    Interface proxy = (Interface)Proxy.newProxyInstance(
+                       ^
+SimpleDynamicProxy.java:31: warning: auxiliary class Interface in SimpleProxyDemo.java should not be accessed from outside its own source file
+      Interface.class.getClassLoader(),
+      ^
+SimpleDynamicProxy.java:32: warning: [rawtypes] found raw type: Class
+      new Class[]{ Interface.class },
+          ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+SimpleDynamicProxy.java:32: warning: auxiliary class Interface in SimpleProxyDemo.java should not be accessed from outside its own source file
+      new Class[]{ Interface.class },
+                   ^
+100 errors
+20 warnings

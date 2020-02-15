@@ -1,0 +1,532 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+CollectionSequence.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+CollectionSequence.java:6: error: cannot find symbol
+extends AbstractCollection<Pet> {
+                           ^
+  symbol: class Pet
+CollectionSequence.java:7: error: cannot find symbol
+  private Pet[] pets = Pets.createArray(8);
+          ^
+  symbol:   class Pet
+  location: class CollectionSequence
+CollectionSequence.java:9: error: cannot find symbol
+  public Iterator<Pet> iterator() {
+                  ^
+  symbol:   class Pet
+  location: class CollectionSequence
+ContainerMethods.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CrossContainerIteration.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+CrossContainerIteration.java:6: error: cannot find symbol
+  public static void display(Iterator<Pet> it) {
+                                      ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+GenericsAndUpcasting.java:4: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+class GrannySmith extends Apple {}
+                          ^
+GenericsAndUpcasting.java:5: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+class Gala extends Apple {}
+                   ^
+GenericsAndUpcasting.java:6: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+class Fuji extends Apple {}
+                   ^
+GenericsAndUpcasting.java:7: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+class Braeburn extends Apple {}
+                       ^
+InterfaceVsIterator.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+InterfaceVsIterator.java:6: error: cannot find symbol
+  public static void display(Iterator<Pet> it) {
+                                      ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:13: error: cannot find symbol
+  public static void display(Collection<Pet> pets) {
+                                        ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+LinkedListFeatures.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+LinkedListFeatures.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ListFeatures.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+ListFeatures.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ListIteration.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+MapOfList.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+MapOfList.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MapOfList.java:8: error: cannot find symbol
+  public static Map<Person, List<? extends Pet>>
+                    ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:8: error: cannot find symbol
+  public static Map<Person, List<? extends Pet>>
+                                           ^
+  symbol:   class Pet
+  location: class MapOfList
+NonCollectionSequence.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+NonCollectionSequence.java:6: error: cannot find symbol
+  protected Pet[] pets = Pets.createArray(8);
+            ^
+  symbol:   class Pet
+  location: class PetSequence
+NonCollectionSequence.java:10: error: cannot find symbol
+  public Iterator<Pet> iterator() {
+                  ^
+  symbol:   class Pet
+  location: class NonCollectionSequence
+PetMap.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+PetMap.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PrintingContainers.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SetOperations.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SimpleIteration.java:2: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+StackCollision.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+StackTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+UniqueWords.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+UniqueWordsAlphabetic.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ApplesAndOrangesWithGenerics.java:6: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    ArrayList<Apple> apples = new ArrayList<Apple>();
+              ^
+ApplesAndOrangesWithGenerics.java:6: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    ArrayList<Apple> apples = new ArrayList<Apple>();
+                                            ^
+ApplesAndOrangesWithGenerics.java:8: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+      apples.add(new Apple());
+                     ^
+ApplesAndOrangesWithGenerics.java:14: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    for(Apple c : apples)
+        ^
+ApplesAndOrangesWithoutGenerics.java:17: warning: [rawtypes] found raw type: ArrayList
+    ArrayList apples = new ArrayList();
+    ^
+  missing type arguments for generic class ArrayList<E>
+  where E is a type-variable:
+    E extends Object declared in class ArrayList
+ApplesAndOrangesWithoutGenerics.java:17: warning: [rawtypes] found raw type: ArrayList
+    ArrayList apples = new ArrayList();
+                           ^
+  missing type arguments for generic class ArrayList<E>
+  where E is a type-variable:
+    E extends Object declared in class ArrayList
+CollectionSequence.java:7: error: cannot find symbol
+  private Pet[] pets = Pets.createArray(8);
+                       ^
+  symbol:   variable Pets
+  location: class CollectionSequence
+CollectionSequence.java:10: error: cannot find symbol
+    return new Iterator<Pet>() {
+                        ^
+  symbol:   class Pet
+  location: class CollectionSequence
+CollectionSequence.java:15: error: cannot find symbol
+      public Pet next() { return pets[index++]; }
+             ^
+  symbol: class Pet
+ContainerMethods.java:6: error: cannot find symbol
+    ContainerMethodDifferences.main(args);
+    ^
+  symbol:   variable ContainerMethodDifferences
+  location: class ContainerMethods
+CrossContainerIteration.java:8: error: cannot find symbol
+      Pet p = it.next();
+      ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:14: error: cannot find symbol
+    ArrayList<Pet> pets = Pets.arrayList(8);
+              ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:14: error: cannot find symbol
+    ArrayList<Pet> pets = Pets.arrayList(8);
+                          ^
+  symbol:   variable Pets
+  location: class CrossContainerIteration
+CrossContainerIteration.java:15: error: cannot find symbol
+    LinkedList<Pet> petsLL = new LinkedList<Pet>(pets);
+               ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:15: error: cannot find symbol
+    LinkedList<Pet> petsLL = new LinkedList<Pet>(pets);
+                                            ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:16: error: cannot find symbol
+    HashSet<Pet> petsHS = new HashSet<Pet>(pets);
+            ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:16: error: cannot find symbol
+    HashSet<Pet> petsHS = new HashSet<Pet>(pets);
+                                      ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:17: error: cannot find symbol
+    TreeSet<Pet> petsTS = new TreeSet<Pet>(pets);
+            ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+CrossContainerIteration.java:17: error: cannot find symbol
+    TreeSet<Pet> petsTS = new TreeSet<Pet>(pets);
+                                      ^
+  symbol:   class Pet
+  location: class CrossContainerIteration
+EnvironmentVariables.java:6: warning: [rawtypes] found raw type: Entry
+    for(Map.Entry entry: System.getenv().entrySet()) {
+           ^
+  missing type arguments for generic class Entry<K,V>
+  where K,V are type-variables:
+    K extends Object declared in interface Entry
+    V extends Object declared in interface Entry
+GenericsAndUpcasting.java:11: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    ArrayList<Apple> apples = new ArrayList<Apple>();
+              ^
+GenericsAndUpcasting.java:11: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    ArrayList<Apple> apples = new ArrayList<Apple>();
+                                            ^
+GenericsAndUpcasting.java:16: warning: auxiliary class Apple in ApplesAndOrangesWithoutGenerics.java should not be accessed from outside its own source file
+    for(Apple c : apples)
+        ^
+InterfaceVsIterator.java:8: error: cannot find symbol
+      Pet p = it.next();
+      ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:14: error: cannot find symbol
+    for(Pet p : pets)
+        ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:19: error: cannot find symbol
+    List<Pet> petList = Pets.arrayList(8);
+         ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:19: error: cannot find symbol
+    List<Pet> petList = Pets.arrayList(8);
+                        ^
+  symbol:   variable Pets
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:20: error: cannot find symbol
+    Set<Pet> petSet = new HashSet<Pet>(petList);
+        ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:20: error: cannot find symbol
+    Set<Pet> petSet = new HashSet<Pet>(petList);
+                                  ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:21: error: cannot find symbol
+    Map<String,Pet> petMap =
+               ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+InterfaceVsIterator.java:22: error: cannot find symbol
+      new LinkedHashMap<String,Pet>();
+                               ^
+  symbol:   class Pet
+  location: class InterfaceVsIterator
+LinkedListFeatures.java:8: error: cannot find symbol
+    LinkedList<Pet> pets =
+               ^
+  symbol:   class Pet
+  location: class LinkedListFeatures
+LinkedListFeatures.java:9: error: cannot find symbol
+      new LinkedList<Pet>(Pets.arrayList(5));
+                     ^
+  symbol:   class Pet
+  location: class LinkedListFeatures
+LinkedListFeatures.java:9: error: cannot find symbol
+      new LinkedList<Pet>(Pets.arrayList(5));
+                          ^
+  symbol:   variable Pets
+  location: class LinkedListFeatures
+LinkedListFeatures.java:22: error: cannot find symbol
+    pets.addFirst(new Rat());
+                      ^
+  symbol:   class Rat
+  location: class LinkedListFeatures
+LinkedListFeatures.java:24: error: cannot find symbol
+    pets.offer(Pets.randomPet());
+               ^
+  symbol:   variable Pets
+  location: class LinkedListFeatures
+LinkedListFeatures.java:26: error: cannot find symbol
+    pets.add(Pets.randomPet());
+             ^
+  symbol:   variable Pets
+  location: class LinkedListFeatures
+LinkedListFeatures.java:28: error: cannot find symbol
+    pets.addLast(new Hamster());
+                     ^
+  symbol:   class Hamster
+  location: class LinkedListFeatures
+ListFeatures.java:9: error: cannot find symbol
+    List<Pet> pets = Pets.arrayList(7);
+         ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:9: error: cannot find symbol
+    List<Pet> pets = Pets.arrayList(7);
+                     ^
+  symbol:   variable Pets
+  location: class ListFeatures
+ListFeatures.java:11: error: cannot find symbol
+    Hamster h = new Hamster();
+    ^
+  symbol:   class Hamster
+  location: class ListFeatures
+ListFeatures.java:11: error: cannot find symbol
+    Hamster h = new Hamster();
+                    ^
+  symbol:   class Hamster
+  location: class ListFeatures
+ListFeatures.java:16: error: cannot find symbol
+    Pet p = pets.get(2);
+    ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:18: error: cannot find symbol
+    Pet cymric = new Cymric();
+    ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:18: error: cannot find symbol
+    Pet cymric = new Cymric();
+                     ^
+  symbol:   class Cymric
+  location: class ListFeatures
+ListFeatures.java:24: error: cannot find symbol
+    pets.add(3, new Mouse()); // Insert at an index
+                    ^
+  symbol:   class Mouse
+  location: class ListFeatures
+ListFeatures.java:26: error: cannot find symbol
+    List<Pet> sub = pets.subList(1, 4);
+         ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:36: error: cannot find symbol
+    List<Pet> copy = new ArrayList<Pet>(pets);
+         ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:36: error: cannot find symbol
+    List<Pet> copy = new ArrayList<Pet>(pets);
+                                   ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:41: error: cannot find symbol
+    copy = new ArrayList<Pet>(pets); // Get a fresh copy
+                         ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:46: error: cannot find symbol
+    copy.set(1, new Mouse()); // Replace an element
+                    ^
+  symbol:   class Mouse
+  location: class ListFeatures
+ListFeatures.java:50: error: cannot find symbol
+    print("18: " + pets.isEmpty());
+    ^
+  symbol:   method print(String)
+  location: class ListFeatures
+ListFeatures.java:53: error: cannot find symbol
+    print("20: " + pets.isEmpty());
+    ^
+  symbol:   method print(String)
+  location: class ListFeatures
+ListFeatures.java:54: error: cannot find symbol
+    pets.addAll(Pets.arrayList(4));
+                ^
+  symbol:   variable Pets
+  location: class ListFeatures
+ListFeatures.java:57: error: cannot find symbol
+    print("22: " + o[3]);
+    ^
+  symbol:   method print(String)
+  location: class ListFeatures
+ListFeatures.java:58: error: cannot find symbol
+    Pet[] pa = pets.toArray(new Pet[0]);
+    ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListFeatures.java:58: error: cannot find symbol
+    Pet[] pa = pets.toArray(new Pet[0]);
+                                ^
+  symbol:   class Pet
+  location: class ListFeatures
+ListIteration.java:7: error: cannot find symbol
+    List<Pet> pets = Pets.arrayList(8);
+         ^
+  symbol:   class Pet
+  location: class ListIteration
+ListIteration.java:7: error: cannot find symbol
+    List<Pet> pets = Pets.arrayList(8);
+                     ^
+  symbol:   variable Pets
+  location: class ListIteration
+ListIteration.java:8: error: cannot find symbol
+    ListIterator<Pet> it = pets.listIterator();
+                 ^
+  symbol:   class Pet
+  location: class ListIteration
+ListIteration.java:21: error: cannot find symbol
+      it.set(Pets.randomPet());
+             ^
+  symbol:   variable Pets
+  location: class ListIteration
+MapOfList.java:9: error: cannot find symbol
+    petPeople = new HashMap<Person, List<? extends Pet>>();
+                            ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:9: error: cannot find symbol
+    petPeople = new HashMap<Person, List<? extends Pet>>();
+                                                   ^
+  symbol:   class Pet
+  location: class MapOfList
+MapOfList.java:11: error: cannot find symbol
+    petPeople.put(new Person("Dawn"),
+                      ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:12: error: cannot find symbol
+      Arrays.asList(new Cymric("Molly"),new Mutt("Spot")));
+                        ^
+  symbol:   class Cymric
+  location: class MapOfList
+MapOfList.java:12: error: cannot find symbol
+      Arrays.asList(new Cymric("Molly"),new Mutt("Spot")));
+                                            ^
+  symbol:   class Mutt
+  location: class MapOfList
+MapOfList.java:13: error: cannot find symbol
+    petPeople.put(new Person("Kate"),
+                      ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:14: error: cannot find symbol
+      Arrays.asList(new Cat("Shackleton"),
+                        ^
+  symbol:   class Cat
+  location: class MapOfList
+MapOfList.java:15: error: cannot find symbol
+        new Cat("Elsie May"), new Dog("Margrett")));
+            ^
+  symbol:   class Cat
+  location: class MapOfList
+MapOfList.java:15: error: cannot find symbol
+        new Cat("Elsie May"), new Dog("Margrett")));
+                                  ^
+  symbol:   class Dog
+  location: class MapOfList
+MapOfList.java:16: error: cannot find symbol
+    petPeople.put(new Person("Marilyn"),
+                      ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:18: error: cannot find symbol
+       new Pug("Louie aka Louis Snorkelstein Dupree"),
+           ^
+  symbol:   class Pug
+  location: class MapOfList
+MapOfList.java:19: error: cannot find symbol
+       new Cat("Stanford aka Stinky el Negro"),
+           ^
+  symbol:   class Cat
+  location: class MapOfList
+MapOfList.java:20: error: cannot find symbol
+       new Cat("Pinkola")));	
+           ^
+  symbol:   class Cat
+  location: class MapOfList
+MapOfList.java:21: error: cannot find symbol
+    petPeople.put(new Person("Luke"),
+                      ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:22: error: cannot find symbol
+      Arrays.asList(new Rat("Fuzzy"), new Rat("Fizzy")));
+                        ^
+  symbol:   class Rat
+  location: class MapOfList
+MapOfList.java:22: error: cannot find symbol
+      Arrays.asList(new Rat("Fuzzy"), new Rat("Fizzy")));
+                                          ^
+  symbol:   class Rat
+  location: class MapOfList
+MapOfList.java:23: error: cannot find symbol
+    petPeople.put(new Person("Isaac"),
+                      ^
+  symbol:   class Person
+  location: class MapOfList
+MapOfList.java:24: error: cannot find symbol
+      Arrays.asList(new Rat("Freckly")));
+                        ^
+  symbol:   class Rat
+  location: class MapOfList
+PrintingContainers.java:7: warning: [rawtypes] found raw type: Collection
+  static Collection fill(Collection<String> collection) {
+         ^
+  missing type arguments for generic class Collection<E>
+  where E is a type-variable:
+    E extends Object declared in interface Collection
+PrintingContainers.java:14: warning: [rawtypes] found raw type: Map
+  static Map fill(Map<String,String> map) {
+         ^
+  missing type arguments for generic class Map<K,V>
+  where K,V are type-variables:
+    K extends Object declared in interface Map
+    V extends Object declared in interface Map
+QueueDemo.java:6: warning: [rawtypes] found raw type: Queue
+  public static void printQ(Queue queue) {
+                            ^
+  missing type arguments for generic class Queue<E>
+  where E is a type-variable:
+    E extends Object declared in interface Queue
+100 errors
+20 warnings

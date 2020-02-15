@@ -1,0 +1,74 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+TableCreationProcessorFactory.java:7: error: package com.sun.mirror.apt does not exist
+import com.sun.mirror.apt.*;
+^
+TableCreationProcessorFactory.java:8: error: package com.sun.mirror.declaration does not exist
+import com.sun.mirror.declaration.*;
+^
+TableCreationProcessorFactory.java:9: error: package com.sun.mirror.util does not exist
+import com.sun.mirror.util.*;
+^
+TableCreationProcessorFactory.java:11: error: package com.sun.mirror.util does not exist
+import static com.sun.mirror.util.DeclarationVisitors.*;
+                                 ^
+TableCreationProcessorFactory.java:14: error: cannot find symbol
+  implements AnnotationProcessorFactory {
+             ^
+  symbol: class AnnotationProcessorFactory
+TableCreationProcessorFactory.java:16: error: cannot find symbol
+    Set<AnnotationTypeDeclaration> atds,
+        ^
+  symbol:   class AnnotationTypeDeclaration
+  location: class TableCreationProcessorFactory
+TableCreationProcessorFactory.java:17: error: cannot find symbol
+    AnnotationProcessorEnvironment env) {
+    ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class TableCreationProcessorFactory
+TableCreationProcessorFactory.java:15: error: cannot find symbol
+  public AnnotationProcessor getProcessorFor(
+         ^
+  symbol:   class AnnotationProcessor
+  location: class TableCreationProcessorFactory
+TableCreationProcessorFactory.java:31: error: cannot find symbol
+    implements AnnotationProcessor {
+               ^
+  symbol:   class AnnotationProcessor
+  location: class TableCreationProcessorFactory
+TableCreationProcessorFactory.java:32: error: cannot find symbol
+    private final AnnotationProcessorEnvironment env;
+                  ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class TableCreationProcessor
+TableCreationProcessorFactory.java:35: error: cannot find symbol
+      AnnotationProcessorEnvironment env) {
+      ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class TableCreationProcessor
+TableCreationProcessorFactory.java:49: error: cannot find symbol
+      extends SimpleDeclarationVisitor {
+              ^
+  symbol:   class SimpleDeclarationVisitor
+  location: class TableCreationProcessor
+TableCreationProcessorFactory.java:51: error: cannot find symbol
+        ClassDeclaration d) {
+        ^
+  symbol:   class ClassDeclaration
+  location: class TableCreationProcessor.TableCreationVisitor
+TableCreationProcessorFactory.java:62: error: cannot find symbol
+        FieldDeclaration d) {
+        ^
+  symbol:   class FieldDeclaration
+  location: class TableCreationProcessor.TableCreationVisitor
+TableCreationProcessorFactory.java:39: error: cannot find symbol
+      for(TypeDeclaration typeDecl :
+          ^
+  symbol:   class TypeDeclaration
+  location: class TableCreationProcessor
+TableCreationProcessorFactory.java:42: error: cannot find symbol
+          new TableCreationVisitor(), NO_OP));
+                                      ^
+  symbol:   variable NO_OP
+  location: class TableCreationProcessor

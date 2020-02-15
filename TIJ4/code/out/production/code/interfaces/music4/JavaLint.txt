@@ -1,0 +1,51 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Music4.java:4: error: package polymorphism.music does not exist
+import polymorphism.music.Note;
+                         ^
+Music4.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Music4.java:9: error: cannot find symbol
+  public abstract void play(Note n);
+                            ^
+  symbol:   class Note
+  location: class Instrument
+Music4.java:15: error: cannot find symbol
+  public void play(Note n) {
+                   ^
+  symbol:   class Note
+  location: class Wind
+Music4.java:23: error: cannot find symbol
+  public void play(Note n) {
+                   ^
+  symbol:   class Note
+  location: class Percussion
+Music4.java:31: error: cannot find symbol
+  public void play(Note n) {
+                   ^
+  symbol:   class Note
+  location: class Stringed
+Music4.java:39: error: cannot find symbol
+  public void play(Note n) {
+                   ^
+  symbol:   class Note
+  location: class Brass
+Music4.java:46: error: cannot find symbol
+  public void play(Note n) {
+                   ^
+  symbol:   class Note
+  location: class Woodwind
+Music4.java:42: error: cannot find symbol
+  public void adjust() { print("Brass.adjust()"); }
+                         ^
+  symbol:   method print(String)
+  location: class Brass
+Music4.java:57: error: cannot find symbol
+    i.play(Note.MIDDLE_C);
+           ^
+  symbol:   variable Note
+  location: class Music4
+10 errors
+3 warnings

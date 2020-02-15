@@ -1,0 +1,18 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+CoffeeGenerator.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CoffeeGenerator.java:8: error: cannot find symbol
+implements Generator<Coffee>, Iterable<Coffee> {
+           ^
+  symbol: class Generator
+CoffeeGenerator.java:9: warning: [rawtypes] found raw type: Class
+  private Class[] types = { Latte.class, Mocha.class,
+          ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+2 errors
+4 warnings

@@ -1,0 +1,38 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+WaxOMatic2.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+WaxOMatic2.java:56: error: cannot find symbol
+        printnb("Wax On! ");
+        ^
+  symbol:   method printnb(String)
+  location: class WaxOn
+WaxOMatic2.java:62: error: cannot find symbol
+      print("Exiting via interrupt");
+      ^
+  symbol:   method print(String)
+  location: class WaxOn
+WaxOMatic2.java:64: error: cannot find symbol
+    print("Ending Wax On task");
+    ^
+  symbol:   method print(String)
+  location: class WaxOn
+WaxOMatic2.java:75: error: cannot find symbol
+        printnb("Wax Off! ");
+        ^
+  symbol:   method printnb(String)
+  location: class WaxOff
+WaxOMatic2.java:80: error: cannot find symbol
+      print("Exiting via interrupt");
+      ^
+  symbol:   method print(String)
+  location: class WaxOff
+WaxOMatic2.java:82: error: cannot find symbol
+    print("Ending Wax Off task");
+    ^
+  symbol:   method print(String)
+  location: class WaxOff
+7 errors
+3 warnings
