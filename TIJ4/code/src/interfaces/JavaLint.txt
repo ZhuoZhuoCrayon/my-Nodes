@@ -1,0 +1,64 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Factories.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Games.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TestRandVals.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Factories.java:15: error: cannot find symbol
+  public void method1() {print("Implementation1 method1");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation1
+Factories.java:16: error: cannot find symbol
+  public void method2() {print("Implementation1 method2");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation1
+Factories.java:27: error: cannot find symbol
+  public void method1() {print("Implementation2 method1");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation2
+Factories.java:28: error: cannot find symbol
+  public void method2() {print("Implementation2 method2");}
+                         ^
+  symbol:   method print(String)
+  location: class Implementation2
+Games.java:12: error: cannot find symbol
+    print("Checkers move " + moves);
+    ^
+  symbol:   method print(String)
+  location: class Checkers
+Games.java:25: error: cannot find symbol
+    print("Chess move " + moves);
+    ^
+  symbol:   method print(String)
+  location: class Chess
+TestRandVals.java:6: error: cannot find symbol
+    print(RandVals.RANDOM_INT);
+    ^
+  symbol:   method print(int)
+  location: class TestRandVals
+TestRandVals.java:7: error: cannot find symbol
+    print(RandVals.RANDOM_LONG);
+    ^
+  symbol:   method print(long)
+  location: class TestRandVals
+TestRandVals.java:8: error: cannot find symbol
+    print(RandVals.RANDOM_FLOAT);
+    ^
+  symbol:   method print(float)
+  location: class TestRandVals
+TestRandVals.java:9: error: cannot find symbol
+    print(RandVals.RANDOM_DOUBLE);
+    ^
+  symbol:   method print(double)
+  location: class TestRandVals
+13 errors
+3 warnings

@@ -1,0 +1,166 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AtUnit.java:8: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnit.java:9: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AtUnit.java:11: error: package ProcessFiles does not exist
+public class AtUnit implements ProcessFiles.Strategy {
+                                           ^
+AtUnitRemover.java:9: error: package javassist does not exist
+import javassist.*;
+^
+AtUnitRemover.java:10: error: package javassist.expr does not exist
+import javassist.expr.*;
+^
+AtUnitRemover.java:11: error: package javassist.bytecode does not exist
+import javassist.bytecode.*;
+^
+AtUnitRemover.java:12: error: package javassist.bytecode.annotation does not exist
+import javassist.bytecode.annotation.*;
+^
+AtUnitRemover.java:15: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitRemover.java:16: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AtUnitRemover.java:19: error: package ProcessFiles does not exist
+implements ProcessFiles.Strategy {
+                       ^
+ClassNameFinder.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ClassNameFinder.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AtUnit.java:19: error: cannot find symbol
+    new ProcessFiles(new AtUnit(), "class").start(args);
+        ^
+  symbol:   class ProcessFiles
+  location: class AtUnit
+AtUnit.java:21: error: cannot find symbol
+      print("OK (" + testsRun + " tests)");
+      ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:23: error: cannot find symbol
+      print("(" + testsRun + " tests)");
+      ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:24: error: cannot find symbol
+      print("\n>>> " + failures + " FAILURE" +
+      ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:27: error: cannot find symbol
+        print("  " + failed);
+        ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:33: error: cannot find symbol
+        BinaryFile.read(cFile));
+        ^
+  symbol:   variable BinaryFile
+  location: class AtUnit
+AtUnit.java:55: error: cannot find symbol
+            print("Error: " + testClass +
+            ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:62: error: cannot find symbol
+      print(testClass.getName());
+      ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnit.java:65: error: cannot find symbol
+      printnb("  . " + m.getName() + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class AtUnit
+AtUnit.java:78: error: cannot find symbol
+          print(e.getCause());
+          ^
+  symbol:   method print(Throwable)
+  location: class AtUnit
+AtUnit.java:80: error: cannot find symbol
+        print(success ? "" : "(failed)");
+        ^
+  symbol:   method print(String)
+  location: class AtUnit
+AtUnitRemover.java:28: error: cannot find symbol
+    new ProcessFiles(
+        ^
+  symbol:   class ProcessFiles
+  location: class AtUnitRemover
+AtUnitRemover.java:35: error: cannot find symbol
+        BinaryFile.read(cFile));
+        ^
+  symbol:   variable BinaryFile
+  location: class AtUnitRemover
+AtUnitRemover.java:38: error: cannot find symbol
+      ClassPool cPool = ClassPool.getDefault();
+      ^
+  symbol:   class ClassPool
+  location: class AtUnitRemover
+AtUnitRemover.java:38: error: cannot find symbol
+      ClassPool cPool = ClassPool.getDefault();
+                        ^
+  symbol:   variable ClassPool
+  location: class AtUnitRemover
+AtUnitRemover.java:39: error: cannot find symbol
+      CtClass ctClass = cPool.get(cName);
+      ^
+  symbol:   class CtClass
+  location: class AtUnitRemover
+AtUnitRemover.java:40: error: cannot find symbol
+      for(CtMethod method : ctClass.getDeclaredMethods()) {
+          ^
+  symbol:   class CtMethod
+  location: class AtUnitRemover
+AtUnitRemover.java:41: error: cannot find symbol
+        MethodInfo mi = method.getMethodInfo();
+        ^
+  symbol:   class MethodInfo
+  location: class AtUnitRemover
+AtUnitRemover.java:42: error: cannot find symbol
+        AnnotationsAttribute attr = (AnnotationsAttribute)
+        ^
+  symbol:   class AnnotationsAttribute
+  location: class AtUnitRemover
+AtUnitRemover.java:42: error: cannot find symbol
+        AnnotationsAttribute attr = (AnnotationsAttribute)
+                                     ^
+  symbol:   class AnnotationsAttribute
+  location: class AtUnitRemover
+AtUnitRemover.java:43: error: cannot find symbol
+          mi.getAttribute(AnnotationsAttribute.visibleTag);
+                          ^
+  symbol:   variable AnnotationsAttribute
+  location: class AtUnitRemover
+AtUnitRemover.java:45: error: cannot find symbol
+        for(Annotation ann : attr.getAnnotations()) {
+            ^
+  symbol:   class Annotation
+  location: class AtUnitRemover
+ClassNameFinder.java:71: error: cannot find symbol
+        print(thisClass(BinaryFile.read(new File(arg))));
+                        ^
+  symbol:   variable BinaryFile
+  location: class ClassNameFinder
+ClassNameFinder.java:74: error: cannot find symbol
+      for(File klass : Directory.walk(".", ".*\\.class"))
+                       ^
+  symbol:   variable Directory
+  location: class ClassNameFinder
+ClassNameFinder.java:75: error: cannot find symbol
+        print(thisClass(BinaryFile.read(klass)));
+                        ^
+  symbol:   variable BinaryFile
+  location: class ClassNameFinder
+37 errors
+3 warnings

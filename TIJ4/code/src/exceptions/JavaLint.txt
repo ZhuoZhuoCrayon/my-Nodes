@@ -1,0 +1,161 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AlwaysFinally.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DynamicFields.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ExceptionMethods.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ExtraFeatures.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MultipleReturns.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Switch.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TurnOffChecking.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AlwaysFinally.java:9: error: cannot find symbol
+    print("Entering first try block");
+    ^
+  symbol:   method print(String)
+  location: class AlwaysFinally
+AlwaysFinally.java:11: error: cannot find symbol
+      print("Entering second try block");
+      ^
+  symbol:   method print(String)
+  location: class AlwaysFinally
+AlwaysFinally.java:15: error: cannot find symbol
+        print("finally in 2nd try block");
+        ^
+  symbol:   method print(String)
+  location: class AlwaysFinally
+DynamicFields.java:84: error: cannot find symbol
+    print(df);
+    ^
+  symbol:   method print(DynamicFields)
+  location: class DynamicFields
+DynamicFields.java:89: error: cannot find symbol
+      print(df);
+      ^
+  symbol:   method print(DynamicFields)
+  location: class DynamicFields
+DynamicFields.java:92: error: cannot find symbol
+      print("df: " + df);
+      ^
+  symbol:   method print(String)
+  location: class DynamicFields
+DynamicFields.java:93: error: cannot find symbol
+      print("df.getField(\"d\") : " + df.getField("d"));
+      ^
+  symbol:   method print(String)
+  location: class DynamicFields
+ExceptionMethods.java:10: error: cannot find symbol
+      print("Caught Exception");
+      ^
+  symbol:   method print(String)
+  location: class ExceptionMethods
+ExceptionMethods.java:11: error: cannot find symbol
+      print("getMessage():" + e.getMessage());
+      ^
+  symbol:   method print(String)
+  location: class ExceptionMethods
+ExceptionMethods.java:12: error: cannot find symbol
+      print("getLocalizedMessage():" +
+      ^
+  symbol:   method print(String)
+  location: class ExceptionMethods
+ExceptionMethods.java:14: error: cannot find symbol
+      print("toString():" + e);
+      ^
+  symbol:   method print(String)
+  location: class ExceptionMethods
+ExceptionMethods.java:15: error: cannot find symbol
+      print("printStackTrace():");
+      ^
+  symbol:   method print(String)
+  location: class ExceptionMethods
+ExtraFeatures.java:21: error: cannot find symbol
+    print("Throwing MyException2 from f()");
+    ^
+  symbol:   method print(String)
+  location: class ExtraFeatures
+ExtraFeatures.java:25: error: cannot find symbol
+    print("Throwing MyException2 from g()");
+    ^
+  symbol:   method print(String)
+  location: class ExtraFeatures
+ExtraFeatures.java:29: error: cannot find symbol
+    print("Throwing MyException2 from h()");
+    ^
+  symbol:   method print(String)
+  location: class ExtraFeatures
+MultipleReturns.java:6: error: cannot find symbol
+    print("Initialization that requires cleanup");
+    ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+MultipleReturns.java:8: error: cannot find symbol
+      print("Point 1");
+      ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+MultipleReturns.java:10: error: cannot find symbol
+      print("Point 2");
+      ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+MultipleReturns.java:12: error: cannot find symbol
+      print("Point 3");
+      ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+MultipleReturns.java:14: error: cannot find symbol
+      print("End");
+      ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+MultipleReturns.java:17: error: cannot find symbol
+      print("Performing cleanup");
+      ^
+  symbol:   method print(String)
+  location: class MultipleReturns
+Switch.java:7: error: cannot find symbol
+  public void on() { state = true; print(this); }
+                                   ^
+  symbol:   method print(Switch)
+  location: class Switch
+Switch.java:8: error: cannot find symbol
+  public void off() { state = false; print(this); }
+                                     ^
+  symbol:   method print(Switch)
+  location: class Switch
+TurnOffChecking.java:37: error: cannot find symbol
+          print("SomeOtherException: " + e);
+          ^
+  symbol:   method print(String)
+  location: class TurnOffChecking
+TurnOffChecking.java:42: error: cannot find symbol
+          print("FileNotFoundException: " + e);
+          ^
+  symbol:   method print(String)
+  location: class TurnOffChecking
+TurnOffChecking.java:44: error: cannot find symbol
+          print("IOException: " + e);
+          ^
+  symbol:   method print(String)
+  location: class TurnOffChecking
+TurnOffChecking.java:46: error: cannot find symbol
+          print("Throwable: " + e);
+          ^
+  symbol:   method print(String)
+  location: class TurnOffChecking
+34 errors
+3 warnings

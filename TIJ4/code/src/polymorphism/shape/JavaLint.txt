@@ -1,0 +1,44 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Circle.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Square.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Triangle.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Circle.java:6: error: cannot find symbol
+  public void draw() { print("Circle.draw()"); }
+                       ^
+  symbol:   method print(String)
+  location: class Circle
+Circle.java:7: error: cannot find symbol
+  public void erase() { print("Circle.erase()"); }
+                        ^
+  symbol:   method print(String)
+  location: class Circle
+Square.java:6: error: cannot find symbol
+  public void draw() { print("Square.draw()"); }
+                       ^
+  symbol:   method print(String)
+  location: class Square
+Square.java:7: error: cannot find symbol
+  public void erase() { print("Square.erase()"); }
+                        ^
+  symbol:   method print(String)
+  location: class Square
+Triangle.java:6: error: cannot find symbol
+  public void draw() { print("Triangle.draw()"); }
+                       ^
+  symbol:   method print(String)
+  location: class Triangle
+Triangle.java:7: error: cannot find symbol
+  public void erase() { print("Triangle.erase()"); }
+                        ^
+  symbol:   method print(String)
+  location: class Triangle
+9 errors
+3 warnings

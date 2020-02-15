@@ -1,0 +1,71 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Music3.java:4: error: package polymorphism.music does not exist
+import polymorphism.music.Note;
+                         ^
+Music3.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Music3.java:8: error: cannot find symbol
+  void play(Note n) { print("Instrument.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Instrument
+Music3.java:14: error: cannot find symbol
+  void play(Note n) { print("Wind.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Wind
+Music3.java:20: error: cannot find symbol
+  void play(Note n) { print("Percussion.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Percussion
+Music3.java:26: error: cannot find symbol
+  void play(Note n) { print("Stringed.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Stringed
+Music3.java:32: error: cannot find symbol
+  void play(Note n) { print("Brass.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Brass
+Music3.java:37: error: cannot find symbol
+  void play(Note n) { print("Woodwind.play() " + n); }
+            ^
+  symbol:   class Note
+  location: class Woodwind
+Music3.java:10: error: cannot find symbol
+  void adjust() { print("Adjusting Instrument"); }
+                  ^
+  symbol:   method print(String)
+  location: class Instrument
+Music3.java:16: error: cannot find symbol
+  void adjust() { print("Adjusting Wind"); }
+                  ^
+  symbol:   method print(String)
+  location: class Wind
+Music3.java:22: error: cannot find symbol
+  void adjust() { print("Adjusting Percussion"); }
+                  ^
+  symbol:   method print(String)
+  location: class Percussion
+Music3.java:28: error: cannot find symbol
+  void adjust() { print("Adjusting Stringed"); }
+                  ^
+  symbol:   method print(String)
+  location: class Stringed
+Music3.java:33: error: cannot find symbol
+  void adjust() { print("Adjusting Brass"); }
+                  ^
+  symbol:   method print(String)
+  location: class Brass
+Music3.java:46: error: cannot find symbol
+    i.play(Note.MIDDLE_C);
+           ^
+  symbol:   variable Note
+  location: class Music3
+14 errors
+3 warnings

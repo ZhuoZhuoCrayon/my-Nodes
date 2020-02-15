@@ -1,0 +1,26 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Instrument.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Music2.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Instrument.java:7: error: cannot find symbol
+    print("Instrument.play()");
+    ^
+  symbol:   method print(String)
+  location: class Instrument
+Music2.java:8: error: cannot find symbol
+    print("Stringed.play() " + n);
+    ^
+  symbol:   method print(String)
+  location: class Stringed
+Music2.java:14: error: cannot find symbol
+    print("Brass.play() " + n);
+    ^
+  symbol:   method print(String)
+  location: class Brass
+5 errors
+3 warnings

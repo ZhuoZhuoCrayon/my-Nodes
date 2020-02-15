@@ -1,0 +1,405 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AtUnitComposition.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitComposition.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExample1.java:3: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExample1.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExample2.java:5: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExample2.java:6: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExample3.java:3: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExample3.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExample4.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExample4.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExample4.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AtUnitExample5.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExample5.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+AtUnitExternalTest.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitExternalTest.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+HashSetTest.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+HashSetTest.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+InterfaceExtractorProcessor.java:7: error: package com.sun.mirror.apt does not exist
+import com.sun.mirror.apt.*;
+^
+InterfaceExtractorProcessor.java:8: error: package com.sun.mirror.declaration does not exist
+import com.sun.mirror.declaration.*;
+^
+InterfaceExtractorProcessor.java:13: error: cannot find symbol
+  implements AnnotationProcessor {
+             ^
+  symbol: class AnnotationProcessor
+InterfaceExtractorProcessor.java:14: error: cannot find symbol
+  private final AnnotationProcessorEnvironment env;
+                ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:15: error: cannot find symbol
+  private ArrayList<MethodDeclaration> interfaceMethods =
+                    ^
+  symbol:   class MethodDeclaration
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:18: error: cannot find symbol
+    AnnotationProcessorEnvironment env) { this.env = env; }
+    ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessorFactory.java:4: error: package com.sun.mirror.apt does not exist
+import com.sun.mirror.apt.*;
+^
+InterfaceExtractorProcessorFactory.java:5: error: package com.sun.mirror.declaration does not exist
+import com.sun.mirror.declaration.*;
+^
+InterfaceExtractorProcessorFactory.java:9: error: cannot find symbol
+  implements AnnotationProcessorFactory {
+             ^
+  symbol: class AnnotationProcessorFactory
+InterfaceExtractorProcessorFactory.java:11: error: cannot find symbol
+    Set<AnnotationTypeDeclaration> atds,
+        ^
+  symbol:   class AnnotationTypeDeclaration
+  location: class InterfaceExtractorProcessorFactory
+InterfaceExtractorProcessorFactory.java:12: error: cannot find symbol
+    AnnotationProcessorEnvironment env) {
+    ^
+  symbol:   class AnnotationProcessorEnvironment
+  location: class InterfaceExtractorProcessorFactory
+InterfaceExtractorProcessorFactory.java:10: error: cannot find symbol
+  public AnnotationProcessor getProcessorFor(
+         ^
+  symbol:   class AnnotationProcessor
+  location: class InterfaceExtractorProcessorFactory
+StackLStringTest.java:4: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+StackLStringTest.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Testable.java:3: error: package net.mindview.atunit does not exist
+import net.mindview.atunit.*;
+^
+AtUnitComposition.java:9: error: cannot find symbol
+  @Test boolean _methodOne() {
+   ^
+  symbol:   class Test
+  location: class AtUnitComposition
+AtUnitComposition.java:13: error: cannot find symbol
+  @Test boolean _methodTwo() {
+   ^
+  symbol:   class Test
+  location: class AtUnitComposition
+AtUnitExample1.java:14: error: cannot find symbol
+  @Test boolean methodOneTest() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample1
+AtUnitExample1.java:17: error: cannot find symbol
+  @Test boolean m2() { return methodTwo() == 2; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample1
+AtUnitExample1.java:18: error: cannot find symbol
+  @Test private boolean m3() { return true; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample1
+AtUnitExample1.java:20: error: cannot find symbol
+  @Test boolean failureTest() { return false; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample1
+AtUnitExample1.java:21: error: cannot find symbol
+  @Test boolean anotherDisappointment() { return false; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample1
+AtUnitExample2.java:16: error: cannot find symbol
+  @Test void assertExample() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample2
+AtUnitExample2.java:19: error: cannot find symbol
+  @Test void assertFailureExample() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample2
+AtUnitExample2.java:22: error: cannot find symbol
+  @Test void exceptionExample() throws IOException {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample2
+AtUnitExample2.java:25: error: cannot find symbol
+  @Test boolean assertAndReturn() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample2
+AtUnitExample3.java:17: error: cannot find symbol
+  @TestObjectCreate static AtUnitExample3 create() {
+   ^
+  symbol:   class TestObjectCreate
+  location: class AtUnitExample3
+AtUnitExample3.java:20: error: cannot find symbol
+  @Test boolean initialization() { return n == 47; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample3
+AtUnitExample3.java:21: error: cannot find symbol
+  @Test boolean methodOneTest() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample3
+AtUnitExample3.java:24: error: cannot find symbol
+  @Test boolean m2() { return methodTwo() == 2; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExample3
+AtUnitExample4.java:26: error: cannot find symbol
+  @TestProperty static List<String> input =
+   ^
+  symbol:   class TestProperty
+  location: class AtUnitExample4
+AtUnitExample4.java:28: error: cannot find symbol
+  @TestProperty
+   ^
+  symbol:   class TestProperty
+  location: class AtUnitExample4
+AtUnitExample4.java:30: error: cannot find symbol
+  @TestObjectCreate static AtUnitExample4 create() {
+   ^
+  symbol:   class TestObjectCreate
+  location: class AtUnitExample4
+AtUnitExample4.java:36: error: cannot find symbol
+  @Test boolean words() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample4
+AtUnitExample4.java:40: error: cannot find symbol
+  @Test boolean scramble1() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample4
+AtUnitExample4.java:48: error: cannot find symbol
+  @Test boolean scramble2() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample4
+AtUnitExample5.java:11: error: cannot find symbol
+  @TestProperty static PrintWriter output;
+   ^
+  symbol:   class TestProperty
+  location: class AtUnitExample5
+AtUnitExample5.java:12: error: cannot find symbol
+  @TestProperty static int counter;
+   ^
+  symbol:   class TestProperty
+  location: class AtUnitExample5
+AtUnitExample5.java:13: error: cannot find symbol
+  @TestObjectCreate static AtUnitExample5 create() {
+   ^
+  symbol:   class TestObjectCreate
+  location: class AtUnitExample5
+AtUnitExample5.java:22: error: cannot find symbol
+  @TestObjectCleanup static void
+   ^
+  symbol:   class TestObjectCleanup
+  location: class AtUnitExample5
+AtUnitExample5.java:27: error: cannot find symbol
+  @Test boolean test1() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample5
+AtUnitExample5.java:31: error: cannot find symbol
+  @Test boolean test2() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample5
+AtUnitExample5.java:35: error: cannot find symbol
+  @Test boolean test3() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExample5
+AtUnitExternalTest.java:8: error: cannot find symbol
+  @Test boolean _methodOne() {
+   ^
+  symbol:   class Test
+  location: class AtUnitExternalTest
+AtUnitExternalTest.java:11: error: cannot find symbol
+  @Test boolean _methodTwo() { return methodTwo() == 2; }
+   ^
+  symbol:   class Test
+  location: class AtUnitExternalTest
+HashSetTest.java:9: error: cannot find symbol
+  @Test void initialization() {
+   ^
+  symbol:   class Test
+  location: class HashSetTest
+HashSetTest.java:12: error: cannot find symbol
+  @Test void _contains() {
+   ^
+  symbol:   class Test
+  location: class HashSetTest
+HashSetTest.java:16: error: cannot find symbol
+  @Test void _remove() {
+   ^
+  symbol:   class Test
+  location: class HashSetTest
+StackLStringTest.java:8: error: cannot find symbol
+  @Test void _push() {
+   ^
+  symbol:   class Test
+  location: class StackLStringTest
+StackLStringTest.java:14: error: cannot find symbol
+  @Test void _pop() {
+   ^
+  symbol:   class Test
+  location: class StackLStringTest
+StackLStringTest.java:20: error: cannot find symbol
+  @Test void _top() {
+   ^
+  symbol:   class Test
+  location: class StackLStringTest
+Testable.java:9: error: cannot find symbol
+  @Test void testExecute() { execute(); }
+   ^
+  symbol:   class Test
+  location: class Testable
+AtUnitComposition.java:17: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitComposition
+AtUnitExample1.java:23: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExample1
+AtUnitExample2.java:31: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExample2
+AtUnitExample3.java:26: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExample3
+AtUnitExample4.java:37: error: cannot find symbol
+    print("'" + getWord() + "'");
+    ^
+  symbol:   method print(String)
+  location: class AtUnitExample4
+AtUnitExample4.java:43: error: cannot find symbol
+    print("'" + getWord() + "'");
+    ^
+  symbol:   method print(String)
+  location: class AtUnitExample4
+AtUnitExample4.java:45: error: cannot find symbol
+    print(scrambled);
+    ^
+  symbol:   method print(String)
+  location: class AtUnitExample4
+AtUnitExample4.java:50: error: cannot find symbol
+    print("'" + getWord() + "'");
+    ^
+  symbol:   method print(String)
+  location: class AtUnitExample4
+AtUnitExample4.java:52: error: cannot find symbol
+    print(scrambled);
+    ^
+  symbol:   method print(String)
+  location: class AtUnitExample4
+AtUnitExample4.java:57: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExample4
+AtUnitExample5.java:40: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExample5
+AtUnitExternalTest.java:13: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class AtUnitExternalTest
+HashSetTest.java:22: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class HashSetTest
+InterfaceExtractorProcessor.java:16: error: cannot find symbol
+    new ArrayList<MethodDeclaration>();
+                  ^
+  symbol:   class MethodDeclaration
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:20: error: cannot find symbol
+    for(TypeDeclaration typeDecl :
+        ^
+  symbol:   class TypeDeclaration
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:26: error: cannot find symbol
+      for(MethodDeclaration m : typeDecl.getMethods())
+          ^
+  symbol:   class MethodDeclaration
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:27: error: cannot find symbol
+        if(m.getModifiers().contains(Modifier.PUBLIC) &&
+                                     ^
+  symbol:   variable Modifier
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:28: error: cannot find symbol
+           !(m.getModifiers().contains(Modifier.STATIC)))
+                                       ^
+  symbol:   variable Modifier
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:38: error: cannot find symbol
+          for(MethodDeclaration m : interfaceMethods) {
+              ^
+  symbol:   class MethodDeclaration
+  location: class InterfaceExtractorProcessor
+InterfaceExtractorProcessor.java:43: error: cannot find symbol
+            for(ParameterDeclaration parm :
+                ^
+  symbol:   class ParameterDeclaration
+  location: class InterfaceExtractorProcessor
+StackLStringTest.java:27: error: cannot find symbol
+    OSExecute.command(
+    ^
+  symbol:   variable OSExecute
+  location: class StackLStringTest
+90 errors
+3 warnings

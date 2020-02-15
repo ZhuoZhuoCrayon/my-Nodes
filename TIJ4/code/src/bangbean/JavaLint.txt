@@ -1,0 +1,13 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+BangBeanTest.java:8: error: package net.mindview.util does not exist
+import static net.mindview.util.SwingConsole.*;
+                               ^
+BangBeanTest.java:30: error: cannot find symbol
+    run(new BangBeanTest(), 400, 500);
+    ^
+  symbol:   method run(BangBeanTest,int,int)
+  location: class BangBeanTest
+2 errors
+3 warnings

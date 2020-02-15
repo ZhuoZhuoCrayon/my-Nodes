@@ -1,0 +1,101 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+People.java:5: error: package nu.xom does not exist
+import nu.xom.*;
+^
+Person.java:5: error: package nu.xom does not exist
+import nu.xom.*;
+^
+Person.java:16: error: cannot find symbol
+  public Element getXML() {
+         ^
+  symbol:   class Element
+  location: class Person
+Person.java:27: error: cannot find symbol
+  public Person(Element person) {
+                ^
+  symbol:   class Element
+  location: class Person
+Person.java:34: error: cannot find symbol
+  format(OutputStream os, Document doc) throws Exception {
+                          ^
+  symbol:   class Document
+  location: class Person
+People.java:10: error: cannot find symbol
+    Document doc = new Builder().build(fileName);
+    ^
+  symbol:   class Document
+  location: class People
+People.java:10: error: cannot find symbol
+    Document doc = new Builder().build(fileName);
+                       ^
+  symbol:   class Builder
+  location: class People
+People.java:11: error: cannot find symbol
+    Elements elements =
+    ^
+  symbol:   class Elements
+  location: class People
+Person.java:17: error: cannot find symbol
+    Element person = new Element("person");
+    ^
+  symbol:   class Element
+  location: class Person
+Person.java:17: error: cannot find symbol
+    Element person = new Element("person");
+                         ^
+  symbol:   class Element
+  location: class Person
+Person.java:18: error: cannot find symbol
+    Element firstName = new Element("first");
+    ^
+  symbol:   class Element
+  location: class Person
+Person.java:18: error: cannot find symbol
+    Element firstName = new Element("first");
+                            ^
+  symbol:   class Element
+  location: class Person
+Person.java:20: error: cannot find symbol
+    Element lastName = new Element("last");
+    ^
+  symbol:   class Element
+  location: class Person
+Person.java:20: error: cannot find symbol
+    Element lastName = new Element("last");
+                           ^
+  symbol:   class Element
+  location: class Person
+Person.java:35: error: cannot find symbol
+    Serializer serializer= new Serializer(os,"ISO-8859-1");
+    ^
+  symbol:   class Serializer
+  location: class Person
+Person.java:35: error: cannot find symbol
+    Serializer serializer= new Serializer(os,"ISO-8859-1");
+                               ^
+  symbol:   class Serializer
+  location: class Person
+Person.java:47: error: cannot find symbol
+    Element root = new Element("people");
+    ^
+  symbol:   class Element
+  location: class Person
+Person.java:47: error: cannot find symbol
+    Element root = new Element("people");
+                       ^
+  symbol:   class Element
+  location: class Person
+Person.java:50: error: cannot find symbol
+    Document doc = new Document(root);
+    ^
+  symbol:   class Document
+  location: class Person
+Person.java:50: error: cannot find symbol
+    Document doc = new Document(root);
+                       ^
+  symbol:   class Document
+  location: class Person
+20 errors
+3 warnings

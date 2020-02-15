@@ -1,0 +1,461 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+ActiveObjectDemo.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CarBuilder.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CloseResource.java:8: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CountDownLatchDemo.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DaemonFromFactory.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+DaemonFromFactory.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Daemons.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DaemonsDontRunFinally.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DelayQueueDemo.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ExchangerDemo.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ExchangerDemo.java:7: error: cannot find symbol
+  private Generator<T> generator;
+          ^
+  symbol:   class Generator
+  location: class ExchangerProducer<T>
+  where T is a type-variable:
+    T extends Object declared in class ExchangerProducer
+ExchangerDemo.java:11: error: cannot find symbol
+  Generator<T> gen, List<T> holder) {
+  ^
+  symbol:   class Generator
+  location: class ExchangerProducer<T>
+  where T is a type-variable:
+    T extends Object declared in class ExchangerProducer
+ExplicitCriticalSection.java:7: warning: auxiliary class PairManager in CriticalSection.java should not be accessed from outside its own source file
+class ExplicitPairManager1 extends PairManager {
+                                   ^
+ExplicitCriticalSection.java:22: warning: auxiliary class PairManager in CriticalSection.java should not be accessed from outside its own source file
+class ExplicitPairManager2 extends PairManager {
+                                   ^
+FastSimulation.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+HorseRace.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Interrupting.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Interrupting2.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+InterruptingIdiom.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Joining.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ListComparisons.java:6: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Tester.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+MapComparisons.java:6: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+MultiLock.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+NIOInterruption.java:8: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OrnamentalGarden.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Philosopher.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PipedIO.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PriorityBlockingQueueDemo.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ReaderWriterList.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Restaurant.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SemaphoreDemo.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SimpleDaemons.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SyncObject.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SynchronizationComparisons.java:8: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TestBlockingQueues.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ThreadVariations.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ToastOMatic.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ActiveObjectDemo.java:20: error: cannot find symbol
+      print("sleep() interrupted");
+      ^
+  symbol:   method print(String)
+  location: class ActiveObjectDemo
+ActiveObjectDemo.java:27: error: cannot find symbol
+        print("starting " + x + " + " + y);
+        ^
+  symbol: method print(String)
+ActiveObjectDemo.java:37: error: cannot find symbol
+        print("starting " + x + " + " + y);
+        ^
+  symbol: method print(String)
+ActiveObjectDemo.java:53: error: cannot find symbol
+    print("All asynch calls made");
+    ^
+  symbol:   method print(String)
+  location: class ActiveObjectDemo
+ActiveObjectDemo.java:58: error: cannot find symbol
+            print(f.get());
+            ^
+  symbol:   method print(CAP#1)
+  location: class ActiveObjectDemo
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+CarBuilder.java:39: error: cannot find symbol
+        print("ChassisBuilder created " + c);
+        ^
+  symbol:   method print(String)
+  location: class ChassisBuilder
+CarBuilder.java:44: error: cannot find symbol
+      print("Interrupted: ChassisBuilder");
+      ^
+  symbol:   method print(String)
+  location: class ChassisBuilder
+CarBuilder.java:46: error: cannot find symbol
+    print("ChassisBuilder off");
+    ^
+  symbol:   method print(String)
+  location: class ChassisBuilder
+CarBuilder.java:76: error: cannot find symbol
+      print("Exiting Assembler via interrupt");
+      ^
+  symbol:   method print(String)
+  location: class Assembler
+CarBuilder.java:81: error: cannot find symbol
+    print("Assembler off");
+    ^
+  symbol:   method print(String)
+  location: class Assembler
+CarBuilder.java:125: error: cannot find symbol
+      print("Exiting " + this + " via interrupt");
+      ^
+  symbol:   method print(String)
+  location: class Robot
+CarBuilder.java:130: error: cannot find symbol
+    print(this + " off");
+    ^
+  symbol:   method print(String)
+  location: class Robot
+CarBuilder.java:91: error: cannot find symbol
+        print(carQueue.take());
+        ^
+  symbol:   method print(Car)
+  location: class Reporter
+CarBuilder.java:94: error: cannot find symbol
+      print("Exiting Reporter via interrupt");
+      ^
+  symbol:   method print(String)
+  location: class Reporter
+CarBuilder.java:96: error: cannot find symbol
+    print("Reporter off");
+    ^
+  symbol:   method print(String)
+  location: class Reporter
+CarBuilder.java:147: error: cannot find symbol
+    print(this + " installing engine");
+    ^
+  symbol:   method print(String)
+  location: class EngineRobot
+CarBuilder.java:155: error: cannot find symbol
+    print(this + " installing DriveTrain");
+    ^
+  symbol:   method print(String)
+  location: class DriveTrainRobot
+CarBuilder.java:163: error: cannot find symbol
+    print(this + " installing Wheels");
+    ^
+  symbol:   method print(String)
+  location: class WheelRobot
+CloseResource.java:16: warning: auxiliary class IOBlocked in Interrupting.java should not be accessed from outside its own source file
+    exec.execute(new IOBlocked(socketInput));
+                     ^
+CloseResource.java:17: warning: auxiliary class IOBlocked in Interrupting.java should not be accessed from outside its own source file
+    exec.execute(new IOBlocked(System.in));
+                     ^
+CloseResource.java:19: error: cannot find symbol
+    print("Shutting down all threads");
+    ^
+  symbol:   method print(String)
+  location: class CloseResource
+CloseResource.java:22: error: cannot find symbol
+    print("Closing " + socketInput.getClass().getName());
+    ^
+  symbol:   method print(String)
+  location: class CloseResource
+CloseResource.java:25: error: cannot find symbol
+    print("Closing " + System.in.getClass().getName());
+    ^
+  symbol:   method print(String)
+  location: class CloseResource
+CountDownLatchDemo.java:25: error: cannot find symbol
+    print(this + "completed");
+    ^
+  symbol:   method print(String)
+  location: class TaskPortion
+CountDownLatchDemo.java:43: error: cannot find symbol
+      print("Latch barrier passed for " + this);
+      ^
+  symbol:   method print(String)
+  location: class WaitingTask
+CountDownLatchDemo.java:45: error: cannot find symbol
+      print(this + " interrupted");
+      ^
+  symbol:   method print(String)
+  location: class WaitingTask
+CountDownLatchDemo.java:63: error: cannot find symbol
+    print("Launched all tasks");
+    ^
+  symbol:   method print(String)
+  location: class CountDownLatchDemo
+DaemonFromFactory.java:12: error: cannot find symbol
+        print(Thread.currentThread() + " " + this);
+        ^
+  symbol:   method print(String)
+  location: class DaemonFromFactory
+DaemonFromFactory.java:15: error: cannot find symbol
+      print("Interrupted");
+      ^
+  symbol:   method print(String)
+  location: class DaemonFromFactory
+DaemonFromFactory.java:20: error: cannot find symbol
+      new DaemonThreadFactory());
+          ^
+  symbol:   class DaemonThreadFactory
+  location: class DaemonFromFactory
+DaemonFromFactory.java:23: error: cannot find symbol
+    print("All daemons started");
+    ^
+  symbol:   method print(String)
+  location: class DaemonFromFactory
+Daemons.java:12: error: cannot find symbol
+      printnb("DaemonSpawn " + i + " started, ");
+      ^
+  symbol:   method printnb(String)
+  location: class Daemon
+Daemons.java:15: error: cannot find symbol
+      printnb("t[" + i + "].isDaemon() = " +
+      ^
+  symbol:   method printnb(String)
+  location: class Daemon
+Daemons.java:34: error: cannot find symbol
+    printnb("d.isDaemon() = " + d.isDaemon() + ", ");
+    ^
+  symbol:   method printnb(String)
+  location: class Daemons
+DaemonsDontRunFinally.java:9: error: cannot find symbol
+      print("Starting ADaemon");
+      ^
+  symbol:   method print(String)
+  location: class ADaemon
+DaemonsDontRunFinally.java:12: error: cannot find symbol
+      print("Exiting via InterruptedException");
+      ^
+  symbol:   method print(String)
+  location: class ADaemon
+DaemonsDontRunFinally.java:14: error: cannot find symbol
+      print("This should always run?");
+      ^
+  symbol:   method print(String)
+  location: class ADaemon
+DelayQueueDemo.java:30: error: cannot find symbol
+  public void run() { printnb(this + " "); }
+                      ^
+  symbol:   method printnb(String)
+  location: class DelayedTask
+DelayQueueDemo.java:46: error: cannot find symbol
+        printnb(pt.summary() + " ");
+        ^
+  symbol:   method printnb(String)
+  location: class EndSentinel
+DelayQueueDemo.java:48: error: cannot find symbol
+      print();
+      ^
+  symbol:   method print()
+  location: class EndSentinel
+DelayQueueDemo.java:49: error: cannot find symbol
+      print(this + " Calling shutdownNow()");
+      ^
+  symbol:   method print(String)
+  location: class EndSentinel
+DelayQueueDemo.java:67: error: cannot find symbol
+    print("Finished DelayedTaskConsumer");
+    ^
+  symbol:   method print(String)
+  location: class DelayedTaskConsumer
+ExchangerDemo.java:68: error: cannot find symbol
+      BasicGenerator.create(Fat.class), producerList));
+      ^
+  symbol:   variable BasicGenerator
+  location: class ExchangerDemo
+ExplicitCriticalSection.java:25: warning: auxiliary class Pair in CriticalSection.java should not be accessed from outside its own source file
+    Pair temp;
+    ^
+ExplicitCriticalSection.java:40: warning: auxiliary class PairManager in CriticalSection.java should not be accessed from outside its own source file
+    PairManager
+    ^
+ExplicitCriticalSection.java:40: warning: auxiliary class PairManager in CriticalSection.java should not be accessed from outside its own source file
+    PairManager
+    ^
+FastSimulation.java:34: error: cannot find symbol
+            print("Old value changed from " + oldvalue);
+            ^
+  symbol:   method print(String)
+  location: class Evolver
+HorseRace.java:52: error: cannot find symbol
+        print(s);
+        ^
+  symbol: method print(StringBuilder)
+HorseRace.java:54: error: cannot find symbol
+          print(horse.tracks());
+          ^
+  symbol: method print(String)
+HorseRace.java:57: error: cannot find symbol
+            print(horse + "won!");
+            ^
+  symbol: method print(String)
+HorseRace.java:64: error: cannot find symbol
+          print("barrier-action sleep interrupted");
+          ^
+  symbol: method print(String)
+Interrupting.java:12: error: cannot find symbol
+      print("InterruptedException");
+      ^
+  symbol:   method print(String)
+  location: class SleepBlocked
+Interrupting.java:14: error: cannot find symbol
+    print("Exiting SleepBlocked.run()");
+    ^
+  symbol:   method print(String)
+  location: class SleepBlocked
+Interrupting.java:23: error: cannot find symbol
+      print("Waiting for read():");
+      ^
+  symbol:   method print(String)
+  location: class IOBlocked
+Interrupting.java:27: error: cannot find symbol
+        print("Interrupted from blocked I/O");
+        ^
+  symbol:   method print(String)
+  location: class IOBlocked
+Interrupting.java:32: error: cannot find symbol
+    print("Exiting IOBlocked.run()");
+    ^
+  symbol:   method print(String)
+  location: class IOBlocked
+Interrupting.java:49: error: cannot find symbol
+    print("Trying to call f()");
+    ^
+  symbol:   method print(String)
+  location: class SynchronizedBlocked
+Interrupting.java:51: error: cannot find symbol
+    print("Exiting SynchronizedBlocked.run()");
+    ^
+  symbol:   method print(String)
+  location: class SynchronizedBlocked
+Interrupting.java:61: error: cannot find symbol
+    print("Interrupting " + r.getClass().getName());
+    ^
+  symbol:   method print(String)
+  location: class Interrupting
+Interrupting.java:63: error: cannot find symbol
+    print("Interrupt sent to " + r.getClass().getName());
+    ^
+  symbol:   method print(String)
+  location: class Interrupting
+Interrupting.java:70: error: cannot find symbol
+    print("Aborting with System.exit(0)");
+    ^
+  symbol:   method print(String)
+  location: class Interrupting
+Interrupting2.java:18: error: cannot find symbol
+      print("lock acquired in f()");
+      ^
+  symbol:   method print(String)
+  location: class BlockedMutex
+Interrupting2.java:20: error: cannot find symbol
+      print("Interrupted from lock acquisition in f()");
+      ^
+  symbol:   method print(String)
+  location: class BlockedMutex
+Interrupting2.java:28: error: cannot find symbol
+    print("Waiting for f() in BlockedMutex");
+    ^
+  symbol:   method print(String)
+  location: class Blocked2
+Interrupting2.java:30: error: cannot find symbol
+    print("Broken out of blocked call");
+    ^
+  symbol:   method print(String)
+  location: class Blocked2
+InterruptingIdiom.java:11: error: cannot find symbol
+    print("NeedsCleanup " + id);
+    ^
+  symbol:   method print(String)
+  location: class NeedsCleanup
+InterruptingIdiom.java:14: error: cannot find symbol
+    print("Cleaning up " + id);
+    ^
+  symbol:   method print(String)
+  location: class NeedsCleanup
+InterruptingIdiom.java:28: error: cannot find symbol
+          print("Sleeping");
+          ^
+  symbol:   method print(String)
+  location: class Blocked3
+InterruptingIdiom.java:34: error: cannot find symbol
+            print("Calculating");
+            ^
+  symbol:   method print(String)
+  location: class Blocked3
+SettingDefaultHandler.java:7: warning: auxiliary class MyUncaughtExceptionHandler in CaptureUncaughtException.java should not be accessed from outside its own source file
+      new MyUncaughtExceptionHandler());
+          ^
+100 errors
+11 warnings

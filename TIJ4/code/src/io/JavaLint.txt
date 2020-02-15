@@ -1,0 +1,521 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AvailableCharSets.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Blip3.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Blips.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DirectoryDemo.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+DirectoryDemo.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Endians.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+GetData.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+LargeMappedFiles.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Logon.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MyWorld.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+OSExecuteDemo.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+PreferencesDemo.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+UsingBuffers.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ViewBuffers.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Worm.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ZipCompress.java:8: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AvailableCharSets.java:14: error: cannot find symbol
+      printnb(csName);
+      ^
+  symbol:   method printnb(String)
+  location: class AvailableCharSets
+AvailableCharSets.java:15: warning: [rawtypes] found raw type: Iterator
+      Iterator aliases =
+      ^
+  missing type arguments for generic class Iterator<E>
+  where E is a type-variable:
+    E extends Object declared in interface Iterator
+AvailableCharSets.java:18: error: cannot find symbol
+        printnb(": ");
+        ^
+  symbol:   method printnb(String)
+  location: class AvailableCharSets
+AvailableCharSets.java:20: error: cannot find symbol
+        printnb(aliases.next());
+        ^
+  symbol:   method printnb(Object)
+  location: class AvailableCharSets
+AvailableCharSets.java:22: error: cannot find symbol
+          printnb(", ");
+          ^
+  symbol:   method printnb(String)
+  location: class AvailableCharSets
+AvailableCharSets.java:24: error: cannot find symbol
+      print();
+      ^
+  symbol:   method print()
+  location: class AvailableCharSets
+Blip3.java:10: error: cannot find symbol
+    print("Blip3 Constructor");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:14: error: cannot find symbol
+    print("Blip3(String x, int a)");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:22: error: cannot find symbol
+    print("Blip3.writeExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:29: error: cannot find symbol
+    print("Blip3.readExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:36: error: cannot find symbol
+    print("Constructing objects:");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:38: error: cannot find symbol
+    print(b3);
+    ^
+  symbol:   method print(Blip3)
+  location: class Blip3
+Blip3.java:41: error: cannot find symbol
+    print("Saving object:");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:47: error: cannot find symbol
+    print("Recovering b3:");
+    ^
+  symbol:   method print(String)
+  location: class Blip3
+Blip3.java:49: error: cannot find symbol
+    print(b3);
+    ^
+  symbol:   method print(Blip3)
+  location: class Blip3
+Blips.java:8: error: cannot find symbol
+    print("Blip1 Constructor");
+    ^
+  symbol:   method print(String)
+  location: class Blip1
+Blips.java:12: error: cannot find symbol
+    print("Blip1.writeExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip1
+Blips.java:16: error: cannot find symbol
+    print("Blip1.readExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip1
+Blips.java:22: error: cannot find symbol
+    print("Blip2 Constructor");
+    ^
+  symbol:   method print(String)
+  location: class Blip2
+Blips.java:26: error: cannot find symbol
+    print("Blip2.writeExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip2
+Blips.java:30: error: cannot find symbol
+    print("Blip2.readExternal");
+    ^
+  symbol:   method print(String)
+  location: class Blip2
+Blips.java:37: error: cannot find symbol
+    print("Constructing objects:");
+    ^
+  symbol:   method print(String)
+  location: class Blips
+Blips.java:42: error: cannot find symbol
+    print("Saving objects:");
+    ^
+  symbol:   method print(String)
+  location: class Blips
+Blips.java:49: error: cannot find symbol
+    print("Recovering b1:");
+    ^
+  symbol:   method print(String)
+  location: class Blips
+DirectoryDemo.java:10: error: cannot find symbol
+    PPrint.pprint(Directory.walk(".").dirs);
+                  ^
+  symbol:   variable Directory
+  location: class DirectoryDemo
+DirectoryDemo.java:10: error: cannot find symbol
+    PPrint.pprint(Directory.walk(".").dirs);
+    ^
+  symbol:   variable PPrint
+  location: class DirectoryDemo
+DirectoryDemo.java:12: error: cannot find symbol
+    for(File file : Directory.local(".", "T.*"))
+                    ^
+  symbol:   variable Directory
+  location: class DirectoryDemo
+DirectoryDemo.java:13: error: cannot find symbol
+      print(file);
+      ^
+  symbol:   method print(File)
+  location: class DirectoryDemo
+DirectoryDemo.java:14: error: cannot find symbol
+    print("----------------------");
+    ^
+  symbol:   method print(String)
+  location: class DirectoryDemo
+DirectoryDemo.java:16: error: cannot find symbol
+    for(File file : Directory.walk(".", "T.*\\.java"))
+                    ^
+  symbol:   variable Directory
+  location: class DirectoryDemo
+DirectoryDemo.java:17: error: cannot find symbol
+      print(file);
+      ^
+  symbol:   method print(File)
+  location: class DirectoryDemo
+DirectoryDemo.java:18: error: cannot find symbol
+    print("======================");
+    ^
+  symbol:   method print(String)
+  location: class DirectoryDemo
+DirectoryDemo.java:20: error: cannot find symbol
+    for(File file : Directory.walk(".",".*[Zz].*\\.class"))
+                    ^
+  symbol:   variable Directory
+  location: class DirectoryDemo
+DirectoryDemo.java:21: error: cannot find symbol
+      print(file);
+      ^
+  symbol:   method print(File)
+  location: class DirectoryDemo
+Endians.java:11: error: cannot find symbol
+    print(Arrays.toString(bb.array()));
+    ^
+  symbol:   method print(String)
+  location: class Endians
+Endians.java:15: error: cannot find symbol
+    print(Arrays.toString(bb.array()));
+    ^
+  symbol:   method print(String)
+  location: class Endians
+Endians.java:19: error: cannot find symbol
+    print(Arrays.toString(bb.array()));
+    ^
+  symbol:   method print(String)
+  location: class Endians
+GetData.java:14: error: cannot find symbol
+        print("nonzero");
+        ^
+  symbol:   method print(String)
+  location: class GetData
+GetData.java:15: error: cannot find symbol
+    print("i = " + i);
+    ^
+  symbol:   method print(String)
+  location: class GetData
+GetData.java:21: error: cannot find symbol
+      printnb(c + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class GetData
+GetData.java:22: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class GetData
+GetData.java:26: error: cannot find symbol
+    print(bb.getShort());
+    ^
+  symbol:   method print(short)
+  location: class GetData
+GetData.java:30: error: cannot find symbol
+    print(bb.getInt());
+    ^
+  symbol:   method print(int)
+  location: class GetData
+GetData.java:34: error: cannot find symbol
+    print(bb.getLong());
+    ^
+  symbol:   method print(long)
+  location: class GetData
+GetData.java:38: error: cannot find symbol
+    print(bb.getFloat());
+    ^
+  symbol:   method print(float)
+  location: class GetData
+GetData.java:42: error: cannot find symbol
+    print(bb.getDouble());
+    ^
+  symbol:   method print(double)
+  location: class GetData
+LargeMappedFiles.java:17: error: cannot find symbol
+    print("Finished writing");
+    ^
+  symbol:   method print(String)
+  location: class LargeMappedFiles
+LargeMappedFiles.java:19: error: cannot find symbol
+      printnb((char)out.get(i));
+      ^
+  symbol:   method printnb(char)
+  location: class LargeMappedFiles
+Logon.java:22: error: cannot find symbol
+    print("logon a = " + a);
+    ^
+  symbol:   method print(String)
+  location: class Logon
+Logon.java:31: error: cannot find symbol
+    print("Recovering object at " + new Date());
+    ^
+  symbol:   method print(String)
+  location: class Logon
+Logon.java:33: error: cannot find symbol
+    print("logon a = " + a);
+    ^
+  symbol:   method print(String)
+  location: class Logon
+MyWorld.java:29: error: cannot find symbol
+    print("animals: " + animals);
+    ^
+  symbol:   method print(String)
+  location: class MyWorld
+MyWorld.java:45: warning: [rawtypes] found raw type: List
+    List
+    ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+MyWorld.java:45: warning: [rawtypes] found raw type: List
+    List
+    ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+MyWorld.java:45: warning: [rawtypes] found raw type: List
+    List
+    ^
+  missing type arguments for generic class List<E>
+  where E is a type-variable:
+    E extends Object declared in interface List
+MyWorld.java:49: error: cannot find symbol
+    print("animals1: " + animals1);
+    ^
+  symbol:   method print(String)
+  location: class MyWorld
+MyWorld.java:50: error: cannot find symbol
+    print("animals2: " + animals2);
+    ^
+  symbol:   method print(String)
+  location: class MyWorld
+MyWorld.java:51: error: cannot find symbol
+    print("animals3: " + animals3);
+    ^
+  symbol:   method print(String)
+  location: class MyWorld
+OSExecuteDemo.java:7: error: cannot find symbol
+    OSExecute.command("javap OSExecuteDemo");
+    ^
+  symbol:   variable OSExecute
+  location: class OSExecuteDemo
+PreferencesDemo.java:17: error: cannot find symbol
+      print(key + ": "+ prefs.get(key, null));
+      ^
+  symbol:   method print(String)
+  location: class PreferencesDemo
+PreferencesDemo.java:19: error: cannot find symbol
+    print("How many companions does Dorothy have? " +
+    ^
+  symbol:   method print(String)
+  location: class PreferencesDemo
+RecoverCADState.java:13: warning: auxiliary class Shape in StoreCADState.java should not be accessed from outside its own source file
+    List<Class<? extends Shape>> shapeTypes =
+                         ^
+RecoverCADState.java:14: warning: auxiliary class Shape in StoreCADState.java should not be accessed from outside its own source file
+      (List<Class<? extends Shape>>)in.readObject();
+                            ^
+RecoverCADState.java:15: warning: auxiliary class Line in StoreCADState.java should not be accessed from outside its own source file
+    Line.deserializeStaticState(in);
+    ^
+RecoverCADState.java:16: warning: auxiliary class Shape in StoreCADState.java should not be accessed from outside its own source file
+    List<Shape> shapes = (List<Shape>)in.readObject();
+         ^
+RecoverCADState.java:16: warning: auxiliary class Shape in StoreCADState.java should not be accessed from outside its own source file
+    List<Shape> shapes = (List<Shape>)in.readObject();
+                               ^
+StoreCADState.java:84: warning: [cast] redundant cast to Shape
+      ((Shape)shapes.get(i)).setColor(Shape.GREEN);
+       ^
+UsingBuffers.java:20: error: cannot find symbol
+    print(cb.rewind());
+    ^
+  symbol:   method print(Buffer)
+  location: class UsingBuffers
+UsingBuffers.java:22: error: cannot find symbol
+    print(cb.rewind());
+    ^
+  symbol:   method print(Buffer)
+  location: class UsingBuffers
+UsingBuffers.java:24: error: cannot find symbol
+    print(cb.rewind());
+    ^
+  symbol:   method print(Buffer)
+  location: class UsingBuffers
+ViewBuffers.java:10: error: cannot find symbol
+    printnb("Byte Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:12: error: cannot find symbol
+      printnb(bb.position()+ " -> " + bb.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:13: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:16: error: cannot find symbol
+    printnb("Char Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:18: error: cannot find symbol
+      printnb(cb.position() + " -> " + cb.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:19: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:22: error: cannot find symbol
+    printnb("Float Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:24: error: cannot find symbol
+      printnb(fb.position()+ " -> " + fb.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:25: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:28: error: cannot find symbol
+    printnb("Int Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:30: error: cannot find symbol
+      printnb(ib.position()+ " -> " + ib.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:31: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:34: error: cannot find symbol
+    printnb("Long Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:36: error: cannot find symbol
+      printnb(lb.position()+ " -> " + lb.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:37: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:40: error: cannot find symbol
+    printnb("Short Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:42: error: cannot find symbol
+      printnb(sb.position()+ " -> " + sb.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:43: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ViewBuffers
+ViewBuffers.java:46: error: cannot find symbol
+    printnb("Double Buffer ");
+    ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+ViewBuffers.java:48: error: cannot find symbol
+      printnb(db.position()+ " -> " + db.get() + ", ");
+      ^
+  symbol:   method printnb(String)
+  location: class ViewBuffers
+Worm.java:24: error: cannot find symbol
+    print("Worm constructor: " + i);
+    ^
+  symbol:   method print(String)
+  location: class Worm
+Worm.java:30: error: cannot find symbol
+    print("Default constructor");
+    ^
+  symbol:   method print(String)
+  location: class Worm
+Worm.java:46: error: cannot find symbol
+    print("w = " + w);
+    ^
+  symbol:   method print(String)
+  location: class Worm
+Worm.java:56: error: cannot find symbol
+    print(s + "w2 = " + w2);
+    ^
+  symbol:   method print(String)
+  location: class Worm
+ZipCompress.java:54: warning: [rawtypes] found raw type: Enumeration
+    Enumeration e = zf.entries();
+    ^
+  missing type arguments for generic class Enumeration<E>
+  where E is a type-variable:
+    E extends Object declared in interface Enumeration
+100 errors
+14 warnings

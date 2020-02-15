@@ -1,0 +1,189 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+BreakAndContinue.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Range.*;
+                               ^
+ForEachInt.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Range.*;
+                               ^
+ForEachInt.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+IfElse.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+IfElse2.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+LabeledFor.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+LabeledWhile.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+VowelsAndConsonants.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+BreakAndContinue.java:14: error: cannot find symbol
+    for(int i : range(100)) {
+                ^
+  symbol:   method range(int)
+  location: class BreakAndContinue
+ForEachInt.java:7: error: cannot find symbol
+    for(int i : range(10)) // 0..9
+                ^
+  symbol:   method range(int)
+  location: class ForEachInt
+ForEachInt.java:8: error: cannot find symbol
+      printnb(i + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class ForEachInt
+ForEachInt.java:9: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ForEachInt
+ForEachInt.java:10: error: cannot find symbol
+    for(int i : range(5, 10)) // 5..9
+                ^
+  symbol:   method range(int,int)
+  location: class ForEachInt
+ForEachInt.java:11: error: cannot find symbol
+      printnb(i + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class ForEachInt
+ForEachInt.java:12: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ForEachInt
+ForEachInt.java:13: error: cannot find symbol
+    for(int i : range(5, 20, 3)) // 5..20 step 3
+                ^
+  symbol:   method range(int,int,int)
+  location: class ForEachInt
+ForEachInt.java:14: error: cannot find symbol
+      printnb(i + " ");
+      ^
+  symbol:   method printnb(String)
+  location: class ForEachInt
+ForEachInt.java:15: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class ForEachInt
+IfElse.java:16: error: cannot find symbol
+    print(result);
+    ^
+  symbol:   method print(int)
+  location: class IfElse
+IfElse.java:18: error: cannot find symbol
+    print(result);
+    ^
+  symbol:   method print(int)
+  location: class IfElse
+IfElse.java:20: error: cannot find symbol
+    print(result);
+    ^
+  symbol:   method print(int)
+  location: class IfElse
+IfElse2.java:14: error: cannot find symbol
+    print(test(10, 5));
+    ^
+  symbol:   method print(int)
+  location: class IfElse2
+IfElse2.java:15: error: cannot find symbol
+    print(test(5, 10));
+    ^
+  symbol:   method print(int)
+  location: class IfElse2
+IfElse2.java:16: error: cannot find symbol
+    print(test(5, 5));
+    ^
+  symbol:   method print(int)
+  location: class IfElse2
+LabeledFor.java:12: error: cannot find symbol
+        print("i = " + i);
+        ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledFor.java:14: error: cannot find symbol
+          print("continue");
+          ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledFor.java:18: error: cannot find symbol
+          print("break");
+          ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledFor.java:24: error: cannot find symbol
+          print("continue outer");
+          ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledFor.java:30: error: cannot find symbol
+          print("break outer");
+          ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledFor.java:35: error: cannot find symbol
+            print("continue inner");
+            ^
+  symbol:   method print(String)
+  location: class LabeledFor
+LabeledWhile.java:10: error: cannot find symbol
+      print("Outer while loop");
+      ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+LabeledWhile.java:13: error: cannot find symbol
+        print("i = " + i);
+        ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+LabeledWhile.java:15: error: cannot find symbol
+          print("continue");
+          ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+LabeledWhile.java:19: error: cannot find symbol
+          print("continue outer");
+          ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+LabeledWhile.java:23: error: cannot find symbol
+          print("break");
+          ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+LabeledWhile.java:27: error: cannot find symbol
+          print("break outer");
+          ^
+  symbol:   method print(String)
+  location: class LabeledWhile
+VowelsAndConsonants.java:11: error: cannot find symbol
+      printnb((char)c + ", " + c + ": ");
+      ^
+  symbol:   method printnb(String)
+  location: class VowelsAndConsonants
+VowelsAndConsonants.java:17: error: cannot find symbol
+        case 'u': print("vowel");
+                  ^
+  symbol:   method print(String)
+  location: class VowelsAndConsonants
+VowelsAndConsonants.java:20: error: cannot find symbol
+        case 'w': print("Sometimes a vowel");
+                  ^
+  symbol:   method print(String)
+  location: class VowelsAndConsonants
+VowelsAndConsonants.java:22: error: cannot find symbol
+        default:  print("consonant");
+                  ^
+  symbol:   method print(String)
+  location: class VowelsAndConsonants
+40 errors
+3 warnings

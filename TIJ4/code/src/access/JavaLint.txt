@@ -1,0 +1,29 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+ChocolateChip.java:3: error: package access.dessert does not exist
+import access.dessert.*;
+^
+ChocolateChip.java:5: error: cannot find symbol
+public class ChocolateChip extends Cookie {
+                                   ^
+  symbol: class Cookie
+ChocolateChip2.java:2: error: package access.cookie2 does not exist
+import access.cookie2.*;
+^
+ChocolateChip2.java:4: error: cannot find symbol
+public class ChocolateChip2 extends Cookie {
+                                    ^
+  symbol: class Cookie
+Dinner.java:3: error: package access.dessert does not exist
+import access.dessert.*;
+^
+ImportedMyClass.java:2: error: package access.mypackage does not exist
+import access.mypackage.*;
+^
+LibTest.java:3: error: package net.mindview.simple does not exist
+import net.mindview.simple.*;
+^
+PrintTest.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^

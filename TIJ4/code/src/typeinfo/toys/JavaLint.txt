@@ -1,0 +1,74 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+ToyTest.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+GenericToyTest.java:7: warning: auxiliary class FancyToy in ToyTest.java should not be accessed from outside its own source file
+    Class<FancyToy> ftClass = FancyToy.class;
+          ^
+GenericToyTest.java:7: warning: auxiliary class FancyToy in ToyTest.java should not be accessed from outside its own source file
+    Class<FancyToy> ftClass = FancyToy.class;
+                              ^
+GenericToyTest.java:9: warning: auxiliary class FancyToy in ToyTest.java should not be accessed from outside its own source file
+    FancyToy fancyToy = ftClass.newInstance();
+    ^
+GenericToyTest.java:10: warning: auxiliary class FancyToy in ToyTest.java should not be accessed from outside its own source file
+    Class<? super FancyToy> up = ftClass.getSuperclass();
+                  ^
+ToyTest.java:23: warning: [rawtypes] found raw type: Class
+  static void printInfo(Class cc) {
+                        ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ToyTest.java:24: error: cannot find symbol
+    print("Class name: " + cc.getName() +
+    ^
+  symbol:   method print(String)
+  location: class ToyTest
+ToyTest.java:26: error: cannot find symbol
+    print("Simple name: " + cc.getSimpleName());
+    ^
+  symbol:   method print(String)
+  location: class ToyTest
+ToyTest.java:27: error: cannot find symbol
+    print("Canonical name : " + cc.getCanonicalName());
+    ^
+  symbol:   method print(String)
+  location: class ToyTest
+ToyTest.java:30: warning: [rawtypes] found raw type: Class
+    Class c = null;
+    ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ToyTest.java:34: error: cannot find symbol
+      print("Can't find FancyToy");
+      ^
+  symbol:   method print(String)
+  location: class ToyTest
+ToyTest.java:38: warning: [rawtypes] found raw type: Class
+    for(Class face : c.getInterfaces())
+        ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ToyTest.java:40: warning: [rawtypes] found raw type: Class
+    Class up = c.getSuperclass();
+    ^
+  missing type arguments for generic class Class<T>
+  where T is a type-variable:
+    T extends Object declared in class Class
+ToyTest.java:46: error: cannot find symbol
+      print("Cannot instantiate");
+      ^
+  symbol:   method print(String)
+  location: class ToyTest
+ToyTest.java:49: error: cannot find symbol
+      print("Cannot access");
+      ^
+  symbol:   method print(String)
+  location: class ToyTest
+7 errors
+11 warnings

@@ -1,0 +1,462 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Assignment.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AutoInc.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+BitManipulation.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Bool.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CastingNumbers.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+HelloDate.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Literals.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MathOps.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+PassObject.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+RoundingNumbers.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ShortCircuit.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+StringOperators.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+TernaryIfElse.java:2: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+URShift.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Assignment.java:15: error: cannot find symbol
+    print("1: t1.level: " + t1.level +
+    ^
+  symbol:   method print(String)
+  location: class Assignment
+Assignment.java:18: error: cannot find symbol
+    print("2: t1.level: " + t1.level +
+    ^
+  symbol:   method print(String)
+  location: class Assignment
+Assignment.java:21: error: cannot find symbol
+    print("3: t1.level: " + t1.level +
+    ^
+  symbol:   method print(String)
+  location: class Assignment
+AutoInc.java:8: error: cannot find symbol
+    print("i : " + i);
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:9: error: cannot find symbol
+    print("++i : " + ++i); // Pre-increment
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:10: error: cannot find symbol
+    print("i++ : " + i++); // Post-increment
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:11: error: cannot find symbol
+    print("i : " + i);
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:12: error: cannot find symbol
+    print("--i : " + --i); // Pre-decrement
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:13: error: cannot find symbol
+    print("i-- : " + i--); // Post-decrement
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+AutoInc.java:14: error: cannot find symbol
+    print("i : " + i);
+    ^
+  symbol:   method print(String)
+  location: class AutoInc
+BitManipulation.java:52: error: cannot find symbol
+    print(s + ", int: " + i + ", binary:\n   " +
+    ^
+  symbol:   method print(String)
+  location: class BitManipulation
+BitManipulation.java:56: error: cannot find symbol
+    print(s + ", long: " + l + ", binary:\n    " +
+    ^
+  symbol:   method print(String)
+  location: class BitManipulation
+Bool.java:11: error: cannot find symbol
+    print("i = " + i);
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:12: error: cannot find symbol
+    print("j = " + j);
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:13: error: cannot find symbol
+    print("i > j is " + (i > j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:14: error: cannot find symbol
+    print("i < j is " + (i < j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:15: error: cannot find symbol
+    print("i >= j is " + (i >= j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:16: error: cannot find symbol
+    print("i <= j is " + (i <= j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:17: error: cannot find symbol
+    print("i == j is " + (i == j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:18: error: cannot find symbol
+    print("i != j is " + (i != j));
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:23: error: cannot find symbol
+    print("(i < 10) && (j < 10) is "
+    ^
+  symbol:   method print(String)
+  location: class Bool
+Bool.java:25: error: cannot find symbol
+    print("(i < 10) || (j < 10) is "
+    ^
+  symbol:   method print(String)
+  location: class Bool
+CastingNumbers.java:10: error: cannot find symbol
+    print("(int)above: " + (int)above);
+    ^
+  symbol:   method print(String)
+  location: class CastingNumbers
+CastingNumbers.java:11: error: cannot find symbol
+    print("(int)below: " + (int)below);
+    ^
+  symbol:   method print(String)
+  location: class CastingNumbers
+CastingNumbers.java:12: error: cannot find symbol
+    print("(int)fabove: " + (int)fabove);
+    ^
+  symbol:   method print(String)
+  location: class CastingNumbers
+CastingNumbers.java:13: error: cannot find symbol
+    print("(int)fbelow: " + (int)fbelow);
+    ^
+  symbol:   method print(String)
+  location: class CastingNumbers
+HelloDate.java:7: error: cannot find symbol
+    print("Hello, it's: ");
+    ^
+  symbol:   method print(String)
+  location: class HelloDate
+HelloDate.java:8: error: cannot find symbol
+    print(new Date());
+    ^
+  symbol:   method print(Date)
+  location: class HelloDate
+Literals.java:7: error: cannot find symbol
+    print("i1: " + Integer.toBinaryString(i1));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+Literals.java:9: error: cannot find symbol
+    print("i2: " + Integer.toBinaryString(i2));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+Literals.java:11: error: cannot find symbol
+    print("i3: " + Integer.toBinaryString(i3));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+Literals.java:13: error: cannot find symbol
+    print("c: " + Integer.toBinaryString(c));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+Literals.java:15: error: cannot find symbol
+    print("b: " + Integer.toBinaryString(b));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+Literals.java:17: error: cannot find symbol
+    print("s: " + Integer.toBinaryString(s));
+    ^
+  symbol:   method print(String)
+  location: class Literals
+MathOps.java:13: error: cannot find symbol
+    print("j : " + j);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:15: error: cannot find symbol
+    print("k : " + k);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:17: error: cannot find symbol
+    print("j + k : " + i);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:19: error: cannot find symbol
+    print("j - k : " + i);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:21: error: cannot find symbol
+    print("k / j : " + i);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:23: error: cannot find symbol
+    print("k * j : " + i);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:25: error: cannot find symbol
+    print("k % j : " + i);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:27: error: cannot find symbol
+    print("j %= k : " + j);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:31: error: cannot find symbol
+    print("v : " + v);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:33: error: cannot find symbol
+    print("w : " + w);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:35: error: cannot find symbol
+    print("v + w : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:37: error: cannot find symbol
+    print("v - w : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:39: error: cannot find symbol
+    print("v * w : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:41: error: cannot find symbol
+    print("v / w : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:45: error: cannot find symbol
+    print("u += v : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:47: error: cannot find symbol
+    print("u -= v : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:49: error: cannot find symbol
+    print("u *= v : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+MathOps.java:51: error: cannot find symbol
+    print("u /= v : " + u);
+    ^
+  symbol:   method print(String)
+  location: class MathOps
+PassObject.java:17: error: cannot find symbol
+    print("1: x.c: " + x.c);
+    ^
+  symbol:   method print(String)
+  location: class PassObject
+PassObject.java:19: error: cannot find symbol
+    print("2: x.c: " + x.c);
+    ^
+  symbol:   method print(String)
+  location: class PassObject
+RoundingNumbers.java:9: error: cannot find symbol
+    print("Math.round(above): " + Math.round(above));
+    ^
+  symbol:   method print(String)
+  location: class RoundingNumbers
+RoundingNumbers.java:10: error: cannot find symbol
+    print("Math.round(below): " + Math.round(below));
+    ^
+  symbol:   method print(String)
+  location: class RoundingNumbers
+RoundingNumbers.java:11: error: cannot find symbol
+    print("Math.round(fabove): " + Math.round(fabove));
+    ^
+  symbol:   method print(String)
+  location: class RoundingNumbers
+RoundingNumbers.java:12: error: cannot find symbol
+    print("Math.round(fbelow): " + Math.round(fbelow));
+    ^
+  symbol:   method print(String)
+  location: class RoundingNumbers
+ShortCircuit.java:8: error: cannot find symbol
+    print("test1(" + val + ")");
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:9: error: cannot find symbol
+    print("result: " + (val < 1));
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:13: error: cannot find symbol
+    print("test2(" + val + ")");
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:14: error: cannot find symbol
+    print("result: " + (val < 2));
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:18: error: cannot find symbol
+    print("test3(" + val + ")");
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:19: error: cannot find symbol
+    print("result: " + (val < 3));
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+ShortCircuit.java:24: error: cannot find symbol
+    print("expression is " + b);
+    ^
+  symbol:   method print(String)
+  location: class ShortCircuit
+StringOperators.java:8: error: cannot find symbol
+    print(s + x + y + z);
+    ^
+  symbol:   method print(String)
+  location: class StringOperators
+StringOperators.java:9: error: cannot find symbol
+    print(x + " " + s); // Converts x to a String
+    ^
+  symbol:   method print(String)
+  location: class StringOperators
+StringOperators.java:11: error: cannot find symbol
+    print(s + (x + y + z));
+    ^
+  symbol:   method print(String)
+  location: class StringOperators
+StringOperators.java:12: error: cannot find symbol
+    print("" + x); // Shorthand for Integer.toString()
+    ^
+  symbol:   method print(String)
+  location: class StringOperators
+TernaryIfElse.java:15: error: cannot find symbol
+    print(ternary(9));
+    ^
+  symbol:   method print(int)
+  location: class TernaryIfElse
+TernaryIfElse.java:16: error: cannot find symbol
+    print(ternary(10));
+    ^
+  symbol:   method print(int)
+  location: class TernaryIfElse
+TernaryIfElse.java:17: error: cannot find symbol
+    print(standardIfElse(9));
+    ^
+  symbol:   method print(int)
+  location: class TernaryIfElse
+TernaryIfElse.java:18: error: cannot find symbol
+    print(standardIfElse(10));
+    ^
+  symbol:   method print(int)
+  location: class TernaryIfElse
+URShift.java:8: error: cannot find symbol
+    print(Integer.toBinaryString(i));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:10: error: cannot find symbol
+    print(Integer.toBinaryString(i));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:12: error: cannot find symbol
+    print(Long.toBinaryString(l));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:14: error: cannot find symbol
+    print(Long.toBinaryString(l));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:16: error: cannot find symbol
+    print(Integer.toBinaryString(s));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:18: error: cannot find symbol
+    print(Integer.toBinaryString(s));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:20: error: cannot find symbol
+    print(Integer.toBinaryString(b));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:22: error: cannot find symbol
+    print(Integer.toBinaryString(b));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:24: error: cannot find symbol
+    print(Integer.toBinaryString(b));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+URShift.java:25: error: cannot find symbol
+    print(Integer.toBinaryString(b>>>10));
+    ^
+  symbol:   method print(String)
+  location: class URShift
+97 errors
+3 warnings

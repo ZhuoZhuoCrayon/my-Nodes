@@ -1,0 +1,121 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+RestaurantWithQueues.java:4: error: package enumerated.menu does not exist
+import enumerated.menu.*;
+^
+RestaurantWithQueues.java:7: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+RestaurantWithQueues.java:15: error: cannot find symbol
+  private final Food food;
+                ^
+  symbol:   class Food
+  location: class Order
+RestaurantWithQueues.java:16: error: cannot find symbol
+  public Order(Customer cust, WaitPerson wp, Food f) {
+                                             ^
+  symbol:   class Food
+  location: class Order
+RestaurantWithQueues.java:21: error: cannot find symbol
+  public Food item() { return food; }
+         ^
+  symbol:   class Food
+  location: class Order
+RestaurantWithQueues.java:85: error: cannot find symbol
+  public void placeOrder(Customer cust, Food food) {
+                                        ^
+  symbol:   class Food
+  location: class WaitPerson
+RestaurantWithQueues.java:34: error: cannot find symbol
+  private final Food food;
+                ^
+  symbol:   class Food
+  location: class Plate
+RestaurantWithQueues.java:35: error: cannot find symbol
+  public Plate(Order ord, Food f) {
+                          ^
+  symbol:   class Food
+  location: class Plate
+RestaurantWithQueues.java:40: error: cannot find symbol
+  public Food getFood() { return food; }
+         ^
+  symbol:   class Food
+  location: class Plate
+RestaurantWithQueues.java:59: error: cannot find symbol
+    for(Course course : Course.values()) {
+                        ^
+  symbol:   variable Course
+  location: class Customer
+RestaurantWithQueues.java:59: error: cannot find symbol
+    for(Course course : Course.values()) {
+        ^
+  symbol:   class Course
+  location: class Customer
+RestaurantWithQueues.java:60: error: cannot find symbol
+      Food food = course.randomSelection();
+      ^
+  symbol:   class Food
+  location: class Customer
+RestaurantWithQueues.java:64: error: cannot find symbol
+        print(this + "eating " + placeSetting.take());
+        ^
+  symbol:   method print(String)
+  location: class Customer
+RestaurantWithQueues.java:71: error: cannot find symbol
+    print(this + "finished meal, leaving");
+    ^
+  symbol:   method print(String)
+  location: class Customer
+RestaurantWithQueues.java:91: error: cannot find symbol
+      print(this + " placeOrder interrupted");
+      ^
+  symbol:   method print(String)
+  location: class WaitPerson
+RestaurantWithQueues.java:99: error: cannot find symbol
+        print(this + "received " + plate +
+        ^
+  symbol:   method print(String)
+  location: class WaitPerson
+RestaurantWithQueues.java:105: error: cannot find symbol
+      print(this + " interrupted");
+      ^
+  symbol:   method print(String)
+  location: class WaitPerson
+RestaurantWithQueues.java:107: error: cannot find symbol
+    print(this + " off duty");
+    ^
+  symbol:   method print(String)
+  location: class WaitPerson
+RestaurantWithQueues.java:172: error: cannot find symbol
+      print("Restaurant interrupted");
+      ^
+  symbol:   method print(String)
+  location: class Restaurant
+RestaurantWithQueues.java:174: error: cannot find symbol
+    print("Restaurant closing");
+    ^
+  symbol:   method print(String)
+  location: class Restaurant
+RestaurantWithQueues.java:125: error: cannot find symbol
+        Food requestedItem = order.item();
+        ^
+  symbol:   class Food
+  location: class Chef
+RestaurantWithQueues.java:132: error: cannot find symbol
+      print(this + " interrupted");
+      ^
+  symbol:   method print(String)
+  location: class Chef
+RestaurantWithQueues.java:134: error: cannot find symbol
+    print(this + " off duty");
+    ^
+  symbol:   method print(String)
+  location: class Chef
+RestaurantWithQueues.java:186: error: cannot find symbol
+      print("Press 'Enter' to quit");
+      ^
+  symbol:   method print(String)
+  location: class RestaurantWithQueues
+24 errors
+3 warnings

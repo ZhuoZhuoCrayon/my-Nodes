@@ -1,0 +1,462 @@
+warning: [options] bootstrap class path not set in conjunction with -source 1.5
+warning: [options] source value 1.5 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+AssociativeArray.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Bits.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CollectionDataGeneration.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CollectionDataTest.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CollectionDataTest.java:5: error: cannot find symbol
+class Government implements Generator<String> {
+                            ^
+  symbol: class Generator
+CollectionMethods.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+CollectionMethods.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+CountedString.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DequeTest.java:2: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+DequeTest.java:3: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+DequeTest.java:6: error: cannot find symbol
+  static void fillTest(Deque<Integer> deque) {
+                       ^
+  symbol:   class Deque
+  location: class DequeTest
+Enumerations.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+IndividualTest.java:2: error: package holding does not exist
+import holding.MapOfList;
+              ^
+IndividualTest.java:3: error: package typeinfo.pets does not exist
+import typeinfo.pets.*;
+^
+LinkedHashMapDemo.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+LinkedHashMapDemo.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ListPerformance.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ListSortSearch.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Lists.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Lists.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MapDataTest.java:3: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+MapDataTest.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+MapDataTest.java:6: error: cannot find symbol
+class Letters implements Generator<Pair<Integer,String>>,
+                         ^
+  symbol: class Generator
+MapDataTest.java:6: error: cannot find symbol
+class Letters implements Generator<Pair<Integer,String>>,
+                                   ^
+  symbol: class Pair
+MapDataTest.java:11: error: cannot find symbol
+  public Pair<Integer,String> next() {
+         ^
+  symbol:   class Pair
+  location: class Letters
+Maps.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+Maps.java:6: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+QueueBehavior.java:5: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+QueueBehavior.java:9: error: cannot find symbol
+  static <T> void test(Queue<T> queue, Generator<T> gen) {
+                                       ^
+  symbol:   class Generator
+  location: class QueueBehavior
+QueueBehavior.java:16: error: cannot find symbol
+  static class Gen implements Generator<String> {
+                              ^
+  symbol:   class Generator
+  location: class QueueBehavior
+RandomBounds.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+ReadOnly.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+ReadOnly.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SimpleHashMap.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+SlowMap.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+SortedMapDemo.java:4: error: package net.mindview.util does not exist
+import net.mindview.util.*;
+^
+SortedMapDemo.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SortedSetDemo.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+SpringDetector.java:5: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Stacks.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+Utilities.java:4: error: package net.mindview.util does not exist
+import static net.mindview.util.Print.*;
+                               ^
+AssociativeArray.java:46: error: cannot find symbol
+      print("Too many objects!");
+      ^
+  symbol:   method print(String)
+  location: class AssociativeArray<K,V>
+  where K,V are type-variables:
+    K extends Object declared in class AssociativeArray
+    V extends Object declared in class AssociativeArray
+AssociativeArray.java:48: error: cannot find symbol
+    print(map);
+    ^
+  symbol:   method print(AssociativeArray<String,String>)
+  location: class AssociativeArray<K,V>
+  where K,V are type-variables:
+    K extends Object declared in class AssociativeArray
+    V extends Object declared in class AssociativeArray
+AssociativeArray.java:49: error: cannot find symbol
+    print(map.get("ocean"));
+    ^
+  symbol:   method print(String)
+  location: class AssociativeArray<K,V>
+  where K,V are type-variables:
+    K extends Object declared in class AssociativeArray
+    V extends Object declared in class AssociativeArray
+Bits.java:8: error: cannot find symbol
+    print("bits: " + b);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:12: error: cannot find symbol
+    print("bit pattern: " + bbits);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:24: error: cannot find symbol
+    print("byte value: " + bt);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:34: error: cannot find symbol
+    print("short value: " + st);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:44: error: cannot find symbol
+    print("int value: " + it);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:50: error: cannot find symbol
+    print("set bit 127: " + b127);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:53: error: cannot find symbol
+    print("set bit 255: " + b255);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+Bits.java:57: error: cannot find symbol
+    print("set bit 1023: " + b1023);
+    ^
+  symbol:   method print(String)
+  location: class Bits
+CollectionDataGeneration.java:10: error: package RandomGenerator does not exist
+        new RandomGenerator.String(9), 10)));
+                           ^
+CollectionDataGeneration.java:9: error: cannot find symbol
+      CollectionData.list( // Convenience method
+      ^
+  symbol:   variable CollectionData
+  location: class CollectionDataGeneration
+CollectionDataGeneration.java:12: error: cannot find symbol
+      new CollectionData<Integer>(
+          ^
+  symbol:   class CollectionData
+  location: class CollectionDataGeneration
+CollectionDataGeneration.java:13: error: package RandomGenerator does not exist
+        new RandomGenerator.Integer(), 10)));
+                           ^
+CollectionDataTest.java:16: error: cannot find symbol
+      new CollectionData<String>(new Government(), 15));
+          ^
+  symbol:   class CollectionData
+  location: class CollectionDataTest
+CollectionDataTest.java:18: error: cannot find symbol
+    set.addAll(CollectionData.list(new Government(), 15));
+               ^
+  symbol:   variable CollectionData
+  location: class CollectionDataTest
+CollectionMethods.java:10: error: cannot find symbol
+    c.addAll(Countries.names(6));
+             ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:13: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:21: error: cannot find symbol
+    print("Collections.max(c) = " + Collections.max(c));
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CollectionMethods.java:22: error: cannot find symbol
+    print("Collections.min(c) = " + Collections.min(c));
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CollectionMethods.java:25: error: cannot find symbol
+    c2.addAll(Countries.names(6));
+              ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:27: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:28: error: cannot find symbol
+    c.remove(Countries.DATA[0][0]);
+             ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:29: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:30: error: cannot find symbol
+    c.remove(Countries.DATA[1][0]);
+             ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:31: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:35: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:37: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:39: error: cannot find symbol
+    String val = Countries.DATA[3][0];
+                 ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:40: error: cannot find symbol
+    print("c.contains(" + val  + ") = " + c.contains(val));
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CollectionMethods.java:42: error: cannot find symbol
+    print("c.containsAll(c2) = " + c.containsAll(c2));
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CollectionMethods.java:48: error: cannot find symbol
+    print(c2);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:52: error: cannot find symbol
+    print("c2.isEmpty() = " +  c2.isEmpty());
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CollectionMethods.java:54: error: cannot find symbol
+    c.addAll(Countries.names(6));
+             ^
+  symbol:   variable Countries
+  location: class CollectionMethods
+CollectionMethods.java:55: error: cannot find symbol
+    print(c);
+    ^
+  symbol:   method print(Collection<String>)
+  location: class CollectionMethods
+CollectionMethods.java:57: error: cannot find symbol
+    print("after c.clear():" + c);
+    ^
+  symbol:   method print(String)
+  location: class CollectionMethods
+CountedString.java:46: error: cannot find symbol
+    print(map);
+    ^
+  symbol:   method print(Map<CountedString,Integer>)
+  location: class CountedString
+CountedString.java:48: error: cannot find symbol
+      print("Looking up " + cstring);
+      ^
+  symbol:   method print(String)
+  location: class CountedString
+CountedString.java:49: error: cannot find symbol
+      print(map.get(cstring));
+      ^
+  symbol:   method print(Integer)
+  location: class CountedString
+DequeTest.java:13: error: cannot find symbol
+    Deque<Integer> di = new Deque<Integer>();
+    ^
+  symbol:   class Deque
+  location: class DequeTest
+DequeTest.java:13: error: cannot find symbol
+    Deque<Integer> di = new Deque<Integer>();
+                            ^
+  symbol:   class Deque
+  location: class DequeTest
+DequeTest.java:18: error: cannot find symbol
+    print();
+    ^
+  symbol:   method print()
+  location: class DequeTest
+Enumerations.java:9: error: cannot find symbol
+      new Vector<String>(Countries.names(10));
+                         ^
+  symbol:   variable Countries
+  location: class Enumerations
+IndividualTest.java:8: error: cannot find symbol
+    Set<Individual> pets = new TreeSet<Individual>();
+        ^
+  symbol:   class Individual
+  location: class IndividualTest
+IndividualTest.java:8: error: cannot find symbol
+    Set<Individual> pets = new TreeSet<Individual>();
+                                       ^
+  symbol:   class Individual
+  location: class IndividualTest
+IndividualTest.java:10: error: package MapOfList does not exist
+        MapOfList.petPeople.values())
+                 ^
+IndividualTest.java:9: error: cannot find symbol
+    for(List<? extends Pet> lp :
+                       ^
+  symbol:   class Pet
+  location: class IndividualTest
+IndividualTest.java:11: error: cannot find symbol
+      for(Pet p : lp)
+          ^
+  symbol:   class Pet
+  location: class IndividualTest
+LinkedHashMapDemo.java:11: error: cannot find symbol
+        new CountingMapData(9));
+            ^
+  symbol:   class CountingMapData
+  location: class LinkedHashMapDemo
+LinkedHashMapDemo.java:12: error: cannot find symbol
+    print(linkedMap);
+    ^
+  symbol:   method print(LinkedHashMap<Integer,String>)
+  location: class LinkedHashMapDemo
+LinkedHashMapDemo.java:16: error: cannot find symbol
+    linkedMap.putAll(new CountingMapData(9));
+                         ^
+  symbol:   class CountingMapData
+  location: class LinkedHashMapDemo
+LinkedHashMapDemo.java:17: error: cannot find symbol
+    print(linkedMap);
+    ^
+  symbol:   method print(LinkedHashMap<Integer,String>)
+  location: class LinkedHashMapDemo
+LinkedHashMapDemo.java:20: error: cannot find symbol
+    print(linkedMap);
+    ^
+  symbol:   method print(LinkedHashMap<Integer,String>)
+  location: class LinkedHashMapDemo
+LinkedHashMapDemo.java:22: error: cannot find symbol
+    print(linkedMap);
+    ^
+  symbol:   method print(LinkedHashMap<Integer,String>)
+  location: class LinkedHashMapDemo
+ListPerformance.java:69: error: cannot find symbol
+          list.addAll(new CountingIntegerList(size));
+                          ^
+  symbol: class CountingIntegerList
+ListPerformance.java:108: error: cannot find symbol
+            list.addAll(new CountingIntegerList(size));
+                            ^
+  symbol: class CountingIntegerList
+ListPerformance.java:121: error: cannot find symbol
+          list.addAll(new CountingIntegerList(size));
+                          ^
+  symbol: class CountingIntegerList
+Tester.java:60: warning: [rawtypes] found raw type: Test
+    for(Test test : tests)
+        ^
+  missing type arguments for generic class Test<C>
+  where C is a type-variable:
+    C extends Object declared in class Test
+ListPerformance.java:137: error: cannot find symbol
+      container.addAll(new CountingIntegerList(size));
+                           ^
+  symbol:   class CountingIntegerList
+  location: class ListTester
+MapEntry.java:25: warning: [rawtypes] found raw type: MapEntry
+    MapEntry me = (MapEntry)o;
+    ^
+  missing type arguments for generic class MapEntry<K,V>
+  where K,V are type-variables:
+    K extends Object declared in class MapEntry
+    V extends Object declared in class MapEntry
+MapPerformance.java:36: warning: [rawtypes] found raw type: Iterator
+          Iterator it = map.entrySet().iterator();
+          ^
+  missing type arguments for generic class Iterator<E>
+  where E is a type-variable:
+    E extends Object declared in interface Iterator
+SimpleHashMap.java:14: warning: [rawtypes] found raw type: LinkedList
+    new LinkedList[SIZE];
+        ^
+  missing type arguments for generic class LinkedList<E>
+  where E is a type-variable:
+    E extends Object declared in class LinkedList
+TypesForSets.java:5: warning: [overrides] Class SetType overrides equals, but neither it nor any superclass overrides hashCode method
+class SetType {
+^
+100 errors
+8 warnings
