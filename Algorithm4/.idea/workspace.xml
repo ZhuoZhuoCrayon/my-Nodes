@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57fa4156-cb9b-4a71-906c-7be3ef4940b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace-DESKTOP-1P0LDG1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/.idea/web.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ssm/SSM整合的问题.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../数据库系统/mysql修改密码.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/my-Nodes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/my-Nodes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Daily/LeetCode/20191007.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Daily/LeetCode/20191007.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Daily/LeetCode/202001/20200107.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Daily/LeetCode/202001/20200107.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Daily/LeetCode/202001/20200109.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Daily/LeetCode/202001/20200109.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Daily/codeWars/20190830.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Daily/codeWars/20190830.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Daily/剑指Offer/13-18/15.二进制中1的个数.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Daily/剑指Offer/13-18/15.二进制中1的个数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaScript/todolist/todolist/css/todolist.css" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaScript/todolist/todolist/css/todolist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TIJ4/code/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TIJ4/code/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TIJ4/code/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TIJ4/code/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TIJ4/code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TIJ4/code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vue/14-vue-resource.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue/14-vue-resource.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vue/2-cloak.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue/2-cloak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html+css/8-CSS盒模型" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java编程思想/img/5.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java编程思想/第一章-对象导论.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java编程思想/第二章-一切都是对象.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java编程思想/第五章-初始化与清理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/.idea/libraries/lib__2_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/out/artifacts/CombineDemo_war_exploded/WEB-INF/classes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/out/artifacts/CombineDemo_war_exploded/WEB-INF/classes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/out/artifacts/CombineDemo_war_exploded/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/out/artifacts/CombineDemo_war_exploded/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/WEB-INF/classes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/WEB-INF/classes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis+Spring/CombineDemo/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/jbit.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/jbit.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/SqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/SqlMapConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/cn/com/mybatis/po/Emp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/cn/com/mybatis/po/Emp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/cn/com/mybatis/test/MybatisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/cn/com/mybatis/test/MybatisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/sqlmap/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/out/artifacts/MyBatisDemo_war_exploded/WEB-INF/classes/sqlmap/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/SqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/SqlMapConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/cn/com/mybatis/po/Emp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/cn/com/mybatis/po/Emp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/cn/com/mybatis/test/MybatisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/cn/com/mybatis/test/MybatisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/sqlmap/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ssm/MyBatis/MyBatisDemo/web/WEB-INF/classes/sqlmap/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../数据库系统/基础/并发控制.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据库系统/基础/并发控制.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\OneDrive\my-Nodes\Algorithm4\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YIyEDl8G80l85shhRPwM1X8yoj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive\my-Nodes\Algorithm4\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RedBlackBST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datastructure.redblackbst.RedBlackBST" />
+      <module name="Algorithm4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datastructure.redblackbst.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RedBlackBST" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57fa4156-cb9b-4a71-906c-7be3ef4940b5" name="Default Changelist" comment="" />
+      <created>1582644288945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582644288945</updated>
+      <workItem from="1582644294317" duration="1312000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="91" key="#Project_Structure" timestamp="1582644307130">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="91" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1582644307130" />
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1582645576654">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582645576654" />
+    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1582645576654">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1582645576654" />
+    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1582645576654">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1582645576654" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1582645576654">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1582645576654" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1582645352046">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1582645352046" />
+  </component>
+</project>
