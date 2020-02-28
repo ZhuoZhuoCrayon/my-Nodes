@@ -33,6 +33,12 @@ public class RedBlackBST {
         node.right.color = BLACK;
     }
 
+    public void flipColorsD(Node node){
+        node.color = BLACK;
+        node.left.color = RED;
+        node.right.color = RED;
+    }
+
     // 左旋右旋操作中，x之上的链接颜色继承于h
     // 表示在左旋右旋中，很有可能出现两条相连的红色链接，但回溯过程会修正
     /**
@@ -87,6 +93,23 @@ public class RedBlackBST {
     }
 
     /**
+     * 平衡红黑树
+     */
+    public Node balance(Node h){
+        if(isRed(h.right)){
+            h = rotateLeft(h);
+        }
+        if(isRed(h.left) && isRed(h.left.left)){
+            h = rotateRight(h.left);
+        }
+        if(isRed(h.right) && isRed(h.left)){
+            flipColors(h);
+        }
+        h.N = size(h.right) + size(h.left) + 1;
+        return h;
+    }
+
+    /**
      * 插入情况：
      * 1只有一个根：插入左边-增加一条红链接/插入右边-左旋
      * 2向树底部的非红链节点插入：如上述
@@ -123,11 +146,58 @@ public class RedBlackBST {
         return node;
     }
 
+    /**
+     * 当待删除节点是2-节点，设h是删除节点的父亲
+     * h的左右链接染红
+     *      兄弟也是2-节点，此时 h和它的两个儿子成为4-节点
+     *      兄弟不是2-节点，h右旋，此时兄弟的一个节点作为根，原h与待删除节点成为3-节点
+     *          记得将新h的左右染黑
+     *  ps:判定一个节点node不是2-节点 ----  isRed(node) or isRed(node.left)
+     */
+    public Node removeRight(Node h){
+        flipColorsD(h);
+        if(isRed(h.left.left)) {
+            h = rotateRight(h);
+            flipColors(h);
+        }
+        return h;
+    }
+
+    /**
+     * 删除最大值
+     */
+    public Node deleteMax(Node root){
+        root = deleteMaxHelper(root);
+        if(root != null) {
+            root.color = BLACK;
+        }
+        System.out.println(size(root));
+        return root;
+    }
+
+    /**
+     * 删除最大值主体实现
+     */
+    public Node deleteMaxHelper(Node root){
+        if(isRed(root.left)){
+            root = rotateRight(root);
+        }
+        //删除
+        if(root.right == null){
+            return null;
+        }
+        //待删除节点是2-节点
+        if(!isRed(root.right) && !isRed(root.right.left)){
+            root = removeRight(root);
+        }
+        root.right = deleteMaxHelper(root.right);
+        return balance(root);
+    }
+
     public int depth(Node root){
         if(root == null) return 0;
         return Math.max(depth(root.left), depth(root.right)) + 1;
     }
-
     public void inOrder(List<Character> out, Node root){
         LinkedList<Node> stack = new LinkedList<>();
         Node cur = root;
@@ -175,5 +245,10 @@ public class RedBlackBST {
         redBlackBST.inOrder(new ArrayList<>(), tree);
         redBlackBST.postOrder(new ArrayList<>(), tree);
         System.out.println(redBlackBST.depth(tree));
+
+
+        while(tree != null){
+            tree = redBlackBST.deleteMax(tree);
+        }
     }
 }
