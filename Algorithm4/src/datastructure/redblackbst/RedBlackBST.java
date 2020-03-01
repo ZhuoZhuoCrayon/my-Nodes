@@ -100,7 +100,7 @@ public class RedBlackBST {
             h = rotateLeft(h);
         }
         if(isRed(h.left) && isRed(h.left.left)){
-            h = rotateRight(h.left);
+            h = rotateRight(h);
         }
         if(isRed(h.right) && isRed(h.left)){
             flipColors(h);
@@ -164,6 +164,18 @@ public class RedBlackBST {
     }
 
     /**
+     *
+     */
+    public Node removeLeft(Node h){
+        flipColorsD(h);
+        if(isRed(h.right.left)){
+            h.right = rotateRight(h.right);
+            h = rotateLeft(h);
+            flipColors(h);
+        }
+        return h;
+    }
+    /**
      * 删除最大值
      */
     public Node deleteMax(Node root){
@@ -171,7 +183,7 @@ public class RedBlackBST {
         if(root != null) {
             root.color = BLACK;
         }
-        System.out.println(size(root));
+        //System.out.println(size(root));
         return root;
     }
 
@@ -191,6 +203,30 @@ public class RedBlackBST {
             root = removeRight(root);
         }
         root.right = deleteMaxHelper(root.right);
+        return balance(root);
+    }
+
+    /**
+     * 删除最小值
+     */
+    public Node deleteMin(Node root){
+        root = deleteMinHelper(root);
+        if(root != null){
+            root.color = BLACK;
+        }
+        //System.out.println(size(root));
+        return root;
+    }
+
+    public Node deleteMinHelper(Node root){
+        if(root.left == null){
+            //System.out.println("delete:" + root.key);
+            return null;
+        }
+        if(!isRed(root.left) && !isRed(root.left.left)){
+            root = removeLeft(root);
+        }
+        root.left = deleteMinHelper(root.left);
         return balance(root);
     }
 
@@ -244,11 +280,14 @@ public class RedBlackBST {
         }
         redBlackBST.inOrder(new ArrayList<>(), tree);
         redBlackBST.postOrder(new ArrayList<>(), tree);
-        System.out.println(redBlackBST.depth(tree));
+        System.out.println(redBlackBST.size(tree));
 
-
+        int count = 0;
         while(tree != null){
-            tree = redBlackBST.deleteMax(tree);
+            count++;
+            //tree = redBlackBST.deleteMax(tree);
+            System.out.println(count);
+            tree = redBlackBST.deleteMin(tree);
         }
     }
 }
