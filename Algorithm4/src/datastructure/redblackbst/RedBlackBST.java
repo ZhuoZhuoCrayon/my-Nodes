@@ -1,5 +1,8 @@
 package datastructure.redblackbst;
 
+import jdk.nashorn.internal.runtime.PrototypeObject;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +19,14 @@ public class RedBlackBST {
 
     public int size(Node node){
         return node == null ? 0 : node.N;
+    }
+
+    public int min(Node root){
+        if(root == null) return Integer.MAX_VALUE;
+        while(root.left != null){
+            root = root.left;
+        }
+        return root.key;
     }
 
     public boolean isRed(Node node){
@@ -230,6 +241,41 @@ public class RedBlackBST {
         return balance(root);
     }
 
+
+    public Node delete(Node root, int key){
+        root = deleteHelper(root, key);
+        if(root != null){
+            System.out.println(size(root));
+            root.color = BLACK;
+        }
+        return root;
+    }
+    public Node deleteHelper(Node root, int key){
+        if(key < root.key){
+            if(!isRed(root.left) && !isRed(root.left.left)){
+                root = removeLeft(root);
+            }
+            root.left = deleteHelper(root.left, key);
+        }else{
+            if(isRed(root.left)){
+                root = rotateRight(root);
+            }
+            if(root.key == key && root.right == null){
+                return null;
+            }
+            if(!isRed(root.right) && !isRed(root.right.left)){
+                root = removeRight(root);
+            }
+            if(root.key == key){
+                root.key = min(root.right);
+                root.right = deleteMin(root.right);
+            }else{
+                root.right = deleteHelper(root.right, key);
+            }
+        }
+        return balance(root);
+    }
+
     public int depth(Node root){
         if(root == null) return 0;
         return Math.max(depth(root.left), depth(root.right)) + 1;
@@ -284,10 +330,10 @@ public class RedBlackBST {
 
         int count = 0;
         while(tree != null){
-            count++;
+            //count++;
             //tree = redBlackBST.deleteMax(tree);
-            System.out.println(count);
-            tree = redBlackBST.deleteMin(tree);
+            //System.out.println(count);
+            tree = redBlackBST.delete(tree, input[count++]);
         }
     }
 }
