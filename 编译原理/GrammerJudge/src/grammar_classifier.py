@@ -58,7 +58,9 @@ def type_of_var(grammar: dict, var: str):
 
 def is_psg(grammar: dict):
     generative_formulas = grammar['P']
+    # print(generative_formulas)
     for formula_from, formula_to in generative_formulas:
+        # print(formula_from, formula_to)
         # 默认%只出现在右部
         if formula_from.find('%') != -1:
             return False
@@ -73,22 +75,22 @@ def is_psg(grammar: dict):
             if var_type == 'E':
                 return False
             elif var_type == 'V':
-                ++cnt
+                cnt = cnt + 1
         # 左部至少存在一个元素属于V
         if cnt == 0:
             return False
         for var in formula_to:
-            if type_of_var(grammar, var):
+            if type_of_var(grammar, var) == 'E':
                 return False
 
     return True
 
 
-# 满足：formula_from > formula_to
+# 满足： formula_to >= formula_from
 def is_csg(grammar: dict):
     generative_formulas = grammar['P']
     for formula_from, formula_to in generative_formulas:
-        if len(formula_to) > len(formula_from):
+        if not len(formula_to) >= len(formula_from):
             return False
     return True
 
@@ -142,3 +144,24 @@ def is_left_rg(grammar: dict):
         if type_of_var(grammar, formula_to[0]) == 'E':
             return False
     return True
+
+
+# 文法归类
+def classifier(grammar: dict):
+    # noinspection PyBroadException
+    try:
+        if not is_psg(grammar):
+            return 'null'
+        elif not is_csg(grammar):
+            return 'psg'
+        elif not is_cfg(grammar):
+            return 'csg'
+        elif is_left_rg(grammar):
+            return 'left_rg'
+        elif is_right_rg(grammar):
+            return 'right_rg'
+        else:
+            return 'cfg'
+    except Exception as e:
+        print(e)
+        return 'classify error'
