@@ -328,3 +328,49 @@ class A:
 * 代越年轻，里面的对象也就越新，年轻的代会比年长的代**更频繁进行垃圾回收**
 * 当准备回收一个代的时候，**比这个代年轻的代都会被合并**，处理**循环引用对象**及其他可被回收（引用计数为0）的对象
 
+
+
+#### update_refs（合并）
+
+```python
+>>> c = list()
+>>> d1 = A()
+>>> d2 = A()
+>>> d1.other2 = d2
+>>> d2.other2 = d1
+
+>>> del a1
+>>> del a2
+>>> del b
+>>> del d1
+>>> gc.collect(1)
+```
+
+* 假设`a1` `a2` `b`都在第一次垃圾回收中存活，此时他们指向的对象会从`generation0`移动到`generation1`
+
+* 从`local namespace`中移除`a1` `a2` `b` `b1`，回收`generation1`
+
+![](./images/update_ref1.png)
+
+将比`generation1 `低的代与之合并，合并后的代叫做`young`，比`generation1 `年长的代称为`old`，合并后如下:
+
+![](./images/young_old.png)
+
+**update_refs**会把`young`中所有对象的引用计数拷贝到追踪链上的`_gc_prev`位置
+
+* `_gc_prev`最右两个bit位是预留位（`0x1`），拷贝的引用计数会**左移**两位后存储到`_gc_prev`
+* 下图`1 / 0x06`表示引用计数值为`1`，`0x06 = 0x1 << 2 +0x10`
+
+![](./images/update_ref2.png)
+
+#### subtract_refs（消除循环引用）
+
+* 遍历`young`中所有对象
+* 检查对象引用其他对象的情况，如果引用对象也在`young`中，并且是**可回收对象**，把相应对象复制到`_gc_prev`部分的引用计数**-1**
+* 用`tp_traverse`遍历，遍历回调`visit_decref`
+
+上述步骤的目的是消除当前回收代`young`中**对象间引用**，消除完后，`young`中的对象的引用计数都是来自`young`外引用计数。
+
+* 简单说，就是在`young`内**消除对象引用环**
+
+![](./images/subtract_refs.png)
