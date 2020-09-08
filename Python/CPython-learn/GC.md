@@ -386,3 +386,42 @@ class A:
 
 
 
+**1** 回收`local namespace`，该对象用于`Python`程序管理变量，不能被回收，所以所有被它所引用的对象也不能被回收（回收一个对象之前必须通过`del name`清除在`local namespace`的引用），此时`c` `d2`所指向的对象的`_gc_prev`值被设置为`0x06`
+
+![](./images/move_unreachable1.png)
+
+**2** 回收`a1`（指向的对象，`a1`实际上只是一个对象引用，后续用变量名替代指向对象），`a1`复制引用计数<=0，移动至`unreachable`
+
+![](./images/move_unreachable2.png)
+
+**3** `a2`同上
+
+![](./images/move_unreachable3.png)
+
+**4** `b`也一样
+
+![](./images/move_unreachable4.png)
+
+**5** `c`复制引用计数 > 0 (在**1**时由于检测到被`local namespace`引用，所以从`0x2`->`0x6`)，不会被回收，并且`_gc_prev`会被重置（复制引用计数`bit flag`被清除）
+
+![](./images/move_unreachable5.png)
+
+**6** `d1`复制引用计数 <= 0，被移动到`unreachable`
+
+![](./images/move_unreachable6.png)
+
+**7** 回收`d2`，由于`d2`上存在`d1`的引用，并且`d2`复制引用计数 > 0，`d1`在`unreachable`中
+
+![](./images/move_unreachable7.png)
+
+**此时`d1`复制引用计数被重置为`1`，并移动到回收代链表尾部**
+
+![](./images/move_unreachable8.png)
+
+**8** 回收`d1`，复制引用计数 > 0，重置`_gc_prev`
+
+此时回收代链表已经全部遍历完了，在这个过程中放入`unreachable`中的所有对象都是**没有被其他对象引用**的对象，可以真正进入回收流程
+
+回收代链表留下的对象是在**本轮垃圾回收存活**的，这些对象将被移动到**更年长的代**
+
+![](./images/move_unreachable9.png)
