@@ -482,3 +482,60 @@ gc.collect()
 可以看出两张图的区别，由于`b`被存活的`a3`所引用，从而从`unreachable`中移动到`old`
 
 注：如果`__del__`被调用过，**_gc_prev**上的第一个bit flag会被设置为`1`，所有一个对象的`__del__`**仅能被调用一次**
+
+
+
+### threshold
+
+CPython中一共三代，每一代都对应一个`threshold`
+
+**在进行回收之前**，CPython会从最年老的代到最年轻的代进行检测，如果当前代中对象数量超过**threshold**，垃圾回收就会从这一代开始
+
+```python
+>>> gc.get_threshold()
+(700, 10, 10) # 默认值
+```
+
+手动设置`threshold`
+
+```python
+>>> gc.set_threshold(500)
+>>> gc.set_threshold(100, 20)
+```
+
+
+
+#### 触发分代回收
+
+**方法1** 调用`gc.collect()`，缺省情况下直接从**最年老一代**开始回收
+
+```python
+import gc
+gc.collect()
+```
+
+
+
+**方法2** 解释器自行触发，从`heap`申请空间创建一个新对象时，检查`generation0`（新创建对象位于新生代）的数量是否超过`threashold`，超过则进行垃圾回收
+
+![](./images/generation_trigger1.png)
+
+#### 回收流程
+
+`collect`流程从**最年老代**向**最年轻代**进行检查
+
+先检查`generation2`，`generation2`对象存活数比`threashold`小，无需进行垃圾回收
+
+![](./images/generation_trigger2.png)
+
+之后检查`generation1`，超过`threashold`，**垃圾回收从`generation1`进行回收，也就是从这一代起包括更新的代都执行垃圾回收流程**
+
+![](./images/generation_trigger3.png)
+
+回收时会将**开始回收代及其之前代**合并，按上面讲的流程进行回收
+
+![](./images/generation_trigger4.png)
+
+## 总结
+
+`CPython`使用的垃圾回收算法是**非并发的**，非并发会带来的时**复制引用计数和实际对象计数不匹配的问题**，这也强调了全局锁（例如gil）的重要性，全局锁可以在**track(引用管理)**、**分代回收**、**标记清除**等过程中保护这些变量
