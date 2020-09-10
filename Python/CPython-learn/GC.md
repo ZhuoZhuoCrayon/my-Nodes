@@ -425,3 +425,60 @@ class A:
 回收代链表留下的对象是在**本轮垃圾回收存活**的，这些对象将被移动到**更年长的代**
 
 ![](./images/move_unreachable9.png)
+
+
+
+### Finalizer
+
+对于自定义`__del__`的对象，在`__del__`的逻辑里增加对其他对象的引用或自身引用（自救），在`Python3.4`之前，这部分对象会被移动到`gc.garbage`中，需要手动调用他们的`__del__`进行回收
+
+在`Python3.4`后，有下述实现解决这个问题
+
+举个例子
+
+```python
+class A:
+    pass
+
+
+class B(list):
+    def __del__(self):
+        # 增加对自身的引用
+        a3.append(self)
+        print("del of B")
+
+a1 = A()
+a2 = A()
+a1.other = a2
+a2.other = a1
+
+a3 = list()
+b = B()
+b.append(b)
+del a1
+del a2
+del b
+gc.collect()
+```
+
+在指向`move_unreachable`后，对象状态如下
+
+![](./images/finalize1.png)
+
+**1** 所有`unreachable`中自定义`__del__`都会在上述阶段后被调用，在`__del__` 调用后：
+
+![](./images/finalize2.png)
+
+**2** 在`unreachable`中执行`update_refs`（复制引用计数），同时`b`的`_gc_prev`字段的第一个bit会被置为1（赋值引用计数为`2`，原有标志占位为`10`，bit置1后变为`11`，加上赋值引用计数，变为`1011->0x0b`），表示`finalizer`已被处理
+
+![](./images/finalize3.png)
+
+**3** 在`unreachable`中执行`subtract_refs`，消除执行`__del__`后，创建**unreachable对象间的互相引用关系**
+
+遍历每个`unreachable`的对象，对于**复制引用计数>0**的对象，挪动到`old`代，这个现象可以称为对象的自救（他救）过程，取决于在`__del__`中，对象创建对某个对象的引用关系，**对于剩余的对象，直接回收**
+
+![](./images/finalize5.png)
+
+可以看出两张图的区别，由于`b`被存活的`a3`所引用，从而从`unreachable`中移动到`old`
+
+注：如果`__del__`被调用过，**_gc_prev**上的第一个bit flag会被设置为`1`，所有一个对象的`__del__`**仅能被调用一次**
