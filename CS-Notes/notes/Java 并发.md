@@ -288,7 +288,7 @@ Thread end
 
 ## Executor 的中断操作
 
-调用 Executor 的 shutdown() 方法会等待线程都执行完毕之后再关闭，但是如果调用的是 shutdownNow() 方法，则相当于调用每个线程的 interrupt() 方法。
+**调用 Executor 的 shutdown() 方法会等待线程都执行完毕之后再关闭**，但是如果调用的是 shutdownNow() 方法，则相当于调用每个线程的 interrupt() 方法。
 
 以下使用 Lambda 创建线程，相当于创建了一个匿名内部线程。
 

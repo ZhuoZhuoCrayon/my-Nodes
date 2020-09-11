@@ -1,4 +1,5 @@
 <!-- GFM-TOC -->
+
 * [一 、基础概念](#一-基础概念)
     * [URI](#uri)
     * [请求和响应报文](#请求和响应报文)
@@ -365,7 +366,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;
 
 ### 4. 作用域
 
-Domain 标识指定了哪些主机可以接受 Cookie。如果不指定，默认为当前文档的主机（不包含子域名）。如果指定了 Domain，则一般包含子域名。例如，如果设置 Domain=mozilla.org，则 Cookie 也包含在子域名中（如 developer.mozilla.org）。
+**Domain 标识指定了哪些主机可以接受 Cookie。**如果不指定，默认为当前文档的主机（不包含子域名）。如果指定了 Domain，则一般包含子域名。例如，如果设置 Domain=mozilla.org，则 Cookie 也包含在子域名中（如 developer.mozilla.org）。
 
 Path 标识指定了主机下的哪些路径可以接受 Cookie（该 URL 路径必须存在于请求 URL 中）。以字符 %x2F ("/") 作为路径分隔符，子路径也会被匹配。例如，设置 Path=/docs，则以下地址都会匹配：
 
@@ -375,7 +376,7 @@ Path 标识指定了主机下的哪些路径可以接受 Cookie（该 URL 路径
 
 ### 5. JavaScript
 
-浏览器通过 `document.cookie` 属性可创建新的 Cookie，也可通过该属性访问非 HttpOnly 标记的 Cookie。
+浏览器通过 `document.cookie` 属性可创建新的 Cookie，也可**通过该属性访问非 HttpOnly 标记的 Cookie。**
 
 ```html
 document.cookie = "yummy_cookie=choco";
@@ -777,7 +778,7 @@ GET 用于获取资源，而 POST 用于传输实体主体。
 
 ## 参数
 
-GET 和 POST 的请求都能使用额外的参数，但是 GET 的参数是以查询字符串出现在 URL 中，而 POST 的参数存储在实体主体中。不能因为 POST 参数存储在实体主体中就认为它的安全性更高，因为照样可以通过一些抓包工具（Fiddler）查看。
+GET 和 POST 的请求都能使用额外的参数，**但是 GET 的参数是以查询字符串出现在 URL 中，而 POST 的参数存储在实体主体中**。不能因为 POST 参数存储在实体主体中就认为它的安全性更高，因为照样可以通过一些抓包工具（Fiddler）查看。
 
 因为 URL 只支持 ASCII 码，因此 GET 的参数中如果存在中文等字符就需要先进行编码。例如 `中文` 会转换为 `%E4%B8%AD%E6%96%87`，而空格会转换为 `%20`。POST 参数支持标准字符集。
 

@@ -68,7 +68,6 @@ Redis 支持很多特性，例如将内存中的数据持久化到硬盘中，�
 ## STRING
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/6019b2db-bc3e-4408-b6d8-96025f4481d6.png" width="400"/> </div><br>
-
 ```html
 > set hello world
 OK
@@ -83,7 +82,6 @@ OK
 ## LIST
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/fb327611-7e2b-4f2f-9f5b-38592d408f07.png" width="400"/> </div><br>
-
 ```html
 > rpush list-key item
 (integer) 1
@@ -111,7 +109,6 @@ OK
 ## SET
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/cd5fbcff-3f35-43a6-8ffa-082a93ce0f0e.png" width="400"/> </div><br>
-
 ```html
 > sadd set-key item
 (integer) 1
@@ -145,7 +142,6 @@ OK
 ## HASH
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7bd202a7-93d4-4f3a-a878-af68ae25539a.png" width="400"/> </div><br>
-
 ```html
 > hset hash-key sub-key1 value1
 (integer) 1
@@ -176,7 +172,6 @@ OK
 ## ZSET
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/1202b2d6-9469-4251-bd47-ca6034fb6116.png" width="400"/> </div><br>
-
 ```html
 > zadd zset-key 728 member1
 (integer) 1
@@ -318,11 +313,9 @@ int dictRehash(dict *d, int n) {
 跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/beba612e-dc5b-4fc2-869d-0b23408ac90a.png" width="600px"/> </div><br>
-
 在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。下图演示了查找 22 的过程。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/0ea37ee2-c224-4c79-b895-e131c6805c40.png" width="600px"/> </div><br>
-
 与红黑树等平衡树相比，跳跃表具有以下优点：
 
 - 插入速度非常快速，因为不需要进行旋转等操作来维护平衡性；
@@ -428,11 +421,11 @@ Redis 是内存型数据库，为了保证数据在断电后不会丢失，需�
 
 ## RDB 持久化
 
-将某个时间点的所有数据都存放到硬盘上。
+将**某个时间点的所有数据**都存放到**硬盘**上。
 
 可以将快照复制到其它服务器从而创建具有相同数据的服务器副本。
 
-如果系统发生故障，将会丢失最后一次创建快照之后的数据。
+如果系统发生故障，将会**丢失最后一次创建快照之后的数据**。
 
 如果数据量很大，保存快照的时间会很长。
 
@@ -440,7 +433,7 @@ Redis 是内存型数据库，为了保证数据在断电后不会丢失，需�
 
 将写命令添加到 AOF 文件（Append Only File）的末尾。
 
-使用 AOF 持久化需要设置同步选项，从而确保写命令同步到磁盘文件上的时机。这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓冲区，然后由操作系统决定什么时候同步到磁盘。有以下同步选项：
+使用 AOF 持久化需要**设置同步选项**，从而确保写命令同步到磁盘文件上的时机。这是因为对文件进行写入并**不会马上将内容同步到磁盘**上，而是**先存储到缓冲区**，然后由操作系统决定什么时候同步到磁盘。有以下同步选项：
 
 | 选项 | 同步频率 |
 | :--: | :--: |
@@ -449,10 +442,10 @@ Redis 是内存型数据库，为了保证数据在断电后不会丢失，需�
 | no | 让操作系统来决定何时同步 |
 
 - always 选项会严重减低服务器的性能；
-- everysec 选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且 Redis 每秒执行一次同步对服务器性能几乎没有任何影响；
+- everysec 选项比较合适，可以**保证系统崩溃时只会丢失一秒左右的数据**，并且 Redis 每秒执行一次同步对服务器性能几乎没有任何影响；
 - no 选项并不能给服务器性能带来多大的提升，而且也会增加系统崩溃时数据丢失的数量。
 
-随着服务器写请求的增多，AOF 文件会越来越大。Redis 提供了一种将 AOF 重写的特性，能够去除 AOF 文件中的冗余写命令。
+**随着服务器写请求的增多，AOF 文件会越来越大**。Redis 提供了一种将 AOF 重写的特性，能够去除 AOF 文件中的冗余写命令。
 
 # 九、事务
 
@@ -473,7 +466,6 @@ Redis 服务器是一个事件驱动程序。
 Redis 基于 Reactor 模式开发了自己的网络事件处理器，使用 I/O 多路复用程序来同时监听多个套接字，并将到达的事件传送给文件事件分派器，分派器会根据套接字产生的事件类型调用相应的事件处理器。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/9ea86eb5-000a-4281-b948-7b567bd6f1d8.png" width=""/> </div><br>
-
 ## 时间事件
 
 服务器有一些操作需要在给定的时间点执行，时间事件是对这类定时操作的抽象。
@@ -526,7 +518,6 @@ def main():
 从事件处理的角度来看，服务器运行流程如下：
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c0a9fa91-da2e-4892-8c9f-80206a6f7047.png" width="350"/> </div><br>
-
 # 十一、复制
 
 通过使用 slaveof host port 命令来让一个服务器成为另一个服务器的从服务器。
@@ -546,7 +537,6 @@ def main():
 随着负载不断上升，主服务器可能无法很快地更新所有从服务器，或者重新连接和重新同步从服务器将导致系统超载。为了解决这个问题，可以创建一个中间层来分担主服务器的复制工作。中间层的服务器是最上层服务器的从服务器，又是最下层服务器的主服务器。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/395a9e83-b1a1-4a1d-b170-d081e7bb5bab.png" width="600"/> </div><br>
-
 # 十二、Sentinel
 
 Sentinel（哨兵）可以监听集群中的服务器，并在主服务器进入下线状态时，自动从从服务器中选举出新的主服务器。
@@ -581,7 +571,6 @@ Sentinel（哨兵）可以监听集群中的服务器，并在主服务器进入
 Redis 没有关系型数据库中的表这一概念来将同种类型的数据存放在一起，而是使用命名空间的方式来实现这一功能。键名的前面部分存储命名空间，后面部分的内容存储 ID，通常使用 : 来进行分隔。例如下面的 HASH 的键名为 article:92617，其中 article 为命名空间，ID 为 92617。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7c54de21-e2ff-402e-bc42-4037de1c1592.png" width="400"/> </div><br>
-
 ## 点赞功能
 
 当有用户为一篇文章点赞时，除了要对该文章的 votes 字段进行加 1 操作，还必须记录该用户已经对该文章进行了点赞，防止用户点赞次数超过 1。可以建立文章的已投票用户集合来进行记录。
@@ -589,13 +578,11 @@ Redis 没有关系型数据库中的表这一概念来将同种类型的数据�
 为了节约内存，规定一篇文章发布满一周之后，就不能再对它进行投票，而文章的已投票集合也会被删除，可以为文章的已投票集合设置一个一周的过期时间就能实现这个规定。
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/485fdf34-ccf8-4185-97c6-17374ee719a0.png" width="400"/> </div><br>
-
 ## 对文章进行排序
 
 为了按发布时间和点赞数进行排序，可以建立一个文章发布时间的有序集合和一个文章点赞数的有序集合。（下图中的 score 就是这里所说的点赞数；下面所示的有序集合分值并不直接是时间和点赞数，而是根据时间和点赞数间接计算出来的）
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/f7d170a3-e446-4a64-ac2d-cb95028f81a8.png" width="800"/> </div><br>
-
 # 参考资料
 
 - Carlson J L. Redis in Action[J]. Media.johnwiley.com.au, 2013.

@@ -1,4 +1,5 @@
-<!-- GFM-TOC -->
+ <!-- GFM-TOC -->
+
 * [一、概览](#一概览)
     * [Collection](#collection)
     * [Map](#map)
@@ -30,17 +31,17 @@
 
 - TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。
 
-- HashSet：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。
+- HashSet：基于哈希表实现，支持快速查找，但**不支持有序性操作**。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。
 
-- LinkedHashSet：具有 HashSet 的查找效率，并且内部使用双向链表维护元素的插入顺序。
+- LinkedHashSet：具有 HashSet 的查找效率（有序），并且内部使用双向链表维护元素的插入顺序。
 
 ### 2. List
 
-- ArrayList：基于动态数组实现，支持随机访问。
+- ArrayList：基于动态数组实现，支持随机访问。查找快，增删慢
 
-- Vector：和 ArrayList 类似，但它是线程安全的。
+- Vector：和 ArrayList 类似，但它是**线程安全**的。
 
-- LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。
+- LinkedList：**基于双向链表实现**，只能顺序访问，但是可以**快速地在链表中间插入和删除元素**。不仅如此，LinkedList 还可以用作栈、队列和双向队列。
 
 ### 3. Queue
 
@@ -56,7 +57,7 @@
 
 - HashMap：基于哈希表实现。
 
-- HashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。它是遗留类，不应该去使用它，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。
+- HashTable：和 HashMap 类似，但它是**线程安全**的，这意味着同一时刻多个线程同时写入 HashTable 不会导致数据不一致。**它是遗留类，不应该去使用它**，而是使用 ConcurrentHashMap 来支持线程安全，ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。
 
 - LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。
 
@@ -89,7 +90,7 @@ java.util.Arrays#asList() 可以把数组类型转换为 List 类型。
 public static <T> List<T> asList(T... a)
 ```
 
-应该注意的是 asList() 的参数为泛型的变长参数，不能使用基本类型数组作为参数，只能使用相应的包装类型数组。
+应该注意的是 asList() 的参数为**泛型的变长参数**，不能使用基本类型数组作为参数，只能使用相应的包装类型数组。
 
 ```java
 Integer[] arr = {1, 2, 3};
@@ -322,7 +323,7 @@ public Vector() {
 
 ### 3. 与 ArrayList 的比较
 
-- Vector 是同步的，因此开销就比 ArrayList 要大，访问速度更慢。最好使用 ArrayList 而不是 Vector，因为同步操作完全可以由程序员自己来控制；
+- **Vector 是同步的，因此开销就比 ArrayList 要大**，访问速度更慢。最好使用 ArrayList 而不是 Vector，因为同步操作完全可以由程序员自己来控制；
 - Vector 每次扩容请求其大小的 2 倍（也可以通过构造函数设置增长的容量），而 ArrayList 是 1.5 倍。
 
 ### 4. 替代方案
@@ -425,7 +426,7 @@ ArrayList 基于动态数组实现，LinkedList 基于双向链表实现。Array
 
 ### 1. 存储结构
 
-内部包含了一个 Entry 类型的数组 table。Entry 存储着键值对。它包含了四个字段，从 next 字段我们可以看出 Entry 是一个链表。即数组中的每个位置被当成一个桶，一个桶存放一个链表。HashMap 使用拉链法来解决冲突，同一个链表中存放哈希值和散列桶取模运算结果相同的 Entry。
+内部**包含了一个 Entry 类型的数组 table**。Entry 存储着键值对。它包含了四个字段，从 next 字段我们可以看出 Entry 是一个链表。即数组中的每个位置被当成一个桶，一个桶存放一个链表。**HashMap 使用拉链法来解决冲突，同一个链表中存放哈希值和散列桶取模运算结果相同的 Entry。**
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208234948205.png"/> </div><br>
 
@@ -540,7 +541,7 @@ public V put(K key, V value) {
 }
 ```
 
-HashMap 允许插入键为 null 的键值对。但是因为无法调用 null 的 hashCode() 方法，也就无法确定该键值对的桶下标，只能通过强制指定一个桶下标来存放。HashMap 使用第 0 个桶存放键为 null 的键值对。
+HashMap 允许插入键为 null 的键值对。但是因为无法调用 null 的 hashCode() 方法，也就无法确定该键值对的桶下标，只能通过强制指定一个桶下标来存放。**HashMap 使用第 0 个桶存放键为 null 的键值对。**
 
 ```java
 private V putForNullKey(V value) {
@@ -657,7 +658,7 @@ static int indexFor(int h, int length) {
 }
 ```
 
-### 5. 扩容-基本原理
+### * 5. 扩容-基本原理
 
 设 HashMap 的 table 长度为 M，需要存储的键值对数量为 N，如果哈希函数满足均匀性的要求，那么每条链表的长度大约为 N/M，因此查找的复杂度为 O(N/M)。
 
@@ -667,10 +668,10 @@ static int indexFor(int h, int length) {
 
 | 参数 | 含义 |
 | :--: | :-- |
-| capacity | table 的容量大小，默认为 16。需要注意的是 capacity 必须保证为 2 的 n 次方。|
+| capacity | **table 的容量大小，默认为 16。**需要注意的是 capacity 必须保证为 2 的 n 次方。 |
 | size | 键值对数量。 |
-| threshold | size 的临界值，当 size 大于等于 threshold 就必须进行扩容操作。 |
-| loadFactor | 装载因子，table 能够使用的比例，threshold = (int)(capacity* loadFactor)。 |
+| threshold | **size 的临界值，当 size 大于等于 threshold 就必须进行扩容操作。** |
+| loadFactor | **装载因子，table 能够使用的比例，threshold = (int)(capacity* loadFactor)。** |
 
 ```java
 static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -738,7 +739,7 @@ void transfer(Entry[] newTable) {
 
 ### 6. 扩容-重新计算桶下标
 
-在进行扩容时，需要把键值对重新计算桶下标，从而放到对应的桶上。在前面提到，HashMap 使用 hash%capacity 来确定桶下标。HashMap capacity 为 2 的 n 次方这一特点能够极大降低重新计算桶下标操作的复杂度。
+在进行扩容时，需要把键值对重新计算桶下标，从而放到对应的桶上。在前面提到，HashMap 使用 hash%capacity 来确定桶下标。**HashMap capacity 为 2 的 n 次方这一特点能够极大降低重新计算桶下标操作的复杂度。**
 
 假设原数组长度 capacity 为 16，扩容之后 new capacity 为 32：
 
@@ -791,8 +792,8 @@ static final int tableSizeFor(int cap) {
 
 ### 9. 与 Hashtable 的比较
 
-- Hashtable 使用 synchronized 来进行同步。
-- HashMap 可以插入键为 null 的 Entry。
+- **Hashtable 使用 synchronized 来进行同步。**
+- **HashMap 可以插入键为 null 的 Entry。**
 - HashMap 的迭代器是 fail-fast 迭代器。
 - HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。
 
@@ -811,7 +812,7 @@ static final class HashEntry<K,V> {
 }
 ```
 
-ConcurrentHashMap 和 HashMap 实现上类似，最主要的差别是 ConcurrentHashMap 采用了分段锁（Segment），每个分段锁维护着几个桶（HashEntry），多个线程可以同时访问不同分段锁上的桶，从而使其并发度更高（并发度就是 Segment 的个数）。
+**ConcurrentHashMap 和 HashMap 实现上类似，最主要的差别是 ConcurrentHashMap 采用了分段锁（Segment），每个分段锁维护着几个桶（HashEntry），多个线程可以同时访问不同分段锁上的桶，从而使其并发度更高（并发度就是 Segment 的个数）。**
 
 Segment 继承自 ReentrantLock。
 
@@ -859,7 +860,7 @@ transient int count;
 
 在执行 size 操作时，需要遍历所有 Segment 然后把 count 累计起来。
 
-ConcurrentHashMap 在执行 size 操作时先尝试不加锁，如果连续两次不加锁操作得到的结果一致，那么可以认为这个结果是正确的。
+**ConcurrentHashMap 在执行 size 操作时先尝试不加锁，如果连续两次不加锁操作得到的结果一致，那么可以认为这个结果是正确的。**
 
 尝试次数使用 RETRIES_BEFORE_LOCK 定义，该值为 2，retries 初始值为 -1，因此尝试次数为 3。
 
@@ -922,7 +923,7 @@ public int size() {
 
 JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。
 
-JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。
+**JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。**
 
 并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。
 
@@ -965,7 +966,7 @@ void afterNodeInsertion(boolean evict) { }
 
 ### afterNodeAccess()
 
-当一个节点被访问时，如果 accessOrder 为 true，则会将该节点移到链表尾部。也就是说指定为 LRU 顺序之后，在每次访问一个节点时，会将这个节点移到链表尾部，保证链表尾部是最近访问的节点，那么链表首部就是最近最久未使用的节点。
+当一个节点被访问时，如果 accessOrder 为 true，则会将该节点移到链表尾部。也就是说指定为 LRU 顺序之后，**在每次访问一个节点时，会将这个节点移到链表尾部，保证链表尾部是最近访问的节点，那么链表首部就是最近最久未使用的节点。**
 
 ```java
 void afterNodeAccess(Node<K,V> e) { // move node to last
