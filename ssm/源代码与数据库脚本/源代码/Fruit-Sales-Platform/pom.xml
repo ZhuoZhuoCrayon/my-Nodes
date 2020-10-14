@@ -39,7 +39,7 @@
     <dependency>  
       <groupId>junit</groupId>  
       <artifactId>junit</artifactId>  
-      <version>4.11</version>  
+      <version>4.13.1</version>  
       <!-- 指定范围，在测试时才会加载 -->  
       <scope>test</scope>  
     </dependency>  
