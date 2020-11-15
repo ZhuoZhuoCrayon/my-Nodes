@@ -40,6 +40,9 @@ def test_fnmatch_function():
     # 枚举
     print(fnmatch.filter(file_paths, "[1, 2].*"))
 
+    # 单词枚举，不支持！
+    print(fnmatch.filter(file_paths, "[pat, aa].*"))
+
     # 字符范围枚举
     print(fnmatch.filter(file_paths, "[1-2].*"))
     print(fnmatch.filter(file_paths, "1[2-3].*"))
@@ -56,6 +59,9 @@ def test_gsekit_match():
     ]
     # 全选
     print(fnmatch.filter(expressions, "*.*.*.*.*"))
+
+    # 选中集群
+    print(fnmatch.filter(expressions, "awx.*.*.*.[1, 2]"))
 
 
 if __name__ == '__main__':
