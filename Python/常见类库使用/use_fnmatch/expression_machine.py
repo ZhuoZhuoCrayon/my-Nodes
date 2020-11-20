@@ -27,6 +27,7 @@ def list_enum_exp_parse_value(enum_exp_parse_list):
 
 
 def validate_range_scope(range_expression):
+    # TODO 改动校验，对于内置可解析，例如"a-z" 识别为内置类型，无需解析
     range_list = range_expression.split("-")
     if len(range_list) != 2:
         return False
@@ -34,7 +35,8 @@ def validate_range_scope(range_expression):
     if begin.isdecimal() and end.isdecimal() and int(begin) < int(end):
         return True
     if len(begin) == 1 and len(end) == 1 and begin.isalpha() and end.isalpha() and ord(begin) < ord(end):
-        return True
+        # 字符枚举无需解析
+        return False
     return False
 
 
@@ -46,9 +48,8 @@ def replace_builtin_enum_char():
 def get_eum_expressions(expression_part: str):
     # 解析[.....]
 
-    enum_str_list = []
+    expressions_parsed = [""]
     last_enum_end = -1
-
     enum_begin = expression_part.find("[")
     while enum_begin != -1:
         enum_end = expression_part.find("]", enum_begin)
@@ -58,13 +59,18 @@ def get_eum_expressions(expression_part: str):
 
         enum_expression = expression_part[enum_begin: enum_end + 1]
         enum_value_list = list_enum_exp_parse_value(parse_enum_expression(enum_expression[1: -1], 4))
-        print(enum_value_list)
-        enum_str_list.append(enum_expression)
 
-        if last_enum_end + 1 != enum_begin:
-            print(expression_part[last_enum_end + 1: enum_begin])
+        sub_prefix = expression_part[last_enum_end + 1: enum_begin]
+        sub_expressions_parsed = [f"{sub_prefix}{enum_value}" for enum_value in enum_value_list]
+
+        expressions_parsed = [
+            f"{exp_prefix}{sub_exp}" for exp_prefix in expressions_parsed for sub_exp in sub_expressions_parsed
+        ]
+
         last_enum_end = enum_end
         enum_begin = expression_part.find("[", enum_end)
+
+    return expressions_parsed
 
 
 def get_match_type(sub_expression):
@@ -132,11 +138,12 @@ if __name__ == "__main__":
     csv_file = open("expression.csv", "r")
     csv_file_reader = csv.reader(csv_file)
 
-    test_expression_parts.extend(
-        [mock_sops_var(line[0]) for line in csv_file_reader if line]
-    )
+    # test_expression_parts.extend(
+    #     [mock_sops_var(line[0]) for line in csv_file_reader if line]
+    # )
 
     for test_expression_part in test_expression_parts:
         parse_result_writer.write(f"parse <{test_expression_part}> ...\n")
-        get_eum_expressions(test_expression_part)
+        result = get_eum_expressions(test_expression_part)
+        print(result)
         parse_result_writer.write("---------------------------------------------------------------------------\n")
