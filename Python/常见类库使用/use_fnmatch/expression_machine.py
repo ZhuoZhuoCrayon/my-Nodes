@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 import re
 import csv
+import time
+from collections import defaultdict
 
 
 class MatchType:
     WORD = 0
     RANGE = 1
     WORD_LIST = 2
+    BUILD_IN_ENUM = 3
 
 
 builtin_char_list = ["*", "[", "]", "?", "!"]
 
-parse_result_writer = open("parse_result.txt", "w")
+# parse_result_writer = open("parse_result.txt", "w")
 
 
 def list_enum_exp_parse_value(enum_exp_parse_list):
@@ -26,18 +29,61 @@ def list_enum_exp_parse_value(enum_exp_parse_list):
     return enum_value_list
 
 
-def validate_range_scope(range_expression):
-    # TODO 改动校验，对于内置可解析，例如"a-z" 识别为内置类型，无需解析
+def get_range_scope(range_expression):
+    range_list = range_expression.split("-")
+    return range_list[0], range_list[1]
+
+
+def num_list2re(num_list: list):
+    num_list = sorted(list(set(num_list)))
+    if num_list[0] < num_list[-1] and len(num_list) == num_list[-1] - num_list[0] + 1:
+        return f"[{num_list[0]}-{num_list[-1]}]"
+    diff = list(set(range(0, 10)) - set(num_list))
+    if len(diff) < 5:
+        return f"[!{''.join([str(num) for num in diff])}]"
+    else:
+        return str(num_list[0]) if len(num_list) == 1 else f"[{''.join([str(num) for num in num_list])}]"
+
+
+def compress_num_range(range_expression):
+    begin, end = get_range_scope(range_expression)
+    range_list = [str(number) for number in range(int(begin), int(end) + 1)]
+    number_group_by_len = defaultdict(list)
+    for str_num in range_list:
+        number_group_by_len[len(str_num)].append(str_num)
+
+    re_list = []
+    for num_len, str_num_list in number_group_by_len.items():
+        index_bits_map = defaultdict(list)
+        for str_num in str_num_list:
+            for index in range(num_len):
+                index_bits_map[index].append(int(str_num[index]))
+        sub_re_list = [num_list2re(bits) for bits in index_bits_map.values()]
+        re_list.append("".join(sub_re_list))
+    return re_list
+
+
+def is_single_alpha_range(range_expression):
+    begin, end = get_range_scope(range_expression)
+    if begin.islower() != end.islower():
+        return False
+    if len(begin) == 1 and len(end) == 1 and begin.isalpha() and end.isalpha() and ord(begin) < ord(end):
+        return True
+    return False
+
+
+def is_number_range(range_expression):
+    begin, end = get_range_scope(range_expression)
+    if begin.isdecimal() and end.isdecimal() and int(begin) < int(end):
+        return True
+    return False
+
+
+def is_range_format(range_expression):
     range_list = range_expression.split("-")
     if len(range_list) != 2:
         return False
-    begin, end = range_list[0], range_list[1]
-    if begin.isdecimal() and end.isdecimal() and int(begin) < int(end):
-        return True
-    if len(begin) == 1 and len(end) == 1 and begin.isalpha() and end.isalpha() and ord(begin) < ord(end):
-        # 字符枚举无需解析
-        return False
-    return False
+    return True
 
 
 def replace_builtin_enum_char():
@@ -70,34 +116,39 @@ def get_eum_expressions(expression_part: str):
         last_enum_end = enum_end
         enum_begin = expression_part.find("[", enum_end)
 
+    sub_suffix = expression_part[last_enum_end + 1:]
+    expressions_parsed = [f"{exp_prefix}{sub_suffix}" for exp_prefix in expressions_parsed]
     return expressions_parsed
 
 
 def get_match_type(sub_expression):
-    if "," in sub_expression:
+    if sub_expression.startswith("[") and sub_expression.endswith("]"):
+        return MatchType.BUILD_IN_ENUM
+    elif "," in sub_expression:
         return MatchType.WORD_LIST
     elif "-" in sub_expression:
-        # TODO: 用[[]来屏蔽内置符比较合理
-        if not validate_range_scope(sub_expression):
+        if is_range_format(sub_expression):
+            if is_single_alpha_range(sub_expression) or is_number_range(sub_expression):
+                return MatchType.RANGE
             return MatchType.WORD
-        return MatchType.RANGE
+        return MatchType.WORD
     else:
         return MatchType.WORD
 
 
 def parse_enum_expression(enum_expression, indent):
-    # print(f"match:{enum_expression}")
     match_status_func = {
         MatchType.WORD: lambda x: x,
+        MatchType.BUILD_IN_ENUM: lambda x: x,
         MatchType.WORD_LIST: parse_word_list_expression,
         MatchType.RANGE: parse_range_expression,
     }
     match_type = get_match_type(enum_expression)
 
     sub_expressions = match_status_func[match_type](enum_expression)
-    if match_type == MatchType.WORD:
+    if match_type in [MatchType.WORD, MatchType.BUILD_IN_ENUM]:
         return match_status_func[match_type](enum_expression)
-    parse_result_writer.write(f"{' ' * indent}{sub_expressions}\n")
+    # parse_result_writer.write(f"{' ' * indent}{sub_expressions}\n")
     return [parse_enum_expression(sub_expression, indent + 4) for sub_expression in sub_expressions]
 
 
@@ -107,16 +158,10 @@ def parse_word_list_expression(word_list_expression: str):
 
 
 def parse_range_expression(range_expression: str):
-    # TODO 0-9a-z类似这种的识别
-    range_list = range_expression.split("-")
-    if len(range_list) != 2:
-        raise Exception("表达式解析错误")
-    begin, end = range_list[0], range_list[1]
-    # 验证范围表达式的有效性
-    if begin.isdecimal() and end.isdecimal() and int(begin) < int(end):
-        return [str(number) for number in range(int(begin), int(end) + 1)]
-    if len(begin) == 1 and len(end) == 1 and begin.isalpha() and end.isalpha() and ord(begin) < ord(end):
-        return [chr(_ascii) for _ascii in range(ord(begin), ord(end) + 1)]
+    if is_single_alpha_range(range_expression):
+        return [f"[{range_expression}]"]
+    if is_number_range(range_expression):
+        return compress_num_range(range_expression)
     raise Exception("表达式解析错误")
 
 
@@ -125,25 +170,64 @@ def mock_sops_var(expression):
 
 
 if __name__ == "__main__":
-    test_expression_parts = [
+    expressions = [
         # 正常的输入
-        "[1, 2, 3].[txt, tar]",
-        "file[1-3].txt",
-        "cxx[python, java]dssf[3.6.8, 10.3.2].exe[1-3, a-z]",
-        "aa[b-c, 0-9]aa",
-        "[1-4, 6-8, a-z][a]",
-        "[aaaaaaaa]"
+        # "[1, 2, 3].[txt, tar]",
+        # "file[1-3].txt",
+        # "cxx[python, java]dssf[3.6.8, 10.3.2].exe[1-3, a-z]",
+        # "aa[b-c, 0-9]aa",
+        # "[1-10000, 6-8, a-z][a]",
+        # "[aaaaaaaa]"
     ]
 
-    csv_file = open("expression.csv", "r")
-    csv_file_reader = csv.reader(csv_file)
+    with open("expression.csv", "r") as csv_file:
+        csv_file_reader = csv.reader(csv_file)
+        expressions.extend(
+            [line[0] for line in csv_file_reader if line]
+        )
 
-    # test_expression_parts.extend(
-    #     [mock_sops_var(line[0]) for line in csv_file_reader if line]
-    # )
+    parse_results = [[expression, ""] for expression in expressions]
 
-    for test_expression_part in test_expression_parts:
-        parse_result_writer.write(f"parse <{test_expression_part}> ...\n")
-        result = get_eum_expressions(test_expression_part)
-        print(result)
-        parse_result_writer.write("---------------------------------------------------------------------------\n")
+    expressions = [mock_sops_var(exp) for exp in expressions]
+
+    begin_time = time.clock()
+
+    for idx, exp in enumerate(expressions):
+        # parse_result_writer.write(f"parse <{test_expression_part}> ...\n")
+        result = get_eum_expressions(mock_sops_var(exp))
+        parse_results[idx][1] = result
+        # print(result)
+        # parse_result_writer.write(f"result <{result}>\n")
+        # parse_result_writer.write("---------------------------------------------------------------------------\n")
+    end_time = time.clock()
+
+    print(f"num：{len(expressions)}, run_time: {end_time - begin_time}")
+
+    parse_results = [
+        [parse_result[0], ", ".join(parse_result[1])]
+        for parse_result in parse_results
+    ]
+
+    parse_not_change_results = [
+        parse_result
+        for parse_result in parse_results
+        if mock_sops_var(parse_result[0]) == parse_result[1]
+    ]
+
+    parse_not_change_results.insert(0, ["进程ID(表达式)", "解析结果(fnmatch可匹配, 以逗号分割)"])
+
+    parse_results = [
+        parse_result
+        for parse_result in parse_results
+        if mock_sops_var(parse_result[0]) != parse_result[1]
+    ]
+
+    parse_results.insert(0, ["进程ID(表达式)", "解析结果(fnmatch可匹配, 以逗号分割)"])
+
+    with open("parse_result.csv", "w") as result_csv_file:
+        result_csv_writer = csv.writer(result_csv_file)
+        result_csv_writer.writerows(parse_results)
+
+    with open("parse_no_change_result.csv", "w") as result_csv_file:
+        result_csv_writer = csv.writer(result_csv_file)
+        result_csv_writer.writerows(parse_not_change_results)
