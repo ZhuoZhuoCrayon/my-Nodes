@@ -2,6 +2,7 @@
 import re
 import csv
 import time
+from typing import List, Tuple
 from collections import defaultdict
 
 
@@ -17,11 +18,11 @@ builtin_char_list = ["*", "[", "]", "?", "!"]
 # parse_result_writer = open("parse_result.txt", "w")
 
 
-def list_enum_exp_parse_value(enum_exp_parse_list):
-    if isinstance(enum_exp_parse_list, str):
-        return [enum_exp_parse_list]
+def expand_list_element(nested_list: List) -> List:
+    if isinstance(nested_list, str):
+        return [nested_list]
     enum_value_list = []
-    for value_exp in enum_exp_parse_list:
+    for value_exp in nested_list:
         if isinstance(value_exp, str):
             enum_value_list.append(value_exp)
         else:
@@ -29,12 +30,12 @@ def list_enum_exp_parse_value(enum_exp_parse_list):
     return enum_value_list
 
 
-def get_range_scope(range_expression):
+def get_range_scope(range_expression: str) -> Tuple[str, str]:
     range_list = range_expression.split("-")
     return range_list[0], range_list[1]
 
 
-def num_list2re(num_list: list):
+def num_list2re(num_list: List[int]) -> str:
     num_list = sorted(list(set(num_list)))
     if num_list[0] < num_list[-1] and len(num_list) == num_list[-1] - num_list[0] + 1:
         return f"[{num_list[0]}-{num_list[-1]}]"
@@ -45,7 +46,7 @@ def num_list2re(num_list: list):
         return str(num_list[0]) if len(num_list) == 1 else f"[{''.join([str(num) for num in num_list])}]"
 
 
-def compress_num_range(range_expression):
+def compress_num_range(range_expression: str) -> List[str]:
     begin, end = get_range_scope(range_expression)
     range_list = [str(number) for number in range(int(begin), int(end) + 1)]
     number_group_by_len = defaultdict(list)
@@ -63,7 +64,7 @@ def compress_num_range(range_expression):
     return re_list
 
 
-def is_single_alpha_range(range_expression):
+def is_single_alpha_range(range_expression: str) -> bool:
     begin, end = get_range_scope(range_expression)
     if begin.islower() != end.islower():
         return False
@@ -72,14 +73,14 @@ def is_single_alpha_range(range_expression):
     return False
 
 
-def is_number_range(range_expression):
+def is_number_range(range_expression: str) -> bool:
     begin, end = get_range_scope(range_expression)
     if begin.isdecimal() and end.isdecimal() and int(begin) < int(end):
         return True
     return False
 
 
-def is_range_format(range_expression):
+def is_range_format(range_expression: str) -> bool:
     range_list = range_expression.split("-")
     if len(range_list) != 2:
         return False
@@ -91,7 +92,7 @@ def replace_builtin_enum_char():
     pass
 
 
-def get_eum_expressions(expression_part: str):
+def get_eum_expressions(expression_part: str) -> List[str]:
     # 解析[.....]
 
     expressions_parsed = [""]
@@ -104,7 +105,7 @@ def get_eum_expressions(expression_part: str):
             raise Exception("表达式解析错误")
 
         enum_expression = expression_part[enum_begin: enum_end + 1]
-        enum_value_list = list_enum_exp_parse_value(parse_enum_expression(enum_expression[1: -1], 4))
+        enum_value_list = expand_list_element(parse_enum_expression(enum_expression[1: -1], 4))
 
         sub_prefix = expression_part[last_enum_end + 1: enum_begin]
         sub_expressions_parsed = [f"{sub_prefix}{enum_value}" for enum_value in enum_value_list]
@@ -121,7 +122,7 @@ def get_eum_expressions(expression_part: str):
     return expressions_parsed
 
 
-def get_match_type(sub_expression):
+def get_match_type(sub_expression: str) -> int:
     if sub_expression.startswith("[") and sub_expression.endswith("]"):
         return MatchType.BUILD_IN_ENUM
     elif "," in sub_expression:
@@ -136,7 +137,7 @@ def get_match_type(sub_expression):
         return MatchType.WORD
 
 
-def parse_enum_expression(enum_expression, indent):
+def parse_enum_expression(enum_expression: str, indent: int) -> List:
     match_status_func = {
         MatchType.WORD: lambda x: x,
         MatchType.BUILD_IN_ENUM: lambda x: x,
@@ -152,12 +153,12 @@ def parse_enum_expression(enum_expression, indent):
     return [parse_enum_expression(sub_expression, indent + 4) for sub_expression in sub_expressions]
 
 
-def parse_word_list_expression(word_list_expression: str):
+def parse_word_list_expression(word_list_expression: str) -> List[str]:
     elements = word_list_expression.split(",")
     return [element.strip() for element in elements]
 
 
-def parse_range_expression(range_expression: str):
+def parse_range_expression(range_expression: str) -> List[str]:
     if is_single_alpha_range(range_expression):
         return [f"[{range_expression}]"]
     if is_number_range(range_expression):
