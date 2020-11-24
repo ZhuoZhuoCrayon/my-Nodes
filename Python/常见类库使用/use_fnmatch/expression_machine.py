@@ -3,7 +3,6 @@ import re
 import csv
 import time
 from typing import List, Tuple
-from collections import defaultdict
 
 
 class MatchType:
@@ -18,50 +17,95 @@ builtin_char_list = ["*", "[", "]", "?", "!"]
 # parse_result_writer = open("parse_result.txt", "w")
 
 
-def expand_list_element(nested_list: List) -> List:
+def get_upper_range(begin: int) -> Tuple[int, int]:
+    end_str = str(begin)
+    for index in range(len(end_str) - 1, -1, -1):
+        if end_str[index] == "0":
+            end_str = "9".join([end_str[:index], end_str[index + 1:]])
+        else:
+            end_str = "9".join([end_str[:index], end_str[index + 1:]])
+            break
+    return begin, int(end_str)
+
+
+def get_lower_range(end: int) -> Tuple[int, int]:
+    begin_str = str(end)
+    for index in range(len(begin_str) - 1, -1, -1):
+        if begin_str[index] == "9":
+            begin_str = "0".join([begin_str[:index], begin_str[index + 1:]])
+        else:
+            begin_str = "0".join([begin_str[:index], begin_str[index + 1:]])
+            break
+    return int(begin_str), end
+
+
+def split_range_left(begin: int, end: int) -> List[Tuple[int, int]]:
+    split_range_list = []
+    while begin < end:
+        range_part = get_upper_range(begin)
+        split_range_list.append(range_part)
+        # 从切割右界下一个数开始继续切割
+        begin = range_part[1] + 1
+    return split_range_list
+
+
+def split_range_right(begin: int, end: int) -> List[Tuple[int, int]]:
+    split_range_list = []
+    while begin < end:
+        range_part = get_lower_range(end)
+        split_range_list.append(range_part)
+        end = range_part[0] - 1
+    split_range_list.reverse()
+    return split_range_list
+
+
+def range2re(begin: int, end: int) -> List[str]:
+    if begin == end:
+        return [str(begin)]
+    split_by_left = split_range_left(begin, end)
+    mid_left = split_by_left.pop()
+    split_by_right = split_range_right(mid_left[0], end)
+    mid_right = split_by_right.pop(0)
+
+    split_ranges = []
+    split_ranges.extend(split_by_left)
+
+    # 有交集，对于左切，start是准确的，对于右切，end是准确的，取left.start - left.end
+    if mid_right[0] < mid_left[1] and mid_left[0] < mid_right[1]:
+        split_ranges.append((mid_left[0], mid_right[1]))
+    else:
+        split_ranges.extend([mid_left, mid_right])
+    split_ranges.extend(split_by_right)
+
+    re_str_list = []
+    for split_range in split_ranges:
+        begin_str = str(split_range[0])
+        end_str = str(split_range[1])
+        split_range_re = ""
+        for index in range(len(begin_str)):
+            if begin_str[index] == end_str[index]:
+                split_range_re += begin_str[index]
+            else:
+                split_range_re += f"[{begin_str[index]}-{end_str[index]}]"
+        re_str_list.append(split_range_re)
+    return re_str_list
+
+
+def expand_list_element(nested_list: List[List]) -> List[str]:
+    expand_str_list = []
+    for child in nested_list:
+        if isinstance(child, list):
+            expand_str_list.extend(expand_list_element(child))
+        else:
+            expand_str_list.append(child)
     if isinstance(nested_list, str):
         return [nested_list]
-    enum_value_list = []
-    for value_exp in nested_list:
-        if isinstance(value_exp, str):
-            enum_value_list.append(value_exp)
-        else:
-            enum_value_list.extend(value_exp)
-    return enum_value_list
+    return expand_str_list
 
 
 def get_range_scope(range_expression: str) -> Tuple[str, str]:
     range_list = range_expression.split("-")
     return range_list[0], range_list[1]
-
-
-def num_list2re(num_list: List[int]) -> str:
-    num_list = sorted(list(set(num_list)))
-    if num_list[0] < num_list[-1] and len(num_list) == num_list[-1] - num_list[0] + 1:
-        return f"[{num_list[0]}-{num_list[-1]}]"
-    diff = list(set(range(0, 10)) - set(num_list))
-    if len(diff) < 5:
-        return f"[!{''.join([str(num) for num in diff])}]"
-    else:
-        return str(num_list[0]) if len(num_list) == 1 else f"[{''.join([str(num) for num in num_list])}]"
-
-
-def compress_num_range(range_expression: str) -> List[str]:
-    begin, end = get_range_scope(range_expression)
-    range_list = [str(number) for number in range(int(begin), int(end) + 1)]
-    number_group_by_len = defaultdict(list)
-    for str_num in range_list:
-        number_group_by_len[len(str_num)].append(str_num)
-
-    re_list = []
-    for num_len, str_num_list in number_group_by_len.items():
-        index_bits_map = defaultdict(list)
-        for str_num in str_num_list:
-            for index in range(num_len):
-                index_bits_map[index].append(int(str_num[index]))
-        sub_re_list = [num_list2re(bits) for bits in index_bits_map.values()]
-        re_list.append("".join(sub_re_list))
-    return re_list
 
 
 def is_single_alpha_range(range_expression: str) -> bool:
@@ -90,6 +134,11 @@ def is_range_format(range_expression: str) -> bool:
 def replace_builtin_enum_char():
     # 设置规则，对于内置符号，必须
     pass
+
+
+def compress_num_range(range_expression: str) -> List[str]:
+    begin, end = get_range_scope(range_expression)
+    return range2re(int(begin), int(end))
 
 
 def get_eum_expressions(expression_part: str) -> List[str]:
@@ -139,8 +188,8 @@ def get_match_type(sub_expression: str) -> int:
 
 def parse_enum_expression(enum_expression: str, indent: int) -> List:
     match_status_func = {
-        MatchType.WORD: lambda x: x,
-        MatchType.BUILD_IN_ENUM: lambda x: x,
+        MatchType.WORD: lambda x: [x],
+        MatchType.BUILD_IN_ENUM: lambda x: [x],
         MatchType.WORD_LIST: parse_word_list_expression,
         MatchType.RANGE: parse_range_expression,
     }
@@ -173,12 +222,12 @@ def mock_sops_var(expression):
 if __name__ == "__main__":
     expressions = [
         # 正常的输入
-        # "[1, 2, 3].[txt, tar]",
-        # "file[1-3].txt",
-        # "cxx[python, java]dssf[3.6.8, 10.3.2].exe[1-3, a-z]",
-        # "aa[b-c, 0-9]aa",
-        # "[1-10000, 6-8, a-z][a]",
-        # "[aaaaaaaa]"
+        "[1, 2, 3].[txt, tar]",
+        "file[1-3].txt",
+        "cxx[python, java]dssf[3.6.8, 10.3.2].exe[1-3, a-z]",
+        "aa[b-c, 0-9]aa",
+        "[1-10000, 6-8, a-z][a]",
+        "[aaaaaaaa]"
     ]
 
     with open("expression.csv", "r") as csv_file:
@@ -232,3 +281,16 @@ if __name__ == "__main__":
     with open("parse_no_change_result.csv", "w") as result_csv_file:
         result_csv_writer = csv.writer(result_csv_file)
         result_csv_writer.writerows(parse_not_change_results)
+
+# if __name__ == '__main__':
+#     test = [
+#         # (21, 45),
+#         # (1, 9999),
+#         # (10001, 19999),
+#         # (1, 1000),
+#         # (1, 1),
+#         # (0, 1),
+#         (6, 13)
+#     ]
+#     for t in test:
+#         print(range2re(t[0], t[1]))
