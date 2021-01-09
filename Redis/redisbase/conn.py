@@ -16,7 +16,7 @@ class RedisInstSingleTon:
     _inst_name = "redis_inst"
 
     @classmethod
-    def get_inst(cls):
+    def get_inst(cls) -> StrictRedis:
         if hasattr(RedisInstSingleTon, RedisInstSingleTon._inst_name):
             return getattr(RedisInstSingleTon, RedisInstSingleTon._inst_name)
         with RedisInstSingleTon._inst_lock:
