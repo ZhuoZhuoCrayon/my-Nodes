@@ -147,7 +147,8 @@ def pipeline_perform_test(mode: str):
     hash_key_used = []
     for index in range(0, 5 + 1):
         hash_key_used.extend([
-            *[f"{REDIS_KEY_PREFIX}hash:with_pipeline:{index}", f"{REDIS_KEY_PREFIX}hash:without_pipeline:{index}"]
+            f"{REDIS_KEY_PREFIX}hash:with_pipeline:{index}",
+            f"{REDIS_KEY_PREFIX}hash:without_pipeline:{index}"
         ])
     REDIS_INST.delete(*hash_key_used)
 
