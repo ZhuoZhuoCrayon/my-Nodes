@@ -1,5 +1,5 @@
 ## my-Nodes
-
+[![HitCount](http://hits.dwyl.com/ZhuoZhuoCrayon/my-Nodes.svg)](http://hits.dwyl.com/ZhuoZhuoCrayon/my-Nodes)
 
 ### Contribute
 > **关于my-Nodes:**   是全部由本人整理的计算机专业相关笔记，涵盖前端、后台、算法、数据结构等方面的内容，如对您有帮助，欢迎`star` `fork` `download`，如需商用或公众号发布
